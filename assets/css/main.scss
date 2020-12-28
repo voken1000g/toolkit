@@ -1,25 +1,29 @@
 a,
 button,
-input {
+input,
+textarea {
   @apply transition duration-150 ease-in-out;
 }
 
 input,
 button,
 input:focus,
-button:focus {
+button:focus,
+textarea:focus {
   @apply outline-none;
 }
 
 /**
  * indigo
  */
-.input-indigo {
+.input-indigo,
+.textarea-indigo {
   @apply border border-indigo-300 outline-none;
   @apply rounded-md shadow-md;
 }
 
-.input-indigo:focus {
+.input-indigo:focus,
+.textarea-indigo:focus {
   @apply border-indigo-500 shadow-outline-indigo;
 }
 

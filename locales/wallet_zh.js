@@ -12,6 +12,13 @@ export default {
   also_the_most_important_part:　'也是最重要的部分。',
 
   Generate_a_random_Mnemonic: '随机生成助记词',
+  Input_mnemonic_manually: '手动输入助记词',
+
+  Input_Your_Mnemonic_Manually: '手动输入你的助记词',
+  Invalid_Mnemonic: '无效的助词词',
+  Placeholder__textarea_mnemonic: '强度：12 / 15 / 18 / 21 / 24 字（含校验和）',
+
+
   BIP39_Mnemonic__backup_phrase_: 'BIP39 助记词（备份短语）',
   Generate_a_random_Mnemonic__renew_: '随机生成助记词（更新）',
   Here_is_a_example: '下面是一个例子：',

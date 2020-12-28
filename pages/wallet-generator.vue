@@ -27,22 +27,57 @@
         {{ $t('wallet.also_the_most_important_part') }}
       </p>
 
-      <div v-if='!mnemonic' class='mt-2 md:mt-4 lg:mt-6 flex justify-center'>
+      <div v-if='!mnemonic && showBtnGenerateMnemonic && showBtnInputMnemonic'
+           class='mt-2 md:mt-4 lg:mt-6 flex flex-col space-y-4 lg:flex-row lg:space-y-0 justify-center'>
         <button type='button'
-                class='mt-6 mx-auto w-full md:max-w-xl btn-new-mnemonic'
+                class='w-full mx-auto md:mx-2 md:max-w-xl btn-new-mnemonic'
+                @click='newMnemonic'
+        >
+          <svg-ripple class='mr-4 w-8 h-8' style='margin-top: 0; margin-bottom: 0' />
+          {{ $t('wallet.Generate_a_random_Mnemonic') }}
+        </button>
+
+        <button type='button'
+                class='block w-full mx-auto lg:mx-2 md:max-w-xl btn-input-mnemonic'
+                @click='inputMnemonic'
+        >
+          {{ $t('wallet.Input_mnemonic_manually') }}
+        </button>
+      </div>
+    </layout-w-prose>
+
+    <div v-show='showTextareaMnemonic' :class='mnemonicStatus' class='my-8 md:my-10 lg:my-12 xl:my-14 2xl:my-16'>
+      <label for='mnemonic'
+             class='block text-gray-700 text-center'>
+        <span v-show='mnemonicStatus === "success" || mnemonicStatus === null'>
+          {{ $t('wallet.Input_Your_Mnemonic_Manually') }}
+        </span>
+        <span v-show='mnemonicStatus === "error"'>
+          {{ $t('wallet.Invalid_Mnemonic') }}
+        </span>
+      </label>
+
+      <textarea id='mnemonic'
+                ref='mnemonic'
+                name='mnemonic'
+                rows='4'
+                class='textarea-indigo block w-full mt-1 md:mt-2 py-3 px-6 text-sm md:text-base lg:text-xl'
+                :class='{ "font-mono font-bold": mnemonic }'
+                v-model='mnemonic'
+                :placeholder='$t("wallet.Placeholder__textarea_mnemonic")'></textarea>
+
+      <div v-show='!mnemonicSuccess' class='mt-4 lg:mt-8 flex justify-center'>
+        <button type='button'
+                class='block w-full mx-auto md:max-w-xl btn-new-mnemonic'
                 @click='newMnemonic'
         >
           <svg-ripple class='mr-4 w-8 h-8' style='margin-top: 0; margin-bottom: 0' />
           {{ $t('wallet.Generate_a_random_Mnemonic') }}
         </button>
       </div>
+    </div>
 
-      <p v-if='mnemonic && showInitialMnemonic'>
-        {{ $t('wallet.Here_is_a_example') }}
-      </p>
-    </layout-w-prose>
-
-    <div v-show='mnemonic'
+    <div v-show='mnemonicSuccess'
          class='mt-4 lg:mt-6 2xl:mt-8 py-6 xl:py-8 px-4 bg-gradient-to-br from-red-100 to-orange-200 rounded-md'>
       <div
         class='w-14 h-14 lg:w-16 lg:h-16 xl:w-20 xl:h-20 mx-auto bg-white rounded-md shadow-md lg:shadow-lg'>
@@ -78,7 +113,7 @@
       </div>
     </div>
 
-    <layout-w-prose v-if='mnemonic' class='mt-2 lg:mt-4 2xl:mt-6'>
+    <layout-w-prose v-if='mnemonicSuccess' class='mt-2 lg:mt-4 2xl:mt-6'>
       <p>
         {{ $t('wallet.It_is_the_root_of_your_wallets') }}
         <b class='text-orange-500'>{{ $t('wallet.Never_never_never_disclose_') }}</b>
@@ -96,6 +131,9 @@
         {{ $t('wallet.is_converted_from___mnemonic') }}
         {{ $t('wallet.by') }}
         <a href='https://voken.io/en/latest/npm/avatar.html'>@voken/avatar</a>
+      </p>
+      <p>
+        {{ $t('wallet.An_image_may_easier__') }}
       </p>
       <p>
         {{ $t('wallet.If_you_find___avatar_does_not__') }}
@@ -412,7 +450,9 @@ export default {
       avatar: avatar,
       base32: base32,
 
-      showInitialMnemonic: true,
+      showBtnGenerateMnemonic: true,
+      showBtnInputMnemonic: true,
+      showTextareaMnemonic: false,
       showGenerating: false,
       showRenewing: false,
       showDeriving: false,
@@ -424,6 +464,23 @@ export default {
     }
   },
   computed: {
+    mnemonicStatus() {
+      if (this.mnemonic) {
+        if (bip39.validateMnemonic(this.mnemonic)) {
+          this.generateSeed()
+          return 'success'
+        } else {
+          this.clearSeed()
+          return 'error'
+        }
+      }
+
+      this.clearSeed()
+      return null
+    },
+    mnemonicSuccess() {
+      return this.mnemonicStatus === 'success'
+    },
     seedBase32() {
       if (this.seed) {
         return base32.encode(this.seed, 'hex')
@@ -438,15 +495,30 @@ export default {
   methods: {
     async generateMnemonic() {
       this.mnemonic = await bip39.generateMnemonic(192)
-      this.seed = await bip39.mnemonicToSeedSync(this.mnemonic)
+      this.generateSeed()
+    },
+    async inputMnemonic() {
+      this.mnemonic = ''
+      this.showBtnGenerateMnemonic = false
+      this.showBtnInputMnemonic = false
+      this.showTextareaMnemonic = true
+      this.$refs.mnemonic.focus()
+    },
+    async newMnemonic() {
+      this.showTextareaMnemonic = false
+      await this.generateMnemonic()
+    },
+    generateSeed() {
+      this.seed = bip39.mnemonicToSeedSync(this.mnemonic)
       this.rootWallet = new Wallet(this.seed)
       this.wallets = [
         this.rootWallet.derive(0)
       ]
     },
-    async newMnemonic() {
-      await this.generateMnemonic()
-      this.showInitialMnemonic = false
+    clearSeed() {
+      this.seed = null
+      this.rootWallet = null
+      this.wallets = []
     },
     async nextWallet() {
       this.wallets.push(this.rootWallet.derive(this.wallets.length))
@@ -470,7 +542,7 @@ export default {
 }
 
 button {
-  @apply inline-flex items-center justify-center;
+  @apply block inline-flex items-center justify-center;
   @apply py-4 bg-gradient-to-r border border-transparent rounded-md shadow;
   @apply font-sans font-semibold text-xl text-white;
 }
@@ -487,6 +559,19 @@ button {
   @apply to-pink-500 shadow-outline-pink;
 }
 
+
+.btn-input-mnemonic {
+  @apply from-blue-500 to-indigo-500;
+}
+
+.btn-input-mnemonic:hover {
+  @apply to-indigo-600;
+}
+
+.btn-input-mnemonic:active {
+  @apply to-indigo-500 shadow-outline-indigo;
+}
+
 .btn-next-wallet {
   @apply from-blue-500 to-indigo-500;
 }
@@ -499,5 +584,39 @@ button {
   @apply to-indigo-500 shadow-outline-indigo;
 }
 
+.lds-ripple {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
 
+.lds-ripple div {
+  position: absolute;
+  border: 4px solid #fff;
+  opacity: 1;
+  border-radius: 50%;
+  animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+
+.lds-ripple div:nth-child(2) {
+  animation-delay: -0.5s;
+}
+
+@keyframes lds-ripple {
+  0% {
+    top: 36px;
+    left: 36px;
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+  100% {
+    top: 0;
+    left: 0;
+    width: 72px;
+    height: 72px;
+    opacity: 0;
+  }
+}
 </style>

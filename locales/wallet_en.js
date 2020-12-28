@@ -12,6 +12,12 @@ export default {
   also_the_most_important_part:　'also the most important part.',
 
   Generate_a_random_Mnemonic: 'Generate a random Mnemonic',
+  Input_mnemonic_manually: 'Input Mnemonic Manually',
+
+  Input_Your_Mnemonic_Manually: 'Input Your Mnemonic Manually',
+  Invalid_Mnemonic: 'Invalid Mnemonic',
+  Placeholder__textarea_mnemonic: 'Strength: 12 / 15 / 18 / 21 / 24 words (with checksum)',
+
   BIP39_Mnemonic__backup_phrase_: 'BIP39 Mnemonic (backup phrase)',
   Generate_a_random_Mnemonic__renew_: 'Generate a random Mnemonic (renew)',
   Here_is_a_example: 'Here is a example:',
