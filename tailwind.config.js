@@ -18,9 +18,15 @@ module.exports = {
       maxWidth: {
         'max-w-screen-2xl': '1580px'
       },
-
+      fontSize: {
+        '7xl': '6rem',
+        '8xl': '7rem',
+        '9xl': '8rem',
+        '10xl': '9rem',
+      },
       fontFamily: {
-        sans: ['Inter var', ...defaultTheme.fontFamily.sans]
+        sans: ['Inter var', ...defaultTheme.fontFamily.sans],
+        mono: ['Hack', 'monospace', ...defaultTheme.fontFamily.mono]
       }
 
       // container: {

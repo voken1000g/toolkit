@@ -7,7 +7,6 @@
 </template>
 
 <script>
-
 export default {
   name: 'index',
   layout: 'middleCenter'

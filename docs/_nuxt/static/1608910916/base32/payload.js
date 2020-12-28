@@ -1,1 +1,0 @@
-__NUXT_JSONP__("/base32", {data:[{}],fetch:[],mutations:void 0});

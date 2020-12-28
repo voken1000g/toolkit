@@ -1,39 +1,24 @@
 import { join } from 'path'
+import locales from './utils/constants/locales'
 
 const baseUrl = '/toolkit/'
 
 export default {
-  ssr: true,
-
-  /*
-  ** 404 for SPA
-  */
+  ssr: false,
   generate: {
     dir: 'docs',
     fallback: '404.html'
   },
-
   router: {
     base: baseUrl
   },
-
-  /*
-  ** Nuxt target
-  ** See https://nuxtjs.org/api/configuration-target
-  */
   target: 'static',
-
-  /*
-  ** Headers of the page
-  ** See https://nuxtjs.org/api/configuration-head
-  */
   head: {
-    title: 'Voken Toolkit',
+    title: 'VOKEN Toolkit',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'Voken Toolkit' },
-
+      { hid: 'description', name: 'description', content: 'VOKEN Toolkit' },
       { name: 'msapplication-TileColor', content: '#ffffff' },
       { name: 'msapplication-TileImage', content: baseUrl + 'favicon/ms-icon-144x144.png' },
       { name: 'theme-color', content: '#ffffff' }
@@ -48,54 +33,91 @@ export default {
       { rel: 'apple-touch-icon', sizes: '144x144', href: baseUrl + 'favicon/apple-icon-144x144.png' },
       { rel: 'apple-touch-icon', sizes: '152x152', href: baseUrl + 'favicon/apple-icon-152x152.png' },
       { rel: 'apple-touch-icon', sizes: '180x180', href: baseUrl + 'favicon/apple-icon-180x180.png' },
-
       { rel: 'icon', type: 'image/png', sizes: '192x192', href: baseUrl + 'favicon/android-icon-192x192.png' },
       { rel: 'icon', type: 'image/png', sizes: '32x32', href: baseUrl + 'favicon/favicon-32x32.png' },
       { rel: 'icon', type: 'image/png', sizes: '96x96', href: baseUrl + 'favicon/favicon-96x96.png' },
       { rel: 'icon', type: 'image/png', sizes: '16x16', href: baseUrl + 'favicon/favicon-16x16.png' },
+      { rel: 'manifest', href: baseUrl + 'favicon/manifest.json' },
 
-      { rel: 'manifest', href: baseUrl + 'favicon/manifest.json' }
+      { rel: 'stylesheet', href: '//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack-subset.css' }
     ]
   },
-
-  /*
-  ** Global CSS
-  */
-  css: [],
-
-  /*
-  ** Plugins to load before mounting the App
-  ** https://nuxtjs.org/guide/plugins
-  */
+  css: [
+    '@/assets/css/main.scss'
+  ],
   plugins: [],
-
-  /*
-  ** Auto import components
-  ** See https://nuxtjs.org/api/configuration-components
-  */
   components: true,
 
-  /*
-  ** Nuxt.js dev-modules
-  */
+  modules: [
+    '@nuxtjs/toast',
+    'nuxt-i18n',
+    'nuxt-fontawesome'
+  ],
   buildModules: [
+    '@nuxtjs/style-resources',
     '@nuxt/typescript-build',
     '@nuxtjs/tailwindcss',
     'nuxt-purgecss'
   ],
 
-  /*
-   ** PurgeCSS
-   */
+  fontawesome: {
+    component: 'fa',
+    imports: [
+      {
+        set: '@fortawesome/free-solid-svg-icons',
+        icons: [
+          'faTools',
+          'faSeedling',
+          'faWallet',
+          'faGlobeAmericas',
+          'faSpellCheck',
+          'faCopy',
+          'faTimes',
+          'faSpinner',
+        ]
+      },
+      {
+        set: '@fortawesome/free-regular-svg-icons',
+        icons: [
+          'faSmileWink'
+        ]
+      },
+      {
+        set: '@fortawesome/free-brands-svg-icons',
+        icons: [
+          'faGithub'
+        ]
+      }
+    ]
+  },
+
+  i18n: {
+    locales: locales,
+    lazy: true,
+    langDir: 'locales/',
+    defaultLocale: 'en',
+    vueI18n: {
+      fallbackLocale: 'en'
+    },
+    vueI18nLoader: true,
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieSecure: false,
+      alwaysRedirect: false,
+      fallbackLocale: 'en'
+    }
+  },
+
+  toast: {
+    position: 'top-center',
+    duration: 5000
+  },
+
   purgeCSS: {
     mode: 'postcss',
     whitelist: ['svg-inline--fa']
   },
 
-  /*
-  ** Build configuration
-  ** See https://nuxtjs.org/api/configuration-build/
-  */
   build: {
     // analyze: true,
     postcss: {
@@ -111,12 +133,25 @@ export default {
       //
     },
 
+    splitChunks: {
+      layouts: false,
+      pages: true,
+      commons: true
+    },
+
     optimization: {
       splitChunks: {
         chunks: 'all',
         automaticNameDelimiter: '.',
         maxAsyncRequests: 7,
+        maxSize: 2000000,
         cacheGroups: {
+          bip39: {
+            test: /node_modules[\\/]bip39/,
+            chunks: 'all',
+            priority: 20,
+            name: true
+          },
           bnJs: {
             test: /node_modules[\\/]bn\.js/,
             chunks: 'all',
@@ -137,6 +172,6 @@ export default {
           }
         }
       }
-    },
+    }
   }
 }

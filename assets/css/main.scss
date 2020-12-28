@@ -1,0 +1,148 @@
+a,
+button,
+input {
+  @apply transition duration-150 ease-in-out;
+}
+
+input,
+button,
+input:focus,
+button:focus {
+  @apply outline-none;
+}
+
+/**
+ * indigo
+ */
+.input-indigo {
+  @apply border border-indigo-300 outline-none;
+  @apply rounded-md shadow-md;
+}
+
+.input-indigo:focus {
+  @apply border-indigo-500 shadow-outline-indigo;
+}
+
+.a-indigo {
+  @apply text-indigo-700;
+}
+
+.a-indigo:hover {
+  @apply text-indigo-500;
+}
+
+/**
+ * ESW: error, success, warn
+ */
+.border-esw {
+  @apply border border-gray-300;
+}
+
+.error .border-esw {
+  @apply border-red-400;
+}
+
+.success .border-esw {
+  @apply border-green-400;
+}
+
+.warn .border-esw {
+  @apply border-yellow-400;
+}
+
+.error label {
+  @apply font-bold text-red-700;
+}
+
+.success label {
+  @apply text-green-700;
+}
+
+.warn label {
+  @apply text-yellow-700;
+}
+
+.error input,
+.error textarea {
+  @apply bg-red-50 border-red-600 text-red-700;
+}
+
+.error input:focus,
+.error textarea:focus {
+  @apply border-red-500 shadow-outline-red;
+}
+
+.success input,
+.success textarea {
+  @apply bg-green-50 border-green-600 text-green-700;
+}
+
+.success input:focus,
+.success textarea:focus {
+  @apply border-green-500 shadow-outline-green;
+}
+
+.warn input,
+.warn textarea {
+  @apply bg-yellow-50 border-yellow-600 text-yellow-700;
+}
+
+.warn input:focus,
+.warn textarea:focus {
+  @apply border-yellow-500 shadow-outline-yellow;
+}
+
+
+/**
+ * CompWallet
+ */
+.comp-wallet:nth-child(odd) {
+  @apply bg-gradient-to-br from-indigo-100 to-teal-300;
+}
+
+.comp-wallet label {
+  @apply block font-mono text-sm text-gray-700 text-left;
+}
+
+.comp-wallet input {
+  @apply w-full py-4 pl-4 pr-12 rounded-md font-mono text-sm;
+}
+
+/**
+ * Private
+ */
+.comp-wallet .input-private {
+  @apply bg-orange-100 border-2 border-orange-400;
+  @apply text-orange-700;
+}
+
+.comp-wallet .input-private:focus {
+  @apply border-orange-500 shadow-outline-orange;
+}
+
+/**
+ * Public
+ */
+.comp-wallet .input-public {
+  @apply bg-green-100 border-2 border-green-400;
+  @apply text-green-800;
+}
+
+.comp-wallet .input-public:focus {
+  @apply border-green-500 shadow-outline-green;
+}
+
+/**
+ * Copy
+ */
+.comp-wallet .btn-copy {
+  @apply text-gray-500;
+}
+
+.comp-wallet .btn-copy:hover {
+  @apply text-gray-800;
+}
+
+.comp-wallet .btn-copy:focus {
+  @apply text-gray-600 outline-none;
+}

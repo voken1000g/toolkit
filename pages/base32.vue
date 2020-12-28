@@ -1,46 +1,34 @@
 <template>
-  <LayoutW class='pb-16'>
+  <layout-w class='pb-36'>
     <h1 class='my-8 lg:my-12 2xl:my-16 text-2xl lg:text-3xl text-indigo-600 text-center'>
-      @voken/base32
+      npm: @voken/base32
     </h1>
 
     <div class='flex flex-col space-x-0 space-y-4 lg:flex-row lg:space-x-3 lg:space-y-0'>
-      <div class='flex-1' :class="{ 'error': encodeError }">
+      <div class='flex-1' :class='{ "error": encodeError }'>
         <label for='decoded'>
-          Base32 Decoded (utf-8)
+          {{ $t('base32.Input_here_to_auto_encode_') }}
         </label>
 
-        <div class='relative'>
-          <textarea name='decoded'
-                    id='decoded'
-                    class='mt-2 w-full form-textarea text-sm md:text-base lg:text-lg'
-                    rows='20'
-                    v-model='decoded'
-                    placeholder='Sample'></textarea>
-
-          <div class='absolute bottom-4 w-full font-mono text-gray-500 text-center'>
-            Input here to auto encode...
-          </div>
-        </div>
+        <textarea name='decoded'
+                  id='decoded'
+                  class='mt-2 w-full form-textarea font-mono text-sm md:text-base lg:text-lg'
+                  rows='20'
+                  v-model='decoded'
+                  :placeholder='$t("base32.Sample")'></textarea>
       </div>
 
-      <div class='flex-1 relative' :class="{ 'error': decodeError }">
+      <div class='flex-1' :class='{ "error": decodeError }'>
         <label for='encoded'>
-          Base32 Encoded (checksum)
+          {{ $t('base32.Input_here_to_auto_decode_') }}
         </label>
 
-        <div class='relative'>
-          <textarea name='encoded'
-                    id='encoded'
-                    class='mt-2 w-full form-textarea text-sm md:text-base lg:text-lg'
-                    rows='20'
-                    v-model='encoded'
-                    placeholder='AdGPtv3Ccm'></textarea>
-
-          <div class='absolute bottom-4 w-full font-mono text-gray-500 text-center'>
-            Input here to auto decode...
-          </div>
-        </div>
+        <textarea name='encoded'
+                  id='encoded'
+                  class='mt-2 w-full form-textarea font-mono text-sm md:text-base lg:text-lg'
+                  rows='20'
+                  v-model='encoded'
+                  :placeholder='Base32.encode(Buffer.from($t("base32.Sample")))'></textarea>
       </div>
     </div>
 
@@ -48,23 +36,23 @@
          v-show='exception'
     >
       <div v-show='encodeError'>
-        Encoded input:
+        {{ $t('base32.Encoded_input_') }}
       </div>
       <div v-show='decodeError'>
-        Decoded input:
+        {{ $t('base32.Decoded_input_') }}
       </div>
       <div class='mt-2 px-2 md:px-3 lg:px-4'>
         {{ exception }}
       </div>
     </div>
 
-    <div class='mt-8 lg:mt-12 pt-4 lg:pt-6 border-t border-gray-300 font-mono text-gray-600 text-center'>
+    <layout-footer-simple class='font-mono text-gray-600 text-center'>
       <div>
         <span>
-          Documentation:
+          {{ $t('base32.Documentation.text') }}
         </span>
-        <a target='_blank' href='https://voken.io/en/npm/base32.html'>
-          https://voken.io/en/npm/base32.html
+        <a class='a-indigo' target='_blank' :href='$t("base32.Documentation.href")'>
+          {{ $t('base32.Documentation.href') }}
         </a>
       </div>
 
@@ -85,20 +73,24 @@
           https://github.com/voken1000g/npm-base32
         </a>
       </div>
-    </div>
-  </LayoutW>
+    </layout-footer-simple>
+  </layout-w>
 </template>
 
 <script>
+import { Buffer } from 'safe-buffer'
 import Base32 from '@voken/base32'
 import LayoutW from '~/components/LayoutW'
+import LayoutFooterSimple from '~/components/LayoutFooterSimple'
 
 export default {
   name: 'base32',
-  components: { LayoutW },
-  layout: 'middleCenter',
+  components: { LayoutFooterSimple, LayoutW },
+  layout: 'centerIndigo',
   data() {
     return {
+      Buffer: Buffer,
+      Base32: Base32,
       decoded: '',
       encoded: '',
       exception: null,
@@ -144,22 +136,6 @@ export default {
 </script>
 
 <style scoped>
-.error {
-  @apply text-red-700;
-}
-
-.error label {
-  @apply font-bold;
-}
-
-.error textarea {
-  @apply bg-red-50 border-red-600 text-red-600;
-}
-
-.error textarea:focus {
-  @apply border-red-500 shadow-outline-red;
-}
-
 a {
   @apply text-indigo-700;
 }

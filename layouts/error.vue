@@ -1,11 +1,11 @@
 <template>
-  <div class="lo-error">
-    <h1>
+  <div class='text-center'>
+    <h1 class='text-gray-700 text-5xl'>
       Error
       {{ error.statusCode }}
     </h1>
 
-    <h2>
+    <h2 class='mt-6 text-gray-600 text-2xl'>
       {{ error.message }}
     </h2>
   </div>
@@ -14,21 +14,7 @@
 <script>
 export default {
   name: 'error',
-  layout: 'default',
+  layout: 'middleCenter',
   props: ['error']
 }
 </script>
-
-<style scoped>
-.lo-error {
-  @apply font-sans font-light tracking-wide text-center;
-}
-
-.lo-error h1 {
-  @apply text-gray-700 text-5xl;
-}
-
-.lo-error h2 {
-  @apply mt-6 text-gray-600 text-2xl;
-}
-</style>
