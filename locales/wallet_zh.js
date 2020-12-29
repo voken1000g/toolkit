@@ -87,7 +87,7 @@ export default {
   You_Alice_send__Bob: '你（Alice）给 Bob 发一条信息：',
   Encrypt_the_message_with_Bob__: '用 Bob 的公钥加密信息',
   Hash_the_message__sign_the_hash__: '对信息进行哈希处理，用你的 Alice 的私钥签署哈希值',
-  Send_the_encrypted_message_and_your_signature__: '将加密的信息和你的签名发送给 Bob',
+  Send_the_encrypted_message__your_Public__: '将加密的信息，你的公钥和签名发送给 Bob',
   Bob_received_your__: 'Bob 收到了你的加密信息和你的签名：',
   Decrypt__got_the_message: '用 Bob 的私钥解密信息，得到了信息',
   Verify_your_signature__: '用你 Alice 的公钥验证你的签名，如果通过了，他就可以确认信息是由你发出的',

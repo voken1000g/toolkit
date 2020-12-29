@@ -86,7 +86,7 @@ export default {
   You_Alice_send__Bob: 'You (Alice) send a message to Bob:',
   Encrypt_the_message_with_Bob__: 'Encrypt the message with Bob\'s Public Key',
   Hash_the_message__sign_the_hash__: 'Hash the message, sign the hash with your Alice\'s Private Key',
-  Send_the_encrypted_message_and_your_signature__: 'Send the encrypted message and your signature to Bob',
+  Send_the_encrypted_message__your_Public__: 'Send the encrypted message, your Public Key and signature to Bob',
   Bob_received_your__: 'Bob received your encrypt message and your signature:',
   Decrypt__got_the_message: 'Decrypt the message with Bob\'s Private Key, got the message',
   Verify_your_signature__: 'Verify your signature with your Alice\'s Public Key, ' +

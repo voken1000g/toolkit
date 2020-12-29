@@ -305,7 +305,7 @@
             {{ $t('wallet.Hash_the_message__sign_the_hash__') }}
           </li>
           <li>
-            {{ $t('wallet.Send_the_encrypted_message_and_your_signature__') }}
+            {{ $t('wallet.Send_the_encrypted_message__your_Public__') }}
           </li>
         </ol>
 
