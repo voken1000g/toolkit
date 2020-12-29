@@ -72,7 +72,7 @@ export default {
 }
 
 .flyout-items a .div-icon {
-  @apply flex-shrink-0 h-8 w-8 flex items-center justify-center text-lg text-indigo-600;
+  @apply mt-1 flex-shrink-0 h-8 w-8 flex items-center justify-center text-3xl text-indigo-600;
 }
 
 .item-title {

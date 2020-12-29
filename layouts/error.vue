@@ -1,11 +1,15 @@
 <template>
-  <div class='text-center'>
-    <h1 class='text-gray-700 text-5xl'>
+  <div class='text-red-800 text-center'>
+    <div class='text-6xl'>
+      <fa :icon="['fas', 'bug']" />
+    </div>
+
+    <h1 class='mt-10 text-5xl text-red-700'>
       Error
       {{ error.statusCode }}
     </h1>
 
-    <h2 class='mt-6 text-gray-600 text-2xl'>
+    <h2 class='mt-6 text-2xl'>
       {{ error.message }}
     </h2>
   </div>
@@ -14,7 +18,7 @@
 <script>
 export default {
   name: 'error',
-  layout: 'middleCenter',
+  layout: 'layoutError',
   props: ['error']
 }
 </script>

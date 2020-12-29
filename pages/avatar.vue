@@ -73,7 +73,6 @@ import LayoutWProse from '~/components/LayoutWProse'
 export default {
   name: 'avatar',
   components: { LayoutWProse, LayoutFooterSimple, LayoutW },
-  layout: 'centerIndigo',
   head() {
     return {
       title: this.$t('nav.Avatar')

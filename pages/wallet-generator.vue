@@ -247,10 +247,10 @@
 
       <ul>
         <li>
-          {{ $t('wallet.Data_encrypted_with_private__') }}
+          {{ $t('wallet.Data_encrypted_with_public__') }}
         </li>
         <li>
-          {{ $t('wallet.Accordingly__data_encrypted_with_public__') }}
+          {{ $t('wallet.Accordingly__data_signed_by__') }}
         </li>
 
         <li>
@@ -444,7 +444,6 @@ import SvgRipple from '~/components/SvgRipple'
 export default {
   name: 'wallet-generator',
   components: { SvgRipple, CompWallet, LayoutWProse, LayoutW },
-  layout: 'centerIndigo',
   head() {
     return {
       title: this.$t('nav.Wallet_Generator')

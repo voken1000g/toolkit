@@ -65,10 +65,10 @@ export default {
   Sending_a_Public_Key_is_safe: 'Sending a Public Key is safe.',
 
   How_do_the__keypair_works: 'How do the Private/Public Key-Pair works?',
-  Data_encrypted_with_private__: 'Data encrypted with a Private Key can only be decrypted ' +
-    'by using the corresponding Public Key.',
-  Accordingly__data_encrypted_with_public__: 'Accordingly, data encrypted with a Public Key can only be decrypted ' +
+  Data_encrypted_with_public__: 'Data encrypted with a Public Key can only be decrypted ' +
     'by using the corresponding Private Key.',
+  Accordingly__data_signed_by__: 'Accordingly, data signed by a Private Key can only be verified ' +
+    'by using the corresponding Public Key.',
 
   Only: 'Only',
   the_owner_holds_the_private_key_while__: 'the owner holds the Private Key while keeping the Public Key',

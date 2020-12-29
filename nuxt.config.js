@@ -74,6 +74,7 @@ export default {
           'faCopy',
           'faTimes',
           'faSpinner',
+          'faBug',
         ]
       },
       {

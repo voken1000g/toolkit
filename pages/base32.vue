@@ -93,7 +93,6 @@ import LayoutWProse from '~/components/LayoutWProse'
 export default {
   name: 'base32',
   components: { LayoutWProse, LayoutFooterSimple, LayoutW },
-  layout: 'centerIndigo',
   head() {
     return {
       title: 'npm: @voken/base32'

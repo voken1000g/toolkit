@@ -66,9 +66,9 @@ export default {
   Sending_a_Public_Key_is_safe: '发送公钥是安全的。',
 
   How_do_the__keypair_works: '私钥/公钥对是如何工作的？',
-  Data_encrypted_with_private__: '用私钥加密的数据只能用相应的公钥来解密。',
+  Data_encrypted_with_public__: '用公钥加密的数据只能用相应的私钥来解密。',
 
-  Accordingly__data_encrypted_with_public__: '相应地，用公钥加密的数据只能用相应的私钥来解密。',
+  Accordingly__data_signed_by__: '相应地，用私钥签名的数据只能用相应的公钥来验证。',
 
 
   Only: '仅可',
@@ -101,7 +101,7 @@ export default {
   Broadcast__the_tx: '广播（提交）交易',
   Miner_received_the_tx__: '矿工收到交易和签名',
   Miner_verify_the_signature__: '矿工用你 Alice 的公钥验证签名',
-  Miner_derive_your__address__: '矿工从你 Alice 的钥中获取 Alice 的钱包地址',
+  Miner_derive_your__address__: '矿工从你 Alice 的公钥中获取 Alice 的钱包地址',
   Miner_check_your__balance: '矿工检查你 Alice 的余额',
   Decrease_your_balance__: '减少你 Alice 的余额，并添加到 Bob 的钱包地址',
   Miner_pack_the_tx__: '矿工将交易打包进一个新的区块',
