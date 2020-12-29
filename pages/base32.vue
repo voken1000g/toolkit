@@ -84,7 +84,6 @@
 </template>
 
 <script>
-import { Buffer } from 'safe-buffer'
 import Base32 from '@voken/base32'
 import LayoutW from '~/components/LayoutW'
 import LayoutFooterSimple from '~/components/LayoutFooterSimple'

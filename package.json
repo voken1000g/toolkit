@@ -16,15 +16,14 @@
     "@nuxt/typescript-runtime": "^2.0.0",
     "@nuxtjs/toast": "^3.3.1",
     "@tailwindcss/ui": "^0.5.0",
-    "@voken/address": "^1.0.6",
+    "@voken/address": "^1.0.7",
     "@voken/avatar": "^1.2.0",
-    "@voken/base32": "^1.1.4",
-    "@voken/hd-wallet": "^1.0.6",
+    "@voken/base32": "^1.1.6",
+    "@voken/hd-wallet": "^1.0.7",
     "bip39": "^3.0.3",
     "nuxt": "^2.14.12",
     "nuxt-fontawesome": "^0.4.0",
-    "nuxt-i18n": "^6.16.0",
-    "safe-buffer": "^5.2.1"
+    "nuxt-i18n": "^6.16.0"
   },
   "devDependencies": {
     "@nuxt/typescript-build": "^2.0.3",
