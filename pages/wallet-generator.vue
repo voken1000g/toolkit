@@ -28,9 +28,9 @@
       </p>
 
       <div v-if='!mnemonic && showBtnGenerateMnemonic && showBtnInputMnemonic'
-           class='mt-2 md:mt-4 lg:mt-6 flex flex-col space-y-4 lg:flex-row lg:space-y-0 justify-center'>
+           class='mt-8 lg:mt-10 xl:mt-12 2xl:mt-14 flex flex-col space-y-4 lg:flex-row lg:space-x-2 lg:space-y-0 justify-center'>
         <button type='button'
-                class='w-full mx-auto md:mx-2 md:max-w-xl btn-new-mnemonic'
+                class='w-full mx-auto md:max-w-xl btn-new-mnemonic'
                 @click='newMnemonic'
         >
           <svg-ripple class='mr-4 w-8 h-8' style='margin-top: 0; margin-bottom: 0' />
@@ -38,7 +38,7 @@
         </button>
 
         <button type='button'
-                class='block w-full mx-auto lg:mx-2 md:max-w-xl btn-input-mnemonic'
+                class='w-full mx-auto md:max-w-xl btn-input-mnemonic'
                 @click='inputMnemonic'
         >
           {{ $t('wallet.Input_mnemonic_manually') }}
@@ -68,7 +68,7 @@
 
       <div v-show='!mnemonicSuccess' class='mt-4 lg:mt-8 flex justify-center'>
         <button type='button'
-                class='block w-full mx-auto md:max-w-xl btn-new-mnemonic'
+                class='w-full mx-auto md:max-w-xl btn-new-mnemonic'
                 @click='newMnemonic'
         >
           <svg-ripple class='mr-4 w-8 h-8' style='margin-top: 0; margin-bottom: 0' />
