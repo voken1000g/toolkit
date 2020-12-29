@@ -28,9 +28,9 @@
       </p>
 
       <div v-if='!mnemonic && showBtnGenerateMnemonic && showBtnInputMnemonic'
-           class='mt-8 lg:mt-10 xl:mt-12 2xl:mt-14 flex flex-col space-y-4 lg:flex-row lg:space-x-2 lg:space-y-0 justify-center'>
+           class='mt-8 lg:mt-10 xl:mt-12 2xl:mt-14 flex flex-col space-y-4 lg:flex-row lg:space-x-2 lg:space-y-0 xl:space-x-4 2xl:space-x-6 justify-center'>
         <button type='button'
-                class='w-full mx-auto md:max-w-xl btn-new-mnemonic'
+                class='w-full md:max-w-xl btn-new-mnemonic'
                 @click='newMnemonic'
         >
           <svg-ripple class='mr-4 w-8 h-8' style='margin-top: 0; margin-bottom: 0' />
@@ -38,7 +38,7 @@
         </button>
 
         <button type='button'
-                class='w-full mx-auto md:max-w-xl btn-input-mnemonic'
+                class='w-full md:max-w-xl btn-input-mnemonic'
                 @click='inputMnemonic'
         >
           {{ $t('wallet.Input_mnemonic_manually') }}
@@ -68,7 +68,7 @@
 
       <div v-show='!mnemonicSuccess' class='mt-4 lg:mt-8 flex justify-center'>
         <button type='button'
-                class='w-full mx-auto md:max-w-xl btn-new-mnemonic'
+                class='w-full md:max-w-xl btn-new-mnemonic'
                 @click='newMnemonic'
         >
           <svg-ripple class='mr-4 w-8 h-8' style='margin-top: 0; margin-bottom: 0' />
@@ -420,9 +420,9 @@
                    :wallet='wallet' />
     </div>
 
-    <div v-if='wallets[0]' class='mt-2 md:mt-4 lg:mt-6 flex justify-center'>
+    <div v-if='wallets[0]' class='mt-6 md:mt-8 lg:mt-10 flex justify-center'>
       <button type='button'
-              class='mt-6 mx-auto w-full md:max-w-xl btn-next-wallet'
+              class='w-full md:max-w-xl btn-next-wallet'
               @click='nextWallet'
       >
         {{ $t('wallet.Derive_Next_Wallet') }}
@@ -559,64 +559,18 @@ button {
   @apply to-pink-500 shadow-outline-pink;
 }
 
-
-.btn-input-mnemonic {
-  @apply from-blue-500 to-indigo-500;
-}
-
-.btn-input-mnemonic:hover {
-  @apply to-indigo-600;
-}
-
-.btn-input-mnemonic:active {
-  @apply to-indigo-500 shadow-outline-indigo;
-}
-
+.btn-input-mnemonic,
 .btn-next-wallet {
   @apply from-blue-500 to-indigo-500;
 }
 
+.btn-input-mnemonic:hover,
 .btn-next-wallet:hover {
   @apply to-indigo-600;
 }
 
+.btn-input-mnemonic:active,
 .btn-next-wallet:active {
   @apply to-indigo-500 shadow-outline-indigo;
-}
-
-.lds-ripple {
-  display: inline-block;
-  position: relative;
-  width: 80px;
-  height: 80px;
-}
-
-.lds-ripple div {
-  position: absolute;
-  border: 4px solid #fff;
-  opacity: 1;
-  border-radius: 50%;
-  animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
-}
-
-.lds-ripple div:nth-child(2) {
-  animation-delay: -0.5s;
-}
-
-@keyframes lds-ripple {
-  0% {
-    top: 36px;
-    left: 36px;
-    width: 0;
-    height: 0;
-    opacity: 1;
-  }
-  100% {
-    top: 0;
-    left: 0;
-    width: 72px;
-    height: 72px;
-    opacity: 0;
-  }
 }
 </style>
