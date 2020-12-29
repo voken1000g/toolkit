@@ -46,7 +46,13 @@
         </div>
 
         <!-- Right -->
-        <div class="flex items-center">
+        <div class="flex items-center space-x-4">
+
+          <div class='text-2xl text-indigo-300'>
+            <a href='https://github.io/voken1000g/toolkit'>
+              <fa :icon="['fab', 'github']" />
+            </a>
+          </div>
 
           <!-- Language -->
           <div class="hidden md:flex-shrink-0 md:flex md:items-center">
@@ -102,6 +108,8 @@
 
       <!-- navigations -->
       <div class="px-3 py-3">
+        <nuxt-link v-for='link in walletLinks' :key='link.path' :to='localePath(link.path)' class="nav-v">{{ $t(link.title) }}</nuxt-link>
+
         <template v-for="nav in navigations">
           <nuxt-link :to='localePath(nav.path)' class="nav-v">{{ $t('nav.' + nav.text) }}</nuxt-link>
         </template>
@@ -135,6 +143,7 @@ export default {
   components: { FlyoutWallet, LayoutW },
   data() {
     return {
+      walletLinks: walletLinks,
       navigations: navigations,
       languages: locales,
     }

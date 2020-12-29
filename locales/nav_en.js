@@ -5,10 +5,10 @@ export default {
 
   Base32: 'Base32',
 
-  Generator: 'HD-Wallets Generator',
-  Validator: 'VOKEN Address Validator',
-  Generator_: 'Generate Mnemonic and VOKEN Hierarchical Deterministic Wallets.',
-  Validator_: 'Check if a string is a valid VOKEN wallet address.',
+  Wallet_Generator: 'HD-Wallets Generator',
+  Wallet_Validator: 'VOKEN Address Validator',
+  Wallet_Generator_: 'Generate Mnemonic and VOKEN Hierarchical Deterministic Wallets.',
+  Wallet_Validator_: 'Check if a string is a valid VOKEN wallet address.',
   Avatar: 'Avatar Generator',
   Avatar_: 'Generate an avatar by @voken/avatar',
 }

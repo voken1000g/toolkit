@@ -1,13 +1,13 @@
 export default [
   {
-    title: 'nav.Generator',
-    description: 'nav.Generator_',
+    title: 'nav.Wallet_Generator',
+    description: 'nav.Wallet_Generator_',
     path: 'wallet-generator',
     icon: ['fas', 'wallet']
   },
   {
-    title: 'nav.Validator',
-    description: 'nav.Validator_',
+    title: 'nav.Wallet_Validator',
+    description: 'nav.Wallet_Validator_',
     path: 'wallet-validator',
     icon: ['fas', 'spell-check']
   },
