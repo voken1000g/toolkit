@@ -2,7 +2,7 @@
   <layout-w class='pb-36'>
     <layout-w-prose class='mt-8 md:mt-10 lg:mt-12 xl:mt-14 2xl:mt-16'>
       <h1>
-        {{ $t('nav.Validator') }}
+        {{ $t('nav.Wallet_Validator') }}
       </h1>
 
       <p>
@@ -25,7 +25,7 @@
       </ul>
     </layout-w-prose>
 
-    <div class='w-full md:max-w-2xl mt-6 md:mt-10 lg:mt-12 xl:mt-14 2xl:mt-16 mx-auto font-mono text-sm md:text-base'
+    <div class='w-full md:max-w-2xl mt-12 lg:mt-14 xl:mt-16 2xl:mt-20 mx-auto font-mono text-sm md:text-base'
          :class='addressStatus'
     >
       <div class='w-14 h-14 lg:w-16 lg:h-16 xl:w-20 xl:h-20 mx-auto bg-white rounded-md shadow-md lg:shadow-lg'>

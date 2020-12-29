@@ -2,7 +2,7 @@
   <layout-w class='pb-36'>
     <layout-w-prose class='mt-8 md:mt-10 lg:mt-12 xl:mt-14 2xl:mt-16'>
       <h1>
-        {{ $t('nav.Generator') }}
+        {{ $t('nav.Wallet_Generator') }}
       </h1>
       <p>
         {{ $t('wallet.HD_Wallets_helps__') }}

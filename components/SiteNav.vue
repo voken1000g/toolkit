@@ -46,10 +46,10 @@
         </div>
 
         <!-- Right -->
-        <div class="flex items-center space-x-4">
+        <div class="flex items-center space-x-4 lg:space-x-6">
 
-          <div class='text-2xl text-indigo-300'>
-            <a href='https://github.io/voken1000g/toolkit'>
+          <div class='text-3xl text-indigo-300'>
+            <a target='_blank' href='https://github.com/voken1000g/toolkit' class='hover:text-white'>
               <fa :icon="['fab', 'github']" />
             </a>
           </div>
@@ -60,7 +60,7 @@
               <!-- Language button -->
               <div>
                 <button
-                  class="flex text-2xl text-indigo-300 focus:outline-none focus:text-white"
+                  class="flex text-3xl text-indigo-300 hover:text-white focus:outline-none focus:text-white"
                   id="user-menu"
                   aria-label="User menu"
                   aria-haspopup="true"
