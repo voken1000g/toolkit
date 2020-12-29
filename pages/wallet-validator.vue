@@ -64,6 +64,11 @@ export default {
   name: 'wallet-validator',
   components: { LayoutWProse, LayoutW },
   layout: 'centerIndigo',
+  head() {
+    return {
+      title: this.$t('nav.Wallet_Validator')
+    }
+  },
   data() {
     return {
       avatar: avatar,

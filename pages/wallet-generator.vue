@@ -445,6 +445,11 @@ export default {
   name: 'wallet-generator',
   components: { SvgRipple, CompWallet, LayoutWProse, LayoutW },
   layout: 'centerIndigo',
+  head() {
+    return {
+      title: this.$t('nav.Wallet_Generator')
+    }
+  },
   data() {
     return {
       avatar: avatar,

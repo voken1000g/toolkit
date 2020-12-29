@@ -1,10 +1,16 @@
 <template>
   <layout-w>
-    <h1 class='my-8 lg:my-12 2xl:my-16 text-2xl lg:text-3xl text-indigo-600 text-center'>
-      npm: @voken/avatar
-    </h1>
+    <layout-w-prose class='mt-8 md:mt-10 lg:mt-12 xl:mt-14 2xl:mt-16'>
+      <h1>
+        {{ $t('nav.Avatar') }}
+      </h1>
 
-    <div class='w-full md:max-w-2xl mt-6 md:mt-10 lg:mt-12 xl:mt-14 2xl:mt-16 mx-auto font-mono text-sm md:text-base'>
+      <p>
+        {{ $t('nav.Avatar_') }}
+      </p>
+    </layout-w-prose>
+
+    <div class='w-full md:max-w-2xl mt-10 md:mt-14 lg:mt-16 xl:mt-20 2xl:mt-24 mx-auto font-mono text-sm md:text-base'>
       <div class='w-14 h-14 lg:w-16 lg:h-16 xl:w-20 xl:h-20 mx-auto bg-white rounded-md shadow-md lg:shadow-lg'>
         <img v-show='something' :src='avatar.svgDataUriFromSeed(something)' alt='something avatar'>
         <div v-show='!something'
@@ -62,11 +68,17 @@
 import avatar from '@voken/avatar'
 import LayoutW from '~/components/LayoutW'
 import LayoutFooterSimple from '~/components/LayoutFooterSimple'
+import LayoutWProse from '~/components/LayoutWProse'
 
 export default {
   name: 'avatar',
-  components: { LayoutFooterSimple, LayoutW },
+  components: { LayoutWProse, LayoutFooterSimple, LayoutW },
   layout: 'centerIndigo',
+  head() {
+    return {
+      title: this.$t('nav.Avatar')
+    }
+  },
   data() {
     return {
       avatar: avatar,

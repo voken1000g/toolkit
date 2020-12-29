@@ -1,10 +1,16 @@
 <template>
   <layout-w class='pb-36'>
-    <h1 class='my-8 lg:my-12 2xl:my-16 text-2xl lg:text-3xl text-indigo-600 text-center'>
-      npm: @voken/base32
-    </h1>
+    <layout-w-prose class='mt-8 md:mt-10 lg:mt-12 xl:mt-14 2xl:mt-16'>
+      <h1>
+        {{ $t('nav.Base32') }}
+      </h1>
 
-    <div class='flex flex-col space-x-0 space-y-4 lg:flex-row lg:space-x-3 lg:space-y-0'>
+      <p>
+        {{ $t('nav.Base32_') }}
+      </p>
+    </layout-w-prose>
+
+    <div class='mt-10 md:mt-14 lg:mt-16 xl:mt-20 2xl:mt-24 flex flex-col space-x-0 space-y-4 lg:flex-row lg:space-x-3 lg:space-y-0'>
       <div class='flex-1' :class='{ "error": encodeError }'>
         <label for='decoded'>
           {{ $t('base32.Input_here_to_auto_encode_') }}
@@ -82,11 +88,17 @@ import { Buffer } from 'safe-buffer'
 import Base32 from '@voken/base32'
 import LayoutW from '~/components/LayoutW'
 import LayoutFooterSimple from '~/components/LayoutFooterSimple'
+import LayoutWProse from '~/components/LayoutWProse'
 
 export default {
   name: 'base32',
-  components: { LayoutFooterSimple, LayoutW },
+  components: { LayoutWProse, LayoutFooterSimple, LayoutW },
   layout: 'centerIndigo',
+  head() {
+    return {
+      title: 'npm: @voken/base32'
+    }
+  },
   data() {
     return {
       Buffer: Buffer,
