@@ -11,4 +11,6 @@ export default {
   Avatar_: '通过 npm: @voken/avatar 生成一个头像',
   Base32: 'Base32',
   Base32_: 'Base32 编码/解码，由 npm: @voken/base32',
+  Messenger: 'Messenger',
+  Messenger_: '消息加密/解密，签名/验签...',
 }

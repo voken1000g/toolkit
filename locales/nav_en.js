@@ -11,4 +11,6 @@ export default {
   Avatar_: 'Generate an avatar by @voken/avatar',
   Base32: 'Base32',
   Base32_: 'Base32 Encode/Decode by npm: @voken/base32',
+  Messenger: 'Messenger',
+  Messenger_: 'Messages: encrypt/decrypt, sign/verify...',
 }

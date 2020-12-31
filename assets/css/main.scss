@@ -108,6 +108,10 @@ textarea:focus {
   @apply block font-mono text-sm text-gray-700 text-left;
 }
 
+.comp-wallet .error label {
+  @apply block font-mono text-sm text-red-700;
+}
+
 .comp-wallet input {
   @apply w-full py-4 pl-4 pr-12 rounded-md font-mono text-sm;
 }
