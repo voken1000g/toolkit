@@ -1,5 +1,5 @@
 export default {
-  home: '首页',
+  Home: '首页',
   Toolkit: '工具包',
   Wallet: '钱包',
 

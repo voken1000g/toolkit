@@ -1,5 +1,5 @@
 export default {
-  home: 'Home',
+  Home: 'Home',
   Toolkit: 'Toolkit',
   Wallet: 'Wallet',
 

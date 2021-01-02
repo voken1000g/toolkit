@@ -108,6 +108,8 @@
 
       <!-- navigations -->
       <div class="px-3 py-3">
+        <nuxt-link :to='localePath("/")' class="nav-v">{{ $t('nav.Home') }}</nuxt-link>
+
         <nuxt-link v-for='link in walletLinks' :key='link.path' :to='localePath(link.path)' class="nav-v">{{ $t(link.title) }}</nuxt-link>
 
         <template v-for="nav in navigations">
