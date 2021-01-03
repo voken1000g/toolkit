@@ -38,15 +38,23 @@
           <!-- navigations -->
           <div class="hidden md:pl-4 md:flex md:items-center md:space-x-1">
             <flyout-wallet/>
+            <flyout-messenger/>
 
-            <template v-for="nav in navigations">
-              <nuxt-link :to='localePath(nav.path)' class="nav-h">{{ $t('nav.' + nav.text) }}</nuxt-link>
-            </template>
+            <nuxt-link v-for="nav in navigations"
+                       :key='nav.path'
+                       :to='localePath(nav.path)'
+                       class="nav-h"
+            >
+              {{ $t('nav.' + nav.text) }}
+            </nuxt-link>
           </div>
         </div>
 
         <!-- Right -->
         <div class="flex items-center space-x-4 lg:space-x-6">
+          <flyout-user/>
+
+
 
           <div class='text-3xl text-indigo-300'>
             <a target='_blank' href='https://github.com/voken1000g/toolkit' class='hover:text-white'>
@@ -107,14 +115,31 @@
          :class="{ block: $store.state.nav.menuMobile, hidden: !$store.state.nav.menuMobile }">
 
       <!-- navigations -->
-      <div class="px-3 py-3">
-        <nuxt-link :to='localePath("/")' class="nav-v">{{ $t('nav.Home') }}</nuxt-link>
+      <div class="p-3">
+        <nuxt-link v-for='link in walletLinks'
+                   :key='link.path'
+                   :to='localePath(link.path)'
+                   class="nav-v"
+        >
+          {{ $t(link.titleMobi) }}
+        </nuxt-link>
 
-        <nuxt-link v-for='link in walletLinks' :key='link.path' :to='localePath(link.path)' class="nav-v">{{ $t(link.title) }}</nuxt-link>
 
-        <template v-for="nav in navigations">
-          <nuxt-link :to='localePath(nav.path)' class="nav-v">{{ $t('nav.' + nav.text) }}</nuxt-link>
-        </template>
+        <nuxt-link v-for='link in messengerLinks'
+                   :key='link.path'
+                   :to='localePath(link.path)'
+                   class="nav-v"
+        >
+          {{ $t(link.titleMobi) }}
+        </nuxt-link>
+
+        <nuxt-link v-for="nav in navigations"
+                   :key='nav.path'
+                   :to='localePath(nav.path)'
+                   class="nav-v"
+        >
+          {{ $t('nav.' + nav.text) }}
+        </nuxt-link>
       </div>
 
       <!-- Language -->
@@ -136,18 +161,20 @@
 <script>
 import LayoutW from '~/components/LayoutW'
 import FlyoutWallet from '~/components/FlyoutWallet'
-import navigations from '~/utils/constants/navigations'
 import locales from '~/utils/constants/locales'
+import navigations from '~/utils/constants/navigations'
 import walletLinks from '~/utils/constants/walletLinks'
+import messengerLinks from '~/utils/constants/messengerLinks'
 
 export default {
   name: 'SiteNav',
   components: { FlyoutWallet, LayoutW },
   data() {
     return {
-      walletLinks: walletLinks,
-      navigations: navigations,
       languages: locales,
+      navigations: navigations,
+      walletLinks: walletLinks,
+      messengerLinks: messengerLinks,
     }
   },
   computed: {

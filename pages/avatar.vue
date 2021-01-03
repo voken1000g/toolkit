@@ -1,5 +1,5 @@
 <template>
-  <layout-w>
+  <layout-w class='pb-12'>
     <layout-w-prose class='mt-8 md:mt-10 lg:mt-12 xl:mt-14 2xl:mt-16'>
       <h1>
         {{ $t('nav.Avatar') }}
@@ -72,6 +72,7 @@ import LayoutWProse from '~/components/LayoutWProse'
 
 export default {
   name: 'avatar',
+  layout: 'indigoParticles',
   components: { LayoutWProse, LayoutFooterSimple, LayoutW },
   head() {
     return {

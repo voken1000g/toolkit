@@ -9,6 +9,9 @@ export default {
     dir: 'docs',
     fallback: '404.html'
   },
+  env: {
+    msgTest: 'VOKEN Message Helper'
+  },
   router: {
     base: baseUrl
   },
@@ -49,6 +52,7 @@ export default {
   components: true,
 
   modules: [
+    '@nuxtjs/auth-next',
     '@nuxtjs/toast',
     'nuxt-i18n',
     'nuxt-fontawesome'
@@ -72,9 +76,15 @@ export default {
           'faGlobeAmericas',
           'faSpellCheck',
           'faCopy',
+          'faCheck',
           'faTimes',
+          'faExclamationTriangle',
           'faSpinner',
           'faBug',
+          'faTerminal',
+          'faSignature',
+          'faSearch',
+          'faUserCircle',
         ]
       },
       {
@@ -137,7 +147,7 @@ export default {
     splitChunks: {
       layouts: false,
       pages: true,
-      commons: true
+      commons: false
     },
 
     optimization: {
@@ -145,16 +155,11 @@ export default {
         chunks: 'all',
         automaticNameDelimiter: '.',
         maxAsyncRequests: 7,
+        // minSize: 500000,
         maxSize: 2000000,
         cacheGroups: {
           bip39: {
             test: /node_modules[\\/]bip39/,
-            chunks: 'all',
-            priority: 20,
-            name: true
-          },
-          bnJs: {
-            test: /node_modules[\\/]bn\.js/,
             chunks: 'all',
             priority: 20,
             name: true
@@ -170,7 +175,7 @@ export default {
             chunks: 'all',
             priority: 20,
             name: true
-          }
+          },
         }
       }
     }

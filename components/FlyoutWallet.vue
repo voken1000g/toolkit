@@ -67,6 +67,11 @@ export default {
   @apply transition ease-in-out duration-150;
 }
 
+.flyout-items a.nuxt-link-exact-active {
+  @apply bg-indigo-50;
+}
+
+
 .flyout-items a:hover {
   @apply bg-indigo-100;
 }

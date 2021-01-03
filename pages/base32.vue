@@ -1,5 +1,5 @@
 <template>
-  <layout-w class='pb-36'>
+  <layout-w class='pb-12'>
     <layout-w-prose class='mt-8 md:mt-10 lg:mt-12 xl:mt-14 2xl:mt-16'>
       <h1>
         {{ $t('nav.Base32') }}
@@ -91,6 +91,7 @@ import LayoutWProse from '~/components/LayoutWProse'
 
 export default {
   name: 'base32',
+  layout: 'indigoBubble',
   components: { LayoutWProse, LayoutFooterSimple, LayoutW },
   head() {
     return {
