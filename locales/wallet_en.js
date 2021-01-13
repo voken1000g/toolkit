@@ -56,7 +56,7 @@ export default {
   its_values_were_Base32_encoded: 'its values were Base32 encoded.',
 
   Private_Key: 'Private Key',
-  You_should_always_keep_it_private: 'You should always keep it private.',
+  You_should_always_keep_it_private_: 'You should always keep it private. ',
   Never_disclose_it_to_anyone: 'Never disclose it to anyone.',
   If_you_use_the_Proxy_clientbase_: 'If you use the Proxy clientbase or an IM in the vision network, your Private Key is needed.',
 
@@ -141,4 +141,16 @@ export default {
   Looks_like_: 'Looks like: ',
   VOKEN_wallet_address: 'VOKEN wallet address',
   Input_here_to_auto_verify_: 'Input here to auto verify...',
+
+  Auto_Convert_: 'Auto Convert...',
+  VOKEN_Address: 'VOKEN Address',
+  VOKEN_Public_Key__: 'VOKEN Public Key (Base32 encoded with checksum)',
+  All_items_on_this_page_are_secure__: 'All items on this page are secure and it is safe to send them to anyone.',
+  Compressed_Public_Key_in_HEX: 'Compressed Public Key in HEX',
+  Uncompressed_Public_Key_in_HEX: 'Uncompressed Public Key in HEX',
+
+  You_should_always_keep_your_Private_Key_safe_: 'You should always keep your Private Key safe, ',
+
+  VOKEN_Private_Key__: 'VOKEN Private Key (Base32 encoded with checksum)',
+  Private_Key_in_HEX: 'Private Key in HEX',
 }

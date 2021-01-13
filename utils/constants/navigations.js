@@ -1,10 +1,12 @@
 export default [
   {
-    text: 'Avatar',
+    title: 'Avatar',
+    titleMobi: 'Avatar___mobi',
     path: '/avatar'
   },
   {
-    text: 'Base32',
+    title: 'Base32',
+    titleMobi: 'Base32___mobi',
     path: '/base32'
   },
 ]

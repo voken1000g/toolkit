@@ -1,7 +1,7 @@
 export default {
   Wallet: '钱包',
 
-  HD_Wallets_helps__: '分层确定性钱包（简称 HD 钱包）可以帮助你使用一个助记词管理多个钱包，而无需存储或记忆多个私钥。',
+  HD_Wallets_helps__: '分层确定性钱包（简称 HD 钱包）可以帮助您使用一个助记词管理多个钱包，而无需存储或记忆多个私钥。',
 
 
 
@@ -14,29 +14,28 @@ export default {
   Generate_a_random_Mnemonic: '随机生成助记词',
   Input_mnemonic_manually: '手动输入助记词',
 
-  Input_Your_Mnemonic_Manually: '手动输入你的助记词',
+  Input_Your_Mnemonic_Manually: '手动输入您的助记词',
   Invalid_Mnemonic: '无效的助词词',
   Placeholder__textarea_mnemonic: '强度：12 / 15 / 18 / 21 / 24 字（含校验和）',
-
 
   BIP39_Mnemonic__backup_phrase_: 'BIP39 助记词（备份短语）',
   Generate_a_random_Mnemonic__renew_: '随机生成助记词（更新）',
   Here_is_a_example: '下面是一个例子：',
 
-  It_is_the_root_of_your_wallets: '它是你钱包的根。',
+  It_is_the_root_of_your_wallets: '它是您钱包的根。',
   Never_never_never_disclose_: '绝不，绝不，绝不向任何人透露。',
   Please_write_the_mnemonic_: '请把助记词抄写在纸上，并确保放在安全的地方。',
-  You_can_always_restore__: '你可以随时用这个助记词恢复你的所有钱包。',
+  You_can_always_restore__: '您可以随时用这个助记词恢复您的所有钱包。',
   The_avatar: '头像',
   is_converted_from___mnemonic: '是由助记词的哈希值转换而来的。',
-  An_image_may_easier__: '一张图片可能更容易打动你，所以请你尽量认识或保存它。',
-  If_you_find___avatar_does_not__: '如果你在恢复钱包时发现头像不匹配，只是说明你输入的东西不对，仔细检查并修正错别字。',
+  An_image_may_easier__: '一张图片可能更容易打动您，所以请您尽量认识或保存它。',
+  If_you_find___avatar_does_not__: '如果您在恢复钱包时发现头像不匹配，只是说明您输入的东西不对，仔细检查并修正错别字。',
 
 
   Master_Seed: '主种子',
   The_master_seed_is_converted__: '主种是由记号转换而来的（单方向）。',
-  Same_as_your_mnemonic__never_disclose__: '和你的助记词一样，千万不要向任何人透露。',
-  You_dont_need_to_save__SEED__: '你不需要保存或记住它。程序以后会用它来生成确定性钱包。',
+  Same_as_your_mnemonic__never_disclose__: '和您的助记词一样，千万不要向任何人透露。',
+  You_dont_need_to_save__SEED__: '您不需要保存或记住它。程序以后会用它来生成确定性钱包。',
 
 
   Deterministic_Wallets: '确定性钱包',
@@ -44,7 +43,7 @@ export default {
   VOKEN_use_the_following_5_levels_in: 'VOKEN 使用以下 5 层深度的',
   path_as: '路径',
   which_is_registered_and_listed_in: '已注册并列入',
-  you_could_find_the: '你可以找到',
+  you_could_find_the: '您可以找到',
   index_value_is: '索引值是',
   Wallets_OR_addresses_ar_numbered__: '钱包/地址从索引 0 开始依次递增编号。',
   Here_is_the_1st_wallet__contains: '这里是第一个钱包（#0，默认），它包含',
@@ -57,9 +56,9 @@ export default {
   its_values_were_Base32_encoded: '它的值是 Base32 编码的。',
 
   Private_Key: '私钥',
-  You_should_always_keep_it_private: '你应该始终保持它的私密性。',
+  You_should_always_keep_it_private_: '您应该始终保持它的私密性。',
   Never_disclose_it_to_anyone: '千万不要向任何人透露。',
-  If_you_use_the_Proxy_clientbase_: '如果你在远景网络中使用 Proxy 客户端或 IM，就需要你的私钥。',
+  If_you_use_the_Proxy_clientbase_: '如果您在远景网络中使用 Proxy 客户端或 IM，就需要您的私钥。',
 
   Public_Key: '公钥',
   Derived_from__in_pairs: '源于私钥，与私钥成对工作。',
@@ -82,28 +81,28 @@ export default {
   etc_: '等等',
 
   Receiving_a_message__: '接收信息/数据包',
-  Just_suppose_you_are_Alice_and__: '假设你是爱丽丝，你的一个朋友是鲍勃。',
+  Just_suppose_you_are_Alice_and__: '假设您是爱丽丝，您的一个朋友是鲍勃。',
   Sending_and_receiving_a__: '信息/数据包的发送和接收简要介绍如下：',
-  You_Alice_send__Bob: '你（Alice）给 Bob 发一条信息：',
+  You_Alice_send__Bob: '您（Alice）给 Bob 发一条信息：',
   Encrypt_the_message_with_Bob__: '用 Bob 的公钥加密信息',
-  Hash_the_message__sign_the_hash__: '对信息进行哈希处理，用你的 Alice 的私钥签署哈希值',
-  Send_the_encrypted_message__your_Public__: '将加密的信息，你的公钥和签名发送给 Bob',
-  Bob_received_your__: 'Bob 收到了你的加密信息和你的签名：',
+  Hash_the_message__sign_the_hash__: '对信息进行哈希处理，用您的 Alice 的私钥签署哈希值',
+  Send_the_encrypted_message__your_Public__: '将加密的信息，您的公钥和签名发送给 Bob',
+  Bob_received_your__: 'Bob 收到了您的加密信息和您的签名：',
   Decrypt__got_the_message: '用 Bob 的私钥解密信息，得到了信息',
-  Verify_your_signature__: '用你 Alice 的公钥验证你的签名，如果通过了，他就可以确认信息是由你发出的',
+  Verify_your_signature__: '用您 Alice 的公钥验证您的签名，如果通过了，他就可以确认信息是由您发出的',
 
 
   Making_a_transfer: '转账',
-  Making_a_transfer_from_you__to_Bob: '从你（Alice）转给 Bob 鲍勃：',
+  Making_a_transfer_from_you__to_Bob: '从您（Alice）转给 Bob 鲍勃：',
   It_works_as_follow: '它的工作原理如下：',
-  Create_a_tx_with__: '用你的 Alice 的公钥，Bob 的钱包地址和金额创建一个交易',
-  Hash_the_tx__: '对交易进行哈希处理，用你 Alice 的私钥签名',
+  Create_a_tx_with__: '用您的 Alice 的公钥，Bob 的钱包地址和金额创建一个交易',
+  Hash_the_tx__: '对交易进行哈希处理，用您 Alice 的私钥签名',
   Broadcast__the_tx: '广播（提交）交易',
   Miner_received_the_tx__: '矿工收到交易和签名',
-  Miner_verify_the_signature__: '矿工用你 Alice 的公钥验证签名',
-  Miner_derive_your__address__: '矿工从你 Alice 的公钥中获取 Alice 的钱包地址',
-  Miner_check_your__balance: '矿工检查你 Alice 的余额',
-  Decrease_your_balance__: '减少你 Alice 的余额，并添加到 Bob 的钱包地址',
+  Miner_verify_the_signature__: '矿工用您 Alice 的公钥验证签名',
+  Miner_derive_your__address__: '矿工从您 Alice 的公钥中获取 Alice 的钱包地址',
+  Miner_check_your__balance: '矿工检查您 Alice 的余额',
+  Decrease_your_balance__: '减少您 Alice 的余额，并添加到 Bob 的钱包地址',
   Miner_pack_the_tx__: '矿工将交易打包进一个新的区块',
   Transfer_finished: '转账完成',
 
@@ -111,13 +110,13 @@ export default {
   Derived_from_the_Public_Key_with__: '由公钥得出，带原生校验，用于接收资金。',
   Sending_a_Wallet_address_is_safe: '发送钱包地址是安全的。',
 
-  If_you_miss_spelled: '如果你拼错了',
+  If_you_miss_spelled: '如果您拼错了',
   recipient_s_wallet_address__: '收款人的钱包地址，在转账时。',
   The_tx_would_fail__: '由于安全原因，交易会失败。',
   In_the_vision_network: '在远景网络中，',
   no_one_would_ever_loss_any_assets: '没有人会丢失资产',
   because_of_this: '因为这个。',
-  You_can_explore: '你可以探索',
+  You_can_explore: '您可以探索',
   VOKEN_wallet_address_Validator: 'VOKEN 钱包地址验证器',
   for_more_: '了解更多...',
 
@@ -142,4 +141,16 @@ export default {
   Looks_like_: '看起来像：',
   VOKEN_wallet_address: 'VOKEN 钱包地址',
   Input_here_to_auto_verify_: '在这里输入，自动验证...',
+
+  Auto_Convert_: '自动转换...',
+  VOKEN_Address: 'VOKEN 地址',
+  VOKEN_Public_Key__: 'VOKEN 公钥（Base32 编码，含校验和）',
+  All_items_on_this_page_are_secure__: '本页面上的所有项目都是安全的，发送给任何人都是安全的。',
+  Compressed_Public_Key_in_HEX: '已压缩的十六进制公钥',
+  Uncompressed_Public_Key_in_HEX: '未压缩的十六进制公钥',
+
+  You_should_always_keep_your_Private_Key_safe_: '您应该时刻保管好您的私钥，',
+
+  VOKEN_Private_Key__: 'VOKEN 私钥（Base32 编码，含校验和）',
+  Private_Key_in_HEX: '十六进制私钥',
 }

@@ -2,6 +2,7 @@ import { join } from 'path'
 import locales from './utils/constants/locales'
 
 const baseUrl = '/toolkit/'
+// const baseUrl = '/'
 
 export default {
   ssr: false,
@@ -85,6 +86,10 @@ export default {
           'faSignature',
           'faSearch',
           'faUserCircle',
+          'faKey',
+          'faFingerprint',
+          'faLock',
+          'faShieldAlt',
         ]
       },
       {

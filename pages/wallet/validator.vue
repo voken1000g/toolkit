@@ -44,11 +44,20 @@
         {{ $t('wallet.VOKEN_wallet_address') }}
       </label>
 
-      <esw-input input-id='address-validate'
-                 class='mt-1'
-                 input-class='input-indigo w-full py-3 px-6 font-mono text-sm md:text-base'
-                 v-model='address'
-                 :input-placeholder='$t("wallet.Input_here_to_auto_verify_")' />
+      <div class='relative mt-1'>
+        <input type="text"
+               id='address-validate'
+               class='input-indigo w-full py-3 px-6 font-mono text-sm md:text-base'
+               v-model='address'
+               :placeholder='$t("wallet.Input_here_to_auto_verify_")' />
+
+        <div class='absolute block inset-y-0 right-0 pr-4 flex items-center pointer-events-none'>
+          <fa class='fa-error' :icon="['fas', 'times']" />
+          <fa class='fa-success' :icon="['fas', 'check']" />
+          <fa class='fa-warn' :icon="['fas', 'exclamation-triangle']" />
+        </div>
+      </div>
+
     </div>
   </layout-w>
 </template>

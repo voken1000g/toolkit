@@ -221,8 +221,7 @@
       </h3>
 
       <p class='text-orange-500'>
-        {{ $t('wallet.You_should_always_keep_it_private') }}
-        <b>{{ $t('wallet.Never_disclose_it_to_anyone') }}</b>
+        {{ $t('wallet.You_should_always_keep_it_private_') }}<b>{{ $t('wallet.Never_disclose_it_to_anyone') }}</b>
       </p>
 
       <p>

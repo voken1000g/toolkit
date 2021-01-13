@@ -40,12 +40,12 @@
             <flyout-wallet/>
             <flyout-messenger/>
 
-            <nuxt-link v-for="nav in navigations"
-                       :key='nav.path'
-                       :to='localePath(nav.path)'
+            <nuxt-link v-for="link in navigations"
+                       :key='link.path'
+                       :to='localePath(link.path)'
                        class="nav-h"
             >
-              {{ $t('nav.' + nav.text) }}
+              {{ $t('nav.' + link.title) }}
             </nuxt-link>
           </div>
         </div>
@@ -133,12 +133,12 @@
           {{ $t(link.titleMobi) }}
         </nuxt-link>
 
-        <nuxt-link v-for="nav in navigations"
-                   :key='nav.path'
-                   :to='localePath(nav.path)'
+        <nuxt-link v-for="link in navigations"
+                   :key='link.path'
+                   :to='localePath(link.path)'
                    class="nav-v"
         >
-          {{ $t('nav.' + nav.text) }}
+          {{ $t('nav.' + link.titleMobi) }}
         </nuxt-link>
       </div>
 

@@ -1,68 +1,57 @@
 a,
-button,
 input,
+button,
 textarea {
   @apply outline-none;
   @apply transition duration-150 ease-in-out;
-}
 
-input,
-button,
-input:focus,
-button:focus,
-textarea:focus {
-  @apply outline-none;
+  &:focus {
+    @apply outline-none;
+  }
 }
-
-.flyout {
-  @apply transition duration-200 ease-in-out;
-}
-
-.float-center {
-  @apply fixed z-10 top-0 left-0 w-full h-full flex items-center justify-center;
-  @apply transition duration-200 ease-in-out;
-}
-
 
 .btn {
   @apply block inline-flex items-center justify-center;
   @apply bg-gradient-to-r from-blue-500 to-indigo-500;
   @apply border border-transparent rounded-md shadow;
   @apply font-sans text-indigo-50;
+
+  &:hover {
+    @apply to-indigo-600 text-white;
+  }
+
+  &:active {
+    @apply to-indigo-500 shadow-outline-indigo;
+  }
 }
 
-.btn:hover {
-  @apply to-indigo-600 text-white;
-}
-
-.btn:active {
-  @apply to-indigo-500 shadow-outline-indigo;
-}
 
 .btn-pink {
   @apply from-orange-500 to-pink-500 text-pink-50;
+
+  &:hover {
+    @apply to-pink-600;
+  }
+
+  &:active {
+    @apply to-pink-500 shadow-outline-pink;
+  }
 }
 
-.btn-pink:hover {
-  @apply to-pink-600;
-}
-
-.btn-pink:active {
-  @apply to-pink-500 shadow-outline-pink;
-}
 
 
 .btn-gray {
   @apply from-gray-600 to-gray-700 text-gray-50;
+
+  &:hover {
+    @apply to-gray-900;
+  }
+
+  &:active {
+    @apply to-gray-800 shadow-outline-gray;
+  }
 }
 
-.btn-gray:hover {
-  @apply to-gray-900;
-}
-
-.btn-gray:active {
-  @apply to-gray-800 shadow-outline-gray;
-}
 
 /**
  * indigo
@@ -71,20 +60,20 @@ textarea:focus {
 .textarea-indigo {
   @apply border border-indigo-300 outline-none;
   @apply rounded-md shadow-md;
-}
 
-.input-indigo:focus,
-.textarea-indigo:focus {
-  @apply border-indigo-500 shadow-outline-indigo;
+  &:focus {
+    @apply border-indigo-500 shadow-outline-indigo;
+  }
 }
 
 .a-indigo {
   @apply text-indigo-700;
+
+  &:hover {
+    @apply text-indigo-500;
+  }
 }
 
-.a-indigo:hover {
-  @apply text-indigo-500;
-}
 
 /**
  * indigo
@@ -93,11 +82,10 @@ textarea:focus {
 .textarea-teal {
   @apply border border-teal-300 outline-none;
   @apply rounded-md shadow-md;
-}
 
-.input-teal:focus,
-.textarea-teal:focus {
-  @apply border-teal-500 shadow-outline-teal;
+  &:focus {
+    @apply border-teal-500 shadow-outline-teal;
+  }
 }
 
 /**
@@ -134,32 +122,39 @@ textarea:focus {
 .error input,
 .error textarea {
   @apply bg-red-50 border-red-600 text-red-700;
-}
 
-.error input:focus,
-.error textarea:focus {
-  @apply border-red-500 shadow-outline-red;
+  &:focus {
+    @apply border-red-500 shadow-outline-red;
+  }
 }
 
 .success input,
 .success textarea {
   @apply bg-green-50 border-green-600 text-green-700;
-}
 
-.success input:focus,
-.success textarea:focus {
-  @apply border-green-500 shadow-outline-green;
+  &:focus {
+    @apply border-green-500 shadow-outline-green;
+  }
 }
 
 .warn input,
 .warn textarea {
   @apply bg-yellow-50 border-yellow-600 text-yellow-700;
+
+  &:focus {
+    @apply border-yellow-500 shadow-outline-yellow;
+  }
 }
 
-.warn input:focus,
-.warn textarea:focus {
-  @apply border-yellow-500 shadow-outline-yellow;
+.flyout {
+  @apply transition duration-200 ease-in-out;
 }
+
+.float-center {
+  @apply fixed z-10 top-0 left-0 w-full h-full flex items-center justify-center;
+  @apply transition duration-200 ease-in-out;
+}
+
 
 /**
  * ESW input
