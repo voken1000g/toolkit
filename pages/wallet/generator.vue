@@ -394,7 +394,7 @@
 
       <p>
         {{ $t('wallet.You_can_explore') }}
-        <nuxt-link :to='localePath("/wallet-validator")'>
+        <nuxt-link :to='localePath("/wallet/validator")'>
           {{ $t('wallet.VOKEN_wallet_address_Validator') }}
         </nuxt-link>
         {{ $t('wallet.for_more_') }}
