@@ -202,8 +202,6 @@ export default {
       if (this.hexPublicKeyUncompressed) {
         try {
           this.bufPublicKeyUncompressed = Buffer.from(this.hexPublicKeyUncompressed, 'hex')
-
-          publicKey.assertUncompressed(this.bufPublicKeyUncompressed)
           this.bufPublicKeyCompressed = publicKey.compress(this.bufPublicKeyUncompressed)
           this.vpub = publicKey.toVPub(this.bufPublicKeyCompressed)
           this.hexPublicKeyUncompressedError = ''

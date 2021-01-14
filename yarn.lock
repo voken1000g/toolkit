@@ -851,12 +851,12 @@
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
   integrity sha512-5a6wqoJV/xEdbRNKVo6I4hO3VjyDq//8q2f9I6PBAvMesJHFauXDorcNCsr9RzvsZnaWi5NYCcfyqP1QeFHFbw==
 
-"@dicebear/avatars-gridy-sprites@^4.5.2":
+"@dicebear/avatars-jdenticon-sprites@^4.5.2":
   version "4.5.2"
-  resolved "https://registry.yarnpkg.com/@dicebear/avatars-gridy-sprites/-/avatars-gridy-sprites-4.5.2.tgz#15e1a053cb32fd9e34c48ae9ee7887fc1a690a64"
-  integrity sha512-XdHo7N+lapfSa5K5imp7LPhcSTfKFxD8gw8+elrO7JeAIzr2C46dv2nxF41ay/c0Rs2/4PxrEA1Z+O51j1U0NA==
+  resolved "https://registry.yarnpkg.com/@dicebear/avatars-jdenticon-sprites/-/avatars-jdenticon-sprites-4.5.2.tgz#674275fa197279a4c00bf157b8da465c2cb1ecf7"
+  integrity sha512-uoPTv4x8oLPBaoonerSfpezEtcwFt8yb4hrFKUx/qP2hZCZGTK1Q7IWgrtNi8zI2LgGBaAG5nzpvl+a3C+SeJg==
   dependencies:
-    gridy-avatars "^1.1.3"
+    jdenticon "^2.1.1"
 
 "@dicebear/avatars@^4.5.2":
   version "4.5.2"
@@ -1479,14 +1479,14 @@
     "@types/webpack-sources" "*"
     source-map "^0.6.0"
 
-"@voken/address@^1.4.0":
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/@voken/address/-/address-1.4.0.tgz#c88d023cb3296b56a60bff8dd73df1793a4076b3"
-  integrity sha512-aP9HCuOKl6jF+SifcKtJKcWvvvEe5Qp2IQmGIbGwNjT2RGNVf30d0dII+OnhUD/pV6qPEWwYqUnhkZajUKsCRA==
+"@voken/address@^1.5.1":
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/@voken/address/-/address-1.5.1.tgz#b20f24951db3ce9b2c2cda18cad6912d5dae9af1"
+  integrity sha512-sF+NtwgTKFLWltthXdRYE+2iIGc/8ew4zznZ5rSR3a9zpt+72bsKe8RwqPH0OgY+gJ0kdT+emp3KDM1h9iVTbQ==
   dependencies:
     "@types/bn.js" "^4.11.6"
     "@voken/base32" "^1.3.1"
-    "@voken/public-key" "^1.1.0"
+    "@voken/public-key" "^1.3.0"
     "@voken/sha" "^1.1.0"
     bn.js "^5.1.3"
 
@@ -1498,13 +1498,13 @@
     "@types/node" "^14.14.16"
     "@voken/sha" "^1.1.0"
 
-"@voken/avatar@^1.2.0":
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/@voken/avatar/-/avatar-1.2.0.tgz#14802fcebfc044b1b6ff78f639a18c1c19369183"
-  integrity sha512-/0eC6HMcV4B6PUsx06aQzwCaC9E227PgJIcX7r9Q8+GPLtwpyeGqYPG7r/bgYM/UPWXbRRFwdFBBiIdNASF4rA==
+"@voken/avatar@^1.3.0":
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/@voken/avatar/-/avatar-1.3.0.tgz#7db82c1541168fd2fcb9fad743084eaaa09b80c1"
+  integrity sha512-xV2MZvlJC6Y9A/IoK7Llz+c7zqyHGE4jDj6KM3RgbM3aebpnXrWMcYDtTpLBWhcow65nIizutQjzkE/tJVaRKA==
   dependencies:
     "@dicebear/avatars" "^4.5.2"
-    "@dicebear/avatars-gridy-sprites" "^4.5.2"
+    "@dicebear/avatars-jdenticon-sprites" "^4.5.2"
 
 "@voken/base32@^1.3.1":
   version "1.3.1"
@@ -1521,12 +1521,12 @@
     eciesjs "^0.3.8"
     elliptic "^6.5.3"
 
-"@voken/hd-wallet@^1.2.0":
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/@voken/hd-wallet/-/hd-wallet-1.2.0.tgz#6c8034627035c61414c16b70fde50e161a29c416"
-  integrity sha512-gK0uAsZordJoOr2ttC6/9WnD28OltTsN2DTfpw++H9yZ5UNBX07GIacjFOYm6sCVbg9OGX4zV4Dx+UvF6sEeGg==
+"@voken/hd-wallet@^1.3.1":
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/@voken/hd-wallet/-/hd-wallet-1.3.1.tgz#0c37547aa9b13d2e9f1cb788c65bee15a697afd8"
+  integrity sha512-Rp4SKG4DZ/JjZw4qD7cKReEkmrydYNMvHqyEMaHZ869IuaKsX+e+qr/p1RCDAY6exM/q/+4tKrEHrs+7v7tJRA==
   dependencies:
-    "@voken/address" "^1.4.0"
+    "@voken/address" "^1.5.1"
     "@voken/base32" "^1.3.1"
     hdkey "^2.0.1"
 
@@ -1537,10 +1537,10 @@
   dependencies:
     "@voken/base32" "^1.3.1"
 
-"@voken/public-key@^1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@voken/public-key/-/public-key-1.1.0.tgz#2a8f8d460bb1ab1014f2d19f00ca9620165d9732"
-  integrity sha512-ygkWEKvjQpg54GLVHxXb7voFrPd6u3M3hfmohydJJhyAsmhDyQCE8PKdov9Z3hukL2curV4WApPE7JuomKe7fg==
+"@voken/public-key@^1.3.0":
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/@voken/public-key/-/public-key-1.3.0.tgz#091b1b908fb009337346fada1c5399701e758226"
+  integrity sha512-K6DaVWSm1i8hw6frY1xmsBgqeaD1TptpnXIq/r2OmiXKczNit7cPAWTq8aXztQSW0jcdzijQqcbJPWH3utEiMg==
   dependencies:
     "@voken/base32" "^1.3.1"
     elliptic "^6.5.3"
@@ -2641,6 +2641,11 @@ caniuse-lite@^1.0.0, caniuse-lite@^1.0.30000981, caniuse-lite@^1.0.30001109, can
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001170.tgz#0088bfecc6a14694969e391cc29d7eb6362ca6a7"
   integrity sha512-Dd4d/+0tsK0UNLrZs3CvNukqalnVTRrxb5mcQm8rHL49t7V5ZaTygwXkrq+FB+dVDf++4ri8eJnFEJAB8332PA==
 
+canvas-renderer@~2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/canvas-renderer/-/canvas-renderer-2.1.1.tgz#d91fe9511ab48056ff9fa8a04514bede76535f55"
+  integrity sha512-/V0XetN7s1Mk3NO7x2wxPZYv0pLMQtGAhecuOuKR88beiYCUle1AbCcFZNLu+4NVzi9RVHS0rXtIgzPEaKidLw==
+
 caseless@~0.12.0:
   version "0.12.0"
   resolved "https://registry.yarnpkg.com/caseless/-/caseless-0.12.0.tgz#1b681c21ff84033c826543090689420d187151dc"
@@ -3420,11 +3425,6 @@ cyclist@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/cyclist/-/cyclist-1.0.1.tgz#596e9698fd0c80e12038c2b82d6eb1b35b6224d9"
   integrity sha1-WW6WmP0MgOEgOMK4LW6xs1tiJNk=
-
-d3-color@^1.0.3:
-  version "1.4.1"
-  resolved "https://registry.yarnpkg.com/d3-color/-/d3-color-1.4.1.tgz#c52002bf8846ada4424d55d97982fef26eb3bc8a"
-  integrity sha512-p2sTHSLCJI2QKunbGb7ocOh7DgTAn8IrLx21QRc/BSnodXM4sv6aLQlnfpvehFMLZEfBc6g9pH9SWQccFYfJ9Q==
 
 dashdash@^1.12.0:
   version "1.14.1"
@@ -4572,13 +4572,6 @@ graceful-fs@^4.1.11, graceful-fs@^4.1.15, graceful-fs@^4.1.2, graceful-fs@^4.1.6
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.2.4.tgz#2256bde14d3632958c465ebc96dc467ca07a29fb"
   integrity sha512-WjKPNJF79dtJAVniUlGGWHYGz2jWxT6VhN/4m1NdkbZ2nOsEF+cI1Edgql5zCRhs/VsQYRvrXctxktVXZUkixw==
 
-gridy-avatars@^1.1.3:
-  version "1.1.3"
-  resolved "https://registry.yarnpkg.com/gridy-avatars/-/gridy-avatars-1.1.3.tgz#34e5c2f3e651b35e5e975ec701a27f442372b8b2"
-  integrity sha512-TVDHcof5MSZqrVYL5q2K3PCYigE4mzKbtKYSKW9Wsyf5+vFbQlIWmCW+QrHTIgrSbBRbNXTO+8AV2uc0K35K/g==
-  dependencies:
-    d3-color "^1.0.3"
-
 gzip-size@^5.0.0:
   version "5.1.1"
   resolved "https://registry.yarnpkg.com/gzip-size/-/gzip-size-5.1.1.tgz#cb9bee692f87c0612b232840a873904e4c135274"
@@ -5415,6 +5408,14 @@ isstream@~0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/isstream/-/isstream-0.1.2.tgz#47e63f7af55afa6f92e1500e690eb8b8529c099a"
   integrity sha1-R+Y/evVa+m+S4VAOaQ64uFKcCZo=
+
+jdenticon@^2.1.1:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/jdenticon/-/jdenticon-2.2.0.tgz#6a9d9cb2134a7848ff21d59b3871148cbc6af87f"
+  integrity sha512-WGqwpjN9pab/Sah9pGnFH5tQc3HF3WbLV/tPVbykvk5nuAkxG/zhzQYWC2owvpnS+/A0HmlSx35rtY8kyN+x7Q==
+  dependencies:
+    "@types/node" "*"
+    canvas-renderer "~2.1.1"
 
 jest-worker@^25.4.0:
   version "25.5.0"
