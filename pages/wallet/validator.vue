@@ -29,7 +29,7 @@
          :class='{ "success": address && isAddress, "error": address && !isAddress }'
     >
       <div class='w-14 h-14 lg:w-16 lg:h-16 xl:w-20 xl:h-20 mx-auto bg-white rounded-md shadow-md lg:shadow-lg'>
-        <img v-show='isAddress' :src='addressAvatarImageSrc' alt='address avatar'>
+        <vue-avatar v-show='isAddress' :value='address'/>
         <div v-show='!isAddress'
              class='h-full flex items-center justify-center text-2xl lg:text-3xl xl:text-4xl text-gray-300'
              :class='{ "text-red-300": address && !isAddress}'
@@ -64,14 +64,14 @@
 
 <script>
 import vokenAddress from '@voken/address'
-import avatar from '@voken/avatar'
+import VueAvatar from '@voken/vue-avatar'
 import LayoutW from '~/components/LayoutW'
 import LayoutWProse from '~/components/LayoutWProse'
 
 export default {
   name: 'wallet-validator',
   layout: 'wallet',
-  components: { LayoutWProse, LayoutW },
+  components: { LayoutWProse, LayoutW, VueAvatar },
   head() {
     return {
       title: this.$t('nav.Wallet_Validator')
@@ -85,13 +85,6 @@ export default {
   computed: {
     isAddress() {
       return vokenAddress.isAddress(this.address)
-    },
-    addressAvatarImageSrc() {
-      if (this.address) {
-        return avatar.svgDataUriFromSeed(this.address)
-      }
-
-      return null
     }
   }
 }

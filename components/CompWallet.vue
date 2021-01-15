@@ -5,7 +5,7 @@
     <div class='xl:w-1/4 lg:pt-4'>
       <div
         class='w-14 h-14 lg:w-16 lg:h-16 xl:w-20 xl:h-20 mx-auto bg-white rounded-md border border-gray-300 shadow-md lg:shadow-lg'>
-        <img :src='avatar.svgDataUriFromSeed(wallet.address)' alt='address avatar'>
+        <vue-avatar :value='wallet.address'/>
       </div>
 
       <h3 class='mt-2 lg:mt-3 xl:mt-4 text-lg lg:text-xl xl:text-2xl font-bold text-gray-800 text-center'>
@@ -110,18 +110,12 @@
 </template>
 
 <script>
-import avatar from '@voken/avatar'
-import * as bip39 from 'bip39'
-import Wallet from '@voken/hd-wallet'
+import VueAvatar from '@voken/vue-avatar'
 
 export default {
   name: 'CompWallet',
+  components: { VueAvatar },
   props: ['wallet'],
-  data() {
-    return {
-      avatar: avatar
-    }
-  },
   methods: {
     async copyPrivateKey(index) {
       this.$refs['private-key-' + index].select()

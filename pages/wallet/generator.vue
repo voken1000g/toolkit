@@ -30,7 +30,7 @@
       <div v-if='!mnemonic && showBtnGenerateMnemonic && showBtnInputMnemonic'
            class='mt-8 lg:mt-10 xl:mt-12 2xl:mt-14 flex flex-col space-y-4 lg:flex-row lg:space-x-2 lg:space-y-0 xl:space-x-4 2xl:space-x-6 justify-center'>
         <button type='button'
-                class='w-full md:max-w-xl btn-new-mnemonic'
+                class='w-full md:max-w-xl btn btn-pink py-4 font-bold'
                 @click='newMnemonic'
         >
           <svg-ripple class='mr-4 w-8 h-8' style='margin-top: 0; margin-bottom: 0' />
@@ -38,7 +38,7 @@
         </button>
 
         <button type='button'
-                class='w-full md:max-w-xl btn-input-mnemonic'
+                class='w-full md:max-w-xl btn py-4 font-bold'
                 @click='inputMnemonic'
         >
           {{ $t('wallet.Input_mnemonic_manually') }}
@@ -68,7 +68,7 @@
 
       <div v-show='!mnemonicSuccess' class='mt-4 lg:mt-8 flex justify-center'>
         <button type='button'
-                class='w-full md:max-w-xl btn-new-mnemonic'
+                class='w-full md:max-w-xl btn btn-pink py-4 font-bold'
                 @click='newMnemonic'
         >
           <svg-ripple class='mr-4 w-8 h-8' style='margin-top: 0; margin-bottom: 0' />
@@ -81,7 +81,7 @@
          class='mt-4 lg:mt-6 2xl:mt-8 py-6 xl:py-8 px-4 bg-gradient-to-br from-red-100 to-orange-200 rounded-md'>
       <div
         class='w-14 h-14 lg:w-16 lg:h-16 xl:w-20 xl:h-20 mx-auto bg-white rounded-md shadow-md lg:shadow-lg'>
-        <img :src='avatar.svgDataUriFromSeed(mnemonic)' alt='mnemonic avatar'>
+        <vue-avatar :value='mnemonic'/>
       </div>
 
       <h3 class='mt-4 lg:mt-6 xl:mt-8 text-2xl xl:text-3xl text-gray-600 text-center'>
@@ -105,7 +105,7 @@
 
       <div class='mt-2 md:mt-4 lg:mt-6 flex justify-center'>
         <button type='button'
-                class='mt-6 mx-auto w-full md:max-w-xl btn-new-mnemonic'
+                class='mt-6 mx-auto w-full md:max-w-xl btn btn-pink py-4 font-bold'
                 @click='newMnemonic'
         >
           {{ $t('wallet.Generate_a_random_Mnemonic__renew_') }}
@@ -125,9 +125,9 @@
       </p>
       <p class='align-text-bottom'>
         {{ $t('wallet.The_avatar') }}
-        <img :src='avatar.svgDataUriFromSeed(mnemonic)'
-             class='inline-block align-text-bottom w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-white rounded-md shadow-md'
-             style='margin: 0' alt='mnemonic avatar'>
+        <vue-avatar class='inline-block align-text-bottom w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-white rounded-md shadow-md'
+                    style='margin: 0'
+                    :value='mnemonic'/>
         {{ $t('wallet.is_converted_from___mnemonic') }}
         {{ $t('wallet.by') }}
         <a href='https://voken.io/en/latest/npm/avatar.html'>@voken/avatar</a>
@@ -421,7 +421,7 @@
 
     <div v-if='wallets[0]' class='mt-6 md:mt-8 lg:mt-10 flex justify-center'>
       <button type='button'
-              class='w-full md:max-w-xl btn-next-wallet'
+              class='w-full md:max-w-xl btn py-4 font-bold'
               @click='nextWallet'
       >
         {{ $t('wallet.Derive_Next_Wallet') }}
@@ -432,9 +432,9 @@
 
 <script>
 import * as bip39 from 'bip39'
-import avatar from '@voken/avatar'
 import base32 from '@voken/base32'
 import Wallet from '@voken/hd-wallet'
+import VueAvatar from '@voken/vue-avatar'
 import LayoutW from '~/components/LayoutW'
 import LayoutWProse from '~/components/LayoutWProse'
 import CompWallet from '~/components/CompWallet'
@@ -443,7 +443,7 @@ import SvgRipple from '~/components/SvgRipple'
 export default {
   name: 'wallet-generator',
   layout: 'wallet',
-  components: { SvgRipple, CompWallet, LayoutWProse, LayoutW },
+  components: { SvgRipple, CompWallet, LayoutWProse, LayoutW, VueAvatar },
   head() {
     return {
       title: this.$t('nav.Wallet_Generator')
@@ -451,7 +451,6 @@ export default {
   },
   data() {
     return {
-      avatar: avatar,
       base32: base32,
 
       showBtnGenerateMnemonic: true,
@@ -561,20 +560,5 @@ button {
 
 .btn-new-mnemonic:active {
   @apply to-pink-500 shadow-outline-pink;
-}
-
-.btn-input-mnemonic,
-.btn-next-wallet {
-  @apply from-blue-500 to-indigo-500;
-}
-
-.btn-input-mnemonic:hover,
-.btn-next-wallet:hover {
-  @apply to-indigo-600;
-}
-
-.btn-input-mnemonic:active,
-.btn-next-wallet:active {
-  @apply to-indigo-500 shadow-outline-indigo;
 }
 </style>

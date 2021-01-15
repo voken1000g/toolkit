@@ -12,7 +12,7 @@
 
     <div class='w-full md:max-w-2xl mt-10 md:mt-14 lg:mt-16 xl:mt-20 2xl:mt-24 mx-auto font-mono text-sm md:text-base'>
       <div class='w-14 h-14 lg:w-16 lg:h-16 xl:w-20 xl:h-20 mx-auto bg-white rounded-md shadow-md lg:shadow-lg'>
-        <img v-show='something' :src='avatar.svgDataUriFromSeed(something)' alt='something avatar'>
+        <vue-avatar v-show='something' :value='something'/>
         <div v-show='!something'
              class='h-full flex items-center justify-center text-2xl lg:text-3xl xl:text-4xl text-gray-300'
         >
@@ -28,7 +28,7 @@
       <input type='text'
              name='something'
              id='something'
-             class='input-indigo w-full mt-1 py-3 px-6 font-mono text-sm md:text-base'
+             class='mt-1 input-indigo w-full py-3 px-6 font-mono text-sm md:text-base'
              v-model='something'
              :placeholder='$t("avatar.Input_something_to_auto_generate_")'>
     </div>
@@ -65,7 +65,7 @@
 </template>
 
 <script>
-import avatar from '@voken/avatar'
+import VueAvatar from '@voken/vue-avatar'
 import LayoutW from '~/components/LayoutW'
 import LayoutFooterSimple from '~/components/LayoutFooterSimple'
 import LayoutWProse from '~/components/LayoutWProse'
@@ -73,7 +73,7 @@ import LayoutWProse from '~/components/LayoutWProse'
 export default {
   name: 'avatar',
   layout: 'indigoParticles',
-  components: { LayoutWProse, LayoutFooterSimple, LayoutW },
+  components: { LayoutWProse, LayoutFooterSimple, LayoutW, VueAvatar },
   head() {
     return {
       title: this.$t('nav.Avatar')
@@ -81,7 +81,6 @@ export default {
   },
   data() {
     return {
-      avatar: avatar,
       something: ''
     }
   }

@@ -70,12 +70,19 @@
             </span>
           </label>
 
-          <esw-input input-id='vpriv'
-                     class='mt-1'
-                     v-model='vpriv'
-                     input-class='input-indigo w-full py-3 pl-4 pr-9 font-mono text-xs'
-                     placeholder='vpriv...' />
+          <div class='relative mt-1'>
+            <input type='text'
+                   id='vpriv'
+                   class='input-indigo w-full py-3 pl-4 pr-9 font-mono text-xs'
+                   v-model='vpriv'
+                   placeholder='vpriv...' />
 
+            <div class='absolute block inset-y-0 right-0 pr-4 flex items-center pointer-events-none'>
+              <fa class='fa-error' :icon="['fas', 'times']" />
+              <fa class='fa-success' :icon="['fas', 'check']" />
+              <fa class='fa-warn' :icon="['fas', 'exclamation-triangle']" />
+            </div>
+          </div>
         </div>
 
 
@@ -84,11 +91,19 @@
             {{ $t('messenger.Set_a_password') }}
           </label>
 
-          <esw-input input-id='password_set'
-                     input-type='password'
-                     class='mt-1'
-                     v-model='passwordSet'
-                     input-class='input-indigo w-full py-3 pl-4 pr-9 font-mono text-xs' />
+
+          <div class='relative mt-1'>
+            <input type='password'
+                   id='password_set'
+                   class='input-indigo w-full py-3 pl-4 pr-9 font-mono text-xs'
+                   v-model='passwordSet' />
+
+            <div class='absolute block inset-y-0 right-0 pr-4 flex items-center pointer-events-none'>
+              <fa class='fa-error' :icon="['fas', 'times']" />
+              <fa class='fa-success' :icon="['fas', 'check']" />
+              <fa class='fa-warn' :icon="['fas', 'exclamation-triangle']" />
+            </div>
+          </div>
         </div>
 
         <div :class='{ "success": passwordConfirmed, "error": passwordRepeat && !passwordSame }'>
@@ -96,11 +111,18 @@
             {{ $t('messenger.Confirm_the_password') }}
           </label>
 
-          <esw-input input-id='password_repeat'
-                     input-type='password'
-                     class='mt-1'
-                     v-model='passwordRepeat'
-                     input-class='input-indigo w-full py-3 pl-4 pr-9 font-mono text-xs' />
+          <div class='relative mt-1'>
+            <input type='password'
+                   id='password_repeat'
+                   class='input-indigo w-full py-3 pl-4 pr-9 font-mono text-xs'
+                   v-model='passwordRepeat' />
+
+            <div class='absolute block inset-y-0 right-0 pr-4 flex items-center pointer-events-none'>
+              <fa class='fa-error' :icon="['fas', 'times']" />
+              <fa class='fa-success' :icon="['fas', 'check']" />
+              <fa class='fa-warn' :icon="['fas', 'exclamation-triangle']" />
+            </div>
+          </div>
         </div>
       </div>
 
@@ -133,12 +155,18 @@
           {{ $t('messenger.Input_the_password_to_unlock') }}
         </label>
 
-        <esw-input input-id='password'
-                   input-type='password'
-                   class='mt-1'
-                   v-model='password'
-                   input-class='input-indigo w-full py-3 pl-4 pr-9 font-mono text-xs' />
+        <div class='relative mt-1'>
+          <input type='password'
+                 id='password'
+                 class='input-indigo w-full py-3 pl-4 pr-9 font-mono text-xs'
+                 v-model='password' />
 
+          <div class='absolute block inset-y-0 right-0 pr-4 flex items-center pointer-events-none'>
+            <fa class='fa-error' :icon="['fas', 'times']" />
+            <fa class='fa-success' :icon="['fas', 'check']" />
+            <fa class='fa-warn' :icon="['fas', 'exclamation-triangle']" />
+          </div>
+        </div>
 
         <div class='mt-4 flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-4'>
           <button type='button' class='w-full btn btn-pink py-3 uppercase' @click='unlock'>
@@ -169,13 +197,19 @@
             </span>
           </label>
 
-          <esw-input input-id='to_vpub'
-                     class='mt-1'
-                     v-model='toVpub'
-                     input-class='input-indigo w-full py-3 px-4 font-mono text-xs sm:text-sm md:text-base'
-                     icon-class='pr-4'
-                     input-placeholder='vpub...' />
+          <div class='relative mt-1'>
+            <input type='text'
+                   id='to_vpub'
+                   class='input-indigo w-full py-3 px-4 font-mono text-xs sm:text-sm md:text-base'
+                   v-model='toVpub'
+                   placeholder='vpub...' />
 
+            <div class='absolute block inset-y-0 right-0 pr-4 flex items-center pointer-events-none'>
+              <fa class='fa-error' :icon="['fas', 'times']" />
+              <fa class='fa-success' :icon="['fas', 'check']" />
+              <fa class='fa-warn' :icon="['fas', 'exclamation-triangle']" />
+            </div>
+          </div>
         </div>
 
         <div class='w-full space-y-4 lg:flex lg:flex-row lg:space-x-4 lg:space-y-0'>
@@ -251,7 +285,7 @@
           <div v-if='bufFromDataOriginalData.length > 0' class='w-full'>
             <div v-show='boolFromDataSigVerified' class='pt-6 pb-2 break-all'>
               <div class='w-14 h-14 mx-auto bg-white rounded-md shadow-md'>
-                <img :src='avatar.svgDataUriFromSeed(strFromDataAddress)' alt='sender avatar'>
+                <vue-avatar :value='strFromDataAddress'/>
               </div>
 
               <div class='mt-4 mx-auto'>
@@ -442,16 +476,16 @@ import LayoutWProse from '~/components/LayoutWProse'
 import privateKey from '@voken/private-key'
 import publicKey from '@voken/public-key'
 import vokenAddress from '@voken/address'
-import avatar from '@voken/avatar'
 import aes from '@voken/aes256ctr'
 import sha from '@voken/sha'
 import base32 from '@voken/base32'
 import edsv from '@voken/edsv'
+import VueAvatar from '@voken/vue-avatar'
 
 export default {
   name: 'index',
   layout: 'messenger',
-  components: { LayoutWProse, LayoutW },
+  components: { LayoutWProse, LayoutW, VueAvatar },
   head() {
     return {
       title: this.$t('nav.Messenger')
@@ -459,7 +493,6 @@ export default {
   },
   data() {
     return {
-      avatar: avatar,
       publicKey: publicKey,
 
       vpriv: '',

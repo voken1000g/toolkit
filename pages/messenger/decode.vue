@@ -40,7 +40,7 @@
         <div v-if='bufFromDataOriginalData.length > 0' class='w-full'>
           <div v-show='boolFromDataSigVerified' class='pt-6 pb-2 break-all'>
             <div class='w-14 h-14 mx-auto bg-white rounded-md shadow-md'>
-              <img :src='avatar.svgDataUriFromSeed(strFromDataAddress)' alt='sender avatar'>
+              <vue-avatar :value='strFromDataAddress'/>
             </div>
 
             <div class='mt-4 mx-auto'>
@@ -76,19 +76,17 @@
 <script>
 import LayoutW from '~/components/LayoutW'
 import LayoutWProse from '~/components/LayoutWProse'
-import privateKey from '@voken/private-key'
 import publicKey from '@voken/public-key'
 import vokenAddress from '@voken/address'
-import avatar from '@voken/avatar'
 import aes from '@voken/aes256ctr'
-import sha from '@voken/sha'
 import base32 from '@voken/base32'
 import edsv from '@voken/edsv'
+import VueAvatar from '@voken/vue-avatar'
 
 export default {
   name: 'decodes',
   layout: 'messenger',
-  components: { LayoutWProse, LayoutW },
+  components: { LayoutWProse, LayoutW, VueAvatar },
   head() {
     return {
       title: this.$t('nav.Messenger')
@@ -96,7 +94,6 @@ export default {
   },
   data() {
     return {
-      avatar: avatar,
       base32: base32,
 
       fromData: '',

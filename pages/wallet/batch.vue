@@ -36,9 +36,8 @@
          class='mt-8 lg:mt-10 xl:mt-12 2xl:mt-14 grid grid-cols-6 sm:grid-cols-8 md:grid-cols-9 lg:grid-cols-10 xl:grid-cols-12 gap-4'
     >
       <div v-for='wallet in wallets' :key='wallet.index'>
-        <div class='w-16 h-16 mx-auto bg-white rounded-md border border-gray-300 shadow-md'>
-          <img :src='avatar.svgDataUriFromSeed(wallet.address)' alt='address avatar'>
-        </div>
+        <vue-avatar class='w-16 h-16 mx-auto bg-white rounded-md border border-gray-300 shadow-md'
+                    :value='wallet.address'/>
         <div class='mt-1 font-mono text-gray-500 text-center'>
           #{{ wallet.index }}
         </div>
@@ -49,10 +48,10 @@
 
 <script>
 import * as bip39 from 'bip39'
-import avatar from '@voken/avatar'
 import base32 from '@voken/base32'
 import Wallet from '@voken/hd-wallet'
 import publicKey from '@voken/public-key'
+import VueAvatar from '@voken/vue-avatar'
 import LayoutW from '~/components/LayoutW'
 import LayoutWProse from '~/components/LayoutWProse'
 import CompWallet from '~/components/CompWallet'
@@ -61,7 +60,7 @@ import SvgRipple from '~/components/SvgRipple'
 export default {
   name: 'wallet-batch',
   layout: 'wallet',
-  components: { SvgRipple, CompWallet, LayoutWProse, LayoutW },
+  components: { SvgRipple, CompWallet, LayoutWProse, LayoutW, VueAvatar },
   head() {
     return {
       title: this.$t('nav.Wallet_Batch')
@@ -69,7 +68,6 @@ export default {
   },
   data() {
     return {
-      avatar: avatar,
       base32: base32,
 
       result: '',

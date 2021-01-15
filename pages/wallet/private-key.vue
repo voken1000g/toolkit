@@ -19,7 +19,7 @@
       <div class='space-y-10 lg:space-y-0 lg:flex lg:items-end lg:justify-center lg:space-x-8'>
         <div
           class='w-14 h-14 lg:w-16 lg:h-16 xl:w-20 xl:h-20 mx-auto lg:mx-0 bg-white rounded-md shadow-md lg:shadow-lg'>
-          <img v-show='isAddress' :src='addressAvatarImageSrc' alt='address avatar'>
+          <vue-avatar v-show='isAddress' :value='address'/>
           <div v-show='!isAddress'
                class='h-full flex items-center justify-center text-2xl lg:text-3xl xl:text-4xl text-gray-300'
           >
@@ -161,14 +161,14 @@
 import vokenAddress from '@voken/address'
 import privateKey from '@voken/private-key'
 import publicKey from '@voken/public-key'
-import avatar from '@voken/avatar'
+import VueAvatar from '@voken/vue-avatar'
 import LayoutW from '~/components/LayoutW'
 import LayoutWProse from '~/components/LayoutWProse'
 
 export default {
   name: 'wallet-private-key',
   layout: 'wallet',
-  components: { LayoutWProse, LayoutW },
+  components: { LayoutWProse, LayoutW, VueAvatar },
   head() {
     return {
       title: this.$t('nav.Wallet_Private_Key')
@@ -398,13 +398,6 @@ export default {
     // address
     isAddress() {
       return vokenAddress.isAddress(this.address)
-    },
-    addressAvatarImageSrc() {
-      if (this.address) {
-        return avatar.svgDataUriFromSeed(this.address)
-      }
-
-      return null
     }
   }
 }

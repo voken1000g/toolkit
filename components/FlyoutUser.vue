@@ -9,10 +9,9 @@
         <fa :icon="['fas', 'user-circle']" />
       </span>
 
-      <img v-show='address'
-           class='inline-block w-9 h-9'
-           :src='avatarImageSrc'
-           alt='address avatar'>
+      <vue-avatar v-show='address'
+                  class='inline-block w-9 h-9 bg-white shadow'
+                  :value='address'/>
 
       <span v-show='address' class='nav-address'>
         {{ address.slice(0, 10) }}..
@@ -28,7 +27,7 @@
           <div class='py-6 lg:py-8 w-full mx-auto p-4 font-mono text-sm md:text-base'>
             <!-- avatar -->
             <div class='w-14 h-14 lg:w-16 lg:h-16 xl:w-20 xl:h-20 mx-auto bg-white rounded-md shadow-md lg:shadow-lg'>
-              <img v-show='$store.state.address' :src='avatarImageSrc' alt='address avatar'>
+              <vue-avatar v-show='address' :value='address'/>
               <div
                 class='w-full h-full flex items-center justify-center text-2xl lg:text-3xl xl:text-4xl text-gray-300'>
                 <fa v-show='!$store.state.address' :icon="['fas', 'user-circle']" />
@@ -106,20 +105,14 @@
 </template>
 
 <script>
-import avatar from '@voken/avatar'
+import VueAvatar from '@voken/vue-avatar'
 
 export default {
   name: 'FlyoutUser',
+  components: { VueAvatar },
   computed: {
     address() {
       return this.$store.state.address
-    },
-    avatarImageSrc() {
-      if (this.$store.state.address) {
-        return avatar.svgDataUriFromSeed(this.$store.state.address)
-      }
-
-      return null
     }
   },
   methods: {
