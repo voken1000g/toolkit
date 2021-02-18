@@ -20,9 +20,10 @@ jobs:
       - name: build (repo)
         run: yarn build
 
-      - name: deploy
+      - name: deploy (repo)
         uses: JamesIves/github-pages-deploy-action@4.0.0
         with:
+          commit-message: Auto Deploy from @${{ GITHUB_SHA }}
           branch: gh-pages
           folder: dist
 
@@ -37,6 +38,6 @@ jobs:
         with:
           token: ${{ secrets.ACCESS_TOKEN }}
           repository-name: voken-toolkit/voken-toolkit.github.io
-          commit-message: Auto Deploy from voken1000g/toolkit@$(git rev-parse --short "$GITHUB_SHA")
+          commit-message: Auto Deploy from @${{ GITHUB_SHA }}
           branch: main
           folder: dist
