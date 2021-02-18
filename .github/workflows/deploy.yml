@@ -23,7 +23,7 @@ jobs:
       - name: deploy (repo)
         uses: JamesIves/github-pages-deploy-action@4.0.0
         with:
-          commit-message: Auto Deploy from @$GITHUB_SHA
+          commit-message: @${{ github.sha }}
           branch: gh-pages
           folder: dist
 
@@ -38,6 +38,6 @@ jobs:
         with:
           token: ${{ secrets.ACCESS_TOKEN }}
           repository-name: voken-toolkit/voken-toolkit.github.io
-          commit-message: Auto Deploy from $GITHUB_REPOSITORY@$GITHUB_SHA
+          commit-message: ${{ github.repository }}@${{ github.sha }}
           branch: main
           folder: dist
