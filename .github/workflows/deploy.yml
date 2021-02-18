@@ -17,27 +17,30 @@ jobs:
       - name: install
         run: yarn
 
-      - name: build (repo)
+      - name: build
         run: yarn build
 
-      - name: deploy (repo)
-        uses: JamesIves/github-pages-deploy-action@4.0.0
-        with:
-          commit-message: "@${{ github.sha }}"
-          branch: gh-pages
-          folder: dist
-
-      - name: build (prod)
-        run: yarn build-prod
-
-      - name: cname (prod)
+      - name: cname
         run: echo "toolkit.voken.io" > ./dist/CNAME
 
-      - name: deploy (prod)
+      - name: deploy
         uses: JamesIves/github-pages-deploy-action@4.0.0
         with:
           token: ${{ secrets.ACCESS_TOKEN }}
           repository-name: voken-toolkit/voken-toolkit.github.io
           commit-message: "${{ github.repository }}@${{ github.sha }}"
           branch: main
+          folder: dist
+
+      - name: clear
+        run: rm -rf ./dist
+
+      - name: build (repo)
+        run: yarn build-repo
+
+      - name: deploy (repo)
+        uses: JamesIves/github-pages-deploy-action@4.0.0
+        with:
+          commit-message: "@${{ github.sha }}"
+          branch: gh-pages
           folder: dist

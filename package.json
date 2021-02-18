@@ -4,10 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "cross-env BASE_URL=/ nuxt",
-    "build": "cross-env BASE_URL=/toolkit/ nuxt-ts generate",
-    "start": "cross-env BASE_URL=/toolkit/ nuxt-ts start",
-    "build-prod": "cross-env BASE_URL=/ nuxt-ts generate",
-    "start-prod": "cross-env BASE_URL=/ nuxt-ts start",
+    "build": "cross-env BASE_URL=/ nuxt-ts generate",
+    "start": "cross-env BASE_URL=/ nuxt-ts start",
+    "build-repo": "cross-env BASE_URL=/toolkit/ nuxt-ts generate",
+    "start-repo": "cross-env BASE_URL=/toolkit/ nuxt-ts start",
     "export": "nuxt-ts export",
     "serve": "nuxt-ts serve"
   },
