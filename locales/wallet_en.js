@@ -51,8 +51,7 @@ export default {
   and: 'and',
   an_address_: 'an address:',
 
-  It_was_derived_from_the: 'It was derived from the',
-  above_by_bath: 'above by path',
+  It_was_derived_from_the__: 'It was derived from the Master Seed above by path',
   its_values_were_Base32_encoded: 'its values were Base32 encoded.',
 
   Private_Key: 'Private Key',

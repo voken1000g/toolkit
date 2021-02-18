@@ -1,13 +1,12 @@
 import { join } from 'path'
 import locales from './utils/constants/locales'
 
-const baseUrl = '/toolkit/'
-// const baseUrl = '/'
+const baseUrl = process.env.BASE_URL
 
 export default {
   ssr: false,
   generate: {
-    dir: 'docs',
+    dir: 'dist',
     fallback: '404.html'
   },
   env: {

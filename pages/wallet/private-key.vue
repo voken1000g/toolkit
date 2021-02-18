@@ -37,10 +37,10 @@
           <div class='relative mt-1'>
             <input type='text'
                    id='private-key-converter-address'
-                   class='input-indigo w-full py-3 px-4 bg-gray-100 font-mono text-sm md:text-base text-gray-500'
+                   class='input-indigo w-full py-3 px-4 font-mono text-sm md:text-base text-gray-500'
                    v-model='address'
                    :placeholder='$t("wallet.Auto_Convert_")'
-                   readonly />
+                   readonly disabled />
           </div>
         </div>
       </div>
@@ -106,7 +106,7 @@
                  class='input-indigo w-full py-3 px-4 bg-gray-100 font-mono text-sm md:text-base text-gray-500'
                  v-model='vpub'
                  :placeholder='$t("wallet.Auto_Convert_")'
-                 readonly />
+                 readonly disabled />
 
           <div class='absolute block inset-y-0 right-0 pr-4 flex items-center pointer-events-none'>
             <fa class='fa-error' :icon="['fas', 'times']" />
@@ -126,7 +126,7 @@
                  class='input-indigo w-full py-3 px-4 bg-gray-100 font-mono text-sm md:text-base text-gray-500'
                  v-model='hexPublicKeyCompressed'
                  :placeholder='$t("wallet.Auto_Convert_")'
-                 readonly />
+                 readonly disabled />
 
           <div class='absolute block inset-y-0 right-0 pr-4 flex items-center pointer-events-none'>
             <fa class='fa-error' :icon="['fas', 'times']" />
@@ -146,7 +146,7 @@
                  class='input-indigo w-full py-3 px-4 bg-gray-100 font-mono text-sm md:text-base text-gray-500'
                  v-model='hexPublicKeyUncompressed'
                  :placeholder='$t("wallet.Auto_Convert_")'
-                 readonly />
+                 readonly disabled />
 
           <div class='absolute block inset-y-0 right-0 pr-4 flex items-center pointer-events-none'>
             <fa class='fa-error' :icon="['fas', 'times']" />

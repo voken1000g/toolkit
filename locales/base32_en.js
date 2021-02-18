@@ -10,6 +10,6 @@ export default {
 
   Documentation: {
     text: 'Documentation: ',
-    href: 'https://voken.io/en/npm/base32.html'
+    href: 'https://voken.io/en/latest/npm/base32.html'
   }
 }

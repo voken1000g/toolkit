@@ -20,6 +20,10 @@ textarea {
   &:focus {
     @apply border-gray-400 text-gray-800;
   }
+
+  &:disabled {
+    @apply bg-gray-100;
+  }
 }
 
 

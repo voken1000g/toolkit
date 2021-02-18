@@ -4,6 +4,6 @@ export default {
 
   Documentation: {
     text: '文档：',
-    href: 'https://voken.io/zh_CN/npm/avatar.html'
+    href: 'https://voken.io/zh_CN/latest/npm/avatar.html'
   }
 }

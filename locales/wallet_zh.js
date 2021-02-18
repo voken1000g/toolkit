@@ -51,8 +51,7 @@ export default {
   and: '和',
   an_address_: '一个地址：',
 
-  It_was_derived_from_the: '它来源于上边的',
-  above_by_bath: '按路径',
+  It_was_derived_from_the__: '它来源于上边的主种子，按路径',
   its_values_were_Base32_encoded: '它的值是 Base32 编码的。',
 
   Private_Key: '私钥',

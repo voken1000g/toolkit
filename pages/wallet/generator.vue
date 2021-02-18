@@ -207,9 +207,7 @@
 
     <layout-w-prose v-if='wallets[0]' class='mt-2 lg:mt-4 2xl:mt-6'>
       <p>
-        {{ $t('wallet.It_was_derived_from_the') }}
-        <i>Master Seed</i>
-        {{ $t('wallet.above_by_bath') }}
+        {{ $t('wallet.It_was_derived_from_the__') }}
         <code>m/44'/678'/0'/0/0</code>{{ $t('__comma') }}
         {{ $t('wallet.its_values_were_Base32_encoded') }}
         {{ $t('wallet.by') }}
