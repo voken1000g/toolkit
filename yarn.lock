@@ -1537,12 +1537,12 @@
   dependencies:
     "@voken/base32" "^1.3.1"
 
-"@voken/public-key@^1.3.0":
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/@voken/public-key/-/public-key-1.3.0.tgz#091b1b908fb009337346fada1c5399701e758226"
-  integrity sha512-K6DaVWSm1i8hw6frY1xmsBgqeaD1TptpnXIq/r2OmiXKczNit7cPAWTq8aXztQSW0jcdzijQqcbJPWH3utEiMg==
+"@voken/public-key@^1.3.0", "@voken/public-key@^1.3.1":
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/@voken/public-key/-/public-key-1.3.1.tgz#782587a78bfdf62a92d911d8641e1344c5b0e480"
+  integrity sha512-ZvYAvFm14/6VdMjXVkvAapLMLAYq0CAZDvfufyhhYO3lcH4jTFII3MHBZud6OLTJe8DU+SxN5CpXGpHgYWgxTg==
   dependencies:
-    "@voken/base32" "^1.3.1"
+    "@voken/base32" "^1.3.3"
     elliptic "^6.5.3"
 
 "@voken/sha@^1.1.0", "@voken/sha@^1.1.9":
