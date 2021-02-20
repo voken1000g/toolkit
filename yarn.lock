@@ -1513,10 +1513,10 @@
   dependencies:
     "@voken/sha" "^1.1.9"
 
-"@voken/edsv@^1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@voken/edsv/-/edsv-1.1.0.tgz#d96f0f178d0e701dfc3c82380f8b7aa6c663096f"
-  integrity sha512-9Y/uMgMKC55NyxJ0fgPQeloaukSyj01km1TdX9AsUtndYiNhObbl1iNDztrEgsemmDo63AHpBOj1UfbRGkomhA==
+"@voken/edsv@^1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@voken/edsv/-/edsv-1.1.1.tgz#12ed77ac7920d614964a6ca03fb392dd7d1f4f56"
+  integrity sha512-NuYUTrgvvmbQPFOqW4dKpFqzv/KgPCuSwfVGmQ5+qVvXdpIujjVBi+oe04AkvFJZM0xjXVE8x/Hbw6dsDhwlaQ==
   dependencies:
     eciesjs "^0.3.8"
     elliptic "^6.5.3"
