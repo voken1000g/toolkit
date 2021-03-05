@@ -40,7 +40,7 @@ jobs:
           token: ${{ secrets.ACCESS_TOKEN }}
           repository-name: voken1000g/toolkit.voken.io
           commit-message: "${{ github.repository }}@${{ github.sha }}"
-          branch: master
+          branch: main
           folder: dist
 
       - name: clear
