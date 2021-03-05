@@ -4,18 +4,17 @@
   "private": true,
   "scripts": {
     "dev": "cross-env BASE_URL=/ nuxt",
-    "build": "cross-env BASE_URL=/ nuxt-ts generate",
-    "start": "cross-env BASE_URL=/ nuxt-ts start",
-    "build-repo": "cross-env BASE_URL=/toolkit/ nuxt-ts generate",
-    "start-repo": "cross-env BASE_URL=/toolkit/ nuxt-ts start",
-    "export": "nuxt-ts export",
-    "serve": "nuxt-ts serve"
+    "build": "cross-env BASE_URL=/ nuxt generate",
+    "start": "cross-env BASE_URL=/ nuxt start",
+    "build-repo": "cross-env BASE_URL=/toolkit/ nuxt generate",
+    "start-repo": "cross-env BASE_URL=/toolkit/ nuxt start",
+    "export": "nuxt export",
+    "serve": "nuxt serve"
   },
   "dependencies": {
     "@fortawesome/free-brands-svg-icons": "^5.15.2",
     "@fortawesome/free-regular-svg-icons": "^5.15.2",
     "@fortawesome/free-solid-svg-icons": "^5.15.2",
-    "@nuxt/typescript-runtime": "^2.0.2",
     "@nuxtjs/auth-next": "5.0.0-1613647907.37b1156",
     "@nuxtjs/toast": "^3.3.1",
     "@tailwindcss/ui": "^0.7.2",
