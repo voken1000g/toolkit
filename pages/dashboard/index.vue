@@ -138,6 +138,7 @@
                 /
                 {{ voken.capObj.d }}<span v-show="voken.capObj.f"
                                           class="number-f">.{{ voken.capObj.f }}</span>
+                VokenTB
               </dd>
             </div>
 
@@ -193,6 +194,7 @@
                 =
                 {{ earlyBirdSale.volumeObj.d }}<span v-show="earlyBirdSale.volumeObj.f"
                                                      class="number-f">.{{ earlyBirdSale.volumeObj.f }}</span>
+                VokenTB
               </dd>
             </div>
 
