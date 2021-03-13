@@ -3,6 +3,7 @@ import fnFormat from '~/utils/fnFormat'
 
 export const state = () => ({
   blockNumber: 0,
+  blockNumberStr: '0',
   contract: null,
 
   cap: '0',
@@ -31,6 +32,7 @@ export const state = () => ({
 export const mutations = {
   SET_BLOCK_NUMBER(state, blockNumber) {
     state.blockNumber = blockNumber
+    state.blockNumberStr = fnFormat.ns2Str(blockNumber, 0)
   },
   SET_CONTRACT(state, contract) {
     state.contract = function () {
@@ -72,11 +74,7 @@ export const actions = {
   async SET_BALANCE({commit}, balance) {
     commit('SET_BALANCE', balance)
   },
-  async SYNC_BALANCE({rootState, state, commit}, blockNumber = 0) {
-    if (blockNumber < state.blockNumber + DAPP.VOKEN_TB_INTERVAL_BLOCK_DIFF) {
-      return
-    }
-
+  async SYNC_STATUS_NOW({rootState, state, commit}, blockNumber = 0) {
     commit('SET_BLOCK_NUMBER', blockNumber)
 
     await state
@@ -90,5 +88,12 @@ export const actions = {
       .catch(error => {
         console.error('::: M[vokenTb] SYNC_BALANCE', error)
       })
+  },
+  async SYNC_STATUS({rootState, state, commit, dispatch}, blockNumber = 0) {
+    if (blockNumber < state.blockNumber + DAPP.VOKEN_TB_INTERVAL_BLOCK_DIFF) {
+      return
+    }
+
+    dispatch('SYNC_BALANCE_NOW', blockNumber)
   },
 }

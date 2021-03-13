@@ -86,6 +86,12 @@ export default async function ({store, app, redirect}) {
       }
     })
 
+  // on: Account Changed
+  await provider
+    .on('accountsChanged', async function (accounts) {
+      await store.dispatch('ether/SET_ACCOUNT', accounts[0])
+    })
+
   // on: New Block
   await web3.eth
     .subscribe('newBlockHeaders')
@@ -99,6 +105,7 @@ export default async function ({store, app, redirect}) {
     return
   }
 
+  // Contracts
   const Contract = web3.eth.Contract
 
   await store.dispatch('voken/SET_CONTRACT', new Contract(

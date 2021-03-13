@@ -9,6 +9,8 @@ export const state = () => ({
   web3: null,
   chainId: null,
   blockNumber: 0,
+  blockNumberStr: '0',
+
   usdPrice: '0',
   usdPriceStr: '0',
   usdPriceObj: {
@@ -39,6 +41,7 @@ export const mutations = {
   },
   SET_BLOCK_NUMBER(state, blockNumber) {
     state.blockNumber = blockNumber
+    state.blockNumberStr = fnFormat.ns2Str(blockNumber, 0)
   },
   SET_USD_PRICE(state, usdPrice) {
     state.usdPrice = usdPrice

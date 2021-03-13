@@ -32,7 +32,7 @@
                 Block Height
               </dt>
               <dd>
-                {{ $store.state.ether.blockNumber }}
+                {{ $store.state.ether.blockNumberStr }}
               </dd>
             </div>
 
@@ -105,7 +105,7 @@
             VokenTB
           </h3>
           <p class="mt-1 max-w-2xl text-sm text-gray-500">
-            Voken TeraByte on Ethereum blockchain #{{ $store.state.voken.blockNumber }}
+            Voken TeraByte on Ethereum blockchain #{{ $store.state.voken.blockNumberStr }}
           </p>
         </div>
         <div class="border-t border-gray-200 px-4 py-5 sm:p-0">
@@ -155,7 +155,7 @@
             VokenTB Early-Bird Sale
           </h3>
           <p class="mt-1 max-w-2xl text-sm text-gray-500">
-            Early-Bird Sale on Ethereum Blockchain #{{ earlyBirdSale.blockNumber }}
+            Early-Bird Sale on Ethereum Blockchain #{{ earlyBirdSale.blockNumberStr }}
           </p>
         </div>
         <div class="border-t border-gray-200 px-4 py-5 sm:p-0">

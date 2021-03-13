@@ -6,6 +6,7 @@ import fnFormat from '~/utils/fnFormat'
 
 export const state = () => ({
   blockNumber: 0,
+  blockNumberStr: '0',
   contract: null,
 
   usdPrice: '0',
@@ -74,6 +75,7 @@ export const state = () => ({
 export const mutations = {
   SET_BLOCK_NUMBER(state, blockNumber) {
     state.blockNumber = blockNumber
+    state.blockNumberStr = fnFormat.ns2Str(blockNumber, 0)
   },
   SET_CONTRACT(state, contract) {
     state.contract = function () {
@@ -149,11 +151,7 @@ export const actions = {
   // async SET_WEI_MAX({commit}, weiMax) {
   //   commit('SET_WEI_MAX', weiMax)
   // },
-  async SYNC_STATUS({rootState, state, commit, dispatch}, blockNumber = 0) {
-    if (blockNumber < state.blockNumber + DAPP.VOKEN_TB_EARLY_BIRD_SALE_INTERVAL_BLOCK_DIFF) {
-      return
-    }
-
+  async SYNC_STATUS_NOW({rootState, state, commit, dispatch}, blockNumber = 0) {
     commit('SET_BLOCK_NUMBER', blockNumber)
 
     await state
@@ -207,5 +205,14 @@ export const actions = {
       .catch(error => {
         console.error('::: M[vokenEarlyBirdSale] getAccountStatus:', error)
       })
+  },
+
+
+  async SYNC_STATUS({rootState, state, commit, dispatch}, blockNumber = 0, forceUpdate = false) {
+    if (!forceUpdate && blockNumber < state.blockNumber + DAPP.VOKEN_TB_EARLY_BIRD_SALE_INTERVAL_BLOCK_DIFF) {
+      return
+    }
+
+    dispatch('SYNC_STATUS_NOW', blockNumber)
   },
 }

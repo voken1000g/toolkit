@@ -1,4 +1,5 @@
 // import BigNumber from 'bignumber.js'
+import detectEthereumProvider from '@metamask/detect-provider'
 
 export default async function ({store, app, redirect}) {
   if (!store.state.ether.web3) {
@@ -19,5 +20,13 @@ export default async function ({store, app, redirect}) {
     .subscribe('newBlockHeaders')
     .on('data', async blockHeader => {
       await store.dispatch('vokenEarlyBirdSale/SYNC_STATUS', blockHeader.number)
+    })
+
+  // on: Account Changed
+  const provider = await detectEthereumProvider()
+  await provider
+    .on('accountsChanged', async function (accounts) {
+      await store.dispatch('ether/SET_ACCOUNT', accounts[0])
+      await store.dispatch('vokenEarlyBirdSale/SYNC_STATUS_NOW', store.state.ether.blockNumber)
     })
 }
