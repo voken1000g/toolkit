@@ -223,23 +223,19 @@
 </template>
 
 <script>
-import Web3 from 'web3'
+// import fnEtherscan from '~/utils/fnEtherscan'
 import fnEthereum from '~/utils/fnEthereum'
-import fnEtherscan from '~/utils/fnEtherscan'
 import DAPP from '~/utils/constants/dapp'
 
 export default {
   name: "dashboard-index",
   middleware: ['web3', 'vokenEarlyBirdSale'],
   computed: {
-    Web3() {
-      return Web3
-    },
+    // fnEtherscan() {
+    //   return fnEtherscan
+    // },
     fnEthereum() {
       return fnEthereum
-    },
-    fnEtherscan() {
-      return fnEtherscan
     },
     DAPP() {
       return DAPP
