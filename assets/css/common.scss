@@ -20,9 +20,50 @@ textarea {
   &:focus {
     @apply border-gray-400 text-gray-800;
   }
+}
 
-  &:disabled {
-    @apply bg-gray-100;
+.resp-wide {
+  @apply w-full mx-auto px-3;
+
+  @screen sm {
+    @apply px-4;
+  }
+
+  @screen md {
+    @apply px-6;
+  }
+
+  @screen lg {
+    @apply px-8;
+    @apply max-w-screen-lg;
+  }
+
+  @screen xl {
+    @apply max-w-screen-xl;
+  }
+
+  @screen 2xl {
+    @apply max-w-screen-2xl;
+  }
+}
+
+.resp-mt {
+  @apply mt-8;
+
+  @screen md {
+    @apply mt-10;
+  }
+
+  @screen lg {
+    @apply mt-12;
+  }
+
+  @screen xl {
+    @apply mt-14;
+  }
+
+  @screen 2xl {
+    @apply mt-16;
   }
 }
 
@@ -287,3 +328,91 @@ textarea.textarea-teal {
 .btn-group .btn.selected {
   @apply -mx-px;
 }
+
+
+/**
+ * SiteNav
+ */
+.nav {
+  .eth-account-prod {
+    @apply py-2 px-4 bg-indigo-700 rounded-md font-mono text-sm text-indigo-300;
+  }
+
+  .eth-account-test {
+    @apply py-2 px-4 bg-indigo-700 rounded-l-md font-mono text-sm text-indigo-300;
+  }
+
+  .eth-test-net {
+    @apply py-2 px-4 bg-gradient-to-r from-red-400 to-pink-500 rounded-r-md;
+    @apply font-mono text-sm text-indigo-50;
+  }
+
+  .nav-h {
+    @apply px-3 py-2 rounded-md text-sm font-medium leading-5 text-indigo-300;
+
+    &:hover {
+      @apply text-white bg-indigo-700;
+    }
+
+    &:focus {
+      @apply outline-none text-white bg-indigo-700;
+    }
+
+    &.nuxt-link-exact-active {
+      @apply bg-indigo-900;
+    }
+  }
+
+
+  .nav-v {
+    @apply mt-1 block px-3 py-2 rounded-md text-base font-medium text-indigo-300;
+
+    &:first-child {
+      @apply mt-0;
+    }
+
+    &:hover {
+      @apply text-white bg-indigo-700;
+    }
+
+    &:focus {
+      @apply outline-none text-white bg-indigo-700;
+    }
+
+    &.nuxt-link-exact-active {
+      @apply bg-indigo-900;
+    }
+  }
+
+
+  .profile-h {
+    @apply block px-4 py-2 text-sm leading-5 text-indigo-700;
+
+    &:hover {
+      @apply bg-indigo-100;
+    }
+
+    &:focus {
+      @apply outline-none bg-indigo-100;
+    }
+  }
+
+
+  .profile-v {
+    @apply mt-1 block px-3 py-2 rounded-md text-base font-medium text-indigo-400;
+
+    &:first-child {
+      @apply mt-0;
+    }
+
+    &:hover {
+      @apply text-white bg-indigo-700;
+    }
+
+    &:focus {
+      @apply outline-none text-white bg-indigo-700;
+    }
+  }
+}
+
+

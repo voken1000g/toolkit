@@ -1,6 +1,6 @@
 <template>
-  <layout-w class='pb-36'>
-    <layout-w-prose class='mt-8 md:mt-10 lg:mt-12 xl:mt-14 2xl:mt-16'>
+  <div class='resp-wide pb-36'>
+    <article class='resp-mt prose lg:prose-lg xl:prose-xl max-w-none'>
       <h1>
         {{ $t('nav.Wallet_Generator') }}
       </h1>
@@ -44,7 +44,7 @@
           {{ $t('wallet.Input_mnemonic_manually') }}
         </button>
       </div>
-    </layout-w-prose>
+    </article>
 
     <div v-show='showTextareaMnemonic' :class='mnemonicStatus' class='my-8 md:my-10 lg:my-12 xl:my-14 2xl:my-16'>
       <label for='mnemonic'
@@ -113,7 +113,7 @@
       </div>
     </div>
 
-    <layout-w-prose v-if='mnemonicSuccess' class='mt-2 lg:mt-4 2xl:mt-6'>
+    <article v-if='mnemonicSuccess' class='mt-2 lg:mt-4 2xl:mt-6 prose lg:prose-lg xl:prose-xl max-w-none'>
       <p>
         {{ $t('wallet.It_is_the_root_of_your_wallets') }}
         <b class='text-orange-500'>{{ $t('wallet.Never_never_never_disclose_') }}</b>
@@ -143,7 +143,7 @@
       <h2 v-if='seed'>
         {{ $t('wallet.Master_Seed') }}
       </h2>
-    </layout-w-prose>
+    </article>
 
     <div v-if='seed'
          class='mt-4 lg:mt-6 2xl:mt-8 py-6 xl:py-8 px-4 lg:px-8 bg-gradient-to-br from-gray-300 to-gray-400 rounded-md leading-7 font-mono text-red-600 text-center break-all pointer-events-none'
@@ -151,7 +151,7 @@
       {{ seedBase32 }}
     </div>
 
-    <layout-w-prose v-if='seed' class='mt-2 lg:mt-4 2xl:mt-6'>
+    <article v-if='seed' class='mt-2 lg:mt-4 2xl:mt-6 prose lg:prose-lg xl:prose-xl max-w-none'>
       <p>
         {{ $t('wallet.The_master_seed_is_converted__') }}
         <b class='text-orange-500'>{{ $t('wallet.Same_as_your_mnemonic__never_disclose__') }}</b>
@@ -201,11 +201,11 @@
         <b>{{ $t('wallet.a_private__public_key_pair') }}</b> {{ $t('wallet.and') }} <b>{{ $t('wallet.an_address_')
         }}</b>
       </p>
-    </layout-w-prose>
+    </article>
 
     <comp-wallet :wallet='wallets[0]' class='comp-wallet' />
 
-    <layout-w-prose v-if='wallets[0]' class='mt-2 lg:mt-4 2xl:mt-6'>
+    <article v-if='wallets[0]' class='mt-2 lg:mt-4 2xl:mt-6 prose lg:prose-lg xl:prose-xl max-w-none'>
       <p>
         {{ $t('wallet.It_was_derived_from_the__') }}
         <code>m/44'/678'/0'/0/0</code>{{ $t('__comma') }}
@@ -408,7 +408,7 @@
       <p v-if='wallets.length === 1'>
         {{ $t('wallet.Click_here_') }}
       </p>
-    </layout-w-prose>
+    </article>
 
     <div v-if='wallets.length > 1'>
       <comp-wallet v-for='wallet in wallets.slice(1)'
@@ -425,7 +425,7 @@
         {{ $t('wallet.Derive_Next_Wallet') }}
       </button>
     </div>
-  </layout-w>
+  </div>
 </template>
 
 <script>
@@ -433,15 +433,13 @@ import * as bip39 from 'bip39'
 import base32 from '@voken/base32'
 import Wallet from '@voken/hd-wallet'
 import VueAvatar from '@voken/vue-avatar'
-import LayoutW from '~/components/LayoutW'
-import LayoutWProse from '~/components/LayoutWProse'
 import CompWallet from '~/components/CompWallet'
 import SvgRipple from '~/components/SvgRipple'
 
 export default {
   name: 'wallet-generator',
   layout: 'wallet',
-  components: { SvgRipple, CompWallet, LayoutWProse, LayoutW, VueAvatar },
+  components: { SvgRipple, CompWallet, VueAvatar },
   head() {
     return {
       title: this.$t('nav.Wallet_Generator')

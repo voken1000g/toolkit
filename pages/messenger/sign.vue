@@ -1,8 +1,8 @@
 <template>
-  <layout-w class='pb-12'>
+  <div class='resp-wide pb-12'>
 
     <!-- intro -->
-    <layout-w-prose class='mt-8 md:mt-10 lg:mt-12 xl:mt-14 2xl:mt-16'>
+    <article class='resp-mt prose lg:prose-lg xl:prose-xl max-w-none'>
       <h1>
         {{ $t('nav.Messenger_Sign') }}
       </h1>
@@ -10,7 +10,7 @@
       <p>
         {{ $t('messenger.You_can_sign_and_encode__') }}
       </p>
-    </layout-w-prose>
+    </article>
 
     <div class='my-6 border-t' />
 
@@ -198,12 +198,10 @@
       </div>
     </div>
 
-  </layout-w>
+  </div>
 </template>
 
 <script>
-import LayoutW from '~/components/LayoutW'
-import LayoutWProse from '~/components/LayoutWProse'
 import privateKey from '@voken/private-key'
 import publicKey from '@voken/public-key'
 import vokenAddress from '@voken/address'
@@ -215,7 +213,6 @@ import edsv from '@voken/edsv'
 export default {
   name: 'sign',
   layout: 'messenger',
-  components: { LayoutWProse, LayoutW },
   head() {
     return {
       title: this.$t('nav.Messenger')

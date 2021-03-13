@@ -1,6 +1,6 @@
 <template>
-  <nav class='bg-indigo-800'>
-    <layout-w class='border-b border-indigo-700'>
+  <nav class='nav bg-indigo-800'>
+    <div class='resp-wide border-b border-indigo-700'>
       <div class='h-16 flex justify-between'>
 
         <!-- Left -->
@@ -14,13 +14,15 @@
               @click.stop="toggleMobileMenu"
             >
               <!-- Icon when menu is closed. -->
-              <svg v-show="!$store.state.nav.menuMobile" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+              <svg v-show="!$store.state.nav.menuMobile" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                   stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
               </svg>
 
               <!-- Icon when menu is open. -->
-              <svg v-show="$store.state.nav.menuMobile" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              <svg v-show="$store.state.nav.menuMobile" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                   stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
               </svg>
             </button>
           </div>
@@ -28,7 +30,7 @@
           <!-- Logo -->
           <nuxt-link :to="localePath('/')" class="flex-shrink-0 flex items-center space-x-4">
             <div class="text-indigo-300 text-3xl">
-              <fa :icon="['fas', 'tools']" />
+              <fa :icon="['fas', 'tools']"/>
             </div>
             <div class="hidden lg:block font-sans text-indigo-300 text-2xl">
               VOKEN {{ $t('nav.Toolkit') }}
@@ -55,10 +57,24 @@
           <flyout-user/>
 
 
+          <!-- Ethereum Account Address / Network -->
+          <div v-if="$store.state.ether.account" class="flex-1 flex items-center justify-center">
+            <div
+              :class="{'eth-account-prod': $store.state.ether.productionMode, 'eth-account-test': !$store.state.ether.productionMode}"
+            >
+              {{ fnEthereum.address2Abbr($store.state.ether.account) }}
+            </div>
+            <div v-if="!$store.state.ether.productionMode"
+                 class="eth-test-net"
+            >
+              {{ fnEthereum.chainId2NetworkName($store.state.ether.chainId) }}
+            </div>
+          </div>
 
+          <!-- GitHub -->
           <div class='text-3xl text-indigo-300'>
             <a target='_blank' href='https://github.com/voken1000g/toolkit' class='hover:text-white'>
-              <fa :icon="['fab', 'github']" />
+              <fa :icon="['fab', 'github']"/>
             </a>
           </div>
 
@@ -74,7 +90,7 @@
                   aria-haspopup="true"
                   @click.stop="toggleLangMenu"
                 >
-                  <fa :icon="['fas', 'globe-americas']" />
+                  <fa :icon="['fas', 'globe-americas']"/>
                 </button>
               </div>
 
@@ -108,7 +124,7 @@
           </div>
         </div>
       </div>
-    </layout-w>
+    </div>
 
     <!-- Mobile menu -->
     <div class="md:hidden"
@@ -159,16 +175,17 @@
 </template>
 
 <script>
-import LayoutW from '~/components/LayoutW'
+
 import FlyoutWallet from '~/components/FlyoutWallet'
 import locales from '~/utils/constants/locales'
 import navigations from '~/utils/constants/navigations'
 import walletLinks from '~/utils/constants/walletLinks'
 import messengerLinks from '~/utils/constants/messengerLinks'
+import fnEthereum from '~/utils/fnEthereum'
 
 export default {
   name: 'SiteNav',
-  components: { FlyoutWallet, LayoutW },
+  components: {FlyoutWallet},
   data() {
     return {
       languages: locales,
@@ -178,6 +195,9 @@ export default {
     }
   },
   computed: {
+    fnEthereum() {
+      return fnEthereum
+    },
     version() {
       return this.$store.state.version
     }
@@ -192,70 +212,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-.nav-h {
-  @apply px-3 py-2 rounded-md text-sm font-medium leading-5 text-indigo-300;
-}
-
-.nav-h:hover {
-  @apply text-white bg-indigo-700;
-}
-
-.nav-h:focus {
-  @apply outline-none text-white bg-indigo-700;
-}
-
-.nav-h.nuxt-link-exact-active {
-  @apply bg-indigo-900;
-}
-
-.nav-v {
-  @apply mt-1 block px-3 py-2 rounded-md text-base font-medium text-indigo-300;
-}
-
-.nav-v:first-child {
-  @apply mt-0;
-}
-
-.nav-v:hover {
-  @apply text-white bg-indigo-700;
-}
-
-.nav-v:focus {
-  @apply outline-none text-white bg-indigo-700;
-}
-
-.nav-v.nuxt-link-exact-active {
-  @apply bg-indigo-900;
-}
-
-.profile-h {
-  @apply block px-4 py-2 text-sm leading-5 text-indigo-700;
-}
-
-.profile-h:hover {
-  @apply bg-indigo-100;
-}
-
-.profile-h:focus {
-  @apply outline-none bg-indigo-100;
-}
-
-.profile-v {
-  @apply mt-1 block px-3 py-2 rounded-md text-base font-medium text-indigo-400;
-}
-
-.profile-v:first-child {
-  @apply mt-0;
-}
-
-.profile-v:hover {
-  @apply text-white bg-indigo-700;
-}
-
-.profile-v:focus {
-  @apply outline-none text-white bg-indigo-700;
-}
-
-</style>

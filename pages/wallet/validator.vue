@@ -1,6 +1,6 @@
 <template>
-  <layout-w class='pb-36'>
-    <layout-w-prose class='mt-8 md:mt-10 lg:mt-12 xl:mt-14 2xl:mt-16'>
+  <div class='resp-wide pb-36'>
+    <article class='resp-mt prose lg:prose-lg xl:prose-xl max-w-none'>
       <h1>
         {{ $t('nav.Wallet_Validator') }}
       </h1>
@@ -23,7 +23,7 @@
           {{ $t('wallet.Looks_like_') }}<code>vXKJe8F9T7hJ8kr1Dddg9b83eufmU6h2k</code>
         </li>
       </ul>
-    </layout-w-prose>
+    </article>
 
     <div class='w-full md:max-w-2xl mt-12 lg:mt-14 xl:mt-16 2xl:mt-20 mx-auto font-mono text-sm md:text-base'
          :class='{ "success": address && isAddress, "error": address && !isAddress }'
@@ -59,19 +59,17 @@
       </div>
 
     </div>
-  </layout-w>
+  </div>
 </template>
 
 <script>
 import vokenAddress from '@voken/address'
 import VueAvatar from '@voken/vue-avatar'
-import LayoutW from '~/components/LayoutW'
-import LayoutWProse from '~/components/LayoutWProse'
 
 export default {
   name: 'wallet-validator',
   layout: 'wallet',
-  components: { LayoutWProse, LayoutW, VueAvatar },
+  components: { VueAvatar },
   head() {
     return {
       title: this.$t('nav.Wallet_Validator')

@@ -1,10 +1,10 @@
 <template>
-  <layout-w class='pb-36'>
-    <layout-w-prose class='mt-8 md:mt-10 lg:mt-12 xl:mt-14 2xl:mt-16'>
+  <div class='resp-wide pb-36'>
+    <article class='resp-mt prose lg:prose-lg xl:prose-xl max-w-none'>
       <h1>
         {{ $t('nav.Wallet_Batch') }}
       </h1>
-    </layout-w-prose>
+    </article>
 
     <div class='my-8 md:my-10 lg:my-12 xl:my-14 2xl:my-16 lg:px-4'>
       <label class='text-gray-600' for='result'>
@@ -43,7 +43,7 @@
         </div>
       </div>
     </div>
-  </layout-w>
+  </div>
 </template>
 
 <script>
@@ -52,15 +52,13 @@ import base32 from '@voken/base32'
 import Wallet from '@voken/hd-wallet'
 import publicKey from '@voken/public-key'
 import VueAvatar from '@voken/vue-avatar'
-import LayoutW from '~/components/LayoutW'
-import LayoutWProse from '~/components/LayoutWProse'
 import CompWallet from '~/components/CompWallet'
 import SvgRipple from '~/components/SvgRipple'
 
 export default {
   name: 'wallet-batch',
   layout: 'wallet',
-  components: { SvgRipple, CompWallet, LayoutWProse, LayoutW, VueAvatar },
+  components: { SvgRipple, CompWallet, VueAvatar },
   head() {
     return {
       title: this.$t('nav.Wallet_Batch')

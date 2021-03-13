@@ -1,5 +1,5 @@
 <template>
-  <layout-w class='mt-8 md:mt-10 lg:mt-12 xl:mt-14 2xl:mt-16 pb-32'>
+  <layout-w class='resp-wide resp-mt pb-32'>
 
     <div class='space-y-6'>
 

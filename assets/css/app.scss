@@ -1,0 +1,27 @@
+.div-striped-list-card {
+  @apply py-4;
+
+  @screen sm {
+    @apply py-5 grid grid-cols-3 gap-4 px-6;
+  }
+
+  dt {
+    @apply text-sm font-medium text-indigo-400;
+
+    @screen sm {
+      @apply text-gray-500;
+    }
+  }
+
+  dd {
+    @apply mt-1 font-mono text-sm text-gray-900;
+
+    @screen sm {
+      @apply mt-0 col-span-2;
+    }
+  }
+
+  .number-f {
+    @apply text-xs text-gray-400;
+  }
+}

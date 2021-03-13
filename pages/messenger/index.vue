@@ -1,8 +1,8 @@
 <template>
-  <layout-w class='pb-12'>
+  <div class='resp-wide pb-12'>
 
     <!-- intro -->
-    <layout-w-prose class='mt-8 md:mt-10 lg:mt-12 xl:mt-14 2xl:mt-16'>
+    <article class='resp-mt prose lg:prose-lg xl:prose-xl max-w-none'>
       <h1>
         {{ $t('nav.Messenger') }}
       </h1>
@@ -49,7 +49,7 @@
       <p>
         {{ $t('messenger.All_data_is_encrypted_and_stored__') }}
       </p>
-    </layout-w-prose>
+    </article>
 
     <div class='my-6 border-t border-indigo-300' />
 
@@ -460,19 +460,17 @@
     </div>
 
 
-    <layout-w-prose class='mt-4 md:mt-6 lg:mt-8 xl:mt-10 2xl:mt-12'>
+    <article class='mt-4 md:mt-6 lg:mt-8 xl:mt-10 2xl:mt-12 prose lg:prose-lg xl:prose-xl max-w-none'>
       <p>
         {{ $t('messenger.Share_your_Public_Key_to__') }}
       </p>
-    </layout-w-prose>
+    </article>
 
 
-  </layout-w>
+  </div>
 </template>
 
 <script>
-import LayoutW from '~/components/LayoutW'
-import LayoutWProse from '~/components/LayoutWProse'
 import privateKey from '@voken/private-key'
 import publicKey from '@voken/public-key'
 import vokenAddress from '@voken/address'
@@ -485,7 +483,7 @@ import VueAvatar from '@voken/vue-avatar'
 export default {
   name: 'index',
   layout: 'messenger',
-  components: { LayoutWProse, LayoutW, VueAvatar },
+  components: { VueAvatar },
   head() {
     return {
       title: this.$t('nav.Messenger')

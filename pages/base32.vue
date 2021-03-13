@@ -1,6 +1,6 @@
 <template>
-  <layout-w class='pb-12'>
-    <layout-w-prose class='mt-8 md:mt-10 lg:mt-12 xl:mt-14 2xl:mt-16'>
+  <div class='resp-wide pb-12'>
+    <article class='resp-mt prose lg:prose-lg xl:prose-xl max-w-none'>
       <h1>
         {{ $t('nav.Base32') }}
       </h1>
@@ -8,7 +8,7 @@
       <p>
         {{ $t('nav.Base32_') }}
       </p>
-    </layout-w-prose>
+    </article>
 
     <div class='mt-10 md:mt-14 lg:mt-16 xl:mt-20 2xl:mt-24 flex flex-col space-x-0 space-y-4 lg:flex-row lg:space-x-3 lg:space-y-0'>
       <div class='flex-1' :class='{ "error": encodeError }'>
@@ -80,19 +80,17 @@
         </a>
       </div>
     </layout-footer-simple>
-  </layout-w>
+  </div>
 </template>
 
 <script>
 import Base32 from '@voken/base32'
-import LayoutW from '~/components/LayoutW'
 import LayoutFooterSimple from '~/components/LayoutFooterSimple'
-import LayoutWProse from '~/components/LayoutWProse'
 
 export default {
   name: 'base32',
   layout: 'indigoBubble',
-  components: { LayoutWProse, LayoutFooterSimple, LayoutW },
+  components: { LayoutFooterSimple },
   head() {
     return {
       title: 'npm: @voken/base32'

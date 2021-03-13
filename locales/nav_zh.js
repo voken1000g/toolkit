@@ -11,7 +11,7 @@ export default {
   Wallet_Validator_: '检查一个字符串是否是有效的 VOKEN 钱包地址',
   Wallet_Public_Key: 'VOKEN 公钥转换器',
   Wallet_Public_Key___mobi: 'VOKEN 公钥转换器',
-  Wallet_Public_Key_: '验证并将一个 VOKEN 公钥转换为 VOKEN 地址；压缩、解压一个公钥',
+  Wallet_Public_Key_: '验证并将一个 VOKEN 公钥转换为 VOKEN 地址；压缩/解压一个公钥',
   Wallet_Private_Key: 'VOKEN 私钥转换器',
   Wallet_Private_Key___mobi: 'VOKEN 私钥转换器',
   Wallet_Private_Key_: '验证并将一个 VOKEN 私钥转换为 VOKEN 公钥/地址',

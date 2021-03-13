@@ -1,6 +1,6 @@
 <template>
-  <layout-w>
-    <layout-w-prose class='mt-8 md:mt-10 lg:mt-12 xl:mt-14 2xl:mt-16'>
+  <div class="resp-wide">
+    <article class='resp-mt prose lg:prose-lg xl:prose-xl max-w-none'>
       <h1>
         VOKEN Toolkit
       </h1>
@@ -49,16 +49,14 @@
         Mauris faucibus congue diam, vitae iaculis enim consequat a.
         In sodales et nunc sit amet gravida.
       </p>
-    </layout-w-prose>
-  </layout-w>
+    </article>
+  </div>
 </template>
 
 <script>
-import LayoutW from '~/components/LayoutW'
-import LayoutWProse from '~/components/LayoutWProse'
+
 export default {
   name: 'index',
-  components: { LayoutWProse, LayoutW },
 }
 </script>
 

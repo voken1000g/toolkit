@@ -11,7 +11,7 @@ export default {
   Wallet_Validator_: 'Check if a string is a valid VOKEN wallet address.',
   Wallet_Public_Key: 'VOKEN Public Key Converter',
   Wallet_Public_Key___mobi: 'Public Key Converter',
-  Wallet_Public_Key_: 'Validate and converter a VOKEN Public Key to VOKEN Address; Compress, Decompress a Public Key.',
+  Wallet_Public_Key_: 'Validate and converter a VOKEN Public Key to VOKEN Address; (De)compress a Public Key.',
   Wallet_Private_Key: 'VOKEN Private Key Converter',
   Wallet_Private_Key___mobi: 'VOKEN Private Key Converter',
   Wallet_Private_Key_: 'Validate and converter a VOKEN Private Key to VOKEN Public Key/Address.',

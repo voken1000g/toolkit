@@ -1,6 +1,6 @@
 <template>
-  <layout-w class='pb-36'>
-    <layout-w-prose class='mt-8 md:mt-10 lg:mt-12 xl:mt-14 2xl:mt-16'>
+  <div class='resp-wide pb-36'>
+    <article class='resp-mt prose lg:prose-lg xl:prose-xl max-w-none'>
       <h1>
         {{ $t('nav.Wallet_Private_Key') }}
       </h1>
@@ -12,7 +12,7 @@
         <br>
         {{ $t('wallet.You_should_always_keep_your_Private_Key_safe_') }}<b>{{ $t('wallet.Never_disclose_it_to_anyone') }}</b>
       </p>
-    </layout-w-prose>
+    </article>
 
     <div class='w-full mt-12 lg:mt-14 xl:mt-16 2xl:mt-20 mx-auto font-mono text-sm md:text-base'>
 
@@ -87,12 +87,12 @@
 
       <div class='my-12 md:my-14 lg:my-16 border-t border-gray-300' />
 
-      <layout-w-prose>
+      <article class="prose lg:prose-lg xl:prose-xl max-w-none">
         <p class='text-green-500'>
           <fa :icon="['fas', 'shield-alt']" />
           {{ $t('wallet.Sending_a_Public_Key_is_safe') }}
         </p>
-      </layout-w-prose>
+      </article>
 
       <!-- vpub -->
       <div class='mt-4 md:mt-6 lg:mt-8' :class='vpubClass'>
@@ -154,7 +154,7 @@
         </div>
       </div>
     </div>
-  </layout-w>
+  </div>
 </template>
 
 <script>
@@ -162,13 +162,11 @@ import vokenAddress from '@voken/address'
 import privateKey from '@voken/private-key'
 import publicKey from '@voken/public-key'
 import VueAvatar from '@voken/vue-avatar'
-import LayoutW from '~/components/LayoutW'
-import LayoutWProse from '~/components/LayoutWProse'
 
 export default {
   name: 'wallet-private-key',
   layout: 'wallet',
-  components: { LayoutWProse, LayoutW, VueAvatar },
+  components: { VueAvatar },
   head() {
     return {
       title: this.$t('nav.Wallet_Private_Key')
