@@ -36,9 +36,9 @@ import walletLinks from '~/utils/constants/walletLinks'
 
 export default {
   name: 'FlyoutWallet',
-  data() {
-    return {
-      walletLinks: walletLinks
+  computed: {
+    walletLinks() {
+      return walletLinks
     }
   },
   methods: {

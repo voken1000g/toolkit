@@ -1,30 +1,69 @@
-import BigNumber from 'bignumber.js'
 import detectEthereumProvider from '@metamask/detect-provider'
 import Web3 from "web3"
 import DAPP from '../utils/constants/dapp'
 import vokenTbAbi from '../utils/contracts/vokenTb.json'
+import vokenTbDataAbi from '../utils/contracts/vokenTbData.json'
+import vokenTbAccountDataAbi from '../utils/contracts/vokenTbAccountData.json'
 import earlyBirdAbi from '../utils/contracts/earlyBird.json'
 
-export default async function ({store, app, redirect}) {
+export default async function ({store, app, redirect, route }) {
+  if (store.state.ether.blockNumber) {
+    console.log('::: M[web3] loaded')
+    return
+  }
+
   const provider = await detectEthereumProvider()
 
   if (!provider) {
-    app.$toast.error('M[web3] detect Ethereum Provider: Failed')
-    console.error('::: M[web3] detect Ethereum Provider: Failed')
-    // TODO: redirect
-    // redirect(app.localePath('/'))
+    app.$toast.error('M[web3] detect web3 provider: Failed')
+    console.error('::: M[web3] detect web3 provider: Failed')
+
+    redirect(app.localePath('/onboard?url=' + route.fullPath))
     return
   }
-
   ethereum.autoRefreshOnNetworkChange = false
 
   // Set web3
-  const web3 = new Web3(Web3.givenProvider)
+  const web3 = new Web3(window.ethereum)
   if (!web3) {
+    app.$toast.error('::: M[web3] initialize web3: Failed')
     console.error('::: M[web3] initialize web3: Failed')
+
+    redirect(app.localePath('/onboard?url=' + route.fullPath))
     return
   }
   await store.dispatch('ether/SET_WEB3', web3)
+
+  // Contracts
+  const Contract = web3.eth.Contract
+
+  await store.dispatch('voken/SET_CONTRACT', new Contract(
+    vokenTbAbi, DAPP.CONTRACT_ADDRESS_VOKEN_TB
+  ))
+
+  await store.dispatch('voken/SET_DATA_CONTRACT', new Contract(
+    vokenTbDataAbi, DAPP.CONTRACT_ADDRESS_VOKEN_TB_DATA
+  ))
+
+  await store.dispatch('voken/SET_ACCOUNT_DATA_CONTRACT', new Contract(
+    vokenTbAccountDataAbi, DAPP.CONTRACT_ADDRESS_VOKEN_TB_ACCOUNT_DATA
+  ))
+
+  await store.dispatch('vokenEarlyBirdSale/SET_CONTRACT', new Contract(
+    earlyBirdAbi, DAPP.CONTRACT_ADDRESS_EARLY_BIRD
+  ))
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -67,6 +106,9 @@ export default async function ({store, app, redirect}) {
       app.$toast.error(error.message)
     })
 
+  // // Sync GAS Price
+  // await store.dispatch('ether/SYNC_GAS_PRICE')
+
   // Verify Chain ID
   if (!store.state.ether.productionMode) {
     console.error('[Ethereum Chain ID ERROR]')
@@ -99,20 +141,9 @@ export default async function ({store, app, redirect}) {
       await store.dispatch('ether/SET_BLOCK_NUMBER', blockHeader.number)
     })
 
-  // dApp Contracts
-  if (!store.state.ether.productionMode) {
-    console.error('::: Middleware - vokenEarlyBirdSale: not production mode')
-    return
-  }
-
-  // Contracts
-  const Contract = web3.eth.Contract
-
-  await store.dispatch('voken/SET_CONTRACT', new Contract(
-    vokenTbAbi, DAPP.CONTRACT_ADDRESS_VOKEN_TB
-  ))
-
-  await store.dispatch('vokenEarlyBirdSale/SET_CONTRACT', new Contract(
-    earlyBirdAbi, DAPP.CONTRACT_ADDRESS_EARLY_BIRD
-  ))
+  // // dApp Contracts
+  // if (!store.state.ether.productionMode) {
+  //   console.error('::: Middleware - vokenEarlyBirdSale: not production mode')
+  //   return
+  // }
 }

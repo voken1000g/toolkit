@@ -63,11 +63,6 @@ export const state = () => ({
       d: '0',
       f: null,
     },
-
-    voken: '0',
-    vokenAddress: null,
-    referrer: null,
-    referrerVoken: '0',
   },
 })
 
@@ -123,9 +118,26 @@ export const mutations = {
     })
   },
 
-  SET_ACCOUNT(state, account) {
-    state.account = account
+
+  SET_ACCOUNT_ISSUED(state, issued) {
+    state.account.issued = issued
+    state.account.issuedStr = fnFormat.ns2Str(issued)
+    state.account.issuedObj = fnFormat.ns2Obj(state.account.issuedStr)
+
+    state.account.volume = new BigNumber(state.account.issued).plus(state.account.bonuses).toString()
+    state.account.volumeStr = fnFormat.ns2Str(state.account.volume)
+    state.account.volumeObj = fnFormat.ns2Obj(state.account.volumeStr)
   },
+  SET_ACCOUNT_BONUSES(state, bonuses) {
+    state.account.bonuses = bonuses
+    state.account.bonusesStr = fnFormat.ns2Str(bonuses)
+    state.account.bonusesObj = fnFormat.ns2Obj(state.account.bonusesStr)
+
+    state.account.volume = new BigNumber(state.account.issued).plus(state.account.bonuses).toString()
+    state.account.volumeStr = fnFormat.ns2Str(state.account.volume)
+    state.account.volumeObj = fnFormat.ns2Obj(state.account.volumeStr)
+  },
+
 }
 
 
@@ -151,20 +163,15 @@ export const actions = {
   // async SET_WEI_MAX({commit}, weiMax) {
   //   commit('SET_WEI_MAX', weiMax)
   // },
-  async SYNC_STATUS_NOW({rootState, state, commit, dispatch}, blockNumber = 0) {
-    commit('SET_BLOCK_NUMBER', blockNumber)
 
+
+  async SYNC_STATUS({rootState, state, commit}) {
     await state
       .contract()
       .methods
       .status()
       .call()
       .then(payload => {
-        dispatch('ether/SET_USD_PRICE', payload.etherUSD, {root: true})
-        dispatch('voken/SET_BLOCK_NUMBER', blockNumber, {root: true})
-        dispatch('voken/SET_CAP', payload.vokenCap, {root: true})
-        dispatch('voken/SET_TOTAL_SUPPLY', payload.vokenTotalSupply, {root: true})
-
         commit('SET_USD_PRICE', payload.vokenUSD)
         commit('SET_ISSUED', payload.vokenIssued)
         commit('SET_BONUSES', payload.vokenBonuses)
@@ -174,45 +181,32 @@ export const actions = {
       .catch(error => {
         console.error('::: M[vokenEarlyBirdSale] status:', error)
       })
+  },
 
+  async SYNC_ACCOUNT({rootState, state, commit}) {
     await state
       .contract()
       .methods
       .getAccountStatus(rootState.ether.account)
       .call()
       .then(payload => {
-        dispatch('voken/SET_BALANCE', payload.vokenBalance, {root: true})
-
-
-        let status = {
-          issued: payload.issued,
-          bonuses: payload.bonuses,
-          volume: payload.volume,
-
-          etherBalance: payload.etherBalance,
-          vokenBalance: payload.vokenBalance,
-
-          voken: payload.voken,
-          // vokenAddress: vokenAddress.fromBNString(payload.voken),
-          referrer: payload.referrer,
-          referrerVoken: payload.referrerVoken
-        }
-
-        console.log('getAccountStatus:', status)
-
-        // this._commit('SET_ACCOUNT_STATUS', status)
+        commit('SET_ACCOUNT_ISSUED', payload.issued)
+        commit('SET_ACCOUNT_BONUSES', payload.bonuses)
+        // let status = {
+        //   // issued: payload.issued,
+        //   // bonuses: payload.bonuses,
+        //   volume: payload.volume,
+        //
+        //   // voken: payload.voken,
+        //   // vokenAddress: vokenAddress.fromBNString(payload.voken),
+        //   // referrer: payload.referrer,
+        //   // referrerVoken: payload.referrerVoken
+        // }
+        //
+        // console.log('getAccountStatus:', status)
       })
       .catch(error => {
         console.error('::: M[vokenEarlyBirdSale] getAccountStatus:', error)
       })
-  },
-
-
-  async SYNC_STATUS({rootState, state, commit, dispatch}, blockNumber = 0, forceUpdate = false) {
-    if (!forceUpdate && blockNumber < state.blockNumber + DAPP.VOKEN_TB_EARLY_BIRD_SALE_INTERVAL_BLOCK_DIFF) {
-      return
-    }
-
-    dispatch('SYNC_STATUS_NOW', blockNumber)
   },
 }

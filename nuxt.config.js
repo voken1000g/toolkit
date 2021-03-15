@@ -80,6 +80,7 @@ export default {
           'faCopy',
           'faCheck',
           'faTimes',
+          'faTimesCircle',
           'faExclamationTriangle',
           'faSpinner',
           'faBug',
@@ -91,6 +92,9 @@ export default {
           'faFingerprint',
           'faLock',
           'faShieldAlt',
+          'faDollarSign',
+          'faCompactDisc',
+          'faLink',
         ]
       },
       {
@@ -102,7 +106,8 @@ export default {
       {
         set: '@fortawesome/free-brands-svg-icons',
         icons: [
-          'faGithub'
+          'faGithub',
+          'faEthereum'
         ]
       }
     ]
@@ -126,7 +131,7 @@ export default {
   },
 
   toast: {
-    position: 'top-center',
+    position: 'top-right',
     duration: 5000
   },
 

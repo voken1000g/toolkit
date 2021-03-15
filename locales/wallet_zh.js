@@ -138,7 +138,7 @@ export default {
   Starts_with_a_lowercase: '开头为一个小写字母',
   _33_characters: '33 个字符',
   Looks_like_: '看起来像：',
-  VOKEN_wallet_address: 'VOKEN 钱包地址',
+  VOKEN_wallet_address: 'Voken 钱包地址',
   Input_here_to_auto_verify_: '在这里输入，自动验证...',
 
   Auto_Convert_: '自动转换...',
@@ -152,4 +152,13 @@ export default {
 
   VOKEN_Private_Key__: 'VOKEN 私钥（Base32 编码，含校验和）',
   Private_Key_in_HEX: '十六进制私钥',
+
+  // Bind
+  Set_Voken_Address: '设置 Voken 地址',
+  Generate_A_New_Voken_Address: '生成一个新的 Voken 地址',
+  Generate_New_Address__Mnemonic: '生成新的助记词/地址',
+
+  Mnemonic__backup_phrase_: '助记词（备份短语）',
+  Visit__VOKEN_wallet_generator: '访问：VOKEN HD 钱包生成器',
+
 }

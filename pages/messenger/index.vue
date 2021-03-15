@@ -27,7 +27,7 @@
             {{ $t('messenger.Encrypt_and_sign_messages') }}
           </div>
           <div class='mt-2'>
-            <button type='button' class='w-full max-w-sm btn btn-pink py-2 px-4' @click='showEncrypt'>
+            <button type='button' class='w-full max-w-sm btn btn-pink justify-center py-2 px-4' @click='showEncrypt'>
               {{ $t('messenger.Encrypt__Sign_A_Message') }}
             </button>
           </div>
@@ -39,7 +39,7 @@
             {{ $t('messenger.Decrypt_and_verify_the__') }}
           </div>
           <div class='mt-2'>
-            <button type='button' class='w-full max-w-sm btn py-2 px-4' @click='showDecrypt'>
+            <button type='button' class='w-full max-w-sm btn justify-center py-2 px-4' @click='showDecrypt'>
               {{ $t('messenger.Decrypt__Verify_A_Message') }}
             </button>
           </div>
@@ -128,7 +128,7 @@
 
       <div class='mt-4 space-y-2 md:flex md:space-y-0 md:space-x-4'>
         <button type='button'
-                class='w-full btn btn-pink py-3 uppercase'
+                class='w-full btn btn-pink justify-center py-3 uppercase'
                 @click='start'
         >
           {{ $t('messenger.Start') }}
@@ -136,7 +136,7 @@
 
         <a target='_blank'
            :href='localePath("/wallet/generator")'
-           class='w-full btn py-3'
+           class='w-full btn justify-center py-3'
         >
           {{ $t('messenger.Visit_Generator') }}
         </a>
@@ -169,11 +169,11 @@
         </div>
 
         <div class='mt-4 flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-4'>
-          <button type='button' class='w-full btn btn-pink py-3 uppercase' @click='unlock'>
+          <button type='button' class='w-full btn btn-pink justify-center py-3 uppercase' @click='unlock'>
             {{ $t('messenger.Unlock') }}
           </button>
 
-          <button type='button' class='w-full btn btn-gray py-3 uppercase' @click='reset'>
+          <button type='button' class='w-full btn btn-gray justify-center py-3 uppercase' @click='reset'>
             {{ $t('messenger.Reset') }}
           </button>
         </div>
@@ -244,11 +244,11 @@
         <div class='mt-2 sm:flex sm:justify-end'>
           <div class='w-full sm:max-w-xl'>
             <div class='space-y-2 sm:flex sm:flex-row sm:space-y-0 sm:space-x-4'>
-              <button type='button' class='w-full btn btn-pink py-3 font-bold' @click='copyEncryptedData'>
+              <button type='button' class='w-full btn btn-pink justify-center py-3 font-bold' @click='copyEncryptedData'>
                 {{ $t('messenger.Copy_the_encrypted_data') }}
               </button>
 
-              <button type='button' class='w-full btn btn-gray py-3 font-bold uppercase' @click='hideEncrypt'>
+              <button type='button' class='w-full btn btn-gray justify-center py-3 font-bold uppercase' @click='hideEncrypt'>
                 {{ $t('messenger.Close') }}
               </button>
             </div>
@@ -319,7 +319,7 @@
           <div class='w-full sm:max-w-xl'>
             <div class='space-y-2 sm:flex sm:flex-row sm:space-y-0 sm:space-x-4'>
               <span class='w-full'></span>
-              <button type='button' class='w-full btn btn-gray py-3 font-bold uppercase' @click='hideDecrypt'>
+              <button type='button' class='w-full btn btn-gray justify-center py-3 font-bold uppercase' @click='hideDecrypt'>
                 {{ $t('messenger.Close') }}
               </button>
             </div>
@@ -465,8 +465,6 @@
         {{ $t('messenger.Share_your_Public_Key_to__') }}
       </p>
     </article>
-
-
   </div>
 </template>
 

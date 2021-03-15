@@ -138,7 +138,7 @@ export default {
   Starts_with_a_lowercase: 'Starts with a lowercase',
   _33_characters: '33 characters',
   Looks_like_: 'Looks like: ',
-  VOKEN_wallet_address: 'VOKEN wallet address',
+  VOKEN_wallet_address: 'Voken wallet address',
   Input_here_to_auto_verify_: 'Input here to auto verify...',
 
   Auto_Convert_: 'Auto Convert...',
@@ -152,4 +152,12 @@ export default {
 
   VOKEN_Private_Key__: 'VOKEN Private Key (Base32 encoded with checksum)',
   Private_Key_in_HEX: 'Private Key in HEX',
+
+  // Bind
+  Set_Voken_Address: 'Set Voken Address',
+  Generate_A_New_Voken_Address: 'Generate A New Voken Address',
+  Generate_New_Address__Mnemonic: 'Generate New Voken Mnemonic/Address',
+
+  Mnemonic__backup_phrase_: 'Mnemonic (backup phrase)',
+  Visit__VOKEN_wallet_generator: 'Visit: VOKEN HD Wallet Generator',
 }

@@ -26,6 +26,13 @@ export const state = () => ({
     d: '0',
     f: null,
   },
+
+  gasPrice: '0',
+  gasPriceStr: '0',
+  gasPriceObj: {
+    d: '0',
+    f: null,
+  },
 })
 
 
@@ -56,6 +63,11 @@ export const mutations = {
     state.balanceStr = Web3.utils.fromWei(balance, 'ether')
     state.balanceObj = fnFormat.ns2Obj(state.balanceStr)
   },
+  SET_GAS_PRICE(state, gasPrice) {
+    state.gasPrice = gasPrice
+    state.gasPriceStr = Web3.utils.fromWei(gasPrice, 'gwei')
+    state.gasPriceObj = fnFormat.ns2Obj(state.gasPriceStr)
+  },
 }
 
 
@@ -77,5 +89,17 @@ export const actions = {
   },
   async SET_BALANCE({commit}, balance) {
     commit('SET_BALANCE', balance)
+  },
+  async SET_GAS_PRICE({commit}, gasPrice) {
+    commit('SET_GAS_PRICE', gasPrice)
+  },
+  async SYNC_GAS_PRICE({state, commit, dispatch}) {
+    state.web3().eth.getGasPrice()
+      .then(async gasPrice => {
+        await dispatch('SET_GAS_PRICE', gasPrice)
+      })
+      .catch(error => {
+        console.error('::: M[ether] SYNC_GAS_PRICE:', error.message)
+      })
   },
 }

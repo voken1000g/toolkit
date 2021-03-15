@@ -67,12 +67,32 @@ textarea {
   }
 }
 
+.resp-my {
+  @apply my-8;
+
+  @screen md {
+    @apply my-10;
+  }
+
+  @screen lg {
+    @apply my-12;
+  }
+
+  @screen xl {
+    @apply my-14;
+  }
+
+  @screen 2xl {
+    @apply my-16;
+  }
+}
+
 
 /**
  * button
  */
 .btn {
-  @apply block inline-flex items-center justify-center bg-gradient-to-r border rounded-md shadow;
+  @apply block inline-flex bg-gradient-to-r border rounded-md shadow;
 
   @apply from-blue-500 to-indigo-500 border-indigo-500 text-indigo-50;
 

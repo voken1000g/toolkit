@@ -89,7 +89,7 @@
 
       <div class='mt-4 space-y-2 md:flex md:space-y-0 md:space-x-4'>
         <button type='button'
-                class='w-full btn btn-pink py-3 uppercase'
+                class='w-full btn btn-pink justify-center py-3 uppercase'
                 @click='start'
         >
           {{ $t('messenger.Start') }}
@@ -97,7 +97,7 @@
 
         <a target='_blank'
            :href='localePath("/wallet/generator")'
-           class='w-full btn py-3'
+           class='w-full btn justify-center py-3'
         >
           {{ $t('messenger.Visit_Generator') }}
         </a>
@@ -130,11 +130,11 @@
         </div>
 
         <div class='mt-4 flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-4'>
-          <button type='button' class='w-full btn btn-pink py-3 uppercase' @click='unlock'>
+          <button type='button' class='w-full btn btn-pink justify-center py-3 uppercase' @click='unlock'>
             {{ $t('messenger.Unlock') }}
           </button>
 
-          <button type='button' class='w-full btn btn-gray py-3 uppercase' @click='reset'>
+          <button type='button' class='w-full btn btn-gray justify-center py-3 uppercase' @click='reset'>
             {{ $t('messenger.Reset') }}
           </button>
         </div>
@@ -190,7 +190,7 @@
 
       <div class='mt-2 sm:flex sm:justify-end'>
         <div class='w-full sm:max-w-md'>
-          <button type='button' class='w-full btn btn-pink py-3 font-bold' @click='copyEncodedData'>
+          <button type='button' class='w-full btn btn-pink justify-center py-3 font-bold' @click='copyEncodedData'>
             {{ $t('messenger.Copy_the_encoded_data') }}
           </button>
 

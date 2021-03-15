@@ -1,3 +1,80 @@
+/**
+ * CompWallet
+ */
+.comp-wallet:nth-child(odd) {
+  @apply bg-gradient-to-br from-indigo-100 to-teal-300;
+}
+
+.comp-wallet label {
+  @apply block font-mono text-sm text-gray-700 text-left;
+}
+
+.comp-wallet .error label {
+  @apply block font-mono text-sm text-red-700;
+}
+
+.comp-wallet input {
+  @apply w-full py-4 pl-4 pr-12 rounded-md font-mono text-sm;
+}
+
+/**
+ * Private
+ */
+.comp-wallet .input-private {
+  @apply bg-orange-100 border-2 border-orange-400;
+  @apply text-orange-700;
+}
+
+.comp-wallet .input-private:focus {
+  @apply border-orange-500 shadow-outline-orange;
+}
+
+/**
+ * Public
+ */
+.comp-wallet .input-public {
+  @apply bg-green-100 border-2 border-green-400;
+  @apply text-green-800;
+}
+
+.comp-wallet .input-public:focus {
+  @apply border-green-500 shadow-outline-green;
+}
+
+/**
+ * Copy
+ */
+.comp-wallet .btn-copy {
+  @apply text-gray-500;
+}
+
+.comp-wallet .btn-copy:hover {
+  @apply text-gray-800;
+}
+
+.comp-wallet .btn-copy:focus {
+  @apply text-gray-600 outline-none;
+}
+
+/**
+ * Dashboard
+ */
+.div-striped-list-header {
+  @apply flex items-center justify-between px-4 py-5;
+
+  @screen sm {
+    @apply px-6;
+  }
+
+  h3 {
+    @apply text-lg leading-6 font-medium text-gray-900;
+  }
+
+  p {
+    @apply mt-1 max-w-2xl font-mono text-sm text-gray-500 break-all;
+  }
+}
+
 .div-striped-list-card {
   @apply py-4;
 
@@ -14,7 +91,7 @@
   }
 
   dd {
-    @apply mt-1 font-mono text-sm text-gray-900;
+    @apply mt-1 font-mono text-sm text-gray-900 break-all;
 
     @screen sm {
       @apply mt-0 col-span-2;
@@ -24,4 +101,47 @@
   .number-f {
     @apply text-xs text-gray-400;
   }
+}
+
+
+
+
+
+
+
+
+/**
+ * Tx Info
+ */
+.tx-info {
+  @apply flex items-center;
+  @apply pl-2 pr-5 rounded-md text-left;
+}
+
+.tx-info-pending {
+  @apply bg-gray-800 text-gray-50;
+}
+
+.tx-info-confirming {
+  @apply bg-blue-700 text-blue-50;
+}
+
+.tx-info-success {
+  @apply bg-green-700 text-green-50;
+}
+
+.tx-info-error {
+  @apply bg-red-700 text-red-50;
+}
+
+.tx-title {
+  @apply font-bold text-xl;
+}
+
+.tx-hash {
+  @apply mt-1 break-all;
+}
+
+.tx-message {
+  @apply mt-2 pt-2 border-t border-gray-300 text-sm break-all;
 }
