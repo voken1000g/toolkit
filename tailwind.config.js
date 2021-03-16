@@ -12,12 +12,6 @@ module.exports = {
   },
   theme: {
     extend: {
-      screens: {
-        '2xl': '1580px'
-      },
-      maxWidth: {
-        'max-w-screen-2xl': '1580px'
-      },
       fontSize: {
         '7xl': '6rem',
         '8xl': '7rem',

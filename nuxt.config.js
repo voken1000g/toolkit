@@ -65,11 +65,16 @@ export default {
     'nuxt-fontawesome'
   ],
   buildModules: [
-    '@nuxtjs/style-resources',
+    '@nuxt/postcss8',
     '@nuxt/typescript-build',
+    '@nuxtjs/style-resources',
     '@nuxtjs/tailwindcss',
     'nuxt-purgecss'
   ],
+
+  tailwindcss: {
+    jit: true
+  },
 
   fontawesome: {
     component: 'fa',
