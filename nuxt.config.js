@@ -13,7 +13,8 @@ export default {
     msgTest: 'VOKEN Message Helper'
   },
   router: {
-    base: baseUrl
+    base: baseUrl,
+    middleware: ['gateway']
   },
   target: 'static',
   head: {
@@ -26,6 +27,9 @@ export default {
       {name: 'msapplication-TileImage', content: baseUrl + 'favicon/ms-icon-144x144.png'},
       {name: 'theme-color', content: '#ffffff'}
     ],
+    script: [
+      { src: 'https://cdn.jsdelivr.net/npm/web3@1.3.4/dist/web3.min.js' }
+    ],
     link: [
       {rel: 'apple-touch-icon', sizes: '57x57', href: baseUrl + 'favicon/apple-icon-57x57.png'},
       {rel: 'apple-touch-icon', sizes: '60x60', href: baseUrl + 'favicon/apple-icon-60x60.png'},
@@ -37,6 +41,7 @@ export default {
       {rel: 'apple-touch-icon', sizes: '152x152', href: baseUrl + 'favicon/apple-icon-152x152.png'},
       {rel: 'apple-touch-icon', sizes: '180x180', href: baseUrl + 'favicon/apple-icon-180x180.png'},
       {rel: 'icon', type: 'image/png', sizes: '192x192', href: baseUrl + 'favicon/android-icon-192x192.png'},
+      {rel: 'icon', type: 'image/png', sizes: '144x144', href: baseUrl + 'favicon/android-icon-144x144.png'},
       {rel: 'icon', type: 'image/png', sizes: '32x32', href: baseUrl + 'favicon/favicon-32x32.png'},
       {rel: 'icon', type: 'image/png', sizes: '96x96', href: baseUrl + 'favicon/favicon-96x96.png'},
       {rel: 'icon', type: 'image/png', sizes: '16x16', href: baseUrl + 'favicon/favicon-16x16.png'},

@@ -24,7 +24,7 @@
     <div
       class='mt-8 lg:mt-10 xl:mt-12 2xl:mt-14 flex flex-col space-y-4 lg:flex-row lg:space-x-2 lg:space-y-0 xl:space-x-4 2xl:space-x-6 justify-center'>
       <button type='button'
-              class='w-full md:max-w-xl btn btn-pink py-4 font-sans font-semibold text-xl'
+              class='w-full md:max-w-xl btn btn-pink justify-center py-4 font-sans font-semibold text-xl'
               @click='generate'
       >
         <svg-ripple class='mr-4 w-8 h-8' style='margin-top: 0; margin-bottom: 0' />
@@ -57,7 +57,7 @@ import SvgRipple from '~/components/SvgRipple'
 
 export default {
   name: 'wallet-batch',
-  layout: 'wallet',
+  layout: 'indigoRipple',
   components: { SvgRipple, CompWallet, VueAvatar },
   head() {
     return {

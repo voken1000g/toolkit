@@ -354,19 +354,6 @@ textarea.textarea-teal {
  * SiteNav
  */
 .nav {
-  .eth-account-prod {
-    @apply py-2 px-4 bg-indigo-700 rounded-md font-mono text-sm text-indigo-300;
-  }
-
-  .eth-account-test {
-    @apply py-2 px-4 bg-indigo-700 rounded-l-md font-mono text-sm text-indigo-300;
-  }
-
-  .eth-test-net {
-    @apply py-2 px-4 bg-gradient-to-r from-red-400 to-pink-500 rounded-r-md;
-    @apply font-mono text-sm text-indigo-50;
-  }
-
   .nav-h {
     @apply px-3 py-2 rounded-md text-sm font-medium leading-5 text-indigo-300;
 
@@ -431,6 +418,21 @@ textarea.textarea-teal {
 
     &:focus {
       @apply outline-none text-white bg-indigo-700;
+    }
+  }
+
+  a.eth-account {
+    .eth-account-prod {
+      @apply py-2 px-4 bg-indigo-700 rounded-md font-mono text-sm text-indigo-300;
+    }
+
+    .eth-account-test {
+      @apply py-2 px-4 bg-indigo-700 rounded-l-md font-mono text-sm text-indigo-300;
+    }
+
+    .eth-test-net {
+      @apply py-2 px-4 bg-gradient-to-r from-red-400 to-pink-500 rounded-r-md;
+      @apply font-mono text-sm text-indigo-50;
     }
   }
 }

@@ -30,6 +30,7 @@ import walletLinks from '~/utils/constants/walletLinks'
 
 export default {
   name: "wallet-index",
+  layout: 'indigoRipple',
   computed: {
     walletLinks() {
       return walletLinks

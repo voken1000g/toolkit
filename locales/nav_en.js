@@ -15,9 +15,9 @@ export default {
   Wallet_Private_Key: 'VOKEN Private Key Converter',
   Wallet_Private_Key___mobi: 'VOKEN Private Key Converter',
   Wallet_Private_Key_: 'Validate and converter a VOKEN Private Key to VOKEN Public Key/Address.',
-  Wallet_Bind: 'Bind: Set Voken Wallet Address',
-  Wallet_Bind___mobi: 'Bind: Set Voken Wallet Address',
-  Wallet_Bind_: 'Set Your Voken Wallet Address for Voken Blockchain Migration.',
+  Wallet_Bind: 'Bind: Set VOKEN Wallet Address',
+  Wallet_Bind___mobi: 'Bind: Set VOKEN Wallet Address',
+  Wallet_Bind_: 'Set Your VOKEN Wallet Address for Voken Blockchain Migration.',
   Wallet_Batch: 'HD-Wallet Batch Generator',
 
   Avatar: 'Avatar',

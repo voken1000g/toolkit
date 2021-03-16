@@ -58,7 +58,7 @@
 
 
           <!-- Ethereum Account Address / Network -->
-          <div v-if="$store.state.ether.account" class="flex-1 flex items-center justify-center">
+          <nuxt-link :to="localePath('/overview')" v-if="$store.state.ether.account" class="eth-account flex-1 flex items-center justify-center">
             <div
               :class="{'eth-account-prod': $store.state.ether.productionMode, 'eth-account-test': !$store.state.ether.productionMode}"
             >
@@ -69,7 +69,7 @@
             >
               {{ fnEthereum.chainId2NetworkName($store.state.ether.chainId) }}
             </div>
-          </div>
+          </nuxt-link>
 
           <!-- GitHub -->
           <div class='text-3xl text-indigo-300'>

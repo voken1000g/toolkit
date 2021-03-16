@@ -95,6 +95,7 @@ import VueAvatar from '@voken/vue-avatar'
 export default {
   name: "bind",
   middleware: ['web3', 'voken'],
+  layout: 'indigoBubble',
   components: {VueAvatar},
 
   data() {

@@ -24,8 +24,7 @@
       </div>
       <div v-else class="resp-mt">
         <div class="" :class='vokenAddressStatus'>
-          <div
-            class='w-14 h-14 resp-mt lg:w-16 lg:h-16 xl:w-20 xl:h-20 mx-auto bg-white rounded-md shadow-md lg:shadow-lg'>
+          <div class='resp-mt mx-auto avatar-wrapper'>
             <vue-avatar v-show='isAddress' :value='vokenAddress'/>
             <div v-show='!isAddress'
                  class='h-full flex items-center justify-center text-2xl lg:text-3xl xl:text-4xl text-gray-300'

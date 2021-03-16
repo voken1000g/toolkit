@@ -1,8 +1,6 @@
 <template>
-  <layout-w class='resp-wide resp-mt pb-32'>
-
-    <div class='space-y-6'>
-
+  <div class='resp-wide pb-32'>
+    <div class='resp-mt space-y-6'>
       <div>
         <label for='input-default'>
           Input Default
@@ -117,67 +115,61 @@
       </div>
     </div>
 
-    <div class='mt-10 w-full md:max-w-lg space-y-4'>
+    <div class='resp-mt w-full md:max-w-lg mx-auto space-y-4'>
       <div>
-        <button type='button' class='btn btn-light w-full py-3'>
+        <button type='button' class='w-full btn btn-light justify-center py-3'>
           Button Light
         </button>
       </div>
 
       <div>
-        <button type='button' class='btn w-full py-3'>
+        <button type='button' class='w-full btn justify-center py-3'>
           Button Default
         </button>
       </div>
 
       <div>
-        <button type='button' class='btn btn-pink w-full py-3'>
+        <button type='button' class='w-full btn btn-pink justify-center py-3'>
           Button Pink
         </button>
       </div>
 
       <div>
-        <button type='button' class='btn btn-yellow w-full py-3'>
+        <button type='button' class='w-full btn btn-yellow justify-center py-3'>
           Button Yellow
         </button>
       </div>
 
       <div>
-        <button type='button' class='btn btn-green w-full py-3'>
+        <button type='button' class='w-full btn btn-green justify-center py-3'>
           Button Green
         </button>
       </div>
 
       <div>
-        <button type='button' class='btn btn-teal w-full py-3'>
+        <button type='button' class='w-full btn btn-teal justify-center py-3'>
           Button Teal
         </button>
       </div>
 
       <div>
-        <button type='button' class='btn btn-purple w-full py-3'>
+        <button type='button' class='w-full btn btn-purple justify-center py-3'>
           Button Purple
         </button>
       </div>
 
       <div>
-        <button type='button' class='btn btn-gray w-full py-3'>
+        <button type='button' class='w-full btn btn-gray justify-center py-3'>
           Button Gray
         </button>
       </div>
     </div>
-
-    <div class='mt-10 w-full md:max-w-lg space-y-4'>
-
-    </div>
-
-
-  </layout-w>
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'sample'
+  name: 'ui'
 }
 </script>
 

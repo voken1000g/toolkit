@@ -15,9 +15,9 @@ export default {
   Wallet_Private_Key: 'VOKEN 私钥转换器',
   Wallet_Private_Key___mobi: 'VOKEN 私钥转换器',
   Wallet_Private_Key_: '验证并将一个 VOKEN 私钥转换为 VOKEN 公钥/地址',
-  Wallet_Bind: '绑定：设置 Voken 钱包地址',
-  Wallet_Bind___mobi: '绑定：设置 Voken 钱包地址',
-  Wallet_Bind_: '为迁移至 Voken 区块链设置您的钱包地址。',
+  Wallet_Bind: '绑定：设置 VOKEN 钱包地址',
+  Wallet_Bind___mobi: '绑定：设置 VOKEN 钱包地址',
+  Wallet_Bind_: '为迁移至 VOKEN 区块链设置您的钱包地址',
   Wallet_Batch: 'HD 钱包批量生成器',
 
   Avatar: '头像生成器',

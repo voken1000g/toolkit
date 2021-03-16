@@ -438,7 +438,7 @@ import SvgRipple from '~/components/SvgRipple'
 
 export default {
   name: 'wallet-generator',
-  layout: 'wallet',
+  layout: 'indigoRipple',
   components: { SvgRipple, CompWallet, VueAvatar },
   head() {
     return {

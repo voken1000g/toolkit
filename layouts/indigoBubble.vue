@@ -1,6 +1,6 @@
 <template>
   <div class='bg-gradient-to-br from-white to-indigo-200' @click='hideNavAll'>
-    <div class='bg-wallet min-h-screen w-full'>
+    <div class='bg-bubble min-h-screen w-full'>
       <div class='mx-auto'>
         <site-nav/>
         <Nuxt/>
@@ -22,7 +22,7 @@ export default {
 </script>
 
 <style scoped>
-.bg-wallet {
+.bg-bubble {
   background: url("../assets/bg/bubble.svg") no-repeat;
   @apply bg-cover;
 }

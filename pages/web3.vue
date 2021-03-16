@@ -3,12 +3,9 @@
     <div class="max-w-2xl mx-auto py-16 sm:py-20 sm:px-6 lg:px-8 lg:max-w-7xl">
       <div class="bg-white shadow overflow-hidden sm:rounded-lg">
         <div class="px-4 py-5 sm:px-6">
-          <h3 class="text-lg leading-6 font-medium text-gray-900">
-            Ethereum
+          <h3>
+            ETH (Ethereum) Blockchain
           </h3>
-          <p class="mt-1 max-w-2xl text-sm text-gray-500">
-            Information about Ethereum blockchain
-          </p>
         </div>
         <div class="border-t border-gray-200 px-4 py-5 sm:p-0">
           <dl class="sm:divide-y sm:divide-gray-200">
@@ -23,19 +20,10 @@
 
             <div class="div-striped-list-card">
               <dt>
-                Chain ID
+                Chain ID (Name)
               </dt>
               <dd>
-                {{ $store.state.ether.chainId }}
-              </dd>
-            </div>
-
-            <div class="div-striped-list-card">
-              <dt>
-                Chain Name
-              </dt>
-              <dd>
-                {{ fnEthereum.chainId2NetworkName($store.state.ether.chainId) }}
+                {{ $store.state.ether.chainId }} ({{ fnEthereum.chainId2NetworkName($store.state.ether.chainId) }})
               </dd>
             </div>
 
@@ -44,7 +32,7 @@
                 Block Height
               </dt>
               <dd>
-                {{ $store.state.ether.blockNumber }}
+                {{ $store.state.ether.blockNumberStr }}
               </dd>
             </div>
           </dl>

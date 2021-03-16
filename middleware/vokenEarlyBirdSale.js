@@ -4,7 +4,7 @@ import DAPP from "~/utils/constants/dapp";
 
 export default async function ({store, app, redirect}) {
   if (store.state.vokenEarlyBirdSale.blockNumber) {
-    console.log('::: M[vokenEarlyBirdSale] loaded')
+    // console.log('::: M[vokenEarlyBirdSale] loaded')
     return
   }
 

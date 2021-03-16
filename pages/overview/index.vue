@@ -187,7 +187,7 @@
               </dd>
             </div>
 
-            <div v-show="voken.account.balance > '0'" class="div-striped-list-card">
+            <div class="div-striped-list-card">
               <dt>
                 VokenTB Balance
               </dt>
@@ -196,13 +196,18 @@
                   {{ voken.account.balanceObj.d }}<span v-show="voken.account.balanceObj.f"
                                                         class="number-f">.{{ voken.account.balanceObj.f }}</span>
                   VokenTB
-                  <span v-if="voken.account.balance === voken.account.vesting">
-                    (vesting)
-                  </span>
-                  <span v-else>
-                    ({{ voken.account.availableObj.d }}<span v-show="voken.account.availableObj.f"
-                                                             class="number-f">.{{ voken.account.availableObj.f }}</span>
-                      available)
+                  <span v-show="voken.account.balance > '0'">
+                    <span v-if="voken.account.balance === voken.account.vesting" class="text-gray-400">
+                      (vesting)
+                    </span>
+                    <span v-else-if="voken.account.balance === voken.account.available" class="text-gray-400">
+                      (all available)
+                    </span>
+                    <span v-else>
+                      ({{ voken.account.availableObj.d }}<span v-show="voken.account.availableObj.f"
+                                                               class="number-f">.{{ voken.account.availableObj.f }}</span>
+                        available)
+                    </span>
                   </span>
                 </div>
 
@@ -320,7 +325,7 @@ import fnEthereum from '~/utils/fnEthereum'
 import DAPP from '~/utils/constants/dapp'
 
 export default {
-  name: "overview",
+  name: "overview-index",
   middleware: ['web3', 'voken', 'vokenEarlyBirdSale'],
   // middleware: ['web3', 'voken'],
   computed: {

@@ -115,7 +115,7 @@ import VueAvatar from '@voken/vue-avatar'
 
 export default {
   name: 'wallet-public-key',
-  layout: 'wallet',
+  layout: 'indigoRipple',
   components: { VueAvatar },
   head() {
     return {

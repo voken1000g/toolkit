@@ -1,6 +1,6 @@
 <template>
-  <div class='bg-gradient-to-br from-white to-indigo-200' @click='hideNavAll'>
-    <div class='bg-wallet min-h-screen w-full'>
+  <div class='bg-gradient-to-br from-indigo-100 to-white' @click='hideNavAll'>
+    <div class='bg-wave min-h-screen w-full'>
       <site-nav />
       <Nuxt />
     </div>
@@ -20,12 +20,8 @@ export default {
 </script>
 
 <style scoped>
-.bg-wallet {
-  background: url("../assets/bg/ripple.svg") no-repeat;
+.bg-wave {
+  background: url("../assets/bg/wave-daigonal.svg") no-repeat;
   @apply bg-cover;
 }
-
-/**
- * bg-gradient-to-br from-white to-indigo-200
- */
 </style>

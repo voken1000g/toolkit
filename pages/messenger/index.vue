@@ -480,7 +480,7 @@ import VueAvatar from '@voken/vue-avatar'
 
 export default {
   name: 'index',
-  layout: 'messenger',
+  layout: 'indigoWave',
   components: { VueAvatar },
   head() {
     return {

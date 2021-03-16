@@ -4,7 +4,7 @@ import DAPP from "~/utils/constants/dapp";
 
 export default async function ({store, app, redirect}) {
   if (store.state.voken.blockNumber) {
-    console.log('::: M[voken] loaded')
+    // console.log('::: M[voken] loaded')
     return
   }
 

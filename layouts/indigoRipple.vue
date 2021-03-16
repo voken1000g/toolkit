@@ -1,6 +1,6 @@
 <template>
-  <div class='bg-gradient-to-br from-indigo-100 to-white' @click='hideNavAll'>
-    <div class='bg-messenger min-h-screen w-full'>
+  <div class='bg-gradient-to-br from-white to-indigo-200' @click='hideNavMenu'>
+    <div class='bg-ripple min-h-screen w-full'>
       <site-nav />
       <Nuxt />
     </div>
@@ -12,7 +12,7 @@ import SiteNav from '~/components/SiteNav'
 export default {
   components: { SiteNav },
   methods: {
-    hideNavAll() {
+    hideNavMenu() {
       this.$store.dispatch('nav/HIDE_ALL')
     }
   }
@@ -20,8 +20,8 @@ export default {
 </script>
 
 <style scoped>
-.bg-messenger {
-  background: url("../assets/bg/wave-daigonal.svg") no-repeat;
+.bg-ripple {
+  background: url("../assets/bg/ripple.svg") no-repeat;
   @apply bg-cover;
 }
 </style>
