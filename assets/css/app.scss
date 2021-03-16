@@ -1,3 +1,111 @@
+
+/**
+ * SiteNav
+ */
+.nav {
+  .nav-h {
+    @apply px-3 py-2 rounded-md text-sm font-medium leading-5 text-indigo-300;
+
+    &:hover {
+      @apply text-white bg-indigo-700;
+    }
+
+    &:focus {
+      @apply outline-none text-white bg-indigo-700;
+    }
+
+    &.nuxt-link-exact-active {
+      @apply bg-indigo-900;
+    }
+  }
+
+
+  .nav-v {
+    @apply mt-1 block px-3 py-2 rounded-md text-base font-medium text-indigo-300;
+
+    &:first-child {
+      @apply mt-0;
+    }
+
+    &:hover {
+      @apply text-white bg-indigo-700;
+    }
+
+    &:focus {
+      @apply outline-none text-white bg-indigo-700;
+    }
+
+    &.nuxt-link-exact-active {
+      @apply bg-indigo-900;
+    }
+  }
+
+
+  .profile-h {
+    @apply block px-4 py-2 text-sm leading-5 text-indigo-700;
+
+    &:hover {
+      @apply bg-indigo-100;
+    }
+
+    &:focus {
+      @apply outline-none bg-indigo-100;
+    }
+  }
+
+
+  .profile-v {
+    @apply mt-1 block px-3 py-2 rounded-md text-base font-medium text-indigo-400;
+
+    &:first-child {
+      @apply mt-0;
+    }
+
+    &:hover {
+      @apply text-white bg-indigo-700;
+    }
+
+    &:focus {
+      @apply outline-none text-white bg-indigo-700;
+    }
+  }
+
+  a.eth-account {
+
+    .eth-account-prod,
+    .eth-account-test {
+      @apply py-2 px-4 bg-indigo-700 font-mono text-sm text-indigo-300;
+    }
+
+    .eth-account-prod {
+      @apply rounded-md;
+    }
+
+    .eth-account-test {
+      @apply rounded-l-md;
+    }
+
+    .eth-test-net {
+      @apply py-2 px-4 bg-gradient-to-r from-red-400 to-pink-500 rounded-r-md;
+      @apply font-mono text-sm text-indigo-50;
+    }
+
+    &:hover {
+      .eth-account-prod,
+      .eth-account-test {
+        @apply bg-teal-700 text-teal-50;
+      }
+
+      .eth-test-net {
+        @apply from-red-400 to-pink-500 text-indigo-50;
+      }
+    }
+  }
+}
+
+
+
+
 /**
  * Avatar Wrapper
  */
@@ -21,60 +129,63 @@
 /**
  * CompWallet
  */
-.comp-wallet:nth-child(odd) {
-  @apply bg-gradient-to-br from-indigo-100 to-teal-300;
+.comp-wallet {
+  &:nth-child(odd) {
+    @apply bg-gradient-to-br from-indigo-100 to-teal-300;
+  }
+
+  label {
+    @apply block font-mono text-sm text-gray-700 text-left;
+  }
+
+  .error label {
+    @apply block font-mono text-sm text-red-700;
+  }
+
+  input {
+    @apply w-full py-4 pl-4 pr-12 rounded-md font-mono text-sm;
+  }
+
+  /**
+   * Private
+   */
+  .input-private {
+    @apply bg-orange-100 border-2 border-orange-400;
+    @apply text-orange-700;
+  }
+
+  .input-private:focus {
+    @apply border-orange-500 shadow-outline-orange;
+  }
+
+  /**
+   * Public
+   */
+  .input-public {
+    @apply bg-green-100 border-2 border-green-400;
+    @apply text-green-800;
+  }
+
+  .input-public:focus {
+    @apply border-green-500 shadow-outline-green;
+  }
+
+  /**
+   * Copy
+   */
+  .btn-copy {
+    @apply text-gray-500;
+
+    &:hover {
+      @apply text-gray-800;
+    }
+
+    &:focus {
+      @apply text-gray-600 outline-none;
+    }
+  }
 }
 
-.comp-wallet label {
-  @apply block font-mono text-sm text-gray-700 text-left;
-}
-
-.comp-wallet .error label {
-  @apply block font-mono text-sm text-red-700;
-}
-
-.comp-wallet input {
-  @apply w-full py-4 pl-4 pr-12 rounded-md font-mono text-sm;
-}
-
-/**
- * Private
- */
-.comp-wallet .input-private {
-  @apply bg-orange-100 border-2 border-orange-400;
-  @apply text-orange-700;
-}
-
-.comp-wallet .input-private:focus {
-  @apply border-orange-500 shadow-outline-orange;
-}
-
-/**
- * Public
- */
-.comp-wallet .input-public {
-  @apply bg-green-100 border-2 border-green-400;
-  @apply text-green-800;
-}
-
-.comp-wallet .input-public:focus {
-  @apply border-green-500 shadow-outline-green;
-}
-
-/**
- * Copy
- */
-.comp-wallet .btn-copy {
-  @apply text-gray-500;
-}
-
-.comp-wallet .btn-copy:hover {
-  @apply text-gray-800;
-}
-
-.comp-wallet .btn-copy:focus {
-  @apply text-gray-600 outline-none;
-}
 
 /**
  * Dashboard

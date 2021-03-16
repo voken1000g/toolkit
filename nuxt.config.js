@@ -69,7 +69,6 @@ export default {
     '@nuxt/typescript-build',
     '@nuxtjs/style-resources',
     '@nuxtjs/tailwindcss',
-    'nuxt-purgecss'
   ],
 
   tailwindcss: {
@@ -143,11 +142,6 @@ export default {
   toast: {
     position: 'top-right',
     duration: 5000
-  },
-
-  purgeCSS: {
-    mode: 'postcss',
-    whitelist: ['svg-inline--fa']
   },
 
   build: {
