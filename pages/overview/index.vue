@@ -118,7 +118,7 @@
                 Distribution for Early-Bird
               </dt>
               <dd>
-                5% of Total Supply: 10.5 Million
+                5% of the Total Supply: 10.5 Million
               </dd>
             </div>
 

@@ -20,6 +20,9 @@ export default {
   Wallet_Bind_: '为迁移至 VOKEN 区块链设置您的钱包地址',
   Wallet_Batch: 'HD 钱包批量生成器',
 
+  VokenTB: 'VokenTB',
+  VokenTB___mobi: 'VokenTB',
+
   Avatar: '头像生成器',
   Avatar___mobi: '头像生成器',
   Avatar_: '通过 npm: @voken/avatar 生成一个头像',

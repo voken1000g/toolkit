@@ -22,6 +22,10 @@ textarea {
   }
 }
 
+.transition-fade {
+  @apply transition duration-150 ease-in-out;
+}
+
 .resp-wide {
   @apply w-full mx-auto px-3;
 

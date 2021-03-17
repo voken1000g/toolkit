@@ -56,7 +56,7 @@
 
           <div class="mt-6 ml-4 flex items-center space-x-4" @click="toggleAccepted">
             <comp-switch :isOn="accepted" />
-            <div class="leading-7 text-cool-gray-500">
+            <div class="leading-7 text-sm text-cool-gray-500">
               I have already backed up the mnemonic (backup phrase);
               And I know that the Voken wallet address cannot be changed.
             </div>
@@ -131,7 +131,7 @@ import fnEthereum from '~/utils/fnEthereum'
 
 
 export default {
-  name: "CompWalletBind",
+  name: "WalletBind",
   components: {VueAvatar},
   data() {
     return {
@@ -273,8 +273,12 @@ export default {
       if (this.txStatus < 3 && confirmation < 16) {
         if (confirmation < 6) {
           this.txStatus = 1
+        } else if (confirmation >= 6 && confirmation < 10) {
+          this.txStatus = 2
         } else {
           this.txStatus = 2
+
+          await this.$store.dispatch('voken/SYNC_ACCOUNT')
         }
 
         this.txConfirmation = confirmation

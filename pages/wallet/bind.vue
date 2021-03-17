@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="resp-wide">
-      <comp-wallet-bind v-if="vokenAccount.vokenInt === '0'"/>
+      <wallet-bind v-if="vokenAccount.vokenInt === '0'"/>
       <div v-else class="resp-mt mx-auto max-w-xl text-center">
         <h2 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
           Already Done

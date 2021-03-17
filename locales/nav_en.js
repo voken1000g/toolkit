@@ -20,6 +20,9 @@ export default {
   Wallet_Bind_: 'Set Your VOKEN Wallet Address for Voken Blockchain Migration.',
   Wallet_Batch: 'HD-Wallet Batch Generator',
 
+  VokenTB: 'VokenTB',
+  VokenTB___mobi: 'VokenTB',
+
   Avatar: 'Avatar',
   Avatar___mobi: 'Avatar Generator',
   Avatar_: 'Generate an avatar by @voken/avatar',
@@ -37,4 +40,8 @@ export default {
   Messenger_Decode: 'Decode and verify',
   Messenger_Decode___mobi: 'Messenger: Decode and verify',
   Messenger_Decode_: 'Decode a message and verify the signature',
+
+  Sale_EarlyBird: 'Sale: Early-Bird',
+  Sale_EarlyBird__mobi: 'Sale: Early-Bird',
+  Sale_EarlyBird_: 'VokenTB Early-Bird Sale',
 }

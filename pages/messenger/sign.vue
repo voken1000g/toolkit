@@ -349,13 +349,13 @@ export default {
     }
   },
   mounted: async function() {
-    // get cached Private Key (encrypted)
+    // voken cached Private Key (encrypted)
     const cachedBufPrivateKeyEncrypted = this.getCache('bufPrivateKeyEncrypted')
     if (cachedBufPrivateKeyEncrypted) {
       this.bufPrivateKeyEncrypted = Buffer.from(cachedBufPrivateKeyEncrypted.data)
     }
 
-    // get cached Test Message (encrypted)
+    // voken cached Test Message (encrypted)
     const cachedBufTestEncrypted = this.getCache('bufTestEncrypted')
     if (cachedBufTestEncrypted) {
       this.bufTestEncrypted = Buffer.from(cachedBufTestEncrypted.data)

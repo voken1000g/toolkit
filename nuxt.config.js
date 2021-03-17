@@ -65,6 +65,7 @@ export default {
     'nuxt-fontawesome'
   ],
   buildModules: [
+    '@nuxt/image',
     '@nuxt/postcss8',
     '@nuxt/typescript-build',
     '@nuxtjs/style-resources',
@@ -88,6 +89,7 @@ export default {
           'faSpellCheck',
           'faCopy',
           'faCheck',
+          'faCheckSquare',
           'faTimes',
           'faTimesCircle',
           'faExclamationTriangle',
@@ -104,6 +106,10 @@ export default {
           'faDollarSign',
           'faCompactDisc',
           'faLink',
+          'faCashRegister',
+
+          // Early-Bird
+          'faArrowDown',
         ]
       },
       {

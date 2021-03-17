@@ -1,5 +1,5 @@
 <template>
-  <div v-show="typeof status === 'number' && status >= 0" :class="txInfoClassArr" class="space-x-2">
+  <div v-show="typeof status === 'number' && status > -1" :class="txInfoClassArr" class="space-x-2">
     <div
          class="w-1/4 flex items-center justify-center"
     >
@@ -8,7 +8,7 @@
            src="~/assets/image/spinner-gray.svg"
            alt="spinner">
 
-      <img v-if="status === 1"
+      <img v-else-if="status === 1"
            class="w-20 h-20"
            src="~/assets/image/spinner-blue.svg"
            alt="spinner">
@@ -41,12 +41,11 @@
 <script>
 /**
  * status:
- *  -1:
+ *  -1: Null
  *   0: Pending
  *   1: Confirming
  *   2: Success
  *   3: Error
- *
  */
 
 export default {

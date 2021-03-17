@@ -1,5 +1,10 @@
 export default [
   {
+    title: 'VokenTB',
+    titleMobi: 'VokenTB___mobi',
+    path: '/voken'
+  },
+  {
     title: 'Avatar',
     titleMobi: 'Avatar___mobi',
     path: '/avatar'

@@ -1,6 +1,7 @@
 import DAPP from '../utils/constants/dapp'
 import fnFormat from '~/utils/fnFormat'
 import vokenAddress from '@voken/address'
+import fnEthereum from '~/utils/fnEthereum'
 
 export const state = () => ({
   blockNumber: 0,
@@ -70,7 +71,7 @@ export const state = () => ({
     vokenInt: '0',
     vokenAddress: '',
     isBank: false,
-    referrer: '',
+    referrer: fnEthereum.ZERO_ADDRESS,
   },
 })
 
