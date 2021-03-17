@@ -35,7 +35,7 @@
     "vue-qr": "^2.3.0"
   },
   "devDependencies": {
-    "@fortawesome/free-brands-svg-icons": "^5.15.2",
+    "@fortawesome/free-brands-svg-icons": "^5.15.3",
     "@fortawesome/free-regular-svg-icons": "^5.15.2",
     "@fortawesome/free-solid-svg-icons": "^5.15.2",
     "@nuxt/image": "^0.4.1",
