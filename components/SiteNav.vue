@@ -58,7 +58,7 @@
 
 
           <!-- Ethereum Account Address / Network -->
-          <nuxt-link :to="localePath('/overview')" v-if="$store.state.ether.account" class="eth-account flex-1 flex items-center justify-center">
+          <nuxt-link :to="localePath('/overview')" v-if="!fnEthereum.isZeroAddress($store.state.ether.account)" class="eth-account flex-1 flex items-center justify-center">
             <div
               :class="{'eth-account-prod': $store.state.ether.productionMode, 'eth-account-test': !$store.state.ether.productionMode}"
             >
