@@ -278,7 +278,7 @@ export default {
         } else {
           this.txStatus = 2
 
-          await this.$store.dispatch('voken/SYNC_ACCOUNT')
+          await this.$store.dispatch('voken/SYNC_DATA')
         }
 
         this.txConfirmation = confirmation

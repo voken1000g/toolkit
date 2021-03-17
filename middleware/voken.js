@@ -22,7 +22,6 @@ export default async function ({store, app, redirect}) {
 
   // Sync VokenTB Data
   await store.dispatch('voken/SYNC_DATA')
-  await store.dispatch('voken/SYNC_ACCOUNT')
   await store.dispatch('voken/SET_BLOCK_NUMBER', store.state.ether.blockNumber)
 
   // on: New Block -> Sync VokenTB balance
@@ -31,7 +30,6 @@ export default async function ({store, app, redirect}) {
     .on('data', async blockHeader => {
       if (blockHeader.number > store.state.voken.blockNumber + DAPP.VOKEN_TB_INTERVAL_BLOCK_DIFF) {
         await store.dispatch('voken/SYNC_DATA')
-        await store.dispatch('voken/SYNC_ACCOUNT')
         await store.dispatch('voken/SET_BLOCK_NUMBER', blockHeader.number)
       }
     })
@@ -41,7 +39,6 @@ export default async function ({store, app, redirect}) {
   await provider
     .on('accountsChanged', async function (accounts) {
       await store.dispatch('voken/SYNC_DATA')
-      await store.dispatch('voken/SYNC_ACCOUNT')
 
       await store.dispatch('voken/SET_BLOCK_NUMBER', store.state.ether.blockNumber)
     })

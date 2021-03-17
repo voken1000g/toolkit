@@ -422,7 +422,7 @@ export default {
         } else {
           this.txBindStatus = -1
 
-          await this.$store.dispatch('voken/SYNC_ACCOUNT')
+          await this.$store.dispatch('voken/SYNC_DATA')
         }
 
         this.txBindConfirmation = confirmation
@@ -506,7 +506,7 @@ export default {
         } else {
           this.txSwapStatus = 2
 
-          await this.$store.dispatch('voken/SYNC_ACCOUNT')
+          await this.$store.dispatch('voken/SYNC_DATA')
           // await this.getPayment()
         }
 

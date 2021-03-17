@@ -1,6 +1,7 @@
 // import Web3 from 'web3'
 import DAPP from '~/utils/constants/dapp'
 import fnFormat from '~/utils/fnFormat'
+import fnEthereum from '~/utils/fnEthereum'
 
 
 export const state = () => ({
@@ -18,7 +19,7 @@ export const state = () => ({
     f: null,
   },
 
-  account: null,
+  account: fnEthereum.ZERO_ADDRESS,
 
   balance: '0',
   balanceStr: '0',

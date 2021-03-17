@@ -65,7 +65,6 @@ export default {
     'nuxt-fontawesome'
   ],
   buildModules: [
-    '@nuxt/image',
     '@nuxt/postcss8',
     '@nuxt/typescript-build',
     '@nuxtjs/style-resources',

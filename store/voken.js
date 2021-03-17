@@ -1,3 +1,4 @@
+import BigNumber from 'bignumber.js'
 import DAPP from '../utils/constants/dapp'
 import fnFormat from '~/utils/fnFormat'
 import vokenAddress from '@voken/address'
@@ -132,10 +133,9 @@ export const mutations = {
     state.account.vesting = vesting
     state.account.vestingStr = fnFormat.ns2Str(vesting)
     state.account.vestingObj = fnFormat.ns2Obj(state.account.vestingStr)
-  },
-  SET_AVAILABLE(state, available) {
-    state.account.available = available
-    state.account.availableStr = fnFormat.ns2Str(available)
+
+    state.account.available = new BigNumber(state.account.balance).minus(new BigNumber(state.account.vesting)).toString()
+    state.account.availableStr = fnFormat.ns2Str(state.account.available)
     state.account.availableObj = fnFormat.ns2Obj(state.account.availableStr)
   },
   SET_VOKEN_ADDRESS(state, vokenInt) {
@@ -178,42 +178,31 @@ export const actions = {
   async SET_VESTING({commit}, vesting) {
     commit('SET_VESTING', vesting)
   },
-  async SET_AVAILABLE({commit}, available) {
-    commit('SET_VESTING', available)
-  },
 
-  async SYNC_DATA({state, commit, dispatch}) {
+  async SYNC_DATA({rootState, state, commit, dispatch}) {
     await state
-      .dataContract().methods.data()
+      .dataContract().methods.data(rootState.ether.account)
       .call()
       .then(async function (payload) {
-        commit('SET_BURNING_PERMILLE_MIN', payload.burningPermilleMin)
-        commit('SET_BURNING_PERMILLE_MAX', payload.burningPermilleMax)
-        commit('SET_CAP', payload.cap)
-        commit('SET_TOTAL_SUPPLY', payload.totalSupply)
+        dispatch('ether/SET_BALANCE', payload.etherBalance, {root: true})
+        dispatch('ether/SET_USD_PRICE', payload.etherPrice, {root: true})
         commit('SET_USD_PRICE', payload.vokenPrice)
 
-        dispatch('ether/SET_USD_PRICE', payload.etherPrice, {root: true})
-      })
-      .catch(error => {
-        console.error('::: M[voken] SYNC_DATA', error)
-      })
-  },
+        commit('SET_CAP', payload.cap)
+        commit('SET_TOTAL_SUPPLY', payload.totalSupply)
+        commit('SET_BURNING_PERMILLE_MIN', payload.burningPermilleMin)
+        commit('SET_BURNING_PERMILLE_MAX', payload.burningPermilleMax)
 
-  async SYNC_ACCOUNT({rootState, state, commit, dispatch}) {
-    await state
-      .accountDataContract().methods.query(rootState.ether.account)
-      .call()
-      .then(async function (payload) {
+        commit('SET_VOKEN_ADDRESS', payload.vokenInt)
+
         commit('SET_BALANCE', payload.balance)
         commit('SET_VESTING', payload.vesting)
-        commit('SET_AVAILABLE', payload.available)
-        commit('SET_VOKEN_ADDRESS', payload.voken)
+
         commit('SET_IS_BANK', payload.isBank)
         commit('SET_REFERRER', payload.referrer)
       })
       .catch(error => {
-        console.error('::: M[voken] SYNC_ACCOUNT_DATA', error)
+        console.error('::: M[voken] SYNC_DATA', error)
       })
   },
 }
