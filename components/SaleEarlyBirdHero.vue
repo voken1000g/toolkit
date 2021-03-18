@@ -1,6 +1,6 @@
 <template>
   <div class="bg-indigo-800">
-    <div class='resp-wide border-t border-indigo-800 py-16 px-4 sm:py-24 sm:px-6 lg:px-8'>
+    <div class='resp-wide border-t border-indigo-700 py-16 px-4 sm:py-24 sm:px-6 lg:px-8'>
       <div class="px-4">
         <!-- text -->
         <div class="max-w-xl lg:max-w-2xl xl:max-w-3xl 2xl:max-w-5xl">

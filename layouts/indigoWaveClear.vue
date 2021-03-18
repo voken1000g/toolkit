@@ -3,7 +3,6 @@
     <div class='bg-wave min-h-screen w-full'>
       <site-nav />
       <nuxt />
-      <site-footer />
     </div>
   </div>
 </template>

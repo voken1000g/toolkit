@@ -3,8 +3,8 @@ export default {
   Toolkit: '工具包',
 
   Wallet: '钱包',
-  Wallet_Generator: 'HD 钱包生成器',
-  Wallet_Generator___mobi: 'HD 钱包：生成器',
+  Wallet_Generator: 'VOKEN HD 钱包生成器',
+  Wallet_Generator___mobi: 'VOKEN HD 钱包生成器',
   Wallet_Generator_: '生成助记词和 VOKEN HD 钱包',
   Wallet_Validator: 'VOKEN 地址验证器',
   Wallet_Validator___mobi: 'VOKEN 地址验证器',

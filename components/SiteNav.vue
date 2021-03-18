@@ -72,14 +72,14 @@
           </nuxt-link>
 
           <!-- GitHub -->
-          <div class='text-3xl text-indigo-300'>
-            <a target='_blank' href='https://github.com/voken1000g/toolkit' class='hover:text-white'>
+          <div class='hidden md:block'>
+            <a target='_blank' href='https://github.com/voken1000g/toolkit' class='text-3xl text-indigo-300 hover:text-white'>
               <fa :icon="['fab', 'github']"/>
             </a>
           </div>
 
           <!-- Language -->
-          <div class="hidden md:flex-shrink-0 md:flex md:items-center">
+          <div class="flex-shrink-0 flex items-center">
             <div class="relative">
               <!-- Language button -->
               <div>
@@ -130,7 +130,7 @@
     <div class="md:hidden"
          :class="{ block: $store.state.nav.menuMobile, hidden: !$store.state.nav.menuMobile }">
 
-      <!-- navigations -->
+      <!-- Navigations -->
       <div class="p-3">
         <nuxt-link v-for='link in walletLinks'
                    :key='link.path'
@@ -158,18 +158,14 @@
         </nuxt-link>
       </div>
 
-      <!-- Language -->
-      <div class="py-3 border-t border-indigo-500">
-        <div class="px-3">
-          <nuxt-link v-for="lang in languages"
-                     :key="lang.code"
-                     v-if="$i18n.locale !== lang.code"
-                     class="profile-v"
-                     :to="switchLocalePath(lang.code)">
-            {{ lang.title }}
-          </nuxt-link>
-        </div>
-      </div>
+      <!-- Links -->
+      <!--<div class="p-3 border-t border-indigo-700">-->
+      <!--  <div>-->
+      <!--    <a target='_blank' href='https://github.com/voken1000g/toolkit' class='nav-v'>-->
+      <!--      GitHub-->
+      <!--    </a>-->
+      <!--  </div>-->
+      <!--</div>-->
     </div>
   </nav>
 </template>

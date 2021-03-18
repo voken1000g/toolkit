@@ -31,6 +31,8 @@ export default {
   Already_an_Early_Bird: '您已经是早鸟',
   Got_: '获得：',
   Random_Bonus_: '随机奖励：',
+  Available_: '可用：',
+  Referred_: '推荐：',
 
   Go_to_referral_program: '转到推荐计划',
 

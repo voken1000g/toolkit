@@ -83,7 +83,7 @@ import VueAvatar from '@voken/vue-avatar'
 
 export default {
   name: 'decodes',
-  layout: 'indigoWave',
+  layout: 'indigoWaveClear',
   components: { VueAvatar },
   head() {
     return {

@@ -94,6 +94,15 @@ export const actions = {
   async SET_GAS_PRICE({commit}, gasPrice) {
     commit('SET_GAS_PRICE', gasPrice)
   },
+  async SYNC_BALANCE({state, commit, dispatch}) {
+    state.web3().eth.getBalance(state.account)
+      .then(async function (balance) {
+        commit('SET_BALANCE', balance)
+      })
+      .catch(error => {
+        console.error('::: M[ether] SYNC_BALANCE:', error.message)
+      })
+  },
   async SYNC_GAS_PRICE({state, commit, dispatch}) {
     state.web3().eth.getGasPrice()
       .then(async gasPrice => {

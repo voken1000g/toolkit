@@ -31,6 +31,8 @@ export default {
   Already_an_Early_Bird: 'Already an Early-Bird',
   Got_: 'Got: ',
   Random_Bonus_: 'Random Bonus:',
+  Available_: 'Available:',
+  Referred_: 'Referred:',
 
   Go_to_referral_program: 'Go to referral program',
 

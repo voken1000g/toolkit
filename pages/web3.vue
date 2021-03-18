@@ -35,9 +35,25 @@
                 {{ $store.state.ether.blockNumberStr }}
               </dd>
             </div>
+
+            <div class="div-striped-list-card">
+              <dt>
+                ETH Balance
+              </dt>
+              <dd>
+                <fa :icon="['fab', 'ethereum']" class="text-indigo-600"/>
+                {{ $store.state.ether.balanceStr }} ETH
+              </dd>
+            </div>
           </dl>
         </div>
       </div>
+    </div>
+
+    <div v-if="$store.state.ether.productionMode && $route.query.url" class="mx-auto w-full max-w-lg">
+      <nuxt-link :to="$route.query.url" class="w-full btn btn-pink justify-center py-3">
+        Back to the Previous Page
+      </nuxt-link>
     </div>
   </div>
 </template>

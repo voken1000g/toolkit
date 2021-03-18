@@ -1,5 +1,4 @@
 import BigNumber from 'bignumber.js'
-import DAPP from '../utils/constants/dapp'
 import fnFormat from '~/utils/fnFormat'
 import vokenAddress from '@voken/address'
 import fnEthereum from '~/utils/fnEthereum'
@@ -10,7 +9,6 @@ export const state = () => ({
 
   contract: null,
   dataContract: null,
-  accountDataContract: null,
 
   usdPrice: '0',
   usdPriceStr: '0',
@@ -92,11 +90,6 @@ export const mutations = {
       return dataContract
     }
   },
-  SET_ACCOUNT_DATA_CONTRACT(state, accountDataContract) {
-    state.accountDataContract = function () {
-      return accountDataContract
-    }
-  },
   SET_USD_PRICE(state, usdPrice) {
     state.usdPrice = usdPrice
     state.usdPriceStr = fnFormat.ns2Str(usdPrice, 6)
@@ -161,17 +154,12 @@ export const actions = {
   async SET_DATA_CONTRACT({commit}, dataContract) {
     commit('SET_DATA_CONTRACT', dataContract)
   },
-  async SET_ACCOUNT_DATA_CONTRACT({commit}, accountDataContract) {
-    commit('SET_ACCOUNT_DATA_CONTRACT', accountDataContract)
-  },
   async SET_CAP({commit}, cap) {
     commit('SET_CAP', cap)
   },
   async SET_TOTAL_SUPPLY({commit}, totalSupply) {
     commit('SET_TOTAL_SUPPLY', totalSupply)
   },
-
-
   async SET_BALANCE({commit}, balance) {
     commit('SET_BALANCE', balance)
   },
@@ -180,6 +168,11 @@ export const actions = {
   },
 
   async SYNC_DATA({rootState, state, commit, dispatch}) {
+    if (!rootState.ether.productionMode) {
+      console.error('::: M[voken] SYNC_DATA: not production mode')
+      return
+    }
+
     await state
       .dataContract().methods.data(rootState.ether.account)
       .call()

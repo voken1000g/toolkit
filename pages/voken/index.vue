@@ -15,7 +15,7 @@
           <nuxt-link :to='localePath("/voken/early-bird")'
                      class="mt-4 w-full btn btn-pink justify-start py-4 px-8 space-x-4 sm:space-x-6">
             <div class='flex-shrink-0 h-8 w-8 text-3xl'>
-              <fa :icon="['fas', 'cash-register']"/>
+              <fa :icon="['fas', 'gifts']"/>
             </div>
 
             <div>
@@ -72,7 +72,7 @@
                      class="mt-4 w-full btn btn-purple justify-start py-4 px-8 space-x-4 sm:space-x-6 cursor-pointer select-none"
           >
             <div class='flex-shrink-0 h-8 w-8 text-3xl'>
-              <fa :icon="['fas', 'cash-register']"/>
+              <fa :icon="['fas', 'random']"/>
             </div>
 
             <div>
@@ -90,10 +90,9 @@
     </div>
 
     <!-- Voken Map -->
-    <div class="mt-16">
-      <img src="~/assets/image/voken-map.png" alt="voken-map" />
-    </div>
-
+    <!--<div class="mt-16">-->
+    <!--  <img src="~/assets/image/voken-map.png" alt="voken-map" />-->
+    <!--</div>-->
   </div>
 </template>
 

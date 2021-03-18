@@ -19,20 +19,30 @@
                 Chain ID (Name)
               </dt>
               <dd>
-                {{ $store.state.ether.chainId }} ({{ fnEthereum.chainId2NetworkName($store.state.ether.chainId) }})
+                {{ ether.chainId }} ({{ fnEthereum.chainId2NetworkName(ether.chainId) }})
               </dd>
             </div>
 
-            <div v-if="$store.state.ether.blockNumber" class="div-striped-list-card">
+            <div v-if="ether.blockNumber" class="div-striped-list-card">
               <dt>
                 Block Height
               </dt>
               <dd>
-                {{ $store.state.ether.blockNumberStr }}
+                {{ ether.blockNumberStr }}
               </dd>
             </div>
 
-            <div v-show="ether.usdPrice > '0'" class="div-striped-list-card">
+            <div v-show="!ether.productionMode" class="div-striped-list-card">
+              <dt>
+                ETH Balance
+              </dt>
+              <dd>
+                <fa :icon="['fab', 'ethereum']" class="text-indigo-600"/>
+                {{ ether.balanceStr }} ETH
+              </dd>
+            </div>
+
+            <div v-show="ether.productionMode && ether.usdPrice > '0'" class="div-striped-list-card">
               <dt>
                 Latest ETH Price
               </dt>
@@ -60,7 +70,7 @@
     </div>
 
 
-    <div v-show="$store.state.ether.productionMode"
+    <div v-show="ether.productionMode"
          class="max-w-2xl mx-auto my-8 sm:my-16 sm:px-6 lg:px-8 lg:max-w-7xl"
     >
       <div class="bg-white shadow overflow-hidden sm:rounded-lg">
@@ -157,7 +167,7 @@
     </div>
 
 
-    <div v-show="$store.state.ether.productionMode"
+    <div v-show="ether.productionMode"
          class="max-w-2xl mx-auto my-8 sm:my-16 sm:px-6 lg:px-8 lg:max-w-7xl"
     >
       <div class="bg-white shadow overflow-hidden sm:rounded-lg">
@@ -167,7 +177,7 @@
               ETH & VokenTB Wallet
             </h3>
             <p>
-              {{ $store.state.ether.account }}
+              {{ ether.account }}
             </p>
           </div>
           <div class="text-3xl text-gray-500">
@@ -183,7 +193,7 @@
               </dt>
               <dd>
                 <fa :icon="['fab', 'ethereum']" class="text-indigo-600"/>
-                {{ $store.state.ether.balanceStr }} ETH
+                {{ ether.balanceStr }} ETH
               </dd>
             </div>
 
@@ -204,16 +214,18 @@
                       (all available)
                     </span>
                     <span v-else>
-                      ({{ voken.account.availableObj.d }}<span v-show="voken.account.availableObj.f"
-                                                               class="number-f">.{{ voken.account.availableObj.f }}</span>
+                      ({{
+                        voken.account.availableObj.d
+                      }}<span v-show="voken.account.availableObj.f"
+                              class="number-f">.{{ voken.account.availableObj.f }}</span>
                         available)
                     </span>
                   </span>
                 </div>
 
-                <div v-show="ebAccount.volume > '0'" class="mt-1 ml-2 text-xs text-gray-400">
-                  Include {{ ebAccount.volumeObj.d }}<span v-show="ebAccount.volumeObj.f"
-                                                           class="number-f">.{{ ebAccount.volumeObj.f }}</span>
+                <div v-show="ebAccount.summed > '0'" class="mt-1 ml-2 text-xs text-gray-400">
+                  Include {{ ebAccount.summedObj.d }}<span v-show="ebAccount.summedObj.f"
+                                                           class="number-f">.{{ ebAccount.summedObj.f }}</span>
                   VokenTB via Early-Bird Sale
                 </div>
               </dd>
@@ -246,7 +258,7 @@
       </div>
     </div>
 
-    <div v-show="$store.state.ether.productionMode"
+    <div v-show="ether.productionMode"
          class="max-w-2xl mx-auto my-8 sm:my-16 sm:px-6 lg:px-8 lg:max-w-7xl"
     >
       <div class="bg-white shadow overflow-hidden sm:rounded-lg">
@@ -291,8 +303,8 @@
                 Sold
               </dt>
               <dd>
-                {{ earlyBirdSale.volumeObj.d }}<span v-show="earlyBirdSale.volumeObj.f"
-                                                     class="number-f">.{{ earlyBirdSale.volumeObj.f }}</span>
+                {{ earlyBirdSale.summedObj.d }}<span v-show="earlyBirdSale.summedObj.f"
+                                                     class="number-f">.{{ earlyBirdSale.summedObj.f }}</span>
                 VokenTB
                 <!--  <div class="mt-1 ml-4 text-xs text-gray-500">-->
                 <!--  ({{ earlyBirdSale.issuedObj.d }}<span v-show="earlyBirdSale.issuedObj.f"-->
@@ -316,18 +328,24 @@
         </div>
       </div>
     </div>
+
+    <div>
+      {{ ebAccount.issued }}
+      {{ ebAccount.bonuses }}
+      {{ ebAccount.summed }}
+      {{ ebAccount.vesting }}
+    </div>
+
   </div>
 </template>
 
 <script>
-// import fnEtherscan from '~/utils/fnEtherscan'
 import fnEthereum from '~/utils/fnEthereum'
 import DAPP from '~/utils/constants/dapp'
 
 export default {
   name: "overview-index",
   middleware: ['web3', 'voken', 'vokenEarlyBirdSale'],
-  // middleware: ['web3', 'voken'],
   computed: {
     // fnEtherscan() {
     //   return fnEtherscan

@@ -1,8 +1,9 @@
 <template>
   <div class='min-h-screen' @click='hideNavMenu'>
     <div class='mx-auto'>
-      <site-nav/>
-      <Nuxt/>
+      <site-nav />
+      <nuxt />
+      <site-footer />
     </div>
   </div>
 </template>

@@ -1,5 +1,5 @@
 <template>
-  <div class='resp-wide pb-36'>
+  <div class='resp-wide pb-72'>
     <article class='resp-mt prose lg:prose-lg xl:prose-xl max-w-none'>
       <h1>
         {{ $t('nav.Wallet_Public_Key') }}

@@ -13,13 +13,6 @@ export default async function ({store, app, redirect}) {
     return
   }
 
-  if (!store.state.ether.productionMode) {
-    console.error('::: M[voken]: not production mode')
-    return
-  }
-
-
-
   // Sync VokenTB Data
   await store.dispatch('voken/SYNC_DATA')
   await store.dispatch('voken/SET_BLOCK_NUMBER', store.state.ether.blockNumber)

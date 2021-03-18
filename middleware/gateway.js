@@ -1,8 +1,11 @@
 import nuxtStorage from 'nuxt-storage'
 import vokenAddress from '@voken/address'
 
+const target = function (host, path = '/', protocol = 'https:') {
+  return protocol + '//' + host + path
+}
 
-export default async function ({route, store}) {
+export default async function ({route, store, redirect}) {
   const cachedKey = 'referral'
   const referral = route.query.r ? route.query.r : nuxtStorage.localStorage.getData(cachedKey)
   const valid = referral ? vokenAddress.isAddress(referral) : false
@@ -19,5 +22,16 @@ export default async function ({route, store}) {
   if (valid) {
     nuxtStorage.localStorage.setData(cachedKey, referral, 90, 'd')
     await store.dispatch('referral/SET_VOKEN_ADDRESS', referral)
+  }
+
+  // redirect
+  if (route.path === '/') {
+    if ('localhost:3000' === location.host) {
+      const to = target('sample.google.com', '/')
+      console.warn('::: M[gateway], should redirect to:', to)
+
+      // TODO:
+      // redirect(to, route.query)
+    }
   }
 }

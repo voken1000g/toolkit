@@ -1,0 +1,61 @@
+[
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "account",
+        "type": "address"
+      }
+    ],
+    "name": "data",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "weiMin",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "weiMax",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "vokenPrice",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "totalIssued",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "totalBonuses",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "issued",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "bonuses",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "vesting",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "referred",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  }
+]

@@ -2,8 +2,9 @@
   <div class='bg-gradient-to-br from-white to-indigo-200' @click='hideNavAll'>
     <div class='bg-particles min-h-screen w-full'>
       <div class='mx-auto'>
-        <site-nav/>
-        <Nuxt/>
+        <site-nav />
+        <nuxt />
+        <site-footer />
       </div>
     </div>
   </div>

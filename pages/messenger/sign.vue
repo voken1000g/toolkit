@@ -212,7 +212,7 @@ import edsv from '@voken/edsv'
 
 export default {
   name: 'sign',
-  layout: 'indigoWave',
+  layout: 'indigoWaveClear',
   head() {
     return {
       title: this.$t('nav.Messenger')

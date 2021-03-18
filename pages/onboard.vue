@@ -2,14 +2,13 @@
   <div class="resp-wide">
     <div class="resp-mt mx-auto max-w-xl text-center">
       <h2 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-        Welcome Onboard
+        {{ $t('web3.Welcome_Onboard') }}
       </h2>
 
       <p class="mt-4 sm:mt-6 lg:mt-10 px-2 sm:px-4 lg:px-6 leading-8 text-lg text-cool-gray-600 text-center">
-        Please scan the QR-Code with your Trust/imToken APP
-        or install the Metamask extension for your
+        {{ $t('web3.Please_scan__') }}
         {{ browser.name.slice(0, 1).toUpperCase() + browser.name.slice(1).toLowerCase() }}
-        browser.
+        {{ $t('web3.browser') }}
       </p>
 
       <div class="resp-mt flex items-center justify-center">
@@ -23,11 +22,11 @@
       </div>
 
 
-      <div class="resp-mt">
-        <button v-if="metaMaskOnBoardReady" class="w-full btn btn-pink justify-center py-3 font-bold text-lg"
+      <div class="resp-mt mx-auto max-w-lg">
+        <button v-if="metaMaskOnBoardReady" class="w-full btn btn-pink justify-center py-3 text-lg"
                 @click="getMetaMask"
         >
-          Install MetaMask
+          {{ $t('web3.Install') }} MetaMask {{ $t('web3.Extension') }}
         </button>
       </div>
     </div>

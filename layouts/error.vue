@@ -18,7 +18,7 @@
 <script>
 export default {
   name: 'error',
-  layout: 'redPolygon',
+  layout: 'errorPolygon',
   props: ['error']
 }
 </script>

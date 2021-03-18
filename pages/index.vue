@@ -1,5 +1,5 @@
 <template>
-  <div class="resp-wide">
+  <div class="resp-wide pb-40">
     <article class='resp-mt prose lg:prose-lg xl:prose-xl max-w-none'>
       <h1>
         VOKEN Toolkit

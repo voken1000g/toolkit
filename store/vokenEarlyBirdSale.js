@@ -8,6 +8,7 @@ export const state = () => ({
   blockNumber: 0,
   blockNumberStr: '0',
   contract: null,
+  dataContract: null,
 
   usdPrice: '0',
   usdPriceStr: '0',
@@ -30,9 +31,9 @@ export const state = () => ({
     f: null,
   },
 
-  volume: '0',
-  volumeStr: '0',
-  volumeObj: {
+  summed: '0',
+  summedStr: '0',
+  summedObj: {
     d: '0',
     f: null,
   },
@@ -57,9 +58,30 @@ export const state = () => ({
       f: null,
     },
 
-    volume: '0',
-    volumeStr: '0',
-    volumeObj: {
+    summed: '0',
+    summedStr: '0',
+    summedObj: {
+      d: '0',
+      f: null,
+    },
+
+    vesting: '0',
+    vestingStr: '0',
+    vestingObj: {
+      d: '0',
+      f: null,
+    },
+
+    available: '0',
+    availableStr: '0',
+    availableObj: {
+      d: '0',
+      f: null,
+    },
+
+    referred: '0',
+    referredStr: '0',
+    referredObj: {
       d: '0',
       f: null,
     },
@@ -77,6 +99,11 @@ export const mutations = {
       return contract
     }
   },
+  SET_DATA_CONTRACT(state, dataContract) {
+    state.dataContract = function () {
+      return dataContract
+    }
+  },
 
   SET_USD_PRICE(state, usdPrice) {
     state.usdPrice = usdPrice
@@ -90,18 +117,18 @@ export const mutations = {
     state.issuedStr = fnFormat.ns2Str(issued)
     state.issuedObj = fnFormat.ns2Obj(state.issuedStr)
 
-    state.volume = new BigNumber(state.issued).plus(state.bonuses).toString()
-    state.volumeStr = fnFormat.ns2Str(state.volume)
-    state.volumeObj = fnFormat.ns2Obj(state.volumeStr)
+    state.summed = new BigNumber(state.issued).plus(state.bonuses).toString()
+    state.summedStr = fnFormat.ns2Str(state.summed)
+    state.summedObj = fnFormat.ns2Obj(state.summedStr)
   },
   SET_BONUSES(state, bonuses) {
     state.bonuses = bonuses
     state.bonusesStr = fnFormat.ns2Str(bonuses)
     state.bonusesObj = fnFormat.ns2Obj(state.bonusesStr)
 
-    state.volume = new BigNumber(state.issued).plus(state.bonuses).toString()
-    state.volumeStr = fnFormat.ns2Str(state.volume)
-    state.volumeObj = fnFormat.ns2Obj(state.volumeStr)
+    state.summed = new BigNumber(state.issued).plus(state.bonuses).toString()
+    state.summedStr = fnFormat.ns2Str(state.summed)
+    state.summedObj = fnFormat.ns2Obj(state.summedStr)
   },
   SET_WEI_MIN(state, weiMin) {
     state.weiMin = weiMin
@@ -124,20 +151,34 @@ export const mutations = {
     state.account.issuedStr = fnFormat.ns2Str(issued)
     state.account.issuedObj = fnFormat.ns2Obj(state.account.issuedStr)
 
-    state.account.volume = new BigNumber(state.account.issued).plus(state.account.bonuses).toString()
-    state.account.volumeStr = fnFormat.ns2Str(state.account.volume)
-    state.account.volumeObj = fnFormat.ns2Obj(state.account.volumeStr)
+    state.account.summed = new BigNumber(state.account.issued).plus(state.account.bonuses).toString()
+    state.account.summedStr = fnFormat.ns2Str(state.account.summed)
+    state.account.summedObj = fnFormat.ns2Obj(state.account.summedStr)
   },
   SET_ACCOUNT_BONUSES(state, bonuses) {
     state.account.bonuses = bonuses
     state.account.bonusesStr = fnFormat.ns2Str(bonuses)
     state.account.bonusesObj = fnFormat.ns2Obj(state.account.bonusesStr)
 
-    state.account.volume = new BigNumber(state.account.issued).plus(state.account.bonuses).toString()
-    state.account.volumeStr = fnFormat.ns2Str(state.account.volume)
-    state.account.volumeObj = fnFormat.ns2Obj(state.account.volumeStr)
+    state.account.summed = new BigNumber(state.account.issued).plus(state.account.bonuses).toString()
+    state.account.summedStr = fnFormat.ns2Str(state.account.summed)
+    state.account.summedObj = fnFormat.ns2Obj(state.account.summedStr)
+  },
+  SET_ACCOUNT_VESTING(state, vesting) {
+    state.account.vesting = vesting
+    state.account.vestingStr = fnFormat.ns2Str(vesting)
+    state.account.vestingObj = fnFormat.ns2Obj(state.account.vestingStr)
+
+    state.account.available = new BigNumber(state.account.summed).minus(new BigNumber(state.account.vesting)).toString()
+    state.account.availableStr = fnFormat.ns2Str(state.account.available)
+    state.account.availableObj = fnFormat.ns2Obj(state.account.availableStr)
   },
 
+  SET_ACCOUNT_REFERRED(state, volume) {
+    state.account.referred = volume
+    state.account.referredStr = Web3.utils.fromWei(volume, 'ether')
+    state.account.referredObj = fnFormat.ns2Obj(state.account.referredStr)
+  },
 }
 
 
@@ -147,6 +188,9 @@ export const actions = {
   },
   async SET_CONTRACT({commit}, contract) {
     commit('SET_CONTRACT', contract)
+  },
+  async SET_DATA_CONTRACT({commit}, dataContract) {
+    commit('SET_DATA_CONTRACT', dataContract)
   },
   // async SET_USD_PRICE({commit}, usdPrice) {
   //   commit('SET_USD_PRICE', usdPrice)
@@ -164,52 +208,94 @@ export const actions = {
   //   commit('SET_WEI_MAX', weiMax)
   // },
 
+  async SYNC_DATA({rootState, state, commit}) {
+    if (!rootState.ether.productionMode) {
+      console.error('::: M[vokenEarlyBirdSale] SYNC_DATA: not production mode')
+      return
+    }
 
-  async SYNC_STATUS({rootState, state, commit}) {
     await state
-      .contract()
+      .dataContract()
       .methods
-      .status()
+      .data(rootState.ether.account)
       .call()
       .then(payload => {
-        commit('SET_USD_PRICE', payload.vokenUSD)
-        commit('SET_ISSUED', payload.vokenIssued)
-        commit('SET_BONUSES', payload.vokenBonuses)
         commit('SET_WEI_MIN', payload.weiMin)
         commit('SET_WEI_MAX', payload.weiMax)
-      })
-      .catch(error => {
-        console.error('::: M[vokenEarlyBirdSale] status:', error)
-      })
-  },
 
-  async SYNC_ACCOUNT({rootState, state, commit, dispatch}) {
-    await state
-      .contract()
-      .methods
-      .getAccountStatus(rootState.ether.account)
-      .call()
-      .then(payload => {
+        commit('SET_USD_PRICE', payload.vokenPrice)
+
+        commit('SET_ISSUED', payload.totalIssued)
+        commit('SET_BONUSES', payload.totalBonuses)
+
         commit('SET_ACCOUNT_ISSUED', payload.issued)
         commit('SET_ACCOUNT_BONUSES', payload.bonuses)
+        commit('SET_ACCOUNT_VESTING', payload.vesting)
 
-        dispatch('ether/SET_BALANCE', payload.etherBalance, {root: true})
-
-        // let status = {
-        //   // issued: payload.issued,
-        //   // bonuses: payload.bonuses,
-        //   volume: payload.volume,
-        //
-        //   // voken: payload.voken,
-        //   // vokenAddress: vokenAddress.fromBNString(payload.voken),
-        //   // referrer: payload.referrer,
-        //   // referrerVoken: payload.referrerVoken
-        // }
-        //
-        // console.log('getAccountStatus:', status)
+        commit('SET_ACCOUNT_REFERRED', payload.referred)
       })
       .catch(error => {
-        console.error('::: M[vokenEarlyBirdSale] getAccountStatus:', error)
+        console.error('::: M[vokenEarlyBirdSale] SYNC_DATA:', error)
       })
   },
+
+  // async SYNC_STATUS({rootState, state, commit}) {
+  //   if (!rootState.ether.productionMode) {
+  //     console.error('::: M[vokenEarlyBirdSale] SYNC_STATUS: not production mode')
+  //     return
+  //   }
+  //
+  //   await state
+  //     .contract()
+  //     .methods
+  //     .status()
+  //     .call()
+  //     .then(payload => {
+  //       commit('SET_USD_PRICE', payload.vokenUSD)
+  //       commit('SET_ISSUED', payload.vokenIssued)
+  //       commit('SET_BONUSES', payload.vokenBonuses)
+  //
+  //       commit('SET_WEI_MIN', payload.weiMin)
+  //       commit('SET_WEI_MAX', payload.weiMax)
+  //     })
+  //     .catch(error => {
+  //       console.error('::: M[vokenEarlyBirdSale] status:', error)
+  //     })
+  // },
+  //
+  // async SYNC_ACCOUNT({rootState, state, commit, dispatch}) {
+  //   if (!rootState.ether.productionMode) {
+  //     console.error('::: M[vokenEarlyBirdSale] SYNC_ACCOUNT: not production mode')
+  //     return
+  //   }
+  //
+  //   await state
+  //     .contract()
+  //     .methods
+  //     .getAccountStatus(rootState.ether.account)
+  //     .call()
+  //     .then(payload => {
+  //       commit('SET_ACCOUNT_ISSUED', payload.issued)
+  //       commit('SET_ACCOUNT_BONUSES', payload.bonuses)
+  //       commit('SET_ACCOUNT_VOLUME', payload.volume)
+  //
+  //       dispatch('ether/SET_BALANCE', payload.etherBalance, {root: true})
+  //
+  //       // let status = {
+  //       //   // issued: payload.issued,
+  //       //   // bonuses: payload.bonuses,
+  //       //   volume: payload.volume,
+  //       //
+  //       //   // voken: payload.voken,
+  //       //   // vokenAddress: vokenAddress.fromBNString(payload.voken),
+  //       //   // referrer: payload.referrer,
+  //       //   // referrerVoken: payload.referrerVoken
+  //       // }
+  //       //
+  //       // console.log('getAccountStatus:', status)
+  //     })
+  //     .catch(error => {
+  //       console.error('::: M[vokenEarlyBirdSale] getAccountStatus:', error)
+  //     })
+  // },
 }

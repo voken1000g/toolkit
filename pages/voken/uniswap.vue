@@ -1,5 +1,5 @@
 <template>
-  <div class="resp-my resp-wide text-center">
+  <div class="resp-my resp-wide pb-72 text-center">
     <h2 class="font-mono text-3xl text-cool-gray-500">
       UniSwap Guide: coming soon...
     </h2>

@@ -39,8 +39,38 @@
             {{ earlyBird.account.bonusesObj.d }}<span v-show="earlyBird.account.bonusesObj.f"
                                                       class="number-f">.{{ earlyBird.account.bonusesObj.f }}</span>
             <span class="text-lg">
-            VokenTB
-          </span>
+              VokenTB
+            </span>
+          </div>
+        </div>
+
+        <!-- Available -->
+        <div v-show="earlyBird.account.available > '0'">
+          <div class="mt-8 text-indigo-800">
+            {{ $t('earlyBird.Available_') }}
+          </div>
+
+          <div class="font-mono text-2xl text-gray-800 text-right">
+            {{ earlyBird.account.availableObj.d }}<span v-show="earlyBird.account.availableObj.f"
+                                                        class="number-f">.{{ earlyBird.account.availableObj.f }}</span>
+            <span class="text-lg">
+              VokenTB
+            </span>
+          </div>
+        </div>
+
+        <!-- Referred ETH -->
+        <div>
+          <div class="mt-8 text-indigo-800">
+            {{ $t('earlyBird.Referred_') }}
+          </div>
+
+          <div class="font-mono text-2xl text-gray-800 text-right">
+            {{ earlyBird.account.referredObj.d }}<span v-show="earlyBird.account.referredObj.f"
+                                                       class="number-f">.{{ earlyBird.account.referredObj.f }}</span>
+            <span class="text-lg">
+              ETH
+            </span>
           </div>
         </div>
 
@@ -506,7 +536,7 @@ export default {
         } else {
           this.txSwapStatus = 2
 
-          await this.$store.dispatch('voken/SYNC_DATA')
+          await this.$store.dispatch('vokenEarlyBirdSale/SYNC_DATA')
           // await this.getPayment()
         }
 

@@ -1,21 +1,15 @@
-import detectEthereumProvider from '@metamask/detect-provider'
 // import Web3 from "web3"
+import detectEthereumProvider from '@metamask/detect-provider'
 import DAPP from '../utils/constants/dapp'
 import vokenTbAbi from '../utils/contracts/vokenTb.json'
 import vokenTbDataAbi from '../utils/contracts/vokenTbData.json'
-import vokenTbAccountDataAbi from '../utils/contracts/vokenTbAccountData.json'
 import earlyBirdAbi from '../utils/contracts/earlyBird.json'
+import earlyBirdDataAbi from '../utils/contracts/earlyBirdData.json'
+import resaleAbi from '../utils/contracts/resale.json'
 
 export default async function ({store, app, redirect, route }) {
   if (store.state.ether.blockNumber) {
-    if (!store.state.ether.productionMode) {
-      console.error('[Chain ID ERROR]')
-      const target = app.localePath('/web3')
-      if (target !== route.path) {
-        redirect(target + '?url=' + route.fullPath)
-      }
-    }
-    return
+
   }
 
   const provider = await detectEthereumProvider()
@@ -28,6 +22,10 @@ export default async function ({store, app, redirect, route }) {
     return
   }
   ethereum.autoRefreshOnNetworkChange = false
+
+  if (store.state.ether.web3) {
+    return
+  }
 
   // Set web3
   const web3 = new Web3(window.ethereum)
@@ -48,11 +46,15 @@ export default async function ({store, app, redirect, route }) {
   await store.dispatch('voken/SET_DATA_CONTRACT', new Contract(
     vokenTbDataAbi, DAPP.CONTRACT_ADDRESS_VOKEN_TB_DATA
   ))
-  await store.dispatch('voken/SET_ACCOUNT_DATA_CONTRACT', new Contract(
-    vokenTbAccountDataAbi, DAPP.CONTRACT_ADDRESS_VOKEN_TB_ACCOUNT_DATA
-  ))
   await store.dispatch('vokenEarlyBirdSale/SET_CONTRACT', new Contract(
     earlyBirdAbi, DAPP.CONTRACT_ADDRESS_EARLY_BIRD
+  ))
+  await store.dispatch('vokenEarlyBirdSale/SET_DATA_CONTRACT', new Contract(
+    earlyBirdDataAbi, DAPP.CONTRACT_ADDRESS_EARLY_BIRD_DATA
+  ))
+
+  await store.dispatch('vokenResale/SET_CONTRACT', new Contract(
+    resaleAbi, DAPP.CONTRACT_ADDRESS_RESALE
   ))
 
   // Connect
@@ -86,31 +88,43 @@ export default async function ({store, app, redirect, route }) {
     })
 
   // Get ETH balance
-  await web3.eth.getBalance(store.state.ether.account)
-    .then(async function (balance) {
-      await store.dispatch('ether/SET_BALANCE', balance)
-    })
-    .catch(error => {
-      app.$toast.error(error.message)
-    })
-
-  // // Sync GAS Price
-  // await store.dispatch('ether/SYNC_GAS_PRICE')
-
+  await store.dispatch('ether/SYNC_BALANCE')
 
   // on: Chain Changed
   await provider
     .on('chainChanged', async function (chainId) {
       await store.dispatch('ether/SET_CHAIN_ID', parseInt(chainId))
+      await store.dispatch('ether/SYNC_BALANCE')
 
       if (!store.state.ether.productionMode) {
-        console.error('[Chain ID ERROR]')
+        console.error('::: M[web3] on `chainChanged`: Chain ID ERROR')
         const target = app.localePath('/web3')
         if (target !== route.path) {
           redirect(target + '?url=' + route.fullPath)
         }
       }
     })
+
+
+  /**
+   * Only Production Mode
+   * =================================================================================================================
+   */
+  if (!store.state.ether.productionMode) {
+    const pathTarget = app.localePath('/web3')
+    if (pathTarget !== route.path) {
+      console.error('::: M[web3]: Chain ID ERROR, will redirect to:', pathTarget)
+
+      redirect(pathTarget + '?url=' + route.fullPath)
+    } else {
+      console.error('::: M[web3]: not production mode')
+    }
+
+    return
+  }
+
+  // // Sync GAS Price
+  // await store.dispatch('ether/SYNC_GAS_PRICE')
 
   // on: Account Changed
   await provider
@@ -127,7 +141,7 @@ export default async function ({store, app, redirect, route }) {
 
   // Verify Chain ID
   if (!store.state.ether.productionMode) {
-    console.error('[Chain ID ERROR]')
+    console.error('::: M[web3] Verify Chain ID: Chain ID ERROR')
     const target = app.localePath('/web3')
     if (target !== route.path) {
       redirect(target + '?url=' + route.fullPath)

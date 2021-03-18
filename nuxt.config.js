@@ -109,6 +109,12 @@ export default {
 
           // Early-Bird
           'faArrowDown',
+          'faGifts',
+          'faRandom',
+
+          // Footer
+          'faEnvelope',
+          'faBook',
         ]
       },
       {
@@ -121,7 +127,8 @@ export default {
         set: '@fortawesome/free-brands-svg-icons',
         icons: [
           'faGithub',
-          'faEthereum'
+          'faEthereum',
+          'faTelegramPlane',
         ]
       }
     ]

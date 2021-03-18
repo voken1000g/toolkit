@@ -22,14 +22,27 @@ jobs:
           persist-credentials: false
 
       - name: Setup node env
-        uses: actions/setup-node@v2.1.5
+        uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node }}
 
       - name: Install
         run: yarn
 
-      - name: Build
+      - name: Build (voken1000g.github.io/toolkit)
+        run: yarn build-repo
+
+      - name: Deploy (voken1000g.github.io/toolkit)
+        uses: JamesIves/github-pages-deploy-action@4.0.0
+        with:
+          commit-message: "@${{ github.sha }}"
+          branch: gh-pages
+          folder: dist
+
+      - name: Clear
+        run: rm -rf ./dist
+
+      - name: Build (toolkit.voken.io)
         run: yarn build
 
       - name: CNAME (toolkit.voken.io)
@@ -42,17 +55,4 @@ jobs:
           repository-name: voken1000g/toolkit.voken.io
           commit-message: "${{ github.repository }}@${{ github.sha }}"
           branch: main
-          folder: dist
-
-      - name: Clear
-        run: rm -rf ./dist
-
-      - name: Build (voken1000g.github.io/toolkit)
-        run: yarn build-repo
-
-      - name: Deploy (voken1000g.github.io/toolkit)
-        uses: JamesIves/github-pages-deploy-action@4.0.0
-        with:
-          commit-message: "@${{ github.sha }}"
-          branch: gh-pages
           folder: dist

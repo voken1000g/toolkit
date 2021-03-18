@@ -13,14 +13,8 @@ export default async function ({store, app, redirect}) {
     return
   }
 
-  if (!store.state.ether.productionMode) {
-    console.error('::: Middleware - vokenEarlyBirdSale: not production mode')
-    return
-  }
-
   // Sync STATUS
-  await store.dispatch('vokenEarlyBirdSale/SYNC_STATUS')
-  await store.dispatch('vokenEarlyBirdSale/SYNC_ACCOUNT')
+  await store.dispatch('vokenEarlyBirdSale/SYNC_DATA')
   await store.dispatch('vokenEarlyBirdSale/SET_BLOCK_NUMBER', store.state.ether.blockNumber)
 
   // on: New Block -> Sync VokenTB balance
@@ -28,8 +22,7 @@ export default async function ({store, app, redirect}) {
     .subscribe('newBlockHeaders')
     .on('data', async blockHeader => {
       if (blockHeader.number > store.state.vokenEarlyBirdSale.blockNumber + DAPP.VOKEN_TB_EARLY_BIRD_SALE_INTERVAL_BLOCK_DIFF) {
-        await store.dispatch('vokenEarlyBirdSale/SYNC_STATUS')
-        await store.dispatch('vokenEarlyBirdSale/SYNC_ACCOUNT')
+        await store.dispatch('vokenEarlyBirdSale/SYNC_DATA')
         await store.dispatch('vokenEarlyBirdSale/SET_BLOCK_NUMBER', blockHeader.number)
       }
     })
@@ -38,8 +31,7 @@ export default async function ({store, app, redirect}) {
   const provider = await detectEthereumProvider()
   await provider
     .on('accountsChanged', async function (accounts) {
-      await store.dispatch('vokenEarlyBirdSale/SYNC_STATUS')
-      await store.dispatch('vokenEarlyBirdSale/SYNC_ACCOUNT')
+      await store.dispatch('vokenEarlyBirdSale/SYNC_DATA')
       await store.dispatch('vokenEarlyBirdSale/SET_BLOCK_NUMBER', store.state.ether.blockNumber)
     })
 }

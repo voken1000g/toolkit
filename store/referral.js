@@ -10,6 +10,8 @@ export const mutations = {
 
 export const actions = {
   SET_VOKEN_ADDRESS({ commit }, vokenAddress) {
-    commit('SET_VOKEN_ADDRESS', vokenAddress)
+    if (vokenAddress) {
+      commit('SET_VOKEN_ADDRESS', vokenAddress)
+    }
   }
 }

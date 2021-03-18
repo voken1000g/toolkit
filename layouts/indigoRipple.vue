@@ -2,7 +2,8 @@
   <div class='bg-gradient-to-br from-white to-indigo-200' @click='hideNavMenu'>
     <div class='bg-ripple min-h-screen w-full'>
       <site-nav />
-      <Nuxt />
+      <nuxt />
+      <site-footer />
     </div>
   </div>
 </template>
