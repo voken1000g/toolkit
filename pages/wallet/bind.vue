@@ -23,11 +23,21 @@
         {{ vokenAccount.balanceObj.d }}<span v-show="vokenAccount.balanceObj.f"
                                              class="number-f">.{{ vokenAccount.balanceObj.f }}</span>
         VokenTB
-        <span v-if="vokenAccount.balance === vokenAccount.vesting" class="text-cool-gray-400">(vesting)</span>
-        <span v-else>
-          ({{ vokenAccount.availableObj.d }}<span v-show="vokenAccount.availableObj.f"
-                                                  class="number-f">.{{ vokenAccount.availableObj.f }}</span>
-            available)
+        <span v-show="vokenAccount.balance > '0'">
+
+          <span v-if="vokenAccount.balance === vokenAccount.vesting" class="text-gray-400">
+            (vesting)
+          </span>
+          <span v-else-if="vokenAccount.balance === vokenAccount.available" class="text-gray-400">
+            (all available)
+          </span>
+          <span v-else>
+            ({{
+              vokenAccount.availableObj.d
+            }}<span v-show="vokenAccount.availableObj.f"
+                    class="number-f">.{{ vokenAccount.availableObj.f }}</span>
+              available)
+          </span>
         </span>
       </div>
 
@@ -40,7 +50,7 @@
         <nuxt-link :to="localePath('/voken/early-bird-referral')"
                    class="w-full btn btn-pink justify-center py-3 font-bold text-lg"
         >
-          Learn Early-Bird Referral Rewards
+          Early-Bird Sale Referral Rewards
         </nuxt-link>
       </div>
     </div>
