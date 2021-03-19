@@ -23,6 +23,7 @@
                 <fa :icon="['fas', 'dollar-sign']"/>
                 {{ earlyBirdSale.usdPriceObj.d }}<span v-show="earlyBirdSale.usdPriceObj.f"
                                                        class="number-f">.{{ earlyBirdSale.usdPriceObj.f }}</span>
+                ~ $ 0.7
               </div>
               <p class="mt-2 text-sm text-pink-200">
                 In process...
@@ -42,8 +43,8 @@
             40% of the Total Supply: 84 Million
           </p>
 
-          <div class="mt-4 w-full btn btn-gray justify-start py-4 px-8 space-x-4 sm:space-x-6 cursor-pointer select-none"
-               @click="publicSale"
+          <nuxt-link :to='localePath("/voken/public-sale")'
+                     class="mt-4 w-full btn btn-gray justify-start py-4 px-8 space-x-4 sm:space-x-6 cursor-pointer select-none"
           >
             <div class='flex-shrink-0 h-8 w-8 text-3xl'>
               <fa :icon="['fas', 'cash-register']"/>
@@ -55,10 +56,10 @@
                 ...
               </div>
               <p class="mt-2 text-sm text-gray-200">
-                Not Started
+                Not Started, planning price from more than $1
               </p>
             </div>
-          </div>
+          </nuxt-link>
         </div>
       </div>
 
@@ -110,9 +111,9 @@ export default {
     },
   },
   methods: {
-    publicSale() {
-      this.$toast.show('Not Started')
-    }
+    // publicSale() {
+    //   this.$toast.show('Not Started')
+    // }
   }
 }
 </script>

@@ -1,84 +1,66 @@
 <template>
-  <layout-bg-a theme="CORNER" class="resp-wide">
-    <!-- This example requires Tailwind CSS v2.0+ -->
-    <div class="">
-      <div class="max-w-7xl mx-auto py-12 px-4 divide-y-2 divide-gray-200 sm:px-6 lg:py-16 lg:px-8">
-        <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
-          Frequently asked questions
+  <div>
+    <div class="resp-wide">
+      <div class="faq-side-by-side">
+        <h2>
+          {{ $t('earlyBird.faq.title') }}
         </h2>
-        <div class="mt-6">
-          <dl class="space-y-8 divide-y divide-gray-200">
-            <div class="pt-6 md:grid md:grid-cols-12 md:gap-8">
-              <dt class="text-base font-medium text-gray-900 md:col-span-5">
-                What&#039;s the best thing about Switzerland?
-              </dt>
-              <dd class="mt-2 md:mt-0 md:col-span-7">
-                <p class="text-base text-gray-500">
-                  I don&#039;t know, but the flag is a big plus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.
-                </p>
-              </dd>
-            </div>
+        <dl>
+          <div>
+            <dt>
+              Can I optimize the miner fees?
+            </dt>
+            <dd>
+              <p>
+                In most cases it is not necessary to adjust it.
+                And if you are not a newbie:
+                If you get the VokenTB on this page, don't modify the <b>gas limit</b>,
+                just use the automatic default value to avoid failure;
+                it will not waste - unused gas will be refunded automatically.
+                But for <b>gas price</b>, there are 3 tools for you:
+                <a target="_blank" href="https://etherscan.io/gastracker">
+                  Gas Tracker (by etherscan.io)
+                </a>/
+                <a target="_blank" href="https://ethgasstation.info/">
+                  ETH Gas Station
+                </a>/
+                <a target="_blank" href="https://www.gasnow.org/">
+                  Gas Now
+                </a>,
+                you can see 3 levels of gas price in GWei there,
+                just take one as you prefer.
+              </p>
+            </dd>
+          </div>
 
-            <div class="pt-6 md:grid md:grid-cols-12 md:gap-8">
-              <dt class="text-base font-medium text-gray-900 md:col-span-5">
-                How do you make holy water?
-              </dt>
-              <dd class="mt-2 md:mt-0 md:col-span-7">
-                <p class="text-base text-gray-500">
-                  You boil the hell out of it. Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam aut tempora vitae odio inventore fuga aliquam nostrum quod porro. Delectus quia facere id sequi expedita natus.
-                </p>
-              </dd>
-            </div>
 
-            <div class="pt-6 md:grid md:grid-cols-12 md:gap-8">
-              <dt class="text-base font-medium text-gray-900 md:col-span-5">
-                What do you call someone with no body and no nose?
-              </dt>
-              <dd class="mt-2 md:mt-0 md:col-span-7">
-                <p class="text-base text-gray-500">
-                  Nobody knows. Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, voluptas ipsa quia excepturi, quibusdam natus exercitationem sapiente tempore labore voluptatem.
-                </p>
-              </dd>
-            </div>
+          <div>
+            <dt>
+              Can I invest more than 1 ETH?
+            </dt>
+            <dd>
+              <p>
+                Nope here.
+                We always believe that users bring energy to the ecosystem.
+                As we said in the
+                <b>Base Principles: value is based on service, the user pays, and the service provider charges, it is the natural trading scenario.</b>
+                Users are the customers, users are the providers, users are the miners, users are the builders,
+                users are community members...
+                If you need more VokenTB, you may go to
+                <nuxt-link :to="localePath('/voken/uniswap')">
+                  UniSwap
+                </nuxt-link>
+                which is the only DEX we recommended (trade with no burning).
+              </p>
+            </dd>
+          </div>
 
-            <div class="pt-6 md:grid md:grid-cols-12 md:gap-8">
-              <dt class="text-base font-medium text-gray-900 md:col-span-5">
-                Why do you never see elephants hiding in trees?
-              </dt>
-              <dd class="mt-2 md:mt-0 md:col-span-7">
-                <p class="text-base text-gray-500">
-                  Because they&#039;re so good at it. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.
-                </p>
-              </dd>
-            </div>
 
-            <div class="pt-6 md:grid md:grid-cols-12 md:gap-8">
-              <dt class="text-base font-medium text-gray-900 md:col-span-5">
-                Why can&#039;t you hear a pterodactyl go to the bathroom?
-              </dt>
-              <dd class="mt-2 md:mt-0 md:col-span-7">
-                <p class="text-base text-gray-500">
-                  Because the pee is silent. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam, quas voluptatibus ex culpa ipsum, aspernatur blanditiis fugiat ullam magnam suscipit deserunt illum natus facilis atque vero consequatur! Quisquam, debitis error.
-                </p>
-              </dd>
-            </div>
 
-            <div class="pt-6 md:grid md:grid-cols-12 md:gap-8">
-              <dt class="text-base font-medium text-gray-900 md:col-span-5">
-                Why did the invisible man turn down the job offer?
-              </dt>
-              <dd class="mt-2 md:mt-0 md:col-span-7">
-                <p class="text-base text-gray-500">
-                  He couldn&#039;t see himself doing it. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eveniet perspiciatis officiis corrupti tenetur. Temporibus ut voluptatibus, perferendis sed unde rerum deserunt eius.
-                </p>
-              </dd>
-            </div>
-          </dl>
-        </div>
+        </dl>
       </div>
     </div>
-
-  </layout-bg-a>
+  </div>
 </template>
 
 <script>

@@ -36,6 +36,106 @@ export default {
 
   Go_to_referral_program: '转到推荐计划',
 
+  rules: {
+    title: '早鸟销售规则',
+    subtitle: '更低的价格 & 更早的机会',
+
+    Only_10_5_million__: '仅有 1050 万 VokenTB 用于早鸟销售',
+    There_ar_only_10_5__: '共仅有 1050 万 VokenTB 将释放于本次',
+    that_is_5percent__: '是 VokenTB 总供应量的 5%',
+
+    Running_by: '由',
+    __running__on_the_Ethereum__: '运行在以太坊区块链上，保证公平性和透明度，并在任何时间可查看。',
+
+    Realtime_ETH_Price: '实时 ETH 价格',
+    Crypto_currency_ETH_will__: '加密货币 ETH 将被用作唯一的支付媒介。',
+    will_always_track__: '始终跟踪 UniSwap V2 上 ETH/DAI 对的实时价格。',
+    For_now__it_is: '现在它是',
+
+    Incremental_Sales_Price_: '递增的销售价格',
+    Starting_at: '开始于',
+    ends_at: '终止于',
+    until_the_price_reaches: '直到价格达到',
+
+    The_latest_price_depends__: '最新的价格取决于销售进度的比例，你可以随时找到这个',
+    The_earlier__: '越早越便宜，越晚越贵。',
+
+    Limited_Sales: '限量销售',
+    We_hope_that_more_users__: '我们希望更多的用户能够持有 VokenTB，这样更有利于整个生态的发展。因此，在早鸟销售阶段，购买金额限制为',
+    for_each_address__: '每个地址，如果销售进度超过了 50%，限额将为',
+    And__only_one_purchase__: '而且，每个地址只允许购买 1 次。',
+
+    Additional___bonus__: '如果您有推荐地址，可获得 1%-10% 的额外赠送',
+    If_you_have_a_referral__: '如果你有一个推荐地址，绑定它，那么你可以得到',
+    additional___random_bonus__: '额外 1%-10% 的随机赠送（以 VokenTB 支付）',
+
+    Vesting_plan: '归属计划',
+    Early_Birds_has__: '早鸟有更多的优势，相比于',
+    So_most_of_the_positions__: '所以大部分仓位将会同步释放于',
+
+    _10percent__: '10% 立即解锁',
+    _90percent__: '90% 按照公开销售的进度解锁',
+    The_bonuses_will_released__: '赠送部分在公开销售结束后解锁',
+
+    Referral_Rewards: '引荐奖励',
+    Click_here_to_learn_more: '点这里了解更多',
+  },
+
+
+
+  faq: {
+    title: '常见问题',
+
+  },
+
+  referral: {
+    Referral_System: '引荐系统',
+    Earn_ETH_up_to_22percent__: '推荐早鸟可赚取高达 22% 的 ETH 奖励',
+
+    Referral_Link: '推荐链接',
+    Copy: '复制',
+
+    Referral_Rewards__22percent: '引荐奖励 22%',
+    has_a_10_levels__: '拥有一个 10 级推荐系统，当用户认购 VokenTB 时，推荐人和被推荐人都会获得奖励。',
+    Tell_your_friends_and__: '告诉您的朋友，帮助他们了解项目。通过分享您的推荐地址（您的 Voken 钱包地址），' +
+      '您的朋友可以获得额外的 1%-10% 的随机赠送，您将获得 10% 的 ETH 奖励。',
+
+    The_reward_ETH__: '奖励的 ETH 会立即自动转到您的钱包地址，执行由',
+    The_referral_relationships__: '转介关系将保存于',
+    on_the_Ethereum__: '在以太坊区块链上，无法被篡改。',
+
+    Everyone_who_join_the: '每个通过使用您的引荐地址加入',
+    and_the: '和',
+    by_using_your__: '的人将获得额外的随机赠送，你得到奖励。',
+
+    You_will_get_rewarded__: '您将从与您绑定的每一笔交易中获得回报。',
+
+    From_direct_referrals__: '从直接推荐：深度',
+    From_indirect_referrals__: '从间接推荐：深度',
+
+    Refer: '推荐',
+    to_unlock: '解锁',
+    Unlocked: '已解锁',
+  },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   Profile: '简介',
   Details: '细节',
   Token_name: '代币名称',

@@ -59,8 +59,7 @@
           </div>
         </div>
 
-        <!-- Referred ETH -->
-        <div>
+        <div v-show="voken.account.vokenInt > '0'">
           <div class="mt-8 text-indigo-800">
             {{ $t('earlyBird.Referred_') }}
           </div>
@@ -74,10 +73,17 @@
           </div>
         </div>
 
-        <!-- Migrate -->
+        <!-- Refer -->
         <div class="mt-14">
+          <button class="w-full btn btn-pink justify-center py-2 text-lg">
+            Refer a friend
+          </button>
+        </div>
+
+        <!-- Migrate -->
+        <div class="mt-2">
           <nuxt-link :to="localePath('/migrate')"
-                     class="w-full btn btn-pink justify-center py-2 text-xl"
+                     class="w-full btn justify-center py-2 text-lg"
           >
             Migrate to Voken Blockchain
           </nuxt-link>

@@ -36,6 +36,111 @@ export default {
 
   Go_to_referral_program: 'Go to referral program',
 
+  rules: {
+    title: 'Rules of the Early-Bird Sale',
+    subtitle: 'Lower price & Earlier opportunities',
+
+    Only_10_5_million__: 'Only 10.5 million VokenTB for this Early-Bird Sale',
+    There_ar_only_10_5__: 'There are only 10.5 million VokenTB would released during this',
+    that_is_5percent__: 'that is 5% of the VokenTB Total Supply',
+
+    Running_by: 'Running by',
+    __running__on_the_Ethereum__: 'on the Ethereum blockchain, to ensure fairness and transparency and free to check at anytime.',
+
+    Realtime_ETH_Price: 'Realtime ETH Price',
+    Crypto_currency_ETH_will__: 'Crypto-currency ETH will be used as the only payment medium.',
+    will_always_track__: 'will always track the realtime price of ETH/DAI pair on UniSwap V2.',
+    For_now__it_is: 'For now, it is',
+
+    Incremental_Sales_Price_: 'Incremental Sales Price:',
+    Starting_at: 'Starting at',
+    ends_at: 'ends at',
+    until_the_price_reaches: 'until the price reaches',
+
+    The_latest_price_depends__: 'The latest price depends on the percentage of sales progress, and you can always find it on this',
+    The_earlier__: 'The earlier the cheaper, the later the more expensive.',
+
+    Limited_Sales: 'Limited Sales',
+    We_hope_that_more_users__: 'We hope that more users will hold VokenTB, which is more conducive to the entire ecosystem. Therefore, during the early bird sales phase, there is a purchase amount limit of',
+    for_each_address__: 'for each address, if the sale progress goes pass 50%, the limit will be',
+    And__only_one_purchase__: 'And, only one purchase per address is allowed.',
+
+    Additional___bonus__: 'Additional 1%-10% bonus if you have a referral address',
+    If_you_have_a_referral__: 'If you have a referral address, bind it, then you can get an',
+    additional___random_bonus__: 'additional 1%-10% random bonus (paid in VokenTB)',
+
+    Vesting_plan: 'Vesting plan',
+    Early_Birds_has__: 'Early bird has more advantages compared to the',
+    So_most_of_the_positions__: 'So most of the positions will be released in parallel with the users of the',
+
+    _10percent__: '10% released instantly',
+    _90percent__: '90% released according the process of the Public-Sale',
+    The_bonuses_will_released__: 'The bonuses will be released after the Public-Sale',
+
+    Referral_Rewards: 'Referral Rewards',
+    Click_here_to_learn_more: 'Click here to learn more',
+  },
+
+  faq: {
+    title: 'Frequently Asked Questions',
+
+  },
+
+  referral: {
+    Referral_System: 'Referral System',
+    Earn_ETH_up_to_22percent__: 'Earn ETH up to 22% for referring Early-Birds',
+
+    Referral_Link: 'Referral Link',
+    Copy: 'Copy',
+
+    Referral_Rewards__22percent: 'Referral Rewards: 22%',
+    has_a_10_levels__: 'has a 10-levels referral system that rewards both the referrer and referee when a user reserves VokenTB.',
+    Tell_your_friends_and__: 'Tell your friends and help them understand the project and the opportunity. ' +
+      'By sharing your referral address (your Voken Wallet Address), ' +
+      'your friend will get an additional 1% - 10% random bonus, and you get 10% ETH reward.',
+
+    The_reward_ETH__: 'The reward ETH will transfer to your wallet address automatically and immediately, process by the',
+    The_referral_relationships__: 'The referral relationships will be saved in the',
+    on_the_Ethereum__: 'on the Ethereum blockchain, which cannot be tampered.',
+
+    Everyone_who_join_the: 'Everyone who join the',
+    and_the: 'and the',
+    by_using_your__: 'by using your referral address, he will get the additional random bonus, and you get rewarded.',
+
+    You_will_get_rewarded__: 'You will get rewarded from every transaction that is bound with you.',
+
+    From_direct_referrals__: 'From direct referrals: depth',
+    From_indirect_referrals__: 'From indirect referrals: depth',
+
+    Refer: 'Refer',
+    to_unlock: 'to unlock',
+    Unlocked: 'Unlocked',
+  },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   Profile: 'Profile',
   Details: 'Details',
   Token_name: 'Token name',

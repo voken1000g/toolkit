@@ -4,10 +4,10 @@
       <div class="px-4">
         <div class="max-w-xl lg:max-w-2xl xl:max-w-3xl 2xl:max-w-5xl">
           <h1 class="text-4xl font-extrabold text-white sm:text-5xl sm:tracking-tight lg:text-6xl">
-            {{ $t('earlyBird.Early_bird_sale') }}
+            {{ $t('earlyBird.referral.Referral_System') }}
           </h1>
           <p class="mt-6 sm:mt-10 text-xl text-indigo-300">
-            {{ $t('earlyBird.Ethereum_smart_contracts_ensure__') }}
+            {{ $t('earlyBird.referral.Earn_ETH_up_to_22percent__') }}
           </p>
         </div>
       </div>
@@ -17,7 +17,7 @@
 
 <script>
 export default {
-  name: "SaleEarlyBirdHero",
+  name: "SaleEarlyBirdReferralHero",
   computed: {
     ether() {
       return this.$store.state.ether

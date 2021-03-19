@@ -72,4 +72,19 @@ export default {
     text: '隐私',
     href: 'https://voken.io/zh_CN/latest/privacy.html'
   },
+
+  VokenTB_Main_Contract: {
+    text: 'VokenTB 主合约',
+    href: 'https://voken.io/zh_CN/latest/contracts/main.html'
+  },
+
+  VokenTB_Early_Bird_Sale_Contract: {
+    text: 'VokenTB 早鸟销售合约',
+    href: 'https://voken.io/zh_CN/latest/contracts/early_bird.html'
+  },
+
+  Ether_USD_Price_Contract: {
+    text: '以太坊美元价格合约',
+    href: 'https://voken.io/en/latest/contracts/ether_usd_price.html'
+  },
 }

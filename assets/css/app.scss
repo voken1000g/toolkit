@@ -86,6 +86,144 @@
   }
 }
 
+/**
+ * FAQ side by side
+ */
+.faq-side-by-side {
+  @apply max-w-7xl mx-auto py-12 px-4 divide-y-2 divide-gray-200;
+
+  @screen sm {
+    @apply px-6;
+  }
+
+  @screen lg {
+    @apply py-16 px-8;
+  }
+
+  h2 {
+    @apply text-3xl font-extrabold text-gray-900;
+
+    @screen sm {
+      @apply text-4xl;
+    }
+  }
+
+  dl {
+    @apply mt-6 space-y-8 divide-y divide-gray-200;
+
+    div {
+      @apply pt-6;
+
+      @screen md {
+        @apply grid grid-cols-12 gap-8;
+      }
+
+      dt {
+        @apply font-bold text-base text-gray-900;
+
+        @screen md {
+          @apply col-span-5;
+        }
+      }
+
+      dd {
+        @apply mt-2;
+
+        @screen md {
+          @apply mt-0 col-span-7;
+        }
+
+        p {
+          @apply leading-8 text-base text-gray-500;
+
+          @screen md {
+            @apply -mt-1;
+          }
+
+          b {
+            @apply text-gray-700;
+          }
+
+          a {
+            @apply font-bold text-indigo-600;
+          }
+
+
+        }
+      }
+    }
+
+
+  }
+}
+
+.feed-simple-with-icons {
+ ul {
+   @apply -mb-8;
+
+   li {
+     div.feed {
+       @apply relative pb-8;
+
+       span.line {
+         @apply absolute top-4 left-4 -ml-px h-full w-0.5 bg-gray-200;
+       }
+
+       div.row {
+         @apply relative flex space-x-3;
+
+         div.icon {
+           @apply w-8 h-8 bg-white rounded-full ring-8 ring-white flex items-center justify-center;
+           @apply text-4xl;
+         }
+
+         div.text {
+           @apply pl-1 min-w-0 flex-1 flex justify-between space-x-2;
+
+           div:nth-child(1) {
+             @apply pt-1.5 text-sm text-gray-600;
+           }
+
+           div:nth-child(2) {
+             @apply font-bold text-2xl text-right text-gray-900;
+           }
+         }
+       }
+
+
+     }
+   }
+ }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -34,8 +34,10 @@ export default {
   },
 
   __comma: ', ',
+  __dot: '. ',
   __lp: ' (',
   __rp: ')',
+  The_: 'The ',
 
   Balance_: 'Balance: ',
 }

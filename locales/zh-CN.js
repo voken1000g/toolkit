@@ -33,8 +33,10 @@ export default {
   },
 
   __comma: '，',
+  __dot: '。',
   __lp: '（',
   __rp: '）',
+  The_: '',
 
   Balance_: '余额：',
 }

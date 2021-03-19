@@ -3,7 +3,8 @@
     <sale-early-bird-hero />
     <sale-early-bird-swap />
     <sale-early-bird-price class="bg-indigo-50" />
-<!--    <sale-early-bird-faq />-->
+    <sale-early-bird-rules />
+    <sale-early-bird-faq class="bg-indigo-50" />
   </div>
 </template>
 

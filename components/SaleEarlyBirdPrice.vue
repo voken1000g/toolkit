@@ -18,13 +18,13 @@
               ETH
             </dt>
             <dd>
-          <span>
-            $ {{ ether.usdPriceObj.d }}<span v-show="ether.usdPriceObj.f"
-                                             class="number-f">.{{ ether.usdPriceObj.f }}</span>
-          </span>
+              <span>
+                $ {{ ether.usdPriceObj.d }}<span v-show="ether.usdPriceObj.f"
+                                                 class="number-f">.{{ ether.usdPriceObj.f }}</span>
+              </span>
               <span class="usd">
-            USD
-          </span>
+                USD
+              </span>
             </dd>
           </div>
 
@@ -33,13 +33,13 @@
               {{ $t('voken.Early_Bird_Sale') }}
             </dt>
             <dd>
-          <span>
-            $ {{ earlyBirdSale.usdPriceObj.d }}<span v-show="earlyBirdSale.usdPriceObj.f"
-                                                     class="number-f">.{{ earlyBirdSale.usdPriceObj.f }}</span>
-          </span>
+              <span>
+                $ {{ earlyBirdSale.usdPriceObj.d }}<span v-show="earlyBirdSale.usdPriceObj.f"
+                                                         class="number-f">.{{ earlyBirdSale.usdPriceObj.f }}</span>
+              </span>
               <span class="usd">
-            USD
-          </span>
+                USD
+              </span>
             </dd>
           </div>
 
@@ -48,13 +48,13 @@
               UniSwap
             </dt>
             <dd>
-          <span>
-            $ {{ voken.usdPriceObj.d }}<span v-show="voken.usdPriceObj.f"
-                                             class="number-f">.{{ voken.usdPriceObj.f }}</span>
-          </span>
+              <span>
+                $ {{ voken.usdPriceObj.d }}<span v-show="voken.usdPriceObj.f"
+                                                 class="number-f">.{{ voken.usdPriceObj.f }}</span>
+              </span>
               <span class="usd">
-            USD
-          </span>
+                USD
+              </span>
             </dd>
           </div>
         </dl>

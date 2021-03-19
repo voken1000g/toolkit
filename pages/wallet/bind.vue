@@ -36,6 +36,13 @@
           Migrate to Voken Blockchain
         </nuxt-link>
       </div>
+      <div class="mt-3">
+        <nuxt-link :to="localePath('/voken/early-bird-referral')"
+                   class="w-full btn btn-pink justify-center py-3 font-bold text-lg"
+        >
+          Learn Early-Bird Referral Rewards
+        </nuxt-link>
+      </div>
     </div>
 
     <div class="resp-mt mx-auto py-16 px-4 sm:px-6 lg:py-20 lg:px-8">
