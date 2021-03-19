@@ -69,6 +69,18 @@ jobs:
           branch: get
           folder: dist
 
+      - name: CNAME (early-bird.voken.io)
+        run: echo "get.voken.io" > ./dist/CNAME
+
+      - name: Deploy (early-bird.voken.io)
+        uses: JamesIves/github-pages-deploy-action@4.0.0
+        with:
+          token: ${{ secrets.ACCESS_TOKEN }}
+          repository-name: voken1000g/early-bird.voken.io
+          commit-message: "${{ github.repository }}@${{ github.sha }}"
+          branch: early-bird
+          folder: dist
+
       - name: CNAME (migrate.voken.io)
         run: echo "migrate.voken.io" > ./dist/CNAME
 
