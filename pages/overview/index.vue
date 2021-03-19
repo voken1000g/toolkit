@@ -328,14 +328,6 @@
         </div>
       </div>
     </div>
-
-    <div>
-      {{ ebAccount.issued }}
-      {{ ebAccount.bonuses }}
-      {{ ebAccount.summed }}
-      {{ ebAccount.vesting }}
-    </div>
-
   </div>
 </template>
 
