@@ -30,7 +30,7 @@ export default async function ({app, route, store, redirect}) {
   locales.forEach(function(locale) {
     path = path.replace(new RegExp('(^\/' + locale.code + '\/)'), '/')
   })
-  if (route === '/') {
+  if (path === '/') {
     if ('localhost:3000' === location.host) {
       const to = target('sample.google.com', '/')
       console.warn('::: M[gateway], should redirect to:', to)
