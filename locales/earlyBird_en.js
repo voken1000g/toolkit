@@ -36,6 +36,8 @@ export default {
 
   Go_to_referral_program: 'Go to referral program',
 
+  Refer_a_friend: 'Refer a friend',
+
   rules: {
     title: 'Rules of the Early-Bird Sale',
     subtitle: 'Lower price & Earlier opportunities',

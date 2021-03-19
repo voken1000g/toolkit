@@ -75,19 +75,21 @@
 
         <!-- Refer -->
         <div class="mt-14">
-          <button class="w-full btn btn-pink justify-center py-2 text-lg">
-            Refer a friend
-          </button>
+          <nuxt-link :to="localePath('/voken/early-bird-referral')"
+                     class="w-full btn btn-pink justify-center py-2 text-lg"
+          >
+            {{ $t('earlyBird.Refer_a_friend') }}
+          </nuxt-link>
         </div>
 
         <!-- Migrate -->
-        <div class="mt-2">
-          <nuxt-link :to="localePath('/migrate')"
-                     class="w-full btn justify-center py-2 text-lg"
-          >
-            Migrate to Voken Blockchain
-          </nuxt-link>
-        </div>
+        <!--<div class="mt-2">-->
+        <!--  <nuxt-link :to="localePath('/migrate')"-->
+        <!--             class="w-full btn justify-center py-2 text-lg"-->
+        <!--  >-->
+        <!--    Migrate to Voken Blockchain-->
+        <!--  </nuxt-link>-->
+        <!--</div>-->
       </div>
 
       <div v-else>

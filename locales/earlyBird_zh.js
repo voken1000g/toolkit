@@ -36,6 +36,8 @@ export default {
 
   Go_to_referral_program: '转到推荐计划',
 
+  Refer_a_friend: '推荐一个朋友',
+
   rules: {
     title: '早鸟销售规则',
     subtitle: '更低的价格 & 更早的机会',

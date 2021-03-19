@@ -5,7 +5,7 @@ const target = function (host, path = '/', protocol = 'https:') {
   return protocol + '//' + host + path
 }
 
-export default async function ({route, store, redirect}) {
+export default async function ({app, route, store, redirect}) {
   const cachedKey = 'referral'
   const referral = route.query.r ? route.query.r : nuxtStorage.localStorage.getData(cachedKey)
   const valid = referral ? vokenAddress.isAddress(referral) : false
@@ -32,6 +32,11 @@ export default async function ({route, store, redirect}) {
 
       // TODO:
       // redirect(to, route.query)
+    }
+
+    if ('get.voken.io' === location.host) {
+      redirect(app.localePath('/voken/early-bird' + route.query))
+      return null
     }
   }
 }
