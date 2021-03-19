@@ -1,5 +1,5 @@
 <template>
-  <div class="resp-wide">
+  <div class="resp-wide pb-72">
     <div class="max-w-2xl mx-auto py-16 sm:py-20 sm:px-6 lg:px-8 lg:max-w-7xl">
       <div class="bg-white shadow overflow-hidden sm:rounded-lg">
         <div class="px-4 py-5 sm:px-6">

@@ -1,5 +1,5 @@
 <template>
-  <div class="resp-wide">
+  <div class="resp-wide pb-72">
     <div class="resp-mt mx-auto max-w-xl text-center">
       <h2 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
         {{ $t('web3.Welcome_Onboard') }}
