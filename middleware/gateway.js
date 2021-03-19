@@ -1,5 +1,6 @@
 import nuxtStorage from 'nuxt-storage'
 import vokenAddress from '@voken/address'
+import locales from '~/utils/constants/locales'
 
 const target = function (host, path = '/', protocol = 'https:') {
   return protocol + '//' + host + path
@@ -25,7 +26,11 @@ export default async function ({app, route, store, redirect}) {
   }
 
   // redirect
-  if (route.path.replace(/(^\/zh)/, '') === '/') {
+  let path = route.path
+  locales.forEach(function(locale) {
+    path = path.replace(new RegExp('(^\/' + locale.code + '\/)'), '/')
+  })
+  if (route === '/') {
     if ('localhost:3000' === location.host) {
       const to = target('sample.google.com', '/')
       console.warn('::: M[gateway], should redirect to:', to)
