@@ -25,7 +25,7 @@ export default async function ({app, route, store, redirect}) {
   }
 
   // redirect
-  if (route.path === '/') {
+  if (route.path.replace(/(^\/zh)/, '') === '/') {
     if ('localhost:3000' === location.host) {
       const to = target('sample.google.com', '/')
       console.warn('::: M[gateway], should redirect to:', to)
