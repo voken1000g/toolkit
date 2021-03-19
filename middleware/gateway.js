@@ -35,7 +35,7 @@ export default async function ({app, route, store, redirect}) {
     }
 
     if ('get.voken.io' === location.host) {
-      redirect(app.localePath('/voken/early-bird' + route.query))
+      redirect(app.localePath('/voken/early-bird'), route.query)
       return null
     }
   }
