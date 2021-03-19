@@ -7,8 +7,14 @@
 
       <p class="mt-4 sm:mt-6 lg:mt-10 px-2 sm:px-4 lg:px-6 leading-8 text-lg text-cool-gray-600 text-center">
         {{ $t('web3.Please_scan__') }}
-        {{ browser.name.slice(0, 1).toUpperCase() + browser.name.slice(1).toLowerCase() }}
-        {{ $t('web3.browser') }}
+        <span v-if="metaMaskOnBoardReady">
+          {{ $t('web3.or_install__Metamask__') }}
+          {{ browser.name.slice(0, 1).toUpperCase() + browser.name.slice(1).toLowerCase() }}
+          {{ $t('web3.browser') }}
+        </span>
+        <span v-else>
+          {{ $t('web3.or_visit_from__') }}
+        </span>
       </p>
 
       <div class="resp-mt flex items-center justify-center">
