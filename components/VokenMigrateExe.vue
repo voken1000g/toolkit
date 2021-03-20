@@ -1,5 +1,5 @@
 <template>
-  <div class="py-24">
+  <layout-bg-a class="py-24">
     <div class="max-w-2xl mx-auto">
       <!-- Avatar -->
       <div class='w-14 h-14 lg:w-16 lg:h-16 xl:w-20 xl:h-20 mx-auto bg-white rounded-md shadow-md lg:shadow-lg'>
@@ -95,7 +95,7 @@
       </div>
     </div>
 
-  </div>
+  </layout-bg-a>
 </template>
 
 <script>
