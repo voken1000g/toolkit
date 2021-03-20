@@ -5,7 +5,7 @@
         <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
           VokenTB {{ $t('voken.Early_Bird_Sale') }}
         </h2>
-        <p class="mt-3 font-mono text-lg text-gray-500 sm:mt-4">
+        <p class="mt-3 font-mono text-xs text-gray-500 sm:mt-4 sm:text-base">
           {{ DAPP.CONTRACT_ADDRESS_EARLY_BIRD }}
         </p>
       </div>

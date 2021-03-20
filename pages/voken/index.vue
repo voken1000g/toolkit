@@ -88,12 +88,34 @@
           </nuxt-link>
         </div>
       </div>
-    </div>
 
-    <!-- Voken Map -->
-    <!--<div class="mt-16">-->
-    <!--  <img src="~/assets/image/voken-map.png" alt="voken-map" />-->
-    <!--</div>-->
+      <div class="to-migrate bg-white shadow sm:rounded-lg">
+        <div class="px-4 py-5 sm:p-6">
+          <h3 class="text-lg leading-6 font-bold text-cool-gray-700">
+            Migrate to Voken Blockchain
+          </h3>
+
+          <nuxt-link :to='localePath("/voken/migrate")'
+                     class="mt-4 w-full btn btn-teal justify-start py-4 px-8 space-x-4 sm:space-x-6 cursor-pointer select-none"
+          >
+            <div class='flex-shrink-0 h-8 w-8 text-3xl'>
+              <fa :icon="['fas', 'star']"/>
+            </div>
+
+            <div>
+              <div class="font-bold text-lg">
+                {{ voken.account.balanceObj.d }}<span v-show="voken.account.balanceObj.f"
+                                                     class="number-f">.{{ voken.account.balanceObj.f }}</span>
+                VokenTB
+              </div>
+              <p class="mt-2 text-sm text-teal-200">
+                From Ethereum to Voken Blockchain
+              </p>
+            </div>
+          </nuxt-link>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -110,14 +132,13 @@ export default {
       return this.$store.state.vokenEarlyBirdSale
     },
   },
-  methods: {
-    // publicSale() {
-    //   this.$toast.show('Not Started')
-    // }
-  }
 }
 </script>
 
 <style scoped>
-
+.to-migrate {
+  .number-f {
+    @apply text-base text-teal-100;
+  }
+}
 </style>

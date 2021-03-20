@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "cross-env BASE_URL=/ nuxt",
+    "repo": "cross-env BASE_URL=/toolkit/ nuxt",
     "build": "cross-env BASE_URL=/ nuxt generate",
     "start": "cross-env BASE_URL=/ nuxt start",
     "build-repo": "cross-env BASE_URL=/toolkit/ nuxt generate",

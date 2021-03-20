@@ -54,46 +54,19 @@
 </template>
 
 <script>
+import getTargetPath from '~/utils/fnGetTargetPath'
 
 export default {
   name: 'index',
+  beforeCreate() {
+    const path = getTargetPath()
+    if (path) {
+      console.warn('::: P[/] redirect to:', path)
+
+      const baseUrl = this.$i18n.locale === this.$i18n.defaultLocale ? '' : '/' + this.$i18n.locale
+      this.$router.replace(baseUrl + path)
+      return null
+    }
+  }
 }
 </script>
-
-<style scoped>
-a {
-  @apply py-4 px-8 bg-gradient-to-r from-orange-500 to-pink-500 rounded-md;
-  @apply font-mono text-white;
-}
-
-a:hover {
-  @apply to-pink-600;
-}
-
-.btn {
-  @apply block inline-flex items-center justify-center;
-  @apply py-3 px-6 bg-gradient-to-r from-blue-500 to-indigo-500;
-  @apply border border-transparent rounded-md shadow;
-  @apply font-sans text-white;
-}
-
-.btn:hover {
-  @apply to-indigo-600;
-}
-
-.btn:active {
-  @apply to-indigo-500 shadow-outline-indigo;
-}
-
-.btn-pink {
-  @apply from-orange-500 to-pink-500;
-}
-
-.btn-pink:hover {
-  @apply to-pink-600;
-}
-
-.btn-pink:active {
-  @apply to-pink-500 shadow-outline-pink;
-}
-</style>

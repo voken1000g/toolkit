@@ -108,6 +108,7 @@ export default {
           'faCompactDisc',
           'faLink',
           'faCashRegister',
+          'faStar',
 
           // Early-Bird
           'faArrowDown',

@@ -42,7 +42,7 @@
       </div>
 
       <div class="resp-mt">
-        <nuxt-link :to="localePath('/migrate')" class="w-full btn justify-center py-3 font-bold text-lg">
+        <nuxt-link :to="localePath('/voken/migrate')" class="w-full btn justify-center py-3 font-bold text-lg">
           Migrate to Voken Blockchain
         </nuxt-link>
       </div>

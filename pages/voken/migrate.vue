@@ -15,7 +15,7 @@
 
 <script>
 export default {
-  name: "migrate"
+  name: "voken-migrate"
 }
 </script>
 
