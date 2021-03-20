@@ -1,7 +1,7 @@
 <template>
   <div>
     <voken-migrate-hero />
-    <voken-migrate-exe />
+    <voken-migrate-main />
     <voken-migrate-faq class="bg-indigo-50" />
   </div>
 

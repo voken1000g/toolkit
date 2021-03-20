@@ -102,7 +102,7 @@
 import VueAvatar from '@voken/vue-avatar'
 
 export default {
-  name: "VokenMigrateExe",
+  name: "VokenMigrateMain",
   components: {VueAvatar},
   data() {
     return {

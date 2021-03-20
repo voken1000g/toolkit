@@ -14,10 +14,10 @@
               <p>
                 In most cases it is not necessary to adjust it.
                 And if you are not a newbie:
-                If you get the VokenTB on this page, don't modify the <b>gas limit</b>,
-                just use the automatic default value to avoid failure;
-                it will not waste - unused gas will be refunded automatically.
-                But for <b>gas price</b>, there are 3 tools for you:
+                Don't modify the <b>gas limit</b>,
+                just use the default (automatic) to avoid failure;
+                it won't waste - unused gas will be refunded automatically.
+                But for the <b>gas price</b>, there are 3 tools for you:
                 <a target="_blank" href="https://etherscan.io/gastracker">
                   Gas Tracker (by etherscan.io)
                 </a>/
@@ -50,7 +50,7 @@
                 <nuxt-link :to="localePath('/voken/uniswap')">
                   UniSwap
                 </nuxt-link>
-                which is the only DEX we recommended (trade with no burning).
+                which is the only DEX we recommended for trading (with no burning).
               </p>
             </dd>
           </div>
