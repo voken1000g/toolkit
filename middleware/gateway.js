@@ -15,7 +15,7 @@ export default async function ({app, route, store, redirect}) {
 
   // updated cache
   if (valid) {
-    console.warn('::: M[gateway] Referral Voken Wallet Address:', referral)
+    // console.warn('::: M[gateway] Referral Voken Wallet Address:', referral)
     nuxtStorage.localStorage.setData(cachedKey, referral, 90, 'd')
     await store.dispatch('referral/SET_VOKEN_ADDRESS', referral)
   }

@@ -71,6 +71,26 @@ textarea {
   }
 }
 
+.resp-mt-lg {
+  @apply mt-12;
+
+  @screen md {
+    @apply mt-16;
+  }
+
+  @screen lg {
+    @apply mt-20;
+  }
+
+  @screen xl {
+    @apply mt-24;
+  }
+
+  @screen 2xl {
+    @apply mt-28;
+  }
+}
+
 .resp-my {
   @apply my-8;
 

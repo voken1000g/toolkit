@@ -17,7 +17,7 @@
         </p>
 
         <div class="resp-mt">
-          <a href="https://get.voken.io/" class="w-full max-w-xl btn btn-pink justify-center py-4 font-bold text-lg">
+          <a href="https://get.voken.io/" class="w-full max-w-xl btn btn-pink justify-center py-3 text-lg">
             Go to Early-Bird Sale
           </a>
         </div>
