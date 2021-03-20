@@ -29,19 +29,7 @@ jobs:
       - name: Install
         run: yarn
 
-      - name: Build (voken1000g.github.io/toolkit)
-        run: yarn build-repo
-
-      - name: Deploy (voken1000g.github.io/toolkit)
-        uses: JamesIves/github-pages-deploy-action@4.0.0
-        with:
-          commit-message: "@${{ github.sha }}"
-          branch: gh-pages
-          folder: dist
-
-      - name: Clear
-        run: rm -rf ./dist
-
+      # toolkit.voken.io
       - name: Build (toolkit.voken.io)
         run: yarn build
 
@@ -57,6 +45,7 @@ jobs:
           branch: main
           folder: dist
 
+      # get.voken.io
       - name: CNAME (get.voken.io)
         run: echo "get.voken.io" > ./dist/CNAME
 
@@ -69,6 +58,7 @@ jobs:
           branch: get
           folder: dist
 
+      # early-bird.voken.io
       - name: CNAME (early-bird.voken.io)
         run: echo "get.voken.io" > ./dist/CNAME
 
@@ -81,6 +71,7 @@ jobs:
           branch: early-bird
           folder: dist
 
+      # migrate.voken.io
       - name: CNAME (migrate.voken.io)
         run: echo "migrate.voken.io" > ./dist/CNAME
 
@@ -93,3 +84,16 @@ jobs:
           branch: migrate
           folder: dist
 
+      # voken1000g.github.io/toolkit
+      - name: Clear
+        run: rm -rf ./dist
+
+      - name: Build (voken1000g.github.io/toolkit)
+        run: yarn build-repo
+
+      - name: Deploy (voken1000g.github.io/toolkit)
+        uses: JamesIves/github-pages-deploy-action@4.0.0
+        with:
+          commit-message: "@${{ github.sha }}"
+          branch: gh-pages
+          folder: dist

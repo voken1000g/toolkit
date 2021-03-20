@@ -109,6 +109,8 @@ export default {
           'faLink',
           'faCashRegister',
           'faStar',
+          'faArchive',
+          'faGlassCheers',
 
           // Early-Bird
           'faArrowDown',

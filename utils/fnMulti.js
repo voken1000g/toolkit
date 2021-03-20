@@ -1,4 +1,4 @@
-export default function () {
+const home = function () {
   const domain = location.host.split(':')[0]
   if ('localhost' === domain) {
     return '/wallet'
@@ -13,4 +13,8 @@ export default function () {
   }
 
   return null
+}
+
+export default {
+  home: home,
 }

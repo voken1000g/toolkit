@@ -1,7 +1,7 @@
 import nuxtStorage from 'nuxt-storage'
 import vokenAddress from '@voken/address'
 import locales from "~/utils/constants/locales"
-import getTargetPath from '~/utils/fnGetTargetPath'
+import fnMulti from '~/utils/fnMulti'
 
 
 export default async function ({app, route, store, redirect}) {
@@ -26,10 +26,10 @@ export default async function ({app, route, store, redirect}) {
     path = path.replace(new RegExp('(^\/' + locale.code + '[\/]?)'), '/')
   })
   if (path === '/') {
-    path = getTargetPath()
-    if (path) {
-      console.warn('::: M[gateway] Redirect to:', path)
-      redirect(app.localePath(path), route.query)
+    const home = fnMulti.home()
+    if (home) {
+      console.warn('::: M[gateway] redirect to home:', home)
+      redirect(app.localePath(home), route.query)
       return null
     }
   }

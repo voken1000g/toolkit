@@ -54,17 +54,17 @@
 </template>
 
 <script>
-import getTargetPath from '~/utils/fnGetTargetPath'
+import fnMulti from '~/utils/fnMulti'
 
 export default {
   name: 'index',
   beforeCreate() {
-    const path = getTargetPath()
-    if (path) {
-      console.warn('::: P[/] redirect to:', path)
+    const home = fnMulti.home()
+    if (home) {
+      console.warn('::: P[/] redirect to home:', home)
 
       const baseUrl = this.$i18n.locale === this.$i18n.defaultLocale ? '' : '/' + this.$i18n.locale
-      this.$router.replace(baseUrl + path)
+      this.$router.replace(baseUrl + home)
       return null
     }
   }
