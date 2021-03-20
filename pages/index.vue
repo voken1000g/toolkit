@@ -54,19 +54,17 @@
 </template>
 
 <script>
-import fnMulti from '~/utils/fnMulti'
+import home from '~/utils/constants/home'
 
 export default {
   name: 'index',
   beforeCreate() {
-    const home = fnMulti.home()
-    if (home) {
-      console.warn('::: P[/] redirect to home:', home)
+    const HOME = home()
+    console.warn('::: P[/] redirect to home:', HOME.path)
 
-      const baseUrl = this.$i18n.locale === this.$i18n.defaultLocale ? '' : '/' + this.$i18n.locale
-      this.$router.replace(baseUrl + home)
-      return null
-    }
+    const baseUrl = this.$i18n.locale === this.$i18n.defaultLocale ? '' : '/' + this.$i18n.locale
+    this.$router.replace(baseUrl + HOME.path)
+    return null
   }
 }
 </script>

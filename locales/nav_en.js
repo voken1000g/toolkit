@@ -2,6 +2,9 @@ export default {
   Home: 'Home',
   Toolkit: 'Toolkit',
 
+  VOKEN_Toolkit: 'VOKEN Toolkit',
+  VOKEN_Early_Bird_Sale: 'EarlyBird-Sale',
+
   Wallet: 'Wallet',
   Wallet_Generator: 'VOKEN HD-Wallet Generator',
   Wallet_Generator___mobi: 'VOKEN HD-Wallet Generator',

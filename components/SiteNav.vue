@@ -30,10 +30,10 @@
           <!-- Logo -->
           <nuxt-link :to="localePath('/')" class="flex-shrink-0 flex items-center space-x-4">
             <div class="text-indigo-300 text-3xl">
-              <fa :icon="['fas', 'tools']"/>
+              <fa :icon="home.icon"/>
             </div>
             <div class="hidden lg:block font-sans text-indigo-300 text-2xl">
-              VOKEN {{ $t('nav.Toolkit') }}
+              {{ $t('nav.' + home.title ) }}
             </div>
           </nuxt-link>
 
@@ -72,7 +72,7 @@
           </nuxt-link>
 
           <!-- GitHub -->
-          <div class='hidden md:block'>
+          <div class='hidden lg:block'>
             <a target='_blank' href='https://github.com/voken1000g/toolkit' class='text-3xl text-indigo-300 hover:text-white'>
               <fa :icon="['fab', 'github']"/>
             </a>
@@ -159,19 +159,24 @@
       </div>
 
       <!-- Links -->
-      <!--<div class="p-3 border-t border-indigo-700">-->
-      <!--  <div>-->
-      <!--    <a target='_blank' href='https://github.com/voken1000g/toolkit' class='nav-v'>-->
-      <!--      GitHub-->
-      <!--    </a>-->
-      <!--  </div>-->
-      <!--</div>-->
+      <div class="p-3 border-t border-indigo-700">
+<!--        <a target='_blank' href='https://github.com/voken1000g/toolkit' class='nav-v'>-->
+<!--          GitHub-->
+<!--        </a>-->
+        <nuxt-link v-for="lang in languages"
+                   :key="lang.code"
+                   v-if="$i18n.locale !== lang.code"
+                   class="nav-v"
+                   :to="switchLocalePath(lang.code)">
+          {{ lang.title }}
+        </nuxt-link>
+      </div>
     </div>
   </nav>
 </template>
 
 <script>
-
+import home from '~/utils/constants/home'
 import FlyoutWallet from '~/components/FlyoutWallet'
 import locales from '~/utils/constants/locales'
 import navigations from '~/utils/constants/navigations'
@@ -191,6 +196,9 @@ export default {
     }
   },
   computed: {
+    home() {
+      return home()
+    },
     fnEthereum() {
       return fnEthereum
     },
