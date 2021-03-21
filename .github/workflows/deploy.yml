@@ -84,6 +84,20 @@ jobs:
           branch: migrate
           folder: dist
 
+      # voken1000g.github.io/toolkit
+      - name: Clear
+        run: rm -rf ./dist
+
+      - name: Build (voken1000g.github.io/toolkit)
+        run: yarn build-repo
+
+      - name: Deploy (voken1000g.github.io/toolkit)
+        uses: JamesIves/github-pages-deploy-action@4.0.0
+        with:
+          commit-message: "@${{ github.sha }}"
+          branch: gh-pages
+          folder: dist
+
       # voken1000g.github.io/early-bird
       - name: Clear
         run: rm -rf ./dist
@@ -98,18 +112,4 @@ jobs:
           repository-name: voken1000g/early-bird
           commit-message: "${{ github.repository }}@${{ github.sha }}"
           branch: repo-early-bird
-          folder: dist
-
-      # voken1000g.github.io/toolkit
-      - name: Clear
-        run: rm -rf ./dist
-
-      - name: Build (voken1000g.github.io/toolkit)
-        run: yarn build-repo
-
-      - name: Deploy (voken1000g.github.io/toolkit)
-        uses: JamesIves/github-pages-deploy-action@4.0.0
-        with:
-          commit-message: "@${{ github.sha }}"
-          branch: gh-pages
           folder: dist

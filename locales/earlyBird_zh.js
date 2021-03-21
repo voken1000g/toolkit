@@ -1,17 +1,17 @@
 export default {
-  Early_bird: '早鸟',
-  Early_bird_sale: '早鸟销售',
-  Early_bird_sale_program: '早鸟销售程序',
+  Early_bird: '早起鸟',
+  Early_bird_sale: '早起鸟销售',
+  Early_bird_sale_program: '早起鸟销售程序',
 
   Ethereum_smart_contracts_ensure__: '以太坊智能合约（开源）保证了公平性和透明度，使用 ETH 作为唯一的支付媒介。',
 
-  Five_percent_for_early_bird: '仅有 1,050 万 VokenTB 用于早鸟销售（占总供应量的 5%）',
+  Five_percent_for_early_bird: '仅有 1,050 万 VokenTB 用于早起鸟销售（占总供应量的 5%）',
   Only_one_purchase_per_address: '每个地址只能购买 1 次',
   Maximum_: '最多：',
   Minimum_: '最少：',
 
   realtime_price: '实时价格',
-  early_bird_realtime_price: '早鸟实时价格',
+  early_bird_realtime_price: '早起鸟实时价格',
   Block_height_: '区块高度：',
 
   warn: {
@@ -38,7 +38,7 @@ export default {
   Please_set_the_gas_to: '请将 gas 上限设置为 1,000,000 避免 gas 不足导致交易失败。未用完的 gas 将自动退回。',
   Unused_gas_will_be_refunded: '未用完的 gas 将立即退还。',
 
-  Already_an_Early_Bird: '您已经是早鸟',
+  Already_an_Early_Bird: '您已经是早起鸟',
   Got_: '获得：',
   Random_Bonus_: '随机奖励：',
   Available_: '可用：',
@@ -49,10 +49,10 @@ export default {
   Refer_friends: '推荐给朋友',
 
   rules: {
-    title: '早鸟销售规则',
+    title: '早起鸟销售规则',
     subtitle: '更低的价格 & 更早的机会',
 
-    Only_10_5_million__: '仅有 1050 万 VokenTB 用于早鸟销售',
+    Only_10_5_million__: '仅有 1050 万 VokenTB 用于早起鸟销售',
     There_ar_only_10_5__: '共仅有 1050 万 VokenTB 将释放于本次',
     that_is_5percent__: '是 VokenTB 总供应量的 5%',
 
@@ -73,7 +73,7 @@ export default {
     The_earlier__: '越早越便宜，越晚越贵。',
 
     Limited_Sales: '限量销售',
-    We_hope_that_more_users__: '我们希望更多的用户能够持有 VokenTB，这样更有利于整个生态的发展。因此，在早鸟销售阶段，购买金额限制为',
+    We_hope_that_more_users__: '我们希望更多的用户能够持有 VokenTB，这样更有利于整个生态的发展。因此，在早起鸟销售阶段，购买金额限制为',
     for_each_address__: '每个地址，如果销售进度超过了 50%，限额将为',
     And__only_one_purchase__: '而且，每个地址只允许购买 1 次。',
 
@@ -82,7 +82,7 @@ export default {
     additional___random_bonus__: '额外 1%-10% 的随机赠送（以 VokenTB 支付）',
 
     Vesting_plan: '归属计划',
-    Early_Birds_has__: '早鸟有更多的优势，相比于',
+    Early_Birds_has__: '早起鸟有更多的优势，相比于',
     So_most_of_the_positions__: '所以大部分仓位将会同步释放于',
 
     _10percent__: '10% 立即解锁',
@@ -105,7 +105,7 @@ export default {
     GAS_you_can_find_3_levels__: '您可以在那里看到 3 个级别的油价，选一个您喜欢的。',
 
     Can_I_buy_more_than_1_ETH_: '我可以购买超过 1 ETH 吗？',
-    LIMIT__Nope_here__: '不可以（早鸟销售）。您可以帮助更多的人知道和了解这个项目，并从推广中获得收益。我们始终相信，用户为生态系统带来能量。',
+    LIMIT__Nope_here__: '不可以（早起鸟销售）。您可以帮助更多的人知道和了解这个项目，并从推广中获得收益。我们始终相信，用户为生态系统带来能量。',
     LIMIT__Or_you_may_go_to: '或者您可以去',
     LIMIT__which_is__DEX__: '这是我们推荐的唯一的去中心化交易所（没有假币，也没有燃烧）。',
 
@@ -113,7 +113,7 @@ export default {
 
   referral: {
     Referral_System: '引荐系统',
-    Earn_ETH_up_to_22percent__: '推荐早鸟可赚取高达 22% 的 ETH 奖励',
+    Earn_ETH_up_to_22percent__: '推荐早起鸟可赚取高达 22% 的 ETH 奖励',
 
     Referral_Link: '推荐链接',
     Copy: '复制',
@@ -179,7 +179,7 @@ export default {
   Million_10_5: '1,050 万',
   finished: '完成',
   Million_84: '8,400 万',
-  Distribution_for_Early_bird: '早鸟分配',
+  Distribution_for_Early_bird: '早起鸟分配',
   Distribution_for_Public_sale: '公开销售分配',
 
   NOT_STARTED: '未开始',

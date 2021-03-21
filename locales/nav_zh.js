@@ -3,7 +3,7 @@ export default {
   Toolkit: '工具包',
 
   VOKEN_Toolkit: 'VOKEN 工具包',
-  VOKEN_Early_Bird_Sale: 'VOKEN 早鸟销售',
+  VOKEN_Early_Bird_Sale: 'VOKEN 早起鸟销售',
 
   Wallet: '钱包',
   Wallet_Generator: 'VOKEN HD 钱包生成器',

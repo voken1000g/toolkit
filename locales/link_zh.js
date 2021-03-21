@@ -79,7 +79,7 @@ export default {
   },
 
   VokenTB_Early_Bird_Sale_Contract: {
-    text: 'VokenTB 早鸟销售合约',
+    text: 'VokenTB 早起鸟销售合约',
     href: 'https://voken.io/zh_CN/latest/contracts/early_bird.html'
   },
 

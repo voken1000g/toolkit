@@ -1,7 +1,7 @@
 import nuxtStorage from 'nuxt-storage'
 import vokenAddress from '@voken/address'
-import locales from "~/utils/constants/locales"
-import home from '~/utils/constants/home'
+// import locales from "~/utils/constants/locales"
+// import home from '~/utils/constants/home'
 
 
 export default async function ({app, route, store, redirect}) {
@@ -20,14 +20,14 @@ export default async function ({app, route, store, redirect}) {
     await store.dispatch('referral/SET_VOKEN_ADDRESS', referral)
   }
 
-  // may redirect
-  let path = route.path
-  locales.forEach(function (locale) {
-    path = path.replace(new RegExp('(^\/' + locale.code + '[\/]?)'), '/')
-  })
-  if (path === '/') {
-    const HOME = home()
-    console.warn('::: M[gateway] redirect to home:', HOME.path)
-    redirect(app.localePath(HOME.path), route.query)
-  }
+  // // may redirect
+  // let path = route.path
+  // locales.forEach(function (locale) {
+  //   path = path.replace(new RegExp('(^\/' + locale.code + '[\/]?)'), '/')
+  // })
+  // if (path === '/') {
+  //   const HOME = home()
+  //   console.warn('::: M[gateway] redirect to home:', HOME.path)
+  //   redirect(app.localePath(HOME.path), route.query)
+  // }
 }
