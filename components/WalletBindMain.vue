@@ -7,9 +7,9 @@
         </p>
 
         <div class="resp-mt">
-          <a href="https://get.voken.io/" class="w-full max-w-xl btn btn-pink justify-center py-3 text-lg">
+          <nuxt-link :to="localePath('/voken/early-bird')" class="w-full max-w-xl btn btn-pink justify-center py-3 text-lg">
             Go to Early-Bird Sale
-          </a>
+          </nuxt-link>
         </div>
       </div>
       <div v-else :class='vokenAddressStatus'>
