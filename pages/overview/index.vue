@@ -303,6 +303,7 @@
                 Sold
               </dt>
               <dd>
+                {{ earlyBirdSale.progressPercentStr }}% -
                 {{ earlyBirdSale.summedObj.d }}<span v-show="earlyBirdSale.summedObj.f"
                                                      class="number-f">.{{ earlyBirdSale.summedObj.f }}</span>
                 VokenTB

@@ -1,9 +1,13 @@
 <template>
-  <div class="resp-my resp-wide pb-72 text-center">
-    <h2 class="font-mono text-3xl text-cool-gray-500">
-      VokenTB Public Sale: NOT STARTED...
-    </h2>
+  <div>
+    <public-sale-hero />
+    <div class="resp-my resp-wide pb-72 text-center">
+      <h2 class="font-mono text-3xl text-cool-gray-500">
+        VokenTB Public Sale: NOT STARTED...
+      </h2>
+    </div>
   </div>
+
 </template>
 
 <script>

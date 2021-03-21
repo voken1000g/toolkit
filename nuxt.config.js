@@ -90,6 +90,7 @@ export default {
           'faCheck',
           'faCheckCircle',
           'faCheckSquare',
+          'faInfoCircle',
           'faTimes',
           'faTimesCircle',
           'faExclamationTriangle',

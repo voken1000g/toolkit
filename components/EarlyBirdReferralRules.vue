@@ -149,7 +149,7 @@
 
 <script>
 export default {
-  name: "SaleEarlyBirdReferralRules",
+  name: "EarlyBirdReferralRules",
   computed: {
     referred() {
       // return 6

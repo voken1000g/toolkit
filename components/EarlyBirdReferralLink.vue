@@ -51,7 +51,7 @@
 import VueQr from 'vue-qr'
 
 export default {
-  name: "SaleEarlyBirdReferralLink",
+  name: "EarlyBirdReferralLink",
   components: {VueQr},
   computed: {
     vokenAddressReady() {

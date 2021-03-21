@@ -34,6 +34,7 @@ export const state = () => ({
     d: '0',
     f: null,
   },
+  gasPriceSync: false,
 })
 
 
@@ -69,6 +70,9 @@ export const mutations = {
     state.gasPriceStr = Web3.utils.fromWei(gasPrice, 'gwei')
     state.gasPriceObj = fnFormat.ns2Obj(state.gasPriceStr)
   },
+  SET_GAS_PRICE_SYNC(state, gasPriceSync) {
+    state.gasPriceSync = gasPriceSync
+  },
 }
 
 
@@ -94,22 +98,25 @@ export const actions = {
   async SET_GAS_PRICE({commit}, gasPrice) {
     commit('SET_GAS_PRICE', gasPrice)
   },
+  async SET_GAS_PRICE_SYNC({commit}, gasPriceSync) {
+    commit('SET_GAS_PRICE_SYNC', gasPriceSync)
+  },
   async SYNC_BALANCE({state, commit, dispatch}) {
     state.web3().eth.getBalance(state.account)
       .then(async function (balance) {
         commit('SET_BALANCE', balance)
       })
       .catch(error => {
-        console.error('::: M[ether] SYNC_BALANCE:', error.message)
+        console.error('::: S[ether] SYNC_BALANCE:', error.message)
       })
   },
-  async SYNC_GAS_PRICE({state, commit, dispatch}) {
+  async SYNC_GAS_PRICE({state, commit}) {
     state.web3().eth.getGasPrice()
       .then(async gasPrice => {
-        await dispatch('SET_GAS_PRICE', gasPrice)
+        commit('SET_GAS_PRICE', gasPrice)
       })
       .catch(error => {
-        console.error('::: M[ether] SYNC_GAS_PRICE:', error.message)
+        console.error('::: S[ether] SYNC_GAS_PRICE:', error.message)
       })
   },
 }

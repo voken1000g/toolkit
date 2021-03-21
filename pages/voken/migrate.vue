@@ -8,8 +8,6 @@
 </template>
 
 <script>
-import VueAvatar from '@voken/vue-avatar'
-
 export default {
   name: "voken-migrate",
   middleware: ['web3', 'voken'],

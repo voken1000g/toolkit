@@ -14,6 +14,16 @@ export default {
   early_bird_realtime_price: '早鸟实时价格',
   Block_height_: '区块高度：',
 
+  warn: {
+    Current_balance_: '当前余额：',
+    It_seems__newbie__: '似乎您是一个以太坊和 VOKEN 新手。这里给您支招：如果平均 Gas 价格维持当前',
+    and_you_swap: '您用',
+    for: '换取',
+    that_needs_at_least: '那么需要至少',
+    on_your_Ethereum_wallet_address_in_fact__: '在您的以太坊钱包地址上。实事上，如果您计划长期使用这个以太坊钱包，' +
+      '我们建议每个用户长期在钱包中储备多于 0.3 ETH 用于可能的转账或合约交互。',
+  },
+
   From: '从',
   Send: '发送',
   As: '作为',
@@ -36,7 +46,7 @@ export default {
 
   Go_to_referral_program: '转到推荐计划',
 
-  Refer_a_friend: '推荐一个朋友',
+  Refer_friends: '推荐给朋友',
 
   rules: {
     title: '早鸟销售规则',
@@ -59,7 +69,7 @@ export default {
     ends_at: '终止于',
     until_the_price_reaches: '直到价格达到',
 
-    The_latest_price_depends__: '最新的价格取决于销售进度的比例，你可以随时找到这个',
+    The_latest_price_depends__: '最新的价格取决于销售进度的比例，您可以随时找到这个',
     The_earlier__: '越早越便宜，越晚越贵。',
 
     Limited_Sales: '限量销售',
@@ -68,7 +78,7 @@ export default {
     And__only_one_purchase__: '而且，每个地址只允许购买 1 次。',
 
     Additional___bonus__: '如果您有推荐地址，可获得 1%-10% 的额外赠送',
-    If_you_have_a_referral__: '如果你有一个推荐地址，绑定它，那么你可以得到',
+    If_you_have_a_referral__: '如果您有一个推荐地址，绑定它，那么您可以得到',
     additional___random_bonus__: '额外 1%-10% 的随机赠送（以 VokenTB 支付）',
 
     Vesting_plan: '归属计划',
@@ -87,6 +97,17 @@ export default {
 
   faq: {
     title: '常见问题',
+    Can_I_optimize_the_miner_fees_: '我可以优化矿工费吗？',
+    GAS__In_most_cases__: '在大多数情况下是不需要调整的。不要修改',
+    GAS__just_use_the_default__: '只用默认（自动），避免失败；不会浪费 - 未用完的会自动退回。',
+    GAS__But_for_the_: '而对于',
+    GAS__There_are_3_tools__: '有3个工具可以帮您：',
+    GAS_you_can_find_3_levels__: '您可以在那里看到 3 个级别的油价，选一个您喜欢的。',
+
+    Can_I_buy_more_than_1_ETH_: '我可以购买超过 1 ETH 吗？',
+    LIMIT__Nope_here__: '不可以（早鸟销售）。您可以帮助更多的人知道和了解这个项目，并从推广中获得收益。我们始终相信，用户为生态系统带来能量。',
+    LIMIT__Or_you_may_go_to: '或者您可以去',
+    LIMIT__which_is__DEX__: '这是我们推荐的唯一的去中心化交易所（没有假币，也没有燃烧）。',
 
   },
 
@@ -108,7 +129,7 @@ export default {
 
     Everyone_who_join_the: '每个通过使用您的引荐地址加入',
     and_the: '和',
-    by_using_your__: '的人将获得额外的随机赠送，你得到奖励。',
+    by_using_your__: '的人将获得额外的随机赠送，您得到奖励。',
 
     You_will_get_rewarded__: '您将从与您绑定的每一笔交易中获得回报。',
 
@@ -118,6 +139,8 @@ export default {
     Refer: '推荐',
     to_unlock: '解锁',
     Unlocked: '已解锁',
+
+    Depth: '深度',
   },
 
 

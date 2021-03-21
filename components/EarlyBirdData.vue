@@ -5,17 +5,14 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="max-w-4xl mx-auto text-center">
             <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
-              {{ $t('voken.Realtime_Price') }}
+              {{ $t('voken.Realtime_Data') }}
             </h2>
-            <p class="mt-3 text-xl text-gray-500 sm:mt-4">
-              {{ $t('ether.Ethereum_Block_Height_') }} #{{ ether.blockNumberStr }}
-            </p>
           </div>
         </div>
         <dl>
           <div>
             <dt>
-              ETH
+              {{ $t('voken.ETH_Price') }}
             </dt>
             <dd>
               <span>
@@ -30,7 +27,7 @@
 
           <div>
             <dt>
-              {{ $t('voken.Early_Bird_Sale') }}
+              {{ $t('voken.Early_Bird_Sale_Price') }}
             </dt>
             <dd>
               <span>
@@ -45,7 +42,21 @@
 
           <div>
             <dt>
-              UniSwap
+              {{ $t('voken.Early_Bird_Sale_Progress') }}
+            </dt>
+            <dd>
+              <span>
+                {{ earlyBirdSale.progressPercentStr }}
+              </span>
+              <span class="usd">
+                %
+              </span>
+            </dd>
+          </div>
+
+          <div>
+            <dt>
+              {{ $t('voken.UniSwap_Price') }}
             </dt>
             <dd>
               <span>
@@ -57,6 +68,34 @@
               </span>
             </dd>
           </div>
+
+
+
+          <div>
+            <dt>
+              {{ $t('ether.Average_Gas_Price') }}
+            </dt>
+            <dd>
+              <span>
+                $ {{ ether.gasPriceObj.d }}<span v-show="ether.gasPriceObj.f"
+                                                 class="number-f">.{{ ether.gasPriceObj.f }}</span>
+              </span>
+              <span class="usd">
+                GWei
+              </span>
+            </dd>
+          </div>
+
+          <div>
+            <dt>
+              {{ $t('ether.Ethereum_Block_Height') }}
+            </dt>
+            <dd>
+              <span>
+                #{{ ether.blockNumberStr }}
+              </span>
+            </dd>
+          </div>
         </dl>
       </div>
     </div>
@@ -65,7 +104,7 @@
 
 <script>
 export default {
-  name: "SaleEarlyBirdPrice",
+  name: "EarlyBirdData",
   computed: {
     ether() {
       return this.$store.state.ether

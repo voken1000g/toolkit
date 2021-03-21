@@ -32,7 +32,6 @@ export default async function ({store, app, redirect}) {
   await provider
     .on('accountsChanged', async function (accounts) {
       await store.dispatch('voken/SYNC_DATA')
-
       await store.dispatch('voken/SET_BLOCK_NUMBER', store.state.ether.blockNumber)
     })
 }

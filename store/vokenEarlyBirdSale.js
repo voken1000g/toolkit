@@ -24,6 +24,8 @@ export const state = () => ({
     f: null,
   },
 
+  progressPercentStr: '0',
+
   bonuses: '0',
   bonusesStr: '0',
   bonusesObj: {
@@ -116,6 +118,11 @@ export const mutations = {
     state.issued = issued
     state.issuedStr = fnFormat.ns2Str(issued)
     state.issuedObj = fnFormat.ns2Obj(state.issuedStr)
+
+    state.progressPercentStr = numbro(new BigNumber(issued).dividedBy(DAPP.EARLY_BIRD_SALE_CAP).multipliedBy(100)).format({
+      thousandSeparated: true,
+      mantissa: 4
+    })
 
     state.summed = new BigNumber(state.issued).plus(state.bonuses).toString()
     state.summedStr = fnFormat.ns2Str(state.summed)
@@ -210,7 +217,7 @@ export const actions = {
 
   async SYNC_DATA({rootState, state, commit}) {
     if (!rootState.ether.productionMode) {
-      console.error('::: M[vokenEarlyBirdSale] SYNC_DATA: not production mode')
+      console.error('::: S[vokenEarlyBirdSale] SYNC_DATA: not production mode')
       return
     }
 
@@ -235,67 +242,7 @@ export const actions = {
         commit('SET_ACCOUNT_REFERRED', payload.referred)
       })
       .catch(error => {
-        console.error('::: M[vokenEarlyBirdSale] SYNC_DATA:', error)
+        console.error('::: S[vokenEarlyBirdSale] SYNC_DATA:', error)
       })
   },
-
-  // async SYNC_STATUS({rootState, state, commit}) {
-  //   if (!rootState.ether.productionMode) {
-  //     console.error('::: M[vokenEarlyBirdSale] SYNC_STATUS: not production mode')
-  //     return
-  //   }
-  //
-  //   await state
-  //     .contract()
-  //     .methods
-  //     .status()
-  //     .call()
-  //     .then(payload => {
-  //       commit('SET_USD_PRICE', payload.vokenUSD)
-  //       commit('SET_ISSUED', payload.vokenIssued)
-  //       commit('SET_BONUSES', payload.vokenBonuses)
-  //
-  //       commit('SET_WEI_MIN', payload.weiMin)
-  //       commit('SET_WEI_MAX', payload.weiMax)
-  //     })
-  //     .catch(error => {
-  //       console.error('::: M[vokenEarlyBirdSale] status:', error)
-  //     })
-  // },
-  //
-  // async SYNC_ACCOUNT({rootState, state, commit, dispatch}) {
-  //   if (!rootState.ether.productionMode) {
-  //     console.error('::: M[vokenEarlyBirdSale] SYNC_ACCOUNT: not production mode')
-  //     return
-  //   }
-  //
-  //   await state
-  //     .contract()
-  //     .methods
-  //     .getAccountStatus(rootState.ether.account)
-  //     .call()
-  //     .then(payload => {
-  //       commit('SET_ACCOUNT_ISSUED', payload.issued)
-  //       commit('SET_ACCOUNT_BONUSES', payload.bonuses)
-  //       commit('SET_ACCOUNT_VOLUME', payload.volume)
-  //
-  //       dispatch('ether/SET_BALANCE', payload.etherBalance, {root: true})
-  //
-  //       // let status = {
-  //       //   // issued: payload.issued,
-  //       //   // bonuses: payload.bonuses,
-  //       //   volume: payload.volume,
-  //       //
-  //       //   // voken: payload.voken,
-  //       //   // vokenAddress: vokenAddress.fromBNString(payload.voken),
-  //       //   // referrer: payload.referrer,
-  //       //   // referrerVoken: payload.referrerVoken
-  //       // }
-  //       //
-  //       // console.log('getAccountStatus:', status)
-  //     })
-  //     .catch(error => {
-  //       console.error('::: M[vokenEarlyBirdSale] getAccountStatus:', error)
-  //     })
-  // },
 }

@@ -1,8 +1,9 @@
 <template>
   <div>
-    <sale-early-bird-referral-hero />
-    <sale-early-bird-referral-link class="bg-indigo-50" />
-    <sale-early-bird-referral-rules />
+    <early-bird-referral-hero />
+    <early-bird-referral-link class="bg-indigo-50" />
+    <early-bird-referral-rules />
+    <early-bird-referral-rewards class="bg-indigo-50" />
   </div>
 </template>
 

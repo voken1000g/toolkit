@@ -4,10 +4,10 @@
       <div class="px-4">
         <div class="max-w-xl lg:max-w-2xl xl:max-w-3xl 2xl:max-w-5xl">
           <h1 class="text-4xl font-extrabold text-white sm:text-5xl sm:tracking-tight lg:text-6xl">
-            Set Voken Wallet Address
+            Public Sale
           </h1>
           <p class="mt-6 sm:mt-10 text-xl text-indigo-300">
-            For Voken Blockchain Migration, both beta and the main network.
+            40% of the Total Supply: 84 Million
           </p>
         </div>
       </div>
@@ -17,7 +17,7 @@
 
 <script>
 export default {
-  name: "WalletBindHero"
+  name: "PublicSaleHero"
 }
 </script>
 

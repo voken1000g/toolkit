@@ -17,18 +17,7 @@
 
 <script>
 export default {
-  name: "SaleEarlyBirdReferralHero",
-  computed: {
-    ether() {
-      return this.$store.state.ether
-    },
-    voken() {
-      return this.$store.state.voken
-    },
-    earlyBirdSale() {
-      return this.$store.state.vokenEarlyBirdSale
-    },
-  }
+  name: "EarlyBirdReferralHero",
 }
 </script>
 

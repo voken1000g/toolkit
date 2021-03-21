@@ -169,7 +169,7 @@ export const actions = {
 
   async SYNC_DATA({rootState, state, commit, dispatch}) {
     if (!rootState.ether.productionMode) {
-      console.error('::: M[voken] SYNC_DATA: not production mode')
+      console.error('::: S[voken] SYNC_DATA: not production mode')
       return
     }
 
@@ -195,7 +195,11 @@ export const actions = {
         commit('SET_REFERRER', payload.referrer)
       })
       .catch(error => {
-        console.error('::: M[voken] SYNC_DATA', error)
+        console.error('::: S[voken] SYNC_DATA', error)
       })
+
+    if (rootState.ether.gasPriceSync) {
+      dispatch('ether/SYNC_GAS_PRICE', null, {root: true})
+    }
   },
 }

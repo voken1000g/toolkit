@@ -14,6 +14,18 @@ export default {
   early_bird_realtime_price: 'Early-Bird realtime price',
   Block_height_: 'Block height:',
 
+  warn: {
+    Current_balance_: 'Current balance: ',
+    It_seems__newbie__: 'It seems that you are a newbie to Ethereum and VOKEN. Here is the tips for you: if the average gas price maintains its current value',
+    and_you_swap: 'and you swap',
+    for: 'for',
+    that_needs_at_least: 'that needs at least',
+    on_your_Ethereum_wallet_address_in_fact__: 'on your Ethereum wallet address. In fact, ' +
+      'if you plan to use this Ethereum wallet for a long time, we suggest that every user reserves 0.3 ETH ' +
+      'or more in the wallet over time, for possible transfers or interaction with contracts.',
+  },
+
+
   From: 'From',
   Send: 'Send',
   As: 'As',
@@ -36,7 +48,7 @@ export default {
 
   Go_to_referral_program: 'Go to referral program',
 
-  Refer_a_friend: 'Refer a friend',
+  Refer_friends: 'Refer a friend',
 
   rules: {
     title: 'Rules of the Early-Bird Sale',
@@ -85,6 +97,18 @@ export default {
 
   faq: {
     title: 'Frequently Asked Questions',
+    Can_I_optimize_the_miner_fees_: 'Can I optimize the miner fees',
+    GAS__In_most_cases__: 'In most cases it is not necessary to adjust it. If you are not a newbie: Don\'t modify the',
+    GAS__just_use_the_default__: 'just use the default (automatic) to avoid failure; it won\'t waste - unused gas will be refunded automatically.',
+    GAS__But_for_the_: 'But for the',
+    GAS__There_are_3_tools__: 'there are 3 tools for you:',
+    GAS_you_can_find_3_levels__: 'you can find 3 levels of gas price there, just take one as you prefer.',
+
+    Can_I_buy_more_than_1_ETH_: 'Can I buy more than 1 ETH?',
+    LIMIT__Nope_here__: 'Nope here (Early-Bird Sale). You can help more people know and understand the project and earn from the promotion. We always believe that users bring energy to the ecosystem.',
+    LIMIT__Or_you_may_go_to: 'Or you may go to',
+    LIMIT__which_is__DEX__: 'which is the only DEX we recommended for trading (no fake token, and with no burning).',
+
 
   },
 
@@ -117,9 +141,9 @@ export default {
     Refer: 'Refer',
     to_unlock: 'to unlock',
     Unlocked: 'Unlocked',
+
+    Depth: 'Depth',
   },
-
-
 
 
 

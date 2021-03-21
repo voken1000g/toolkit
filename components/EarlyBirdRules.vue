@@ -127,14 +127,14 @@
 
 <script>
 export default {
-  name: "SaleEarlyBirdRules",
+  name: "EarlyBirdRules",
   computed: {
     ether() {
       return this.$store.state.ether
     },
-    voken() {
-      return this.$store.state.voken
-    },
+    // voken() {
+    //   return this.$store.state.voken
+    // },
     earlyBirdSale() {
       return this.$store.state.vokenEarlyBirdSale
     },
