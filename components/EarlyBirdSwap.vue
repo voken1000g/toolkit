@@ -387,13 +387,13 @@ export default {
       return this.ether.web3().utils.toWei(this.etherAmount > '0' ? this.etherAmount : '0', 'ether')
     },
     usdAmount() {
-      return new BigNumber(this.etherAmount)
+      return new BigNumber(this.etherAmount ? this.etherAmount : this.ether.web3().utils.fromWei(this.earlyBird.weiMax, 'ether'))
         .multipliedBy(new BigNumber(this.ether.usdPrice))
         .dividedBy(10 ** 6)
         .toFixed(3)
     },
     vokenAmount() {
-      return new BigNumber(this.etherAmount)
+      return new BigNumber(this.etherAmount ? this.etherAmount : this.ether.web3().utils.fromWei(this.earlyBird.weiMax, 'ether'))
         .multipliedBy(new BigNumber(this.ether.usdPrice))
         .dividedBy(new BigNumber(this.earlyBird.usdPrice))
         .toFixed(3)
@@ -589,6 +589,14 @@ export default {
 
         return
       }
+
+      if (new BigNumber(this.ether.balance).lt(this.balanceMin)) {
+        await this.onSwapError({
+          message: 'insufficient funds'
+        })
+        return
+      }
+
 
       let tx = {
         from: this.ether.account,
