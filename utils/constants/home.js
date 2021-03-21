@@ -7,7 +7,7 @@ const HOMES = {
 
   'localhost': {
     title: 'VOKEN_Toolkit',
-    path: '/wallet',
+    path: '/voken/early-bird',
     icon: ['fas', 'tools'],
   },
 

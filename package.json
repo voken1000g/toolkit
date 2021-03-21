@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "cross-env BASE_URL=/ nuxt",
+    "dev": "cross-env BASE_URL=/early-bird/ nuxt",
     "repo": "cross-env BASE_URL=/toolkit/ nuxt",
     "build": "cross-env BASE_URL=/ nuxt generate",
     "start": "cross-env BASE_URL=/ nuxt start",
