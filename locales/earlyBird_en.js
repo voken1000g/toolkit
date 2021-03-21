@@ -22,7 +22,7 @@ export default {
     that_needs_at_least: 'that needs at least',
     on_your_Ethereum_wallet_address_in_fact__: 'on your Ethereum wallet address. In fact, ' +
       'if you plan to use this Ethereum wallet for a long time, we suggest that every user reserves 0.3 ETH ' +
-      'or more in the wallet over time, for possible transfers or interaction with contracts.',
+      'or more in the wallet for possible transfers or interaction with contracts.',
   },
 
 
