@@ -27,7 +27,7 @@ export default async function ({app, route, store, redirect}) {
   })
   const host = location.host.split(':')[0]
   if ('localhost' === host || 'voken1000g.github.io' === host) {
-    const baseUrls = ['toolkit', 'early-bird', 'upgrade']
+    const baseUrls = ['toolkit', 'early\-bird', 'upgrade']
     baseUrls.forEach(function (baseUrl) {
       console.log('::: M[gateway] baseUrl:', baseUrl)
       path = path.replace(new RegExp('(^\/' + baseUrl + '[\/]?)'), '/')
