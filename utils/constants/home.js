@@ -1,3 +1,6 @@
+import repo from '~/repo'
+
+const HOST = location.host.split(':')[0]
 const HOMES = {
   'default': {
     title: 'VOKEN_Toolkit',
@@ -12,6 +15,11 @@ const HOMES = {
   },
 
   // Toolkit
+  'toolkit': {
+    title: 'VOKEN_Toolkit',
+    path: '/wallet',
+    icon: ['fas', 'tools'],
+  },
   'toolkit.voken.io': {
     title: 'VOKEN_Toolkit',
     path: '/wallet',
@@ -19,6 +27,11 @@ const HOMES = {
   },
 
   // EarlyBird
+  'early-bird': {
+    title: 'VOKEN_Early_Bird_Sale',
+    path: '/voken/early-bird',
+    icon: ['fas', 'gifts'],
+  },
   'get.voken.io': {
     title: 'VOKEN_Early_Bird_Sale',
     path: '/voken/early-bird',
@@ -31,6 +44,11 @@ const HOMES = {
   },
 
   // Migrate
+  'migrate': {
+    title: 'VOKEN_Toolkit',
+    path: '/voken/migrate',
+    icon: ['fas', 'tools'],
+  },
   'migrate.voken.io': {
     title: 'VOKEN_Toolkit',
     path: '/voken/migrate',
@@ -38,8 +56,12 @@ const HOMES = {
   },
 }
 
-const HOME = HOMES[location.host.split(':')[0]]
+const HOME = HOMES[HOST]
 
 export default function() {
+  if (repo) {
+    return HOMES[repo]
+  }
+
   return HOME ? HOME : HOMES['default']
 }
