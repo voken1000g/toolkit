@@ -1,7 +1,7 @@
 export default {
   Realtime_Data: 'Realtime Data',
 
-  ETH_Price: 'UniSwap Price',
+  ETH_Price: 'ETH Price',
 
   Early_Bird_Sale: 'Early-Bird Sale',
   Early_Bird_Sale_Price: 'Early-Bird Sale Price',

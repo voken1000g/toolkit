@@ -140,6 +140,8 @@ export default {
       @apply bg-gradient-to-br from-indigo-500 to-indigo-600 shadow rounded-lg overflow-hidden;
       @apply px-4 py-5 space-y-2;
 
+
+
       @screen sm {
         @apply p-6;
       }
@@ -164,6 +166,17 @@ export default {
 
         .number-f {
           @apply text-lg text-indigo-200;
+        }
+      }
+
+      &:nth-child(odd) {
+        @apply from-cool-gray-600 to-cool-gray-700;
+
+        dd {
+          span.usd,
+          .number-f {
+            @apply text-gray-300;
+          }
         }
       }
     }
