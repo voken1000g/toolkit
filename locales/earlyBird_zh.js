@@ -16,7 +16,7 @@ export default {
 
   warn: {
     Current_balance_: '当前余额：',
-    It_seems__newbie__: '似乎您是一个以太坊和 VOKEN 新手。这里给您支招：如果平均 Gas 价格维持当前',
+    It_seems__newbie__: '似乎您是一个 ETH 和 VOKEN 新手。这里给您支招：如果平均 Gas 价格维持当前',
     and_you_swap: '您用',
     for: '换取',
     that_needs_at_least: '那么需要至少',

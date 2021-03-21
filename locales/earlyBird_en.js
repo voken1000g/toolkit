@@ -16,7 +16,7 @@ export default {
 
   warn: {
     Current_balance_: 'Current balance: ',
-    It_seems__newbie__: 'It seems that you are a newbie to Ethereum and VOKEN. Here is the tips for you: if the average gas price maintains its current value',
+    It_seems__newbie__: 'It seems that you are a newbie to ETH and VOKEN. Here is the tips for you: if the average gas price maintains its current value',
     and_you_swap: 'and you swap',
     for: 'for',
     that_needs_at_least: 'that needs at least',
