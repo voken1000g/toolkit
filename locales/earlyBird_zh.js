@@ -20,7 +20,7 @@ export default {
     and_you_swap: '您用',
     for: '换取',
     that_needs_at_least: '那么需要至少',
-    on_your_Ethereum_wallet_address_in_fact__: '在您的以太坊钱包地址上。实事上，如果您计划长期使用这个以太坊钱包，' +
+    on_your_Ethereum_wallet_address_in_fact__: '在您的以太坊钱包地址。实事上，如果您计划长期使用这个以太坊钱包，' +
       '我们建议每个用户长期在钱包中储备多于 0.3 ETH 用于可能的转账或合约交互。',
   },
 

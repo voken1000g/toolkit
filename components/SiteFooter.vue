@@ -105,8 +105,10 @@
           <h4>
             {{ $t('footer.VokenTB_contract_address') }}
           </h4>
-          <p class="mt-4 text-indigo-300 text-sm leading-6">
-            {{ DAPP.CONTRACT_ADDRESS_VOKEN_TB }}
+          <p class="mt-4 text-indigo-300 text-sm leading-6 break-all">
+            <a target="_blank" :href="fnEtherscan.token(DAPP.CONTRACT_ADDRESS_VOKEN_TB)">
+              {{ DAPP.CONTRACT_ADDRESS_VOKEN_TB }}
+            </a>
           </p>
         </div>
       </div>
@@ -137,12 +139,15 @@
 </template>
 
 <script>
-
+import fnEtherscan from '~/utils/fnEtherscan'
 import DAPP from '~/utils/constants/dapp'
 
 export default {
   name: 'SiteFooter',
   computed: {
+    fnEtherscan() {
+      return fnEtherscan
+    },
     DAPP() {
       return DAPP
     },
