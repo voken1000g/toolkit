@@ -29,6 +29,27 @@ jobs:
       - name: Install
         run: yarn
 
+
+      # voken1000g.github.io/early-bird
+      - name: Write repo.js
+        run: echo export default \'early-bird\' > repo.js
+
+      - name: Build (voken1000g.github.io/early-bird)
+        run: yarn build-repo-early-bird
+
+      - name: Deploy (voken1000g.github.io/early-bird)
+        uses: JamesIves/github-pages-deploy-action@4.0.0
+        with:
+          token: ${{ secrets.ACCESS_TOKEN }}
+          repository-name: voken1000g/early-bird
+          commit-message: "${{ github.repository }}@${{ github.sha }}"
+          branch: repo-early-bird
+          folder: dist
+
+      # Clear
+      - name: Clear
+        run: rm -rf ./dist
+
       # toolkit.voken.io
       - name: Build (toolkit.voken.io)
         run: yarn build
@@ -99,23 +120,4 @@ jobs:
         with:
           commit-message: "@${{ github.sha }}"
           branch: gh-pages
-          folder: dist
-
-      # voken1000g.github.io/early-bird
-      - name: Clear
-        run: rm -rf ./dist
-
-      - name: Write repo.js
-        run: echo export default \'early-bird\' > repo.js
-
-      - name: Build (voken1000g.github.io/early-bird)
-        run: yarn build-repo-early-bird
-
-      - name: Deploy (voken1000g.github.io/early-bird)
-        uses: JamesIves/github-pages-deploy-action@4.0.0
-        with:
-          token: ${{ secrets.ACCESS_TOKEN }}
-          repository-name: voken1000g/early-bird
-          commit-message: "${{ github.repository }}@${{ github.sha }}"
-          branch: repo-early-bird
           folder: dist
