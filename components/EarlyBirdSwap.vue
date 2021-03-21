@@ -5,13 +5,12 @@
         <fa :icon="['fas', 'info-circle']" class="text-3xl"/>
         <div>
           <p class="leading-7">
-            {{ $t('earlyBird.warn.Current_balance_') }}{{ ether.balanceStr }} ETH
-          </p>
-          <p class="leading-7">
+            {{ $t('earlyBird.warn.Current_balance_') }}{{ ether.balanceStr }} ETH --
             {{ $t('earlyBird.warn.It_seems__newbie__') }}{{ $t('__lp')}}{{ ether.gasPriceStr }} GWei{{ $t('__rp')}}
             {{ $t('earlyBird.warn.and_you_swap') }}
             <b>{{ etherAmountSample }} ETH</b>
-            {{ $t('earlyBird.warn.for') }} VokenTB{{ $t('__comma')}}
+            {{ $t('earlyBird.warn.for') }}
+            <b>{{ vokenAmount }} VokenTB</b>{{ $t('__comma')}}
             {{ $t('earlyBird.warn.that_needs_at_least') }}
             <b>{{ balanceMinStr }} ETH</b>
             {{ $t('earlyBird.warn.on_your_Ethereum_wallet_address_in_fact__') }}

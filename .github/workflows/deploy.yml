@@ -89,7 +89,7 @@ jobs:
         run: rm -rf ./dist
 
       - name: Write repo.js
-        run: echo export default 'toolkit' > repo.js
+        run: echo export default \'toolkit\' > repo.js
 
       - name: Build (voken1000g.github.io/toolkit)
         run: yarn build-repo
@@ -106,7 +106,7 @@ jobs:
         run: rm -rf ./dist
 
       - name: Write repo.js
-        run: echo export default 'early-bird' > repo.js
+        run: echo export default \'early-bird\' > repo.js
 
       - name: Build (voken1000g.github.io/early-bird)
         run: yarn build-repo-early-bird
