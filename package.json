@@ -8,6 +8,7 @@
     "build": "cross-env BASE_URL=/ nuxt generate",
     "start": "cross-env BASE_URL=/ nuxt start",
     "build-repo": "cross-env BASE_URL=/toolkit/ nuxt generate",
+    "build-repo-early-bird": "cross-env BASE_URL=/early-bird/ nuxt generate",
     "start-repo": "cross-env BASE_URL=/toolkit/ nuxt start",
     "export": "nuxt export"
   },

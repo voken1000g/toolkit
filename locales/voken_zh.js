@@ -14,4 +14,6 @@ export default {
 
   uniswap_realtime_price: 'UniSwap 实时价格',
   early_bird_realtime_price: '早鸟实时价格',
+
+  You_are_NOT_holding_VokenTB: '您没有持有 VokenTB',
 }

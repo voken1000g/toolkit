@@ -84,6 +84,22 @@ jobs:
           branch: migrate
           folder: dist
 
+      # voken1000g.github.io/early-bird
+      - name: Clear
+        run: rm -rf ./dist
+
+      - name: Build (voken1000g.github.io/early-bird)
+        run: yarn build-repo-early-bird
+
+      - name: Deploy (voken1000g.github.io/early-bird)
+        uses: JamesIves/github-pages-deploy-action@4.0.0
+        with:
+          token: ${{ secrets.ACCESS_TOKEN }}
+          repository-name: voken1000g/early-bird
+          commit-message: "${{ github.repository }}@${{ github.sha }}"
+          branch: repo-early-bird
+          folder: dist
+
       # voken1000g.github.io/toolkit
       - name: Clear
         run: rm -rf ./dist

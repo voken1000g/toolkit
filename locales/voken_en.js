@@ -14,4 +14,6 @@ export default {
 
   uniswap_realtime_price: 'UniSwap realtime price',
   early_bird_realtime_price: 'Early-Bird realtime price',
+
+  You_are_NOT_holding_VokenTB: 'You are NOT holding VokenTB',
 }

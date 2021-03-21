@@ -3,7 +3,7 @@
     <div v-if="vokenAccount.vokenInt === '0'" class="max-w-xl mx-auto">
       <div v-if="vokenAccount.balanceStr === '0'" class="resp-mt text-center">
         <p class="mt-4 text-lg leading-6 font-bold text-red-500">
-          You are NOT Holding VokenTB
+          {{ $t('voken.You_are_NOT_holding_VokenTB') }}
         </p>
 
         <div class="resp-mt">
