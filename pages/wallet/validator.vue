@@ -34,8 +34,8 @@
              class='h-full flex items-center justify-center text-2xl lg:text-3xl xl:text-4xl text-gray-300'
              :class='{ "text-red-300": address && !isAddress}'
         >
-          <fa v-show='!address' :icon="['fas', 'seedling']" />
-          <fa v-show='address && !isAddress' :icon="['fas', 'times']" />
+          <fa v-show='!address' :icon="['fas', 'seedling']"/>
+          <fa v-show='address && !isAddress' :icon="['fas', 'times']"/>
         </div>
       </div>
 
@@ -49,12 +49,12 @@
                id='address-validate'
                class='input-indigo w-full py-3 px-6 font-mono text-sm md:text-base'
                v-model='address'
-               :placeholder='$t("wallet.Input_here_to_auto_verify_")' />
+               :placeholder='$t("wallet.Input_here_to_auto_verify_")'/>
 
         <div class='absolute block inset-y-0 right-0 pr-4 flex items-center pointer-events-none'>
-          <fa class='fa-error' :icon="['fas', 'times']" />
-          <fa class='fa-success' :icon="['fas', 'check']" />
-          <fa class='fa-warn' :icon="['fas', 'exclamation-triangle']" />
+          <fa class='fa-error' :icon="['fas', 'times']"/>
+          <fa class='fa-success' :icon="['fas', 'check']"/>
+          <fa class='fa-warn' :icon="['fas', 'exclamation-triangle']"/>
         </div>
       </div>
 
@@ -69,7 +69,7 @@ import VueAvatar from '@voken/vue-avatar'
 export default {
   name: 'wallet-validator',
   layout: 'indigoRipple',
-  components: { VueAvatar },
+  components: {VueAvatar},
   head() {
     return {
       title: this.$t('nav.Wallet_Validator')

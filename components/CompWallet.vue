@@ -37,7 +37,7 @@
 
             <div class='absolute inset-y-0 right-0 pr-6 flex items-center'>
               <button type='button' class='btn-copy' @click='copyPrivateKey(wallet.index)'>
-                <fa :icon="['fas', 'copy']" />
+                <fa :icon="['fas', 'copy']"/>
               </button>
             </div>
           </div>
@@ -61,7 +61,7 @@
 
             <div class='absolute inset-y-0 right-0 pr-6 flex items-center'>
               <button type='button' class='btn-copy' @click='copyPublicKey(wallet.index)'>
-                <fa :icon="['fas', 'copy']" />
+                <fa :icon="['fas', 'copy']"/>
               </button>
             </div>
           </div>
@@ -85,7 +85,7 @@
 
             <div class='absolute inset-y-0 right-0 pr-6 flex items-center'>
               <button type='button' class='btn-copy' @click='copyAddress(wallet.index)'>
-                <fa :icon="['fas', 'copy']" />
+                <fa :icon="['fas', 'copy']"/>
               </button>
             </div>
           </div>
@@ -114,7 +114,7 @@ import VueAvatar from '@voken/vue-avatar'
 
 export default {
   name: 'CompWallet',
-  components: { VueAvatar },
+  components: {VueAvatar},
   props: ['wallet'],
   methods: {
     async copyPrivateKey(index) {

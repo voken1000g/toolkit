@@ -7,7 +7,7 @@
 
       <p class='text-green-500'>
         <span class='text-5xl'>
-          <fa :icon="['fas', 'shield-alt']" />
+          <fa :icon="['fas', 'shield-alt']"/>
         </span>
         <br>
         {{ $t('wallet.All_items_on_this_page_are_secure__') }}
@@ -17,12 +17,13 @@
     <div class='w-full mt-12 lg:mt-14 xl:mt-16 2xl:mt-20 mx-auto font-mono text-sm md:text-base'>
 
       <div class='space-y-10 lg:space-y-0 lg:flex lg:items-end lg:justify-center lg:space-x-8'>
-        <div class='w-14 h-14 lg:w-16 lg:h-16 xl:w-20 xl:h-20 mx-auto lg:mx-0 bg-white rounded-md shadow-md lg:shadow-lg'>
+        <div
+          class='w-14 h-14 lg:w-16 lg:h-16 xl:w-20 xl:h-20 mx-auto lg:mx-0 bg-white rounded-md shadow-md lg:shadow-lg'>
           <vue-avatar v-show='isAddress' :value='address'/>
           <div v-show='!isAddress'
                class='h-full flex items-center justify-center text-2xl lg:text-3xl xl:text-4xl text-gray-300'
           >
-            <fa v-show='!isAddress' :icon="['fas', 'seedling']" />
+            <fa v-show='!isAddress' :icon="['fas', 'seedling']"/>
           </div>
         </div>
 
@@ -39,7 +40,7 @@
                    class='input-indigo w-full py-3 px-4 font-mono text-sm md:text-base text-gray-500'
                    v-model='address'
                    :placeholder='$t("wallet.Auto_Convert_")'
-                   readonly disabled />
+                   readonly disabled/>
           </div>
         </div>
       </div>
@@ -55,11 +56,11 @@
                  id='public-key-converter-vpub'
                  class='input-indigo w-full py-3 pl-4 pr-9 font-mono text-sm md:text-base'
                  v-model='vpub'
-                 placeholder='vpub...' />
+                 placeholder='vpub...'/>
 
           <div class='absolute block inset-y-0 right-0 pr-4 flex items-center pointer-events-none'>
-            <fa class='fa-error' :icon="['fas', 'times']" />
-            <fa class='fa-success' :icon="['fas', 'check']" />
+            <fa class='fa-error' :icon="['fas', 'times']"/>
+            <fa class='fa-success' :icon="['fas', 'check']"/>
           </div>
         </div>
       </div>
@@ -75,11 +76,11 @@
                  id='public-key-converter-public-key-compressed'
                  class='input-indigo w-full py-3 pl-4 pr-9 font-mono text-sm md:text-base'
                  v-model='hexPublicKeyCompressed'
-                 placeholder='02/03...' />
+                 placeholder='02/03...'/>
 
           <div class='absolute block inset-y-0 right-0 pr-4 flex items-center pointer-events-none'>
-            <fa class='fa-error' :icon="['fas', 'times']" />
-            <fa class='fa-success' :icon="['fas', 'check']" />
+            <fa class='fa-error' :icon="['fas', 'times']"/>
+            <fa class='fa-success' :icon="['fas', 'check']"/>
           </div>
         </div>
       </div>
@@ -95,11 +96,11 @@
                  id='public-key-converter-public-key-decompressed'
                  class='input-indigo w-full py-3 pl-4 pr-9 font-mono text-sm md:text-base'
                  v-model='hexPublicKeyUncompressed'
-                 placeholder='04...' />
+                 placeholder='04...'/>
 
           <div class='absolute block inset-y-0 right-0 pr-4 flex items-center pointer-events-none'>
-            <fa class='fa-error' :icon="['fas', 'times']" />
-            <fa class='fa-success' :icon="['fas', 'check']" />
+            <fa class='fa-error' :icon="['fas', 'times']"/>
+            <fa class='fa-success' :icon="['fas', 'check']"/>
           </div>
         </div>
       </div>
@@ -116,7 +117,7 @@ import VueAvatar from '@voken/vue-avatar'
 export default {
   name: 'wallet-public-key',
   layout: 'indigoRipple',
-  components: { VueAvatar },
+  components: {VueAvatar},
   head() {
     return {
       title: this.$t('nav.Wallet_Public_Key')

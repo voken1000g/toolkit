@@ -27,7 +27,7 @@
               class='w-full md:max-w-xl btn btn-pink justify-center py-4 font-sans font-semibold text-xl'
               @click='generate'
       >
-        <svg-ripple class='mr-4 w-8 h-8' style='margin-top: 0; margin-bottom: 0' />
+        <svg-ripple class='mr-4 w-8 h-8' style='margin-top: 0; margin-bottom: 0'/>
         Batch Generate
       </button>
     </div>
@@ -52,13 +52,11 @@ import base32 from '@voken/base32'
 import Wallet from '@voken/hd-wallet'
 import publicKey from '@voken/public-key'
 import VueAvatar from '@voken/vue-avatar'
-import CompWallet from '~/components/CompWallet'
-import SvgRipple from '~/components/SvgRipple'
 
 export default {
   name: 'wallet-batch',
   layout: 'indigoRipple',
-  components: { SvgRipple, CompWallet, VueAvatar },
+  components: {VueAvatar},
   head() {
     return {
       title: this.$t('nav.Wallet_Batch')

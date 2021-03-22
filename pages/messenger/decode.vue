@@ -12,7 +12,7 @@
       </p>
     </article>
 
-    <div class='my-6 border-t' />
+    <div class='my-6 border-t'/>
 
     <!-- Decode & verify -->
     <div class='decode mt-4 md:mt-6 lg:mt-8 xl:mt-10 space-y-6 py-6 lg:py-10 px-2 sm:px-4'>
@@ -57,7 +57,7 @@
 
       <!-- signature -->
       <div v-show='boolFromDataSigVerified' class='mt-10 lg:mt-4 px-4 flex text-green-600 space-x-4 font-mono'>
-        <fa :icon="['fas', 'signature']" class='text-3xl' />
+        <fa :icon="['fas', 'signature']" class='text-3xl'/>
 
         <div>
           <div>
@@ -84,7 +84,7 @@ import VueAvatar from '@voken/vue-avatar'
 export default {
   name: 'decodes',
   layout: 'indigoWaveClear',
-  components: { VueAvatar },
+  components: {VueAvatar},
   head() {
     return {
       title: this.$t('nav.Messenger')

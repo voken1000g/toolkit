@@ -4,7 +4,7 @@ const HOST = location.host.split(':')[0]
 const HOMES = {
   'default': {
     title: 'VOKEN_Toolkit',
-    path: '/wallet',
+    path: '/',
     icon: ['fas', 'tools'],
   },
 

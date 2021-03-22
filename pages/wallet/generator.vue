@@ -33,7 +33,7 @@
                 class='w-full md:max-w-xl btn btn-pink py-4 font-bold'
                 @click='newMnemonic'
         >
-          <svg-ripple class='mr-4 w-8 h-8' style='margin-top: 0; margin-bottom: 0' />
+          <svg-ripple class='mr-4 w-8 h-8' style='margin-top: 0; margin-bottom: 0'/>
           {{ $t('wallet.Generate_a_random_Mnemonic') }}
         </button>
 
@@ -71,7 +71,7 @@
                 class='w-full md:max-w-xl btn btn-pink py-4 font-bold'
                 @click='newMnemonic'
         >
-          <svg-ripple class='mr-4 w-8 h-8' style='margin-top: 0; margin-bottom: 0' />
+          <svg-ripple class='mr-4 w-8 h-8' style='margin-top: 0; margin-bottom: 0'/>
           {{ $t('wallet.Generate_a_random_Mnemonic') }}
         </button>
       </div>
@@ -125,9 +125,10 @@
       </p>
       <p class='align-text-bottom'>
         {{ $t('wallet.The_avatar') }}
-        <vue-avatar class='inline-block align-text-bottom w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-white rounded-md shadow-md'
-                    style='margin: 0'
-                    :value='mnemonic'/>
+        <vue-avatar
+          class='inline-block align-text-bottom w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-white rounded-md shadow-md'
+          style='margin: 0'
+          :value='mnemonic'/>
         {{ $t('wallet.is_converted_from___mnemonic') }}
         {{ $t('wallet.by') }}
         <a href='https://voken.io/en/latest/npm/avatar.html'>@voken/avatar</a>
@@ -198,12 +199,13 @@
 
       <p v-if='wallets[0]'>
         {{ $t('wallet.Here_is_the_1st_wallet__contains') }}
-        <b>{{ $t('wallet.a_private__public_key_pair') }}</b> {{ $t('wallet.and') }} <b>{{ $t('wallet.an_address_')
+        <b>{{ $t('wallet.a_private__public_key_pair') }}</b> {{ $t('wallet.and') }} <b>{{
+          $t('wallet.an_address_')
         }}</b>
       </p>
     </article>
 
-    <comp-wallet :wallet='wallets[0]' class='comp-wallet' />
+    <comp-wallet :wallet='wallets[0]' class='comp-wallet'/>
 
     <article v-if='wallets[0]' class='mt-2 lg:mt-4 2xl:mt-6 prose lg:prose-lg xl:prose-xl max-w-none'>
       <p>
@@ -414,7 +416,7 @@
       <comp-wallet v-for='wallet in wallets.slice(1)'
                    :key='wallet.index'
                    class='comp-wallet'
-                   :wallet='wallet' />
+                   :wallet='wallet'/>
     </div>
 
     <div v-if='wallets[0]' class='mt-6 md:mt-8 lg:mt-10 flex justify-center'>
@@ -433,13 +435,11 @@ import * as bip39 from 'bip39'
 import base32 from '@voken/base32'
 import Wallet from '@voken/hd-wallet'
 import VueAvatar from '@voken/vue-avatar'
-import CompWallet from '~/components/CompWallet'
-import SvgRipple from '~/components/SvgRipple'
 
 export default {
   name: 'wallet-generator',
   layout: 'indigoRipple',
-  components: { SvgRipple, CompWallet, VueAvatar },
+  components: {VueAvatar},
   head() {
     return {
       title: this.$t('nav.Wallet_Generator')
@@ -488,7 +488,7 @@ export default {
       return null
     }
   },
-  mounted: async function() {
+  mounted: async function () {
     // await this.generateMnemonic()
   },
   methods: {

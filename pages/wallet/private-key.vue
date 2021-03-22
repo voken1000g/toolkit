@@ -7,10 +7,12 @@
 
       <p class='text-red-600'>
         <span class='text-5xl'>
-          <fa :icon="['fas', 'lock']" />
+          <fa :icon="['fas', 'lock']"/>
         </span>
         <br>
-        {{ $t('wallet.You_should_always_keep_your_Private_Key_safe_') }}<b>{{ $t('wallet.Never_disclose_it_to_anyone') }}</b>
+        {{ $t('wallet.You_should_always_keep_your_Private_Key_safe_') }}<b>{{
+          $t('wallet.Never_disclose_it_to_anyone')
+        }}</b>
       </p>
     </article>
 
@@ -23,7 +25,7 @@
           <div v-show='!isAddress'
                class='h-full flex items-center justify-center text-2xl lg:text-3xl xl:text-4xl text-gray-300'
           >
-            <fa v-show='!isAddress' :icon="['fas', 'seedling']" />
+            <fa v-show='!isAddress' :icon="['fas', 'seedling']"/>
           </div>
         </div>
 
@@ -40,7 +42,7 @@
                    class='input-indigo w-full py-3 px-4 font-mono text-sm md:text-base text-gray-500'
                    v-model='address'
                    :placeholder='$t("wallet.Auto_Convert_")'
-                   readonly disabled />
+                   readonly disabled/>
           </div>
         </div>
       </div>
@@ -56,11 +58,11 @@
                  id='private-key-converter-vpriv'
                  class='input-indigo w-full py-3 pl-4 pr-9 font-mono text-sm md:text-base'
                  v-model='vpriv'
-                 placeholder='vpriv...' />
+                 placeholder='vpriv...'/>
 
           <div class='absolute block inset-y-0 right-0 pr-4 flex items-center pointer-events-none'>
-            <fa class='fa-error' :icon="['fas', 'times']" />
-            <fa class='fa-success' :icon="['fas', 'check']" />
+            <fa class='fa-error' :icon="['fas', 'times']"/>
+            <fa class='fa-success' :icon="['fas', 'check']"/>
           </div>
         </div>
       </div>
@@ -76,20 +78,20 @@
                  id='private-key-converter-privateKey'
                  class='input-indigo w-full py-3 pl-4 pr-9 font-mono text-sm md:text-base'
                  v-model='hexPrivateKey'
-                 placeholder='0...' />
+                 placeholder='0...'/>
 
           <div class='absolute block inset-y-0 right-0 pr-4 flex items-center pointer-events-none'>
-            <fa class='fa-error' :icon="['fas', 'times']" />
-            <fa class='fa-success' :icon="['fas', 'check']" />
+            <fa class='fa-error' :icon="['fas', 'times']"/>
+            <fa class='fa-success' :icon="['fas', 'check']"/>
           </div>
         </div>
       </div>
 
-      <div class='my-12 md:my-14 lg:my-16 border-t border-gray-300' />
+      <div class='my-12 md:my-14 lg:my-16 border-t border-gray-300'/>
 
       <article class="prose lg:prose-lg xl:prose-xl max-w-none">
         <p class='text-green-500'>
-          <fa :icon="['fas', 'shield-alt']" />
+          <fa :icon="['fas', 'shield-alt']"/>
           {{ $t('wallet.Sending_a_Public_Key_is_safe') }}
         </p>
       </article>
@@ -106,10 +108,10 @@
                  class='input-indigo w-full py-3 px-4 bg-gray-100 font-mono text-sm md:text-base text-gray-500'
                  v-model='vpub'
                  :placeholder='$t("wallet.Auto_Convert_")'
-                 readonly disabled />
+                 readonly disabled/>
 
           <div class='absolute block inset-y-0 right-0 pr-4 flex items-center pointer-events-none'>
-            <fa class='fa-error' :icon="['fas', 'times']" />
+            <fa class='fa-error' :icon="['fas', 'times']"/>
           </div>
         </div>
       </div>
@@ -126,10 +128,10 @@
                  class='input-indigo w-full py-3 px-4 bg-gray-100 font-mono text-sm md:text-base text-gray-500'
                  v-model='hexPublicKeyCompressed'
                  :placeholder='$t("wallet.Auto_Convert_")'
-                 readonly disabled />
+                 readonly disabled/>
 
           <div class='absolute block inset-y-0 right-0 pr-4 flex items-center pointer-events-none'>
-            <fa class='fa-error' :icon="['fas', 'times']" />
+            <fa class='fa-error' :icon="['fas', 'times']"/>
           </div>
         </div>
       </div>
@@ -146,10 +148,10 @@
                  class='input-indigo w-full py-3 px-4 bg-gray-100 font-mono text-sm md:text-base text-gray-500'
                  v-model='hexPublicKeyUncompressed'
                  :placeholder='$t("wallet.Auto_Convert_")'
-                 readonly disabled />
+                 readonly disabled/>
 
           <div class='absolute block inset-y-0 right-0 pr-4 flex items-center pointer-events-none'>
-            <fa class='fa-error' :icon="['fas', 'times']" />
+            <fa class='fa-error' :icon="['fas', 'times']"/>
           </div>
         </div>
       </div>
@@ -166,7 +168,7 @@ import VueAvatar from '@voken/vue-avatar'
 export default {
   name: 'wallet-private-key',
   layout: 'indigoRipple',
-  components: { VueAvatar },
+  components: {VueAvatar},
   head() {
     return {
       title: this.$t('nav.Wallet_Private_Key')

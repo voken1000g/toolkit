@@ -51,7 +51,7 @@
       </p>
     </article>
 
-    <div class='my-6 border-t border-indigo-300' />
+    <div class='my-6 border-t border-indigo-300'/>
 
     <!-- initialize -->
     <div v-show='!cached && !ready' class='initialize py-4 px-2 sm:px-4'>
@@ -75,12 +75,12 @@
                    id='vpriv'
                    class='input-indigo w-full py-3 pl-4 pr-9 font-mono text-xs'
                    v-model='vpriv'
-                   placeholder='vpriv...' />
+                   placeholder='vpriv...'/>
 
             <div class='absolute block inset-y-0 right-0 pr-4 flex items-center pointer-events-none'>
-              <fa class='fa-error' :icon="['fas', 'times']" />
-              <fa class='fa-success' :icon="['fas', 'check']" />
-              <fa class='fa-warn' :icon="['fas', 'exclamation-triangle']" />
+              <fa class='fa-error' :icon="['fas', 'times']"/>
+              <fa class='fa-success' :icon="['fas', 'check']"/>
+              <fa class='fa-warn' :icon="['fas', 'exclamation-triangle']"/>
             </div>
           </div>
         </div>
@@ -96,12 +96,12 @@
             <input type='password'
                    id='password_set'
                    class='input-indigo w-full py-3 pl-4 pr-9 font-mono text-xs'
-                   v-model='passwordSet' />
+                   v-model='passwordSet'/>
 
             <div class='absolute block inset-y-0 right-0 pr-4 flex items-center pointer-events-none'>
-              <fa class='fa-error' :icon="['fas', 'times']" />
-              <fa class='fa-success' :icon="['fas', 'check']" />
-              <fa class='fa-warn' :icon="['fas', 'exclamation-triangle']" />
+              <fa class='fa-error' :icon="['fas', 'times']"/>
+              <fa class='fa-success' :icon="['fas', 'check']"/>
+              <fa class='fa-warn' :icon="['fas', 'exclamation-triangle']"/>
             </div>
           </div>
         </div>
@@ -115,12 +115,12 @@
             <input type='password'
                    id='password_repeat'
                    class='input-indigo w-full py-3 pl-4 pr-9 font-mono text-xs'
-                   v-model='passwordRepeat' />
+                   v-model='passwordRepeat'/>
 
             <div class='absolute block inset-y-0 right-0 pr-4 flex items-center pointer-events-none'>
-              <fa class='fa-error' :icon="['fas', 'times']" />
-              <fa class='fa-success' :icon="['fas', 'check']" />
-              <fa class='fa-warn' :icon="['fas', 'exclamation-triangle']" />
+              <fa class='fa-error' :icon="['fas', 'times']"/>
+              <fa class='fa-success' :icon="['fas', 'check']"/>
+              <fa class='fa-warn' :icon="['fas', 'exclamation-triangle']"/>
             </div>
           </div>
         </div>
@@ -159,12 +159,12 @@
           <input type='password'
                  id='password'
                  class='input-indigo w-full py-3 pl-4 pr-9 font-mono text-xs'
-                 v-model='password' />
+                 v-model='password'/>
 
           <div class='absolute block inset-y-0 right-0 pr-4 flex items-center pointer-events-none'>
-            <fa class='fa-error' :icon="['fas', 'times']" />
-            <fa class='fa-success' :icon="['fas', 'check']" />
-            <fa class='fa-warn' :icon="['fas', 'exclamation-triangle']" />
+            <fa class='fa-error' :icon="['fas', 'times']"/>
+            <fa class='fa-success' :icon="['fas', 'check']"/>
+            <fa class='fa-warn' :icon="['fas', 'exclamation-triangle']"/>
           </div>
         </div>
 
@@ -202,12 +202,12 @@
                    id='to_vpub'
                    class='input-indigo w-full py-3 px-4 font-mono text-xs sm:text-sm md:text-base'
                    v-model='toVpub'
-                   placeholder='vpub...' />
+                   placeholder='vpub...'/>
 
             <div class='absolute block inset-y-0 right-0 pr-4 flex items-center pointer-events-none'>
-              <fa class='fa-error' :icon="['fas', 'times']" />
-              <fa class='fa-success' :icon="['fas', 'check']" />
-              <fa class='fa-warn' :icon="['fas', 'exclamation-triangle']" />
+              <fa class='fa-error' :icon="['fas', 'times']"/>
+              <fa class='fa-success' :icon="['fas', 'check']"/>
+              <fa class='fa-warn' :icon="['fas', 'exclamation-triangle']"/>
             </div>
           </div>
         </div>
@@ -244,11 +244,13 @@
         <div class='mt-2 sm:flex sm:justify-end'>
           <div class='w-full sm:max-w-xl'>
             <div class='space-y-2 sm:flex sm:flex-row sm:space-y-0 sm:space-x-4'>
-              <button type='button' class='w-full btn btn-pink justify-center py-3 font-bold' @click='copyEncryptedData'>
+              <button type='button' class='w-full btn btn-pink justify-center py-3 font-bold'
+                      @click='copyEncryptedData'>
                 {{ $t('messenger.Copy_the_encrypted_data') }}
               </button>
 
-              <button type='button' class='w-full btn btn-gray justify-center py-3 font-bold uppercase' @click='hideEncrypt'>
+              <button type='button' class='w-full btn btn-gray justify-center py-3 font-bold uppercase'
+                      @click='hideEncrypt'>
                 {{ $t('messenger.Close') }}
               </button>
             </div>
@@ -302,7 +304,7 @@
 
         <!-- signature -->
         <div v-show='boolFromDataSigVerified' class='mt-10 lg:mt-4 px-4 flex text-green-600 space-x-4'>
-          <fa :icon="['fas', 'signature']" class='text-3xl' />
+          <fa :icon="['fas', 'signature']" class='text-3xl'/>
 
           <div class='font-mono'>
             <div>
@@ -319,7 +321,8 @@
           <div class='w-full sm:max-w-xl'>
             <div class='space-y-2 sm:flex sm:flex-row sm:space-y-0 sm:space-x-4'>
               <span class='w-full'></span>
-              <button type='button' class='w-full btn btn-gray justify-center py-3 font-bold uppercase' @click='hideDecrypt'>
+              <button type='button' class='w-full btn btn-gray justify-center py-3 font-bold uppercase'
+                      @click='hideDecrypt'>
                 {{ $t('messenger.Close') }}
               </button>
             </div>
@@ -481,7 +484,7 @@ import VueAvatar from '@voken/vue-avatar'
 export default {
   name: 'index',
   layout: 'indigoWaveClear',
-  components: { VueAvatar },
+  components: {VueAvatar},
   head() {
     return {
       title: this.$t('nav.Messenger')
@@ -866,7 +869,7 @@ export default {
     }
 
   },
-  mounted: async function() {
+  mounted: async function () {
     // voken cached Private Key (encrypted)
     const cachedBufPrivateKeyEncrypted = this.getCache('bufPrivateKeyEncrypted')
     if (cachedBufPrivateKeyEncrypted) {

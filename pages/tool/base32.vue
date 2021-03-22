@@ -10,7 +10,8 @@
       </p>
     </article>
 
-    <div class='mt-10 md:mt-14 lg:mt-16 xl:mt-20 2xl:mt-24 flex flex-col space-x-0 space-y-4 lg:flex-row lg:space-x-3 lg:space-y-0'>
+    <div
+      class='mt-10 md:mt-14 lg:mt-16 xl:mt-20 2xl:mt-24 flex flex-col space-x-0 space-y-4 lg:flex-row lg:space-x-3 lg:space-y-0'>
       <div class='flex-1' :class='{ "error": encodeError }'>
         <label for='decoded'>
           {{ $t('base32.Input_here_to_auto_encode_') }}
@@ -85,15 +86,13 @@
 
 <script>
 import Base32 from '@voken/base32'
-import LayoutFooterSimple from '~/components/LayoutFooterSimple'
 
 export default {
   name: 'base32',
   layout: 'indigoBubble',
-  components: { LayoutFooterSimple },
   head() {
     return {
-      title: 'npm: @voken/base32'
+      title: this.$t('nav.Base32')
     }
   },
   data() {

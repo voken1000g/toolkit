@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import walletLinks from '~/utils/constants/walletLinks'
+import walletLinks from '~/utils/constants/navWalletLinks'
 
 export default {
   name: "wallet-index",

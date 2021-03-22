@@ -26,7 +26,9 @@ export default async function ({app, route, store, redirect}) {
   })
   if (path === '/') {
     const HOME = home()
-    console.warn('::: M[gateway] redirect to home:', HOME.path)
-    redirect(app.localePath(HOME.path), route.query)
+    if (HOME.path !== '/') {
+      console.warn('::: M[gateway] redirect to home:', HOME.path)
+      redirect(app.localePath(HOME.path), route.query)
+    }
   }
 }

@@ -12,6 +12,11 @@
 export default {
   name: "early-bird",
   middleware: ['web3', 'etherGasSync', 'voken', 'vokenEarlyBirdSale'],
+  head() {
+    return {
+      title: this.$t('nav.Sale_EarlyBird')
+    }
+  },
   layout: 'white',
 }
 </script>

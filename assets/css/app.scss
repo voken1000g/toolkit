@@ -84,7 +84,82 @@
       }
     }
   }
+
+  .menu-flyout {
+    @apply relative;
+
+    .button-flyout {
+      @apply px-3 py-2 rounded-md text-sm font-medium leading-5 text-indigo-300;
+
+      &:hover {
+        @apply text-white bg-indigo-700;
+      }
+
+      &:focus {
+        @apply outline-none;
+      }
+    }
+
+    .menu-flyout-layer {
+      @apply absolute z-10 left-0 transform mt-2 px-2 w-screen max-w-md;
+      @apply transition duration-200 ease-in-out;
+
+      @screen sm {
+        @apply px-0;
+      }
+
+      .flyout-wrapper {
+        @apply rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden;
+
+        .flyout-items {
+          @apply relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8;
+
+          a {
+            @apply -m-3 p-3 flex items-start rounded-lg;
+            @apply transition ease-in-out duration-150;
+
+            &.nuxt-link-exact-active {
+              @apply bg-indigo-50;
+            }
+
+            &:hover {
+              @apply bg-indigo-100;
+            }
+
+            .div-icon {
+              @apply mt-1 flex-shrink-0 h-8 w-8 flex items-center justify-center text-3xl text-indigo-600;
+            }
+
+            .item-title {
+              @apply text-base font-medium text-gray-900;
+            }
+
+            .item-description {
+              @apply mt-1 text-sm text-gray-500;
+            }
+          }
+        }
+      }
+
+
+    }
+  }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /**
  * FAQ side by side

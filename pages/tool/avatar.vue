@@ -16,7 +16,7 @@
         <div v-show='!something'
              class='h-full flex items-center justify-center text-2xl lg:text-3xl xl:text-4xl text-gray-300'
         >
-          <fa :icon="['far', 'smile-wink']" />
+          <fa :icon="['far', 'smile-wink']"/>
         </div>
       </div>
 
@@ -66,12 +66,11 @@
 
 <script>
 import VueAvatar from '@voken/vue-avatar'
-import LayoutFooterSimple from '~/components/LayoutFooterSimple'
 
 export default {
   name: 'avatar',
   layout: 'indigoParticles',
-  components: { LayoutFooterSimple, VueAvatar },
+  components: {VueAvatar},
   head() {
     return {
       title: this.$t('nav.Avatar')

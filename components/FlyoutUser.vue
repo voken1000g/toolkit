@@ -6,7 +6,7 @@
             @click.stop='toggleFlyout'
     >
       <span v-show='!address' class=''>
-        <fa :icon="['fas', 'user-circle']" />
+        <fa :icon="['fas', 'user-circle']"/>
       </span>
 
       <vue-avatar v-show='address'
@@ -30,7 +30,7 @@
               <vue-avatar v-show='address' :value='address'/>
               <div
                 class='w-full h-full flex items-center justify-center text-2xl lg:text-3xl xl:text-4xl text-gray-300'>
-                <fa v-show='!$store.state.address' :icon="['fas', 'user-circle']" />
+                <fa v-show='!$store.state.address' :icon="['fas', 'user-circle']"/>
               </div>
             </div>
 
@@ -60,7 +60,7 @@
 
                   <div class='absolute inset-y-0 right-0 pr-4 flex items-center'>
                     <button type='button' class='btn-copy' @click='copyPublicKey'>
-                      <fa :icon="['fas', 'copy']" />
+                      <fa :icon="['fas', 'copy']"/>
                     </button>
                   </div>
                 </div>
@@ -84,7 +84,7 @@
 
                   <div class='absolute inset-y-0 right-0 pr-4 flex items-center'>
                     <button type='button' class='btn-copy' @click='copyAddress'>
-                      <fa :icon="['fas', 'copy']" />
+                      <fa :icon="['fas', 'copy']"/>
                     </button>
                   </div>
                 </div>
@@ -109,7 +109,7 @@ import VueAvatar from '@voken/vue-avatar'
 
 export default {
   name: 'FlyoutUser',
-  components: { VueAvatar },
+  components: {VueAvatar},
   computed: {
     address() {
       return this.$store.state.address

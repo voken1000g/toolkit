@@ -123,6 +123,11 @@
 export default {
   name: "voken-index",
   middleware: ['web3', 'voken', 'vokenEarlyBirdSale'],
+  head() {
+    return {
+      title: this.$t('nav.VokenTB')
+    }
+  },
   layout: 'indigoRipple',
   computed: {
     voken() {
