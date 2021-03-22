@@ -112,6 +112,7 @@ export default {
           'faStar',
           'faArchive',
           'faGlassCheers',
+          'faCode',
 
           // Early-Bird
           'faArrowDown',

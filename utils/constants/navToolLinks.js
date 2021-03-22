@@ -4,13 +4,13 @@ export default [
     titleMobi: 'nav.Tool_Avatar___mobi',
     description: 'nav.Tool_Avatar_',
     path: '/tool/avatar',
-    icon: ['fas', 'terminal']
+    icon: ['far', 'smile-wink']
   },
   {
     title: 'nav.Tool_Base32',
     titleMobi: 'nav.Tool_Base32___mobi',
     description: 'nav.Tool_Base32_',
     path: '/tool/base32',
-    icon: ['fas', 'signature']
+    icon: ['fas', 'code']
   },
 ]

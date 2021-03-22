@@ -45,7 +45,7 @@
 
             <nav-flyout-wallet />
             <nav-flyout-messenger />
-            <nav-flyout-tool />
+            <nav-flyout-tools />
           </div>
         </div>
 

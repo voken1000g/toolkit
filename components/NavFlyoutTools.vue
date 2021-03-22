@@ -32,7 +32,7 @@
 import navToolLinks from '~/utils/constants/navToolLinks'
 
 export default {
-  name: 'NavFlyoutTool',
+  name: 'NavFlyoutTools',
   data() {
     return {
       navToolLinks: navToolLinks
