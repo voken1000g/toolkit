@@ -53,10 +53,10 @@
             <div>
               <div class="font-bold text-lg">
                 <fa :icon="['fas', 'dollar-sign']"/>
-                ...
+                1.5+
               </div>
               <p class="mt-2 text-sm text-gray-200">
-                Not Started, planning price from more than $1
+                Not Started, planning price from $1.5 or more
               </p>
             </div>
           </nuxt-link>
