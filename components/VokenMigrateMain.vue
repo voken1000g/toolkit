@@ -60,7 +60,7 @@
 
 
 
-        <div class="">
+        <div :class="amountStatus">
           <label for='migrate-amount'>
             Migrate
           </label>
@@ -72,11 +72,7 @@
                    v-model="amount"
                    :placeholder="'Maximum: ' + vokenAccount.availableStr" />
 
-            <div class='absolute block inset-y-0 right-0 pr-4 flex items-center pointer-events-none'>
-              <fa class='fa-error' :icon="['fas', 'times']" />
-              <fa class='fa-success' :icon="['fas', 'check']" />
-              <fa class='fa-warn' :icon="['fas', 'exclamation-triangle']" />
-            </div>
+            <layout-input-esw />
           </div>
         </div>
 
@@ -92,6 +88,12 @@
         <button class="mt-8 w-full btn btn-indigo justify-center py-2 text-lg" @click="migrate">
           Coming Soon...
         </button>
+
+        <tx-info class="mt-4"
+                 :status="txStatus"
+                 :hash="txHash"
+                 :confirmation="txConfirmation"
+                 :message="txMessage"/>
       </div>
     </div>
 
@@ -99,28 +101,149 @@
 </template>
 
 <script>
+import BigNumber from "bignumber.js"
 import VueAvatar from '@voken/vue-avatar'
+import DAPP from '~/utils/constants/dapp'
 
 export default {
   name: "VokenMigrateMain",
   components: {VueAvatar},
   data() {
     return {
-      amount: ''
+      amount: '',
+
+      txStatus: -1,
+      txHash: null,
+      txConfirmation: 0,
+      txMessage: null,
+    }
+  },
+  watch: {
+    amount() {
+      if (this.amount) {
+        let amount = (
+          this.amount.toString()
+            .replace(/[^\d.]/g, '')
+            .replace(/\.{2,}/g, '.')
+            .replace('.', '#')
+            .replace(/\./g, '')
+            .replace('#', '.')
+            .replace(/^(\d+)\.(\d{0,9}).*$/, '$1.$2')
+        )
+
+        const bnMin = new BigNumber(1)
+        const bnMax = new BigNumber(this.$store.state.voken.account.available).dividedBy(10 ** 9)
+
+        if (!amount) {
+          this.amount = bnMax.toString()
+          return
+        }
+
+        let bn = new BigNumber(amount)
+
+        if (bn.gt(bnMax)) {
+          // max
+          this.amount = bnMax.toString()
+        } else if (bn.gt(0) && bn.lt(bnMin)) {
+          // min
+          this.amount = bnMin.toString()
+        } else if (bn.gt(0)) {
+          // ok
+          this.amount = bn.toString()
+        }
+      }
     }
   },
   computed: {
+
     ether() {
       return this.$store.state.ether
     },
     vokenAccount() {
       return this.$store.state.voken.account
     },
+    migrateAmount() {
+      if (this.amount) {
+        return new BigNumber(this.amount).multipliedBy(10 ** 9).toNumber()
+      }
+
+      return 0
+    },
+
+
+    amountStatus() {
+      if (this.amount) {
+        return 'success'
+      }
+      return null
+    },
   },
   methods: {
-    migrate() {
+    resetTxInfo() {
+      this.txStatus = -1
+      this.txHash = null
+      this.txConfirmation = 0
+      this.txMessage = null
+    },
+
+    async migrate() {
       this.$toast.info('Coming soon...')
-    }
+
+      // if (this.migrateAmount) {
+      //   this.resetTxInfo()
+      //
+      //   if (this.showRefVokenAddress && this.refStatus !== 'success') {
+      //     this.$toast.info('Please enter a valid referral address.')
+      //     this.$refs['ref-voken-address'].focus()
+      //     return null
+      //   }
+      //
+      //   await this.$store
+      //     .state.voken.contract()
+      //     .methods
+      //     .transfer(DAPP.CONTRACT_ADDRESS_MIGRATE, this.migrateAmount)
+      //     .send({'from': this.ether.account})
+      //     .on('transactionHash', this.onTransactionHash)
+      //     .on('receipt', this.onReceipt)
+      //     .on('confirmation', this.onConfirmation)
+      //     .on('error', this.onError)
+      //     .catch(this.onError)
+      // }
+    },
+    async onTransactionHash(txHash) {
+      this.txStatus = 0
+      this.txHash = txHash
+    },
+    async onReceipt(receipt) {
+      this.txMessage = null
+
+      if (receipt.status) {
+        this.txStatus = 1
+      } else {
+        this.txStatus = 3
+      }
+    },
+    async onConfirmation(confirmation) {
+      if (this.txStatus < 3 && confirmation < 16) {
+        if (confirmation < 6) {
+          this.txStatus = 1
+        } else if (confirmation >= 6 && confirmation < 10) {
+          this.txStatus = 2
+        } else {
+          this.txStatus = -1
+
+          await this.$store.dispatch('voken/SYNC_DATA')
+        }
+
+        this.txConfirmation = confirmation
+      }
+    },
+    async onError(error) {
+      this.txStatus = 3
+      this.txMessage = error.message
+    },
+
+
   }
 }
 </script>
