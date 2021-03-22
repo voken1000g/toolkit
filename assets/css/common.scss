@@ -373,3 +373,22 @@ textarea.textarea-teal {
   @apply -mx-px;
 }
 
+
+/**
+ * Hero Simple
+ */
+.hero-simple {
+  @apply bg-indigo-800;
+
+  .hero-simple-wrapper {
+    @apply resp-wide border-t border-indigo-700 py-16 px-4 sm:py-24 sm:px-6 lg:px-8;
+
+    h1 {
+      @apply text-4xl font-extrabold text-white sm:text-5xl sm:tracking-tight lg:text-6xl;
+    }
+
+    p {
+      @apply mt-6 sm:mt-10 text-xl text-indigo-300;
+    }
+  }
+}
