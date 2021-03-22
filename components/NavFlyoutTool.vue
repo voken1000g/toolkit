@@ -5,7 +5,7 @@
     </button>
 
     <!-- Flyout menu -->
-    <div v-show='$store.state.nav.flyoutMessenger' class="menu-flyout-layer -translate-x-0">
+    <div v-show='$store.state.nav.flyoutTools' class="menu-flyout-layer -translate-x-0">
       <div class="flyout-wrapper">
         <div class="flyout-items">
           <nuxt-link v-for='link in navToolLinks' :key='link.path' :to='localePath(link.path)'>
@@ -40,7 +40,7 @@ export default {
   },
   methods: {
     toggleFlyout() {
-      this.$store.dispatch('nav/TOGGLE_FLYOUT_MESSENGER')
+      this.$store.dispatch('nav/TOGGLE_FLYOUT_TOOLS')
     }
   }
 }

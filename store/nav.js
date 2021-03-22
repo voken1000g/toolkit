@@ -3,6 +3,7 @@ export const state = () => ({
   languageMenu: false,
   flyoutWallet: false,
   flyoutMessenger: false,
+  flyoutTools: false,
   flyoutUser: false
 })
 
@@ -13,6 +14,7 @@ export const mutations = {
     state.languageMenu = false
     state.flyoutWallet = false
     state.flyoutMessenger = false
+    state.flyoutTools = false
     state.flyoutUser = false
   },
   TOGGLE_LANGUAGE_MENU(state) {
@@ -20,6 +22,7 @@ export const mutations = {
     state.languageMenu = !state.languageMenu
     state.flyoutWallet = false
     state.flyoutMessenger = false
+    state.flyoutTools = false
     state.flyoutUser = false
   },
   TOGGLE_FLYOUT_WALLET(state) {
@@ -27,6 +30,7 @@ export const mutations = {
     state.languageMenu = false
     state.flyoutWallet = !state.flyoutWallet
     state.flyoutMessenger = false
+    state.flyoutTools = false
     state.flyoutUser = false
   },
   TOGGLE_FLYOUT_MESSENGER(state) {
@@ -34,6 +38,15 @@ export const mutations = {
     state.languageMenu = false
     state.flyoutWallet = false
     state.flyoutMessenger = !state.flyoutMessenger
+    state.flyoutTools = false
+    state.flyoutUser = false
+  },
+  TOGGLE_FLYOUT_TOOLS(state) {
+    state.menuMobile = false
+    state.languageMenu = false
+    state.flyoutWallet = false
+    state.flyoutMessenger = false
+    state.flyoutTools = !state.flyoutTools
     state.flyoutUser = false
   },
   TOGGLE_FLYOUT_USER(state) {
@@ -41,6 +54,7 @@ export const mutations = {
     state.languageMenu = false
     state.flyoutWallet = false
     state.flyoutMessenger = false
+    state.flyoutTools = false
     state.flyoutUser = !state.flyoutUser
   },
 
@@ -49,6 +63,7 @@ export const mutations = {
     state.languageMenu = false
     state.flyoutWallet = false
     state.flyoutMessenger = false
+    state.flyoutTools = false
     state.flyoutUser = false
   },
 }
@@ -66,6 +81,9 @@ export const actions = {
   },
   TOGGLE_FLYOUT_MESSENGER({ commit }) {
     commit('TOGGLE_FLYOUT_MESSENGER')
+  },
+  TOGGLE_FLYOUT_TOOLS({ commit }) {
+    commit('TOGGLE_FLYOUT_TOOLS')
   },
   TOGGLE_FLYOUT_USER({ commit }) {
     commit('TOGGLE_FLYOUT_USER')
