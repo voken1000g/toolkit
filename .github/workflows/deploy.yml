@@ -29,7 +29,6 @@ jobs:
       - name: Install
         run: yarn
 
-
       # voken1000g.github.io/early-bird
       - name: Write repo.js
         run: echo export default \'early-bird\' > repo.js
@@ -66,17 +65,21 @@ jobs:
           branch: main
           folder: dist
 
-      # get.voken.io
-      - name: CNAME (get.voken.io)
-        run: echo "get.voken.io" > ./dist/CNAME
+      # Remove repo.js
+      - name: Remove repo.js
+        run: rm repo.js
 
-      - name: Deploy (get.voken.io)
+      # migrate.voken.io
+      - name: CNAME (migrate.voken.io)
+        run: echo "migrate.voken.io" > ./dist/CNAME
+
+      - name: Deploy (migrate.voken.io)
         uses: JamesIves/github-pages-deploy-action@4.0.0
         with:
           token: ${{ secrets.ACCESS_TOKEN }}
-          repository-name: voken1000g/get.voken.io
+          repository-name: voken1000g/migrate.voken.io
           commit-message: "${{ github.repository }}@${{ github.sha }}"
-          branch: get
+          branch: migrate
           folder: dist
 
       # early-bird.voken.io
@@ -92,18 +95,19 @@ jobs:
           branch: early-bird
           folder: dist
 
-      # migrate.voken.io
-      - name: CNAME (migrate.voken.io)
-        run: echo "migrate.voken.io" > ./dist/CNAME
+      # get.voken.io
+      - name: CNAME (get.voken.io)
+        run: echo "get.voken.io" > ./dist/CNAME
 
-      - name: Deploy (migrate.voken.io)
+      - name: Deploy (get.voken.io)
         uses: JamesIves/github-pages-deploy-action@4.0.0
         with:
           token: ${{ secrets.ACCESS_TOKEN }}
-          repository-name: voken1000g/migrate.voken.io
+          repository-name: voken1000g/get.voken.io
           commit-message: "${{ github.repository }}@${{ github.sha }}"
-          branch: migrate
+          branch: get
           folder: dist
+
 
       # voken1000g.github.io/toolkit
       - name: Clear
