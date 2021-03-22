@@ -24,15 +24,15 @@
         </div>
         <div v-show="vokenAccount.balance > '0'" class="mt-2">
           <span v-if="vokenAccount.balance === vokenAccount.vesting" class="text-gray-400">
-            (vesting)
+            {{ $t('voken._vesting_') }}
           </span>
           <span v-else-if="vokenAccount.balance === vokenAccount.available" class="text-gray-400">
-            (all available)
+            {{ $t('voken._all_available_') }}
           </span>
           <span v-else class="text-gray-500">
             ({{ vokenAccount.availableObj.d }}<span v-show="vokenAccount.availableObj.f"
                                                     class="text-sm">.{{ vokenAccount.availableObj.f }}</span>
-              available)
+              {{ $t('voken.available') }})
           </span>
         </div>
       </div>
@@ -44,25 +44,22 @@
       <!-- 0 -->
       <div v-if="vokenAccount.balance === '0'" class="resp-mt mx-auto max-w-md">
         <a href="https://get.voken.io/" class="w-full btn btn-pink justify-center py-2 text-lg">
-          Go to Early-Bird Sale
+          {{ $t('voken.Go_to_Early_Bird_Sale') }}
         </a>
       </div>
 
       <!-- No Voken Address -->
       <div v-else-if="vokenAccount.vokenInt === '0'" class="resp-mt mx-auto max-w-md">
         <nuxt-link :to="localePath('/wallet/bind')" class="w-full btn btn-pink justify-center py-2 text-lg">
-          Bind Your Voken Wallet Address
+          {{ $t('voken.Bind_Your_Voken_Wallet_Address') }}
         </nuxt-link>
       </div>
 
       <!-- Migrate -->
-      <div v-else class="resp-mt mx-auto max-w-md">
-
-
-
+      <div v-else-if="vokenAccount.available > '0'" class="resp-mt mx-auto max-w-md">
         <div :class="amountStatus">
           <label for='migrate-amount'>
-            Migrate
+            {{ $t('voken.Migrate') }}
           </label>
 
           <div class='relative mt-1'>
@@ -79,10 +76,7 @@
         <div v-show="vokenAccount.vokenInt > '0'"
              class="mt-4 text-lg font-mono text-center text-cool-gray-700 break-all"
         >
-          TO:
-          <span class="font-bold">
-            {{ vokenAccount.vokenAddress }}
-          </span>
+          {{ $t('voken.TO_') }}<span class="font-bold">{{ vokenAccount.vokenAddress }}</span>
         </div>
 
         <button class="mt-8 w-full btn btn-indigo justify-center py-2 text-lg" @click="migrate">
@@ -94,6 +88,11 @@
                  :hash="txHash"
                  :confirmation="txConfirmation"
                  :message="txMessage"/>
+      </div>
+      <div v-else class="resp-mt mx-auto max-w-md">
+        <a href="https://get.voken.io/" class="w-full btn btn-pink justify-center py-2 text-lg">
+          {{ $t('voken.Go_to_Early_Bird_Sale') }}
+        </a>
       </div>
     </div>
 

@@ -4,7 +4,7 @@
       <div class="lg:grid lg:grid-cols-3 lg:gap-8">
         <div>
           <h2 class="text-3xl font-extrabold text-gray-900">
-            Fusce elementum scelerisque pharetra.
+            Ready to Voken Blockchain?
           </h2>
           <p class="mt-4 leading-7 text-lg text-gray-500">
             Proin in neque sit amet sem dictum rutrum quis a tellus. Sed fringilla tellus a sapien tempus commodo.
@@ -37,6 +37,21 @@
                 </p>
               </dd>
             </div>
+
+            <div v-if="vokenAccount.balance > '0' && vokenAccount.available === '0'">
+              <dt class="text-lg leading-6 font-medium text-gray-900">
+                Why does it only show an Early-Bird Sale option for me?
+              </dt>
+              <dd class="mt-2 text-base text-gray-500">
+                <p>
+                  In a nunc egestas, scelerisque leo quis, volutpat ipsum. Sed sit amet risus purus. Cras dapibus nibh
+                  nec magna condimentum auctor. Integer commodo sapien in orci placerat imperdiet. In hac habitasse
+                  platea dictumst. Nam dictum nibh orci, placerat pulvinar elit viverra vel. Suspendisse quis
+                  pellentesque lacus. Sed et mollis nulla, et auctor mauris. Ut quis lacus dapibus libero faucibus
+                  pellentesque eu eu risus.
+                </p>
+              </dd>
+            </div>
           </dl>
         </div>
       </div>
@@ -46,8 +61,15 @@
 </template>
 
 <script>
+import BigNumber from "bignumber.js";
+
 export default {
-  name: "VokenMigrateFaq"
+  name: "VokenMigrateFaq",
+  computed: {
+    vokenAccount() {
+      return this.$store.state.voken.account
+    },
+  },
 }
 </script>
 

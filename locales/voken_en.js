@@ -18,4 +18,24 @@ export default {
 
   You_are_NOT_holding_VokenTB: 'You are NOT holding VokenTB',
 
+  /**
+   * Balance
+   */
+  _vesting_: '(vesting)',
+  _all_available_: '(all available)',
+
+  available: 'available',
+
+  /**
+   * Action
+   */
+  Bind_Your_Voken_Wallet_Address: 'Bind Your Voken Wallet Address',
+  Go_to_Early_Bird_Sale: 'Go to Early-Bird Sale',
+
+  /**
+   * Migrate
+   */
+  Migrate: 'Migrate',
+  From_Ethereum_to_Voken_Blockchain: 'From Ethereum to Voken Blockchain',
+  TO_: 'TO: ',
 }

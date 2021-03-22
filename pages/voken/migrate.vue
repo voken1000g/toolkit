@@ -1,6 +1,16 @@
 <template>
   <div>
-    <voken-migrate-hero />
+    <layout-hero-simple>
+      <template #title>
+        {{ $t('voken.Migrate') }}
+      </template>
+
+      <template #text>
+        {{ $t('voken.From_Ethereum_to_Voken_Blockchain') }}
+      </template>
+    </layout-hero-simple>
+
+
     <voken-migrate-main />
     <voken-migrate-faq class="bg-indigo-50" />
   </div>
