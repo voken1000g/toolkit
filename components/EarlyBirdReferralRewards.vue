@@ -71,6 +71,7 @@ export default {
           }
         )
         .then(this.onRewards)
+        .catch(this.onRewardsError)
     },
     async onRewards(events) {
       if (events.length > 0) {
@@ -90,6 +91,9 @@ export default {
         this.rewards = rewards
       }
     },
+    async onRewardsError(error) {
+      console.error('::: C[EarlyBirdReferralRewards] onRewardsError:', error)
+    }
   }
 }
 </script>

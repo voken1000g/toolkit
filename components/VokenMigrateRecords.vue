@@ -70,6 +70,7 @@ export default {
           }
         )
         .then(this.onGetVokenMigration)
+        .catch(this.onGetVokenMigrationError)
     },
     async onGetVokenMigration(events) {
       if (events.length > 0) {
@@ -85,6 +86,9 @@ export default {
         this.migrations = migrations
       }
     },
+    async onGetVokenMigrationError(error) {
+      console.error('::: C[VokenMigrateRecords] onGetVokenMigrationError:', error)
+    }
   }
 }
 </script>
