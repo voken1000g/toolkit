@@ -124,8 +124,6 @@ export default {
     },
     async ontVokenAddressSet(events) {
       if (events.length > 0) {
-        console.log('events:', events)
-
         let accounts = []
         for (let i = 0; i < events.length; i++) {
           const etherAccount = events[i].returnValues.account

@@ -1,28 +1,13 @@
 <template>
   <div v-show="typeof status === 'number' && status > -1" :class="txInfoClassArr" class="space-x-2">
-    <div
-         class="w-1/4 flex items-center justify-center"
-    >
-      <img v-if="status === 0"
-           class="w-20 h-20"
-           src="~/assets/image/spinner-gray.svg"
-           alt="spinner">
-
-      <img v-else-if="status === 1"
-           class="w-20 h-20"
-           src="~/assets/image/spinner-blue.svg"
-           alt="spinner">
-
-      <fa v-else-if="status === 2"
-          class="mx-5 fa-3x"
-          :icon="['fas', 'check-square']" />
-
-      <fa v-else-if="status > 2"
-          class="mx-5 fa-3x"
-          :icon="['fas', 'times-circle']" />
+    <div class="w-1/4 flex items-center justify-center">
+      <img v-if="status === 0" class="w-20 h-20" src="~/assets/image/spinner-gray.svg" alt="spinner"/>
+      <img v-else-if="status === 1" class="w-20 h-20" src="~/assets/image/spinner-blue.svg" alt="spinner"/>
+      <fa v-else-if="status === 2" class="mx-5 fa-3x" :icon="['fas', 'check-square']"/>
+      <fa v-else-if="status > 2" class="mx-5 fa-3x" :icon="['fas', 'times-circle']"/>
     </div>
 
-    <div class="w-full pt-3 pb-4">
+    <div class="w-full py-3">
       <div class="tx-title">
         {{ statusDisplay }}
       </div>
@@ -70,13 +55,13 @@ export default {
 
     statusDisplay() {
       if (this.status === 0) {
-        return 'Pending...'
+        return this.$t('ether.tx.Pending')
       } else if (this.status === 1) {
-        return 'Confirming... ' + this.confirmation + ' blocks'
+        return this.$t('ether.tx.Confirming') + ' ... ' + this.confirmation + ' ' + this.$t('ether.tx.blocks')
       } else if (this.status === 2) {
-        return 'Success > ' + this.confirmation + ' blocks'
+        return this.$t('ether.tx.Success') + ' ... ' + this.confirmation + ' ' + this.$t('ether.tx.blocks')
       } else if (this.status > 2) {
-        return 'Error'
+        return this.$t('ether.tx.Error')
       }
     },
 

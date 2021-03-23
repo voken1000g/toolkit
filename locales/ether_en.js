@@ -5,4 +5,12 @@ export default {
   Block_Height_: 'Block Height: ',
   Average_Gas_Price: 'Average Gas Price',
   Average_Gas_Price_: 'Average Gas Price: ',
+
+  tx: {
+    Pending: 'Pending',
+    Confirming: 'Confirming',
+    Success: 'Success',
+    Error: 'Error',
+    blocks: 'blocks',
+  }
 }

@@ -27,6 +27,7 @@
           <div class='relative mt-1'>
             <input type='text'
                    id='migrate-amount'
+                   ref="migrate-amount"
                    class='input-indigo w-full py-3 pl-4 pr-12 font-mono text-sm md:text-base'
                    v-model="amount"
                    :placeholder="'Maximum: ' + vokenAccount.availableStr" />
@@ -82,7 +83,7 @@ export default {
   watch: {
     amount() {
       if (this.amount) {
-        let amount = (
+        this.amount = (
           this.amount.toString()
             .replace(/[^\d.]/g, '')
             .replace(/\.{2,}/g, '.')
@@ -95,12 +96,12 @@ export default {
         const bnMin = new BigNumber(1)
         const bnMax = new BigNumber(this.$store.state.voken.account.available).dividedBy(10 ** 9)
 
-        if (!amount) {
+        if (!this.amount) {
           this.amount = bnMax.toString()
           return
         }
 
-        let bn = new BigNumber(amount)
+        let bn = new BigNumber(this.amount)
 
         if (bn.gt(bnMax)) {
           // max
@@ -108,9 +109,6 @@ export default {
         } else if (bn.gt(0) && bn.lt(bnMin)) {
           // min
           this.amount = bnMin.toString()
-        } else if (bn.gt(0)) {
-          // ok
-          this.amount = bn.toString()
         }
       }
     }
@@ -131,9 +129,12 @@ export default {
       return 0
     },
 
-
     amountStatus() {
       if (this.amount) {
+        if (new BigNumber(this.amount).gt(3)) {
+          return 'warn'
+        }
+
         return 'success'
       }
       return null
@@ -148,28 +149,28 @@ export default {
     },
 
     async migrate() {
-      this.$toast.info('Coming soon...')
+      if (this.amountStatus !== 'success' && this.amountStatus !== 'warn') {
+        this.$toast.info('Please enter a valid amount.')
+        this.$refs['migrate-amount'].focus()
+        return null
+      }
 
-      // if (this.migrateAmount) {
-      //   this.resetTxInfo()
-      //
-      //   if (this.showRefVokenAddress && this.refStatus !== 'success') {
-      //     this.$toast.info('Please enter a valid referral address.')
-      //     this.$refs['ref-voken-address'].focus()
-      //     return null
-      //   }
-      //
-      //   await this.$store
-      //     .state.voken.contract()
-      //     .methods
-      //     .transfer(DAPP.CONTRACT_ADDRESS_MIGRATE, this.migrateAmount)
-      //     .send({'from': this.ether.account})
-      //     .on('transactionHash', this.onTransactionHash)
-      //     .on('receipt', this.onReceipt)
-      //     .on('confirmation', this.onConfirmation)
-      //     .on('error', this.onError)
-      //     .catch(this.onError)
-      // }
+      if (this.migrateAmount) {
+        this.resetTxInfo()
+
+        this.$toast.info('Coming soon...')
+
+        // await this.$store
+        //   .state.voken.contract()
+        //   .methods
+        //   .transfer(DAPP.CONTRACT_ADDRESS_MIGRATE, this.migrateAmount)
+        //   .send({'from': this.ether.account})
+        //   .on('transactionHash', this.onTransactionHash)
+        //   .on('receipt', this.onReceipt)
+        //   .on('confirmation', this.onConfirmation)
+        //   .on('error', this.onError)
+        //   .catch(this.onError)
+      }
     },
     async onTransactionHash(txHash) {
       this.txStatus = 0
