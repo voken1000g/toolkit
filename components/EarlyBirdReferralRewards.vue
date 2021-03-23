@@ -63,7 +63,9 @@ export default {
       await this.$store.state.vokenEarlyBirdSale.contract()
         .getPastEvents(
           'Reward', {
-            filter: { referrer: this.$store.state.ether.account },
+            filter: {
+              referrer: this.$store.state.ether.account
+            },
             fromBlock: 0,
             toBlock: 'latest'
           }

@@ -61,7 +61,10 @@ export default {
       await this.$store.state.voken.contract()
         .getPastEvents(
           'Transfer', {
-            filter: { from: this.$store.state.ether.account, to: DAPP.CONTRACT_ADDRESS_MIGRATE },
+            filter: {
+              from: this.$store.state.ether.account,
+              to: DAPP.CONTRACT_ADDRESS_MIGRATE
+            },
             fromBlock: 12074853,
             toBlock: 'latest'
           }
