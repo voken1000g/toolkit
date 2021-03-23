@@ -53,6 +53,13 @@ export const state = () => ({
       f: null,
     },
 
+    value: '0',
+    valueStr: '0',
+    valueObj: {
+      d: '0',
+      f: null,
+    },
+
     vesting: '0',
     vestingStr: '0',
     vestingObj: {
@@ -94,6 +101,13 @@ export const mutations = {
     state.usdPrice = usdPrice
     state.usdPriceStr = fnFormat.ns2Str(usdPrice, 6)
     state.usdPriceObj = fnFormat.ns2Obj(state.usdPriceStr)
+
+    state.account.value = new BigNumber(state.account.balance)
+      .dividedBy(10 ** 9)
+      .multipliedBy(state.usdPrice)
+      .toString()
+    state.account.valueStr = fnFormat.ns2Str(state.account.value, 6)
+    state.account.valueObj = fnFormat.ns2Obj(state.account.valueStr)
   },
   SET_CAP(state, cap) {
     state.cap = cap
@@ -121,6 +135,13 @@ export const mutations = {
     state.account.balance = balance
     state.account.balanceStr = fnFormat.ns2Str(balance)
     state.account.balanceObj = fnFormat.ns2Obj(state.account.balanceStr)
+
+    state.account.value = new BigNumber(state.account.balance)
+      .dividedBy(10 ** 9)
+      .multipliedBy(state.usdPrice)
+      .toString()
+    state.account.valueStr = fnFormat.ns2Str(state.account.value, 6)
+    state.account.valueObj = fnFormat.ns2Obj(state.account.valueStr)
   },
   SET_VESTING(state, vesting) {
     state.account.vesting = vesting
@@ -128,7 +149,7 @@ export const mutations = {
     state.account.vestingObj = fnFormat.ns2Obj(state.account.vestingStr)
 
     state.account.available = new BigNumber(state.account.balance).minus(new BigNumber(state.account.vesting)).toString()
-    state.account.availableStr = fnFormat.ns2Str(state.account.available)
+    state.account.availableStr = fnFormat.ns2Str(state.account.available, 9)
     state.account.availableObj = fnFormat.ns2Obj(state.account.availableStr)
   },
   SET_VOKEN_ADDRESS(state, vokenInt) {

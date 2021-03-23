@@ -1,45 +1,7 @@
 <template>
-  <layout-bg-a class="py-24">
+  <layout-bg-a class="py-24 px-2">
     <div class="max-w-2xl mx-auto">
-      <!-- Avatar -->
-      <div class='w-14 h-14 lg:w-16 lg:h-16 xl:w-20 xl:h-20 mx-auto bg-white rounded-md shadow-md lg:shadow-lg'>
-        <div v-if="vokenAccount.vokenInt === '0'"
-             class='h-full flex items-center justify-center text-2xl lg:text-3xl xl:text-4xl text-gray-300'
-        >
-          <fa :icon="['fas', 'seedling']"/>
-        </div>
-        <vue-avatar v-else :value='vokenAccount.vokenAddress'/>
-      </div>
-
-
-
-      <!-- Balance -->
-      <div class="resp-mt font-mono text-cool-gray-700 text-center">
-        <div class="text-2xl md:text-3xl">
-          {{ vokenAccount.balanceObj.d }}<span v-show="vokenAccount.balanceObj.f"
-                                               class="text-base md:text-2xl">.{{ vokenAccount.balanceObj.f }}</span>
-          <span class="text-xl md:text-2xl">
-            VokenTB
-          </span>
-        </div>
-        <div v-show="vokenAccount.balance > '0'" class="mt-2">
-          <span v-if="vokenAccount.balance === vokenAccount.vesting" class="text-gray-400">
-            {{ $t('voken._vesting_') }}
-          </span>
-          <span v-else-if="vokenAccount.balance === vokenAccount.available" class="text-gray-400">
-            {{ $t('voken._all_available_') }}
-          </span>
-          <span v-else class="text-gray-500">
-            ({{ vokenAccount.availableObj.d }}<span v-show="vokenAccount.availableObj.f"
-                                                    class="text-sm">.{{ vokenAccount.availableObj.f }}</span>
-              {{ $t('voken.available') }})
-          </span>
-        </div>
-      </div>
-
-
-
-
+      <layout-voken-account />
 
       <!-- 0 -->
       <div v-if="vokenAccount.balance === '0'" class="resp-mt mx-auto max-w-md">

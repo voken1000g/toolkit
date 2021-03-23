@@ -1,157 +1,161 @@
 <template>
-  <div class='resp-wide pb-72'>
-    <article class='resp-mt prose lg:prose-lg xl:prose-xl max-w-none'>
-      <h1>
+  <div>
+    <layout-hero-simple>
+      <template #title>
         {{ $t('nav.Wallet_Private_Key') }}
-      </h1>
+      </template>
+    </layout-hero-simple>
 
-      <p class='text-red-600'>
-        <span class='text-5xl'>
-          <fa :icon="['fas', 'lock']"/>
-        </span>
-        <br>
-        {{ $t('wallet.You_should_always_keep_your_Private_Key_safe_') }}<b>{{
-          $t('wallet.Never_disclose_it_to_anyone')
-        }}</b>
-      </p>
-    </article>
+    <div class='resp-wide pb-72'>
+      <article class='resp-mt prose lg:prose-lg xl:prose-xl max-w-none'>
+        <p class='text-red-600'>
+          <span class='text-5xl'>
+            <fa :icon="['fas', 'lock']"/>
+          </span>
+          <br>
+          {{ $t('wallet.You_should_always_keep_your_Private_Key_safe_') }}<b>{{
+            $t('wallet.Never_disclose_it_to_anyone')
+          }}</b>
+        </p>
+      </article>
 
-    <div class='w-full mt-12 lg:mt-14 xl:mt-16 2xl:mt-20 mx-auto font-mono text-sm md:text-base'>
+      <div class='w-full mt-12 lg:mt-14 xl:mt-16 2xl:mt-20 mx-auto font-mono text-sm md:text-base'>
 
-      <div class='space-y-10 lg:space-y-0 lg:flex lg:items-end lg:justify-center lg:space-x-8'>
-        <div
-          class='w-14 h-14 lg:w-16 lg:h-16 xl:w-20 xl:h-20 mx-auto lg:mx-0 bg-white rounded-md shadow-md lg:shadow-lg'>
-          <vue-avatar v-show='isAddress' :value='address'/>
-          <div v-show='!isAddress'
-               class='h-full flex items-center justify-center text-2xl lg:text-3xl xl:text-4xl text-gray-300'
-          >
-            <fa v-show='!isAddress' :icon="['fas', 'seedling']"/>
+        <div class='space-y-10 lg:space-y-0 lg:flex lg:items-end lg:justify-center lg:space-x-8'>
+          <div
+            class='w-14 h-14 lg:w-16 lg:h-16 xl:w-20 xl:h-20 mx-auto lg:mx-0 bg-white rounded-md shadow-md lg:shadow-lg'>
+            <vue-avatar v-show='isAddress' :value='address'/>
+            <div v-show='!isAddress'
+                 class='h-full flex items-center justify-center text-2xl lg:text-3xl xl:text-4xl text-gray-300'
+            >
+              <fa v-show='!isAddress' :icon="['fas', 'seedling']"/>
+            </div>
+          </div>
+
+          <!-- address -->
+          <div class='w-full lg:max-w-2xl'>
+            <label for='private-key-converter-address'
+                   class='font-medium text-gray-700 text-left'>
+              {{ $t('wallet.VOKEN_Address') }}
+            </label>
+
+            <div class='relative mt-1'>
+              <input type='text'
+                     id='private-key-converter-address'
+                     class='input-indigo w-full py-3 px-4 font-mono text-sm md:text-base text-gray-500'
+                     v-model='address'
+                     :placeholder='$t("wallet.Auto_Convert_")'
+                     readonly disabled/>
+            </div>
           </div>
         </div>
 
-        <!-- address -->
-        <div class='w-full lg:max-w-2xl'>
-          <label for='private-key-converter-address'
-                 class='font-medium text-gray-700 text-left'>
-            {{ $t('wallet.VOKEN_Address') }}
+        <!-- vpriv -->
+        <div class='mt-12 md:mt-14 lg:mt-16' :class='vprivClass'>
+          <label for='private-key-converter-vpriv' class='font-medium text-gray-700 text-left'>
+            {{ vprivLabel }}
           </label>
 
           <div class='relative mt-1'>
             <input type='text'
-                   id='private-key-converter-address'
-                   class='input-indigo w-full py-3 px-4 font-mono text-sm md:text-base text-gray-500'
-                   v-model='address'
+                   id='private-key-converter-vpriv'
+                   class='input-indigo w-full py-3 pl-4 pr-9 font-mono text-sm md:text-base'
+                   v-model='vpriv'
+                   placeholder='vpriv...'/>
+
+            <div class='absolute block inset-y-0 right-0 pr-4 flex items-center pointer-events-none'>
+              <fa class='fa-error' :icon="['fas', 'times']"/>
+              <fa class='fa-success' :icon="['fas', 'check']"/>
+            </div>
+          </div>
+        </div>
+
+        <!-- privateKey -->
+        <div class='mt-4 md:mt-6 lg:mt-8' :class='privateKeyClass'>
+          <label for='private-key-converter-privateKey' class='font-medium text-gray-700 text-left'>
+            {{ privateKeyLabel }}
+          </label>
+
+          <div class='relative mt-1'>
+            <input type='text'
+                   id='private-key-converter-privateKey'
+                   class='input-indigo w-full py-3 pl-4 pr-9 font-mono text-sm md:text-base'
+                   v-model='hexPrivateKey'
+                   placeholder='0...'/>
+
+            <div class='absolute block inset-y-0 right-0 pr-4 flex items-center pointer-events-none'>
+              <fa class='fa-error' :icon="['fas', 'times']"/>
+              <fa class='fa-success' :icon="['fas', 'check']"/>
+            </div>
+          </div>
+        </div>
+
+        <div class='my-12 md:my-14 lg:my-16 border-t border-gray-300'/>
+
+        <article class="prose lg:prose-lg xl:prose-xl max-w-none">
+          <p class='text-green-500'>
+            <fa :icon="['fas', 'shield-alt']"/>
+            {{ $t('wallet.Sending_a_Public_Key_is_safe') }}
+          </p>
+        </article>
+
+        <!-- vpub -->
+        <div class='mt-4 md:mt-6 lg:mt-8' :class='vpubClass'>
+          <label for='private-key-converter-vpub' class='font-medium text-gray-700 text-left'>
+            {{ vpubLabel }}
+          </label>
+
+          <div class='relative mt-1'>
+            <input type='text'
+                   id='private-key-converter-vpub'
+                   class='input-indigo w-full py-3 px-4 bg-gray-100 font-mono text-sm md:text-base text-gray-500'
+                   v-model='vpub'
                    :placeholder='$t("wallet.Auto_Convert_")'
                    readonly disabled/>
+
+            <div class='absolute block inset-y-0 right-0 pr-4 flex items-center pointer-events-none'>
+              <fa class='fa-error' :icon="['fas', 'times']"/>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- vpriv -->
-      <div class='mt-12 md:mt-14 lg:mt-16' :class='vprivClass'>
-        <label for='private-key-converter-vpriv' class='font-medium text-gray-700 text-left'>
-          {{ vprivLabel }}
-        </label>
+        <!-- Public Key Compressed -->
+        <div class='mt-4 md:mt-6 lg:mt-8' :class='hexPublicKeyCompressedClass'>
+          <label for='private-key-converter-public-key-compressed' class='font-medium text-gray-700 text-left'>
+            {{ hexPublicKeyCompressedLabel }}
+          </label>
 
-        <div class='relative mt-1'>
-          <input type='text'
-                 id='private-key-converter-vpriv'
-                 class='input-indigo w-full py-3 pl-4 pr-9 font-mono text-sm md:text-base'
-                 v-model='vpriv'
-                 placeholder='vpriv...'/>
+          <div class='relative mt-1'>
+            <input type='text'
+                   id='private-key-converter-public-key-compressed'
+                   class='input-indigo w-full py-3 px-4 bg-gray-100 font-mono text-sm md:text-base text-gray-500'
+                   v-model='hexPublicKeyCompressed'
+                   :placeholder='$t("wallet.Auto_Convert_")'
+                   readonly disabled/>
 
-          <div class='absolute block inset-y-0 right-0 pr-4 flex items-center pointer-events-none'>
-            <fa class='fa-error' :icon="['fas', 'times']"/>
-            <fa class='fa-success' :icon="['fas', 'check']"/>
+            <div class='absolute block inset-y-0 right-0 pr-4 flex items-center pointer-events-none'>
+              <fa class='fa-error' :icon="['fas', 'times']"/>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- privateKey -->
-      <div class='mt-4 md:mt-6 lg:mt-8' :class='privateKeyClass'>
-        <label for='private-key-converter-privateKey' class='font-medium text-gray-700 text-left'>
-          {{ privateKeyLabel }}
-        </label>
+        <!-- Public Key Decompressed -->
+        <div class='mt-4 md:mt-6 lg:mt-8' :class='hexPublicKeyUncompressedClass'>
+          <label for='private-key-converter-public-key-decompressed' class='font-medium text-gray-700 text-left'>
+            {{ hexPublicKeyUncompressedLabel }}
+          </label>
 
-        <div class='relative mt-1'>
-          <input type='text'
-                 id='private-key-converter-privateKey'
-                 class='input-indigo w-full py-3 pl-4 pr-9 font-mono text-sm md:text-base'
-                 v-model='hexPrivateKey'
-                 placeholder='0...'/>
+          <div class='relative mt-1'>
+            <input type='text'
+                   id='private-key-converter-public-key-decompressed'
+                   class='input-indigo w-full py-3 px-4 bg-gray-100 font-mono text-sm md:text-base text-gray-500'
+                   v-model='hexPublicKeyUncompressed'
+                   :placeholder='$t("wallet.Auto_Convert_")'
+                   readonly disabled/>
 
-          <div class='absolute block inset-y-0 right-0 pr-4 flex items-center pointer-events-none'>
-            <fa class='fa-error' :icon="['fas', 'times']"/>
-            <fa class='fa-success' :icon="['fas', 'check']"/>
-          </div>
-        </div>
-      </div>
-
-      <div class='my-12 md:my-14 lg:my-16 border-t border-gray-300'/>
-
-      <article class="prose lg:prose-lg xl:prose-xl max-w-none">
-        <p class='text-green-500'>
-          <fa :icon="['fas', 'shield-alt']"/>
-          {{ $t('wallet.Sending_a_Public_Key_is_safe') }}
-        </p>
-      </article>
-
-      <!-- vpub -->
-      <div class='mt-4 md:mt-6 lg:mt-8' :class='vpubClass'>
-        <label for='private-key-converter-vpub' class='font-medium text-gray-700 text-left'>
-          {{ vpubLabel }}
-        </label>
-
-        <div class='relative mt-1'>
-          <input type='text'
-                 id='private-key-converter-vpub'
-                 class='input-indigo w-full py-3 px-4 bg-gray-100 font-mono text-sm md:text-base text-gray-500'
-                 v-model='vpub'
-                 :placeholder='$t("wallet.Auto_Convert_")'
-                 readonly disabled/>
-
-          <div class='absolute block inset-y-0 right-0 pr-4 flex items-center pointer-events-none'>
-            <fa class='fa-error' :icon="['fas', 'times']"/>
-          </div>
-        </div>
-      </div>
-
-      <!-- Public Key Compressed -->
-      <div class='mt-4 md:mt-6 lg:mt-8' :class='hexPublicKeyCompressedClass'>
-        <label for='private-key-converter-public-key-compressed' class='font-medium text-gray-700 text-left'>
-          {{ hexPublicKeyCompressedLabel }}
-        </label>
-
-        <div class='relative mt-1'>
-          <input type='text'
-                 id='private-key-converter-public-key-compressed'
-                 class='input-indigo w-full py-3 px-4 bg-gray-100 font-mono text-sm md:text-base text-gray-500'
-                 v-model='hexPublicKeyCompressed'
-                 :placeholder='$t("wallet.Auto_Convert_")'
-                 readonly disabled/>
-
-          <div class='absolute block inset-y-0 right-0 pr-4 flex items-center pointer-events-none'>
-            <fa class='fa-error' :icon="['fas', 'times']"/>
-          </div>
-        </div>
-      </div>
-
-      <!-- Public Key Decompressed -->
-      <div class='mt-4 md:mt-6 lg:mt-8' :class='hexPublicKeyUncompressedClass'>
-        <label for='private-key-converter-public-key-decompressed' class='font-medium text-gray-700 text-left'>
-          {{ hexPublicKeyUncompressedLabel }}
-        </label>
-
-        <div class='relative mt-1'>
-          <input type='text'
-                 id='private-key-converter-public-key-decompressed'
-                 class='input-indigo w-full py-3 px-4 bg-gray-100 font-mono text-sm md:text-base text-gray-500'
-                 v-model='hexPublicKeyUncompressed'
-                 :placeholder='$t("wallet.Auto_Convert_")'
-                 readonly disabled/>
-
-          <div class='absolute block inset-y-0 right-0 pr-4 flex items-center pointer-events-none'>
-            <fa class='fa-error' :icon="['fas', 'times']"/>
+            <div class='absolute block inset-y-0 right-0 pr-4 flex items-center pointer-events-none'>
+              <fa class='fa-error' :icon="['fas', 'times']"/>
+            </div>
           </div>
         </div>
       </div>

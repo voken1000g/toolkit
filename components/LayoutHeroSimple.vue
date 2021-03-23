@@ -4,7 +4,7 @@
       <h1>
         <slot name="title" />
       </h1>
-      <p>
+      <p v-if="$slots.text">
         <slot name="text" />
       </p>
     </div>

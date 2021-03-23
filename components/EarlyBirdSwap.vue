@@ -188,15 +188,11 @@
               <input type="text"
                      id='ref-voken-address'
                      ref='ref-voken-address'
-                     class='input-indigo w-full py-3 px-6 font-mono text-sm'
+                     class='input-indigo w-full py-3 pl-4 pr-10 font-mono text-sm'
                      v-model='bindToVokenAddress'
                      :placeholder="$t('earlyBird.Enter_a_valid_VOKEN_wallet_address')"/>
 
-              <div class='absolute block inset-y-0 right-0 pr-4 flex items-center pointer-events-none'>
-                <fa class='fa-error' :icon="['fas', 'times']"/>
-                <fa class='fa-success' :icon="['fas', 'check']"/>
-                <fa class='fa-warn' :icon="['fas', 'exclamation-triangle']"/>
-              </div>
+              <layout-input-esw />
             </div>
 
             <div v-if="refStatus === 'success'" class="mt-1 text-sm text-center text-green-700">
@@ -208,11 +204,14 @@
           <div v-show="showButtons"
                class="flex justify-between space-x-2"
           >
-            <button v-if="showBtnBind" class="w-full btn justify-center py-3 font-bold text-xl" @click="bind">
+            <button v-if="showBtnBind" class="w-1/3 btn justify-center py-3 font-bold text-xl" @click="bind">
               {{ $t('earlyBird.Bind') }}
             </button>
 
-            <button class="w-full btn btn-pink justify-center py-3 font-bold text-xl" @click="swap">
+            <button :class="{'w-full': !showBtnBind, 'w-2/3': showBtnBind}"
+                    class="btn btn-pink justify-center py-3 font-bold text-xl"
+                    @click="swap"
+            >
               {{ $t('earlyBird.Get_VokenTB') }}
             </button>
           </div>
@@ -310,7 +309,7 @@ export default {
 
           // self
           if (this.bindToVokenAddress === this.voken.account.vokenAddress) {
-            this.setRefError('Cannot be YOUR OWN')
+            this.setRefError(this.$t('voken.sale.Cannot_be_YOUR_OWN'))
             return null
           }
 
@@ -323,7 +322,7 @@ export default {
               this.bindToReferrer = referrer
 
               if (fnEthereum.isZeroAddress(referrer)) {
-                this.setRefError('Invalid referral address')
+                this.setRefError(this.$t('voken.sale.Invalid_referral_address'))
               }
             })
             .catch(error => {
@@ -434,7 +433,7 @@ export default {
       if (this.bindToVokenAddressError) {
         return this.bindToVokenAddressError
       } else {
-        return 'Via (Referral Voken Address)'
+        return this.$t('voken.sale.Via__Referral_Voken_Address')
       }
     },
 

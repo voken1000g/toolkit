@@ -35,7 +35,7 @@ export default {
 
   __comma: ', ',
   __dot: '. ',
-  __lp: ' (',
+  __lp: '(',
   __rp: ')',
   The_: 'The ',
 

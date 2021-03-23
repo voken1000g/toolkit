@@ -1,11 +1,15 @@
 <template>
   <div class="resp-wide resp-my">
 
-    <div class="max-w-xl mx-auto space-y-6">
+    <layout-voken-account class="px-2" :show-value="true"/>
+
+    <div class="resp-mt max-w-xl mx-auto space-y-6">
+
+
       <div class="bg-white shadow sm:rounded-lg">
         <div class="px-4 py-5 sm:p-6">
           <h3 class="text-lg leading-6 font-bold text-cool-gray-700">
-            Early-Bird Sale
+            {{  $t('voken.Early_Bird_Sale') }}
           </h3>
 
           <p class="mt-1 text-cool-gray-500">
@@ -36,7 +40,7 @@
       <div class="bg-white shadow sm:rounded-lg">
         <div class="px-4 py-5 sm:p-6">
           <h3 class="text-lg leading-6 font-bold text-cool-gray-700">
-            Public Sale
+            {{  $t('voken.Public_Sale') }}
           </h3>
 
           <p class="mt-1 text-cool-gray-500">

@@ -2,11 +2,11 @@
   <div>
     <layout-hero-simple>
       <template #title>
-        Set Voken Wallet Address
+        {{ $t('voken.bind.Set_Voken_Wallet_Address') }}
       </template>
 
       <template #text>
-        For Voken Blockchain Migration, both beta and the main network.
+        {{ $t('voken.bind.For_Voken_Blockchain_Migration__') }}
       </template>
     </layout-hero-simple>
 

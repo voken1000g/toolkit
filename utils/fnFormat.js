@@ -8,7 +8,7 @@ const ns2Str = function (balance, decimals = 9) {
     bn = bn.div(10 ** decimals)
   }
 
-  let bnObj = ns2Obj(bn.toString())
+  let bnObj = ns2Obj(numbro(bn.toString()).format({mantissa: decimals}))
 
   bnObj.d = numbro(bnObj.d).format({
     thousandSeparated: true,

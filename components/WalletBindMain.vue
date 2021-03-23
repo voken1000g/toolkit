@@ -108,21 +108,10 @@
 
       <div v-else class="mx-auto max-w-xl text-center">
         <h2 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-          Already Done
+          {{ $t('voken.bind.Already_Done') }}
         </h2>
 
-        <div
-          class='w-14 h-14 resp-mt lg:w-16 lg:h-16 xl:w-20 xl:h-20 mx-auto bg-white rounded-md shadow-md lg:shadow-lg'>
-          <vue-avatar :value='vokenAccount.vokenAddress'/>
-        </div>
-
-        <h3 class="resp-mt text-cool-gray-500">
-          Your Voken Wallet Address
-        </h3>
-
-        <p class="mt-4 text-lg font-mono font-bold text-cool-gray-700 break-all">
-          {{ vokenAccount.vokenAddress }}
-        </p>
+        <layout-voken-account :show-address="true" class="resp-mt" />
 
         <div class="resp-mt">
           <nuxt-link :to="localePath('/voken/migrate')" class="w-full btn justify-center py-3 text-lg">
@@ -145,8 +134,8 @@
 import * as bip39 from 'bip39'
 import Wallet from '@voken/hd-wallet'
 import VueAvatar from '@voken/vue-avatar'
-import fnEthereum from "~/utils/fnEthereum";
-import vokenAddress from "@voken/address";
+import fnEthereum from "~/utils/fnEthereum"
+import vokenAddress from "@voken/address"
 
 export default {
   name: "WalletBindMain",
