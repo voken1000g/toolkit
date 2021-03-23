@@ -1,16 +1,15 @@
 <template>
   <div class="py-16 lg:py-24">
     <div class="resp-wide">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="max-w-4xl mx-auto text-center">
-          <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
-            {{ $t('earlyBird.rules.title') }}
-          </h2>
-          <p class="mt-3 text-xl text-gray-500 sm:mt-4">
-            {{ $t('earlyBird.rules.subtitle') }}
-          </p>
-        </div>
-      </div>
+      <layout-h2>
+        <template #title>
+          {{ $t('earlyBird.rules.title') }}
+        </template>
+
+        <template #text>
+          {{ $t('earlyBird.rules.subtitle') }}
+        </template>
+      </layout-h2>
 
       <article class="resp-mt mx-auto prose sm:prose-md lg:prose-lg xl:prose-xl max-w-7xl">
         <h3>

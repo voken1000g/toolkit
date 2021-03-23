@@ -327,3 +327,44 @@ textarea.textarea-teal {
     }
   }
 }
+
+
+/**
+ * Table
+ */
+.table-simple-wrapper {
+  table {
+    @apply min-w-full divide-y divide-gray-200;
+
+    thead {
+      tr {
+        @apply bg-gray-50;
+      }
+
+      th {
+        @apply px-4 py-3 text-sm text-left leading-4 font-medium text-gray-500 tracking-wider;
+      }
+    }
+
+    tbody {
+      tr {
+        &:nth-child(odd) {
+          @apply bg-white;
+        }
+
+        &:nth-child(even) {
+          @apply bg-gray-50;
+        }
+
+        &:hover {
+          @apply bg-indigo-50;
+        }
+
+        td {
+          @apply px-4 py-3 text-xs leading-5 text-gray-500 truncate;
+        }
+      }
+    }
+  }
+}
+
