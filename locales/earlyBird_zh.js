@@ -89,7 +89,7 @@ export default {
     _90percent__: '90% 按照公开销售的进度解锁',
     The_bonuses_will_released__: '赠送部分在公开销售结束后解锁',
 
-    Referral_Rewards: '引荐奖励',
+    Referral_Rewards: '推荐奖励',
     Click_here_to_learn_more: '点这里了解更多',
   },
 
@@ -112,13 +112,13 @@ export default {
   },
 
   referral: {
-    Referral_System: '引荐系统',
+    Referral_System: '推荐系统',
     Earn_ETH_up_to_22percent__: '推荐早起鸟可赚取高达 22% 的 ETH 奖励',
 
     Referral_Link: '推荐链接',
     Copy: '复制',
 
-    Referral_Rewards__22percent: '引荐奖励 22%',
+    Referral_Rewards__22percent: '推荐奖励 22%',
     has_a_10_levels__: '拥有一个 10 级推荐系统，当用户认购 VokenTB 时，推荐人和被推荐人都会获得奖励。',
     Tell_your_friends_and__: '告诉您的朋友，帮助他们了解项目。通过分享您的推荐地址（您的 Voken 钱包地址），' +
       '您的朋友可以获得额外的 1%-10% 的随机赠送，您将获得 10% 的 ETH 奖励。',
@@ -127,7 +127,7 @@ export default {
     The_referral_relationships__: '转介关系将保存于',
     on_the_Ethereum__: '在以太坊区块链上，无法被篡改。',
 
-    Everyone_who_join_the: '每个通过使用您的引荐地址加入',
+    Everyone_who_join_the: '每个通过使用您的推荐地址加入',
     and_the: '和',
     by_using_your__: '的人将获得额外的随机赠送，您得到奖励。',
 
