@@ -1,6 +1,15 @@
 <template>
   <div>
-    <early-bird-hero />
+    <layout-hero-simple>
+      <template #title>
+        {{ $t('earlyBird.Early_bird_sale') }}
+      </template>
+
+      <template #text>
+        {{ $t('earlyBird.Ethereum_smart_contracts_ensure__') }}
+      </template>
+    </layout-hero-simple>
+
     <early-bird-swap />
     <early-bird-data class="bg-indigo-50" />
     <early-bird-rules />
