@@ -59,7 +59,7 @@ export default {
     },
     referralLink() {
       if (this.vokenAddressReady) {
-        return 'https://get.voken.io/r=' + this.$store.state.voken.account.vokenAddress
+        return 'https://get.voken.io/?r=' + this.$store.state.voken.account.vokenAddress
       }
 
       return ''
