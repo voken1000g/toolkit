@@ -86,7 +86,7 @@
                 {{ voken.usdPriceStr }}
               </div>
               <p class="mt-2 text-sm text-purple-200">
-                {{  $t('voken.uniswap.Trade_on_UniSwap_DEX__') }}
+                {{  $t('voken.uniswap.UniSwap_DEX__') }}
               </p>
             </div>
           </nuxt-link>

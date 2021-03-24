@@ -71,7 +71,7 @@ export default {
    */
   uniswap: {
     UniSwap: 'UniSwap',
-    Trade_on_UniSwap_DEX__: '在 UniSwap 去中心化交易（无燃烧）',
+    UniSwap_DEX__: 'UniSwap 去中心化交易（无燃烧）',
   },
 
 

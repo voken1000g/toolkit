@@ -70,7 +70,7 @@ export default {
    */
   uniswap: {
     UniSwap: 'UniSwap',
-    Trade_on_UniSwap_DEX__: 'Trade on UniSwap DEX (without burning)',
+    UniSwap_DEX__: 'UniSwap DEX (without burning)',
   },
 
   /**
