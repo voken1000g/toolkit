@@ -54,10 +54,10 @@ export default {
     }
   },
   async mounted() {
-    await this.getVokenMigration()
+    await this.getVokenMigrations()
   },
   methods: {
-    async getVokenMigration() {
+    async getVokenMigrations() {
       await this.$store.state.voken.contract()
         .getPastEvents(
           'Transfer', {
@@ -69,10 +69,10 @@ export default {
             toBlock: 'latest'
           }
         )
-        .then(this.onGetVokenMigration)
-        .catch(this.onGetVokenMigrationError)
+        .then(this.onGetVokenMigrations)
+        .catch(this.onGetVokenMigrationsError)
     },
-    async onGetVokenMigration(events) {
+    async onGetVokenMigrations(events) {
       if (events.length > 0) {
         let migrations = []
         for (let i = 0; i < events.length; i++) {
@@ -86,7 +86,7 @@ export default {
         this.migrations = migrations
       }
     },
-    async onGetVokenMigrationError(error) {
+    async onGetVokenMigrationsError(error) {
       console.error('::: C[VokenMigrateRecords] onGetVokenMigrationError:', error)
     }
   }

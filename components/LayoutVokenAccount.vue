@@ -45,7 +45,6 @@
         {{ $store.state.ether.account }}
       </div>
     </div>
-
   </div>
 </template>
 
@@ -75,7 +74,7 @@ export default {
       return this.vokenAccount.balance > '0' && this.vokenAccount.balance === this.vokenAccount.vesting
     },
     available() {
-      return this.vokenAccount.balance > '0' && this.vokenAccount.balance !== this.vokenAccount.available
+      return this.vokenAccount.available > '0' && this.vokenAccount.balance !== this.vokenAccount.available
     },
     allAvailable() {
       return this.vokenAccount.balance > '0' && this.vokenAccount.balance === this.vokenAccount.available

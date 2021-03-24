@@ -20,7 +20,7 @@
 <script>
 export default {
   name: "early-bird",
-  middleware: ['web3', 'etherGasSync', 'voken', 'vokenEarlyBirdSale'],
+  middleware: ['etherGasSync', 'web3', 'voken', 'vokenEarlyBirdSale'],
   head() {
     return {
       title: this.$t('nav.Sale_EarlyBird')
