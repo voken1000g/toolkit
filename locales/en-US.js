@@ -38,6 +38,9 @@ export default {
   __lp: '(',
   __rp: ')',
   The_: 'The ',
+  or: 'or',
 
+  Block: 'Block',
+  Amount: 'Amount',
   Balance_: 'Balance: ',
 }

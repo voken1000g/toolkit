@@ -232,7 +232,7 @@ textarea.textarea-teal {
   input[type=text],
   input[type=password],
   textarea {
-    @apply bg-red-50 border-red-600 text-red-700;
+    @apply bg-gradient-to-r from-red-100 via-red-50 to-red-100 border-red-600 text-red-700;
 
     &:focus {
       @apply border-red-500 text-red-800 shadow-outline-red;
@@ -252,7 +252,7 @@ textarea.textarea-teal {
   input[type=text],
   input[type=password],
   textarea {
-    @apply bg-green-50 border-green-600 text-green-700;
+    @apply bg-gradient-to-r from-green-100 via-green-50 to-green-100 border-green-600 text-green-700;
 
     &:focus {
       @apply border-green-500 text-green-800 shadow-outline-green;
@@ -272,7 +272,7 @@ textarea.textarea-teal {
   input[type=text],
   input[type=password],
   textarea {
-    @apply bg-yellow-50 border-yellow-600 text-yellow-700;
+    @apply bg-gradient-to-r from-orange-100 via-orange-50 to-orange-100 border-yellow-600 text-yellow-700;
 
     &:focus {
       @apply border-yellow-500 text-yellow-800 shadow-outline-yellow;

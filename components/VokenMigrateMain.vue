@@ -1,7 +1,7 @@
 <template>
   <layout-bg-a class="py-24 px-2">
     <div class="max-w-2xl mx-auto">
-      <layout-voken-account />
+      <layout-voken-account/>
 
       <!-- 0 -->
       <div v-if="vokenAccount.balance === '0'" class="resp-mt mx-auto max-w-md">
@@ -21,7 +21,7 @@
       <div v-else-if="vokenAccount.available > '0'" class="resp-mt mx-auto max-w-md">
         <div :class="amountStatus">
           <label for='migrate-amount'>
-            {{ $t('voken.Migrate') }}
+            {{ $t('voken.migrate.Migrate') }}
           </label>
 
           <div class='relative mt-1'>
@@ -30,20 +30,27 @@
                    ref="migrate-amount"
                    class='input-indigo w-full py-3 pl-4 pr-12 font-mono text-sm md:text-base'
                    v-model="amount"
-                   :placeholder="'Maximum: ' + vokenAccount.availableStr" />
+                   :placeholder="'Maximum: ' + vokenAccount.availableStr"/>
 
-            <layout-input-esw />
+            <layout-input-esw/>
+          </div>
+
+          <div
+            class="mt-2 bg-gradient-to-r from-orange-100 via-orange-50 to-orange-100 border border-orange-200 rounded leading-7 text-sm text-orange-700 text-center py-2 px-3"
+          >
+            {{ $t('voken.migrate.NOTE__We_recommend_only_migrating__') }}
           </div>
         </div>
+
 
         <div v-show="vokenAccount.vokenInt > '0'"
              class="mt-4 text-lg font-mono text-center text-cool-gray-700 break-all"
         >
-          {{ $t('voken.TO_') }}<span class="font-bold">{{ vokenAccount.vokenAddress }}</span>
+          {{ $t('voken.migrate.TO_') }}<span class="font-bold">{{ vokenAccount.vokenAddress }}</span>
         </div>
 
         <button class="mt-8 w-full btn btn-indigo justify-center py-2 text-lg" @click="migrate">
-          Coming Soon...
+          {{ $t('voken.migrate.Migrate') }}
         </button>
 
         <tx-info class="mt-4"
@@ -53,9 +60,9 @@
                  :message="txMessage"/>
       </div>
       <div v-else class="resp-mt mx-auto max-w-md">
-        <a href="https://get.voken.io/" class="w-full btn btn-pink justify-center py-2 text-lg">
+        <nuxt-link :to="localePath('/voken/early-bird')" class="w-full btn btn-pink justify-center py-2 text-lg">
           {{ $t('voken.Go_to_Early_Bird_Sale') }}
-        </a>
+        </nuxt-link>
       </div>
     </div>
 
@@ -114,7 +121,6 @@ export default {
     }
   },
   computed: {
-
     ether() {
       return this.$store.state.ether
     },
@@ -128,10 +134,9 @@ export default {
 
       return 0
     },
-
     amountStatus() {
       if (this.amount) {
-        if (new BigNumber(this.amount).gt(3)) {
+        if (new BigNumber(this.amount).gt(10)) {
           return 'warn'
         }
 
@@ -158,18 +163,16 @@ export default {
       if (this.migrateAmount) {
         this.resetTxInfo()
 
-        this.$toast.info('Coming soon...')
-
-        // await this.$store
-        //   .state.voken.contract()
-        //   .methods
-        //   .transfer(DAPP.CONTRACT_ADDRESS_MIGRATE, this.migrateAmount)
-        //   .send({'from': this.ether.account})
-        //   .on('transactionHash', this.onTransactionHash)
-        //   .on('receipt', this.onReceipt)
-        //   .on('confirmation', this.onConfirmation)
-        //   .on('error', this.onError)
-        //   .catch(this.onError)
+        await this.$store
+          .state.voken.contract()
+          .methods
+          .transfer(DAPP.CONTRACT_ADDRESS_MIGRATE, this.migrateAmount)
+          .send({'from': this.ether.account})
+          .on('transactionHash', this.onTransactionHash)
+          .on('receipt', this.onReceipt)
+          .on('confirmation', this.onConfirmation)
+          .on('error', this.onError)
+          .catch(this.onError)
       }
     },
     async onTransactionHash(txHash) {

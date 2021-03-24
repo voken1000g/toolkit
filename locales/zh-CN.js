@@ -37,6 +37,9 @@ export default {
   __lp: '（',
   __rp: '）',
   The_: '',
+  or: '或',
 
+  Block: '区块',
+  Amount: '数量',
   Balance_: '余额：',
 }

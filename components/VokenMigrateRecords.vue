@@ -2,7 +2,7 @@
   <div v-if="migrations.length > 0" class="py-20">
     <layout-h2>
       <template #title>
-        Migration Records
+        {{ $t('voken.migrate.Migration_Records') }}
       </template>
     </layout-h2>
 
@@ -12,10 +12,10 @@
           <thead>
           <tr>
             <th>
-              Block
+              {{ $t('Block') }}
             </th>
             <th>
-              Amount
+              {{ $t('Amount') }}
             </th>
           </tr>
           </thead>

@@ -96,7 +96,7 @@
       <div class="to-migrate bg-white shadow sm:rounded-lg">
         <div class="px-4 py-5 sm:p-6">
           <h3 class="text-lg leading-6 font-bold text-cool-gray-700">
-            {{  $t('voken.Migrate_to_Voken_Blockchain') }}
+            {{  $t('voken.migrate.Migrate_to_Voken_Blockchain') }}
           </h3>
 
           <nuxt-link :to='localePath("/voken/migrate")'
@@ -113,7 +113,7 @@
                 VokenTB
               </div>
               <p class="mt-2 text-sm text-teal-200">
-                {{  $t('voken.From_Ethereum_to_Voken_Blockchain') }}
+                {{ $t('voken.migrate.From_Ethereum_to_Voken_Blockchain') }}
               </p>
             </div>
           </nuxt-link>

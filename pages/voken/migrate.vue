@@ -2,14 +2,13 @@
   <div>
     <layout-hero-simple>
       <template #title>
-        {{ $t('voken.Migrate') }}
+        {{ $t('voken.migrate.Migrate') }}
       </template>
 
       <template #text>
-        {{ $t('voken.From_Ethereum_to_Voken_Blockchain') }}
+        {{ $t('voken.migrate.From_Ethereum_to_Voken_Blockchain') }}
       </template>
     </layout-hero-simple>
-
 
     <voken-migrate-main />
     <voken-migrate-records class="bg-orange-50" />

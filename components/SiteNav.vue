@@ -50,7 +50,7 @@
         </div>
 
         <!-- Right -->
-        <div class="flex items-center space-x-4 lg:space-x-6">
+        <div class="flex items-center space-x-3 lg:space-x-4">
           <flyout-user/>
 
 

@@ -20,6 +20,7 @@ export default {
 
   Your_Voken_Wallet_Address: 'Your Voken Wallet Address',
 
+  Input_Your_Voken_Wallet_Address: 'Input Your Voken Wallet Address',
 
   /**
    * Balance
@@ -60,8 +61,38 @@ export default {
    */
   bind: {
     Set_Voken_Wallet_Address: 'Set Voken Wallet Address',
-    For_Voken_Blockchain_Migration__: 'For Voken Blockchain Migration, both beta and the main network.',
+    For_Voken_Blockchain_Migration__: 'For Voken Blockchain Migration, both beta and the main network',
     Already_Done: 'Already Done',
+
+    __Accepted__: 'I have already backed up the mnemonic (backup phrase); ' +
+      'And I know that the Voken wallet address cannot be changed.',
+    Ready_to_Voken_Blockchain_: 'Ready to Voken Blockchain?',
+    Just_one_step_away__: 'Just one-step away: Bind your Voken wallet address, then experience for free or migrate',
+
+    What_will_happen__bind__: 'What will happen after I bind my Voken wallet address?',
+    After_you_set_up__: 'After you set up your Voken Address, ' +
+      'you would receive some Susitna Voken on Voken Blockchain Susitna (beta network) within 48 hours. ' +
+      'Meanwhile, by using it, you can experience the Proxy ClientBase, even send some to your friends.',
+
+    If_you_need_more_service_traffic__: 'If you need more service (proxy traffic), ' +
+      'you can even',
+    migrate: 'migrate',
+    some_from_Ethereum_to__: 'some VokenTB from Ethereum Blockchain to your wallet address on Voken Blockchain. ' +
+      'The same amount will also be sent to your wallet address after the main network launched in the future ' +
+      '(it\'s free using the test network)',
+
+    The_Voken_wallet_address__key__: 'The Voken wallet address is is also a key of',
+    the_referral_program: 'the referral program',
+    learn_more_details_by_clicking__: 'learn more details by clicking the link left.',
+
+    What_is_the_relationship_between__: 'What is the relationship between VokenTB (ERC20) and Voken (on Voken Blockchain)?',
+    VokenTB_is_created__on_Ethereum__: 'VokenTB is created and distributing on the Ethereum blockchain.',
+    Now__beta_launched: 'Now the Voken blockchain Susitna (beta network) is already launched.',
+    People_can_get_VokenTB_from: 'People can get VokenTB from',
+    which_is__way_to_raise_funds__: 'which is also the way to raise funds for further development.',
+    You_can: 'You can',
+    VokenTB_to_your_wallet_on_Voken_Blockchain__: 'VokenTB to your wallet address on Voken Blockchain from Ethereum as needed, ' +
+      'or keep it as a ERC20 token for trading.',
 
   },
 
@@ -76,8 +107,16 @@ export default {
   /**
    * Migrate
    */
-  Migrate: 'Migrate',
-  Migrate_to_Voken_Blockchain: 'Migrate to Voken Blockchain',
-  From_Ethereum_to_Voken_Blockchain: 'From Ethereum to Voken Blockchain',
-  TO_: 'TO: ',
+  migrate: {
+    Migrate: 'Migrate',
+    Migrate_to_Voken_Blockchain: 'Migrate to Voken Blockchain',
+    From_Ethereum_to_Voken_Blockchain: 'From Ethereum to Voken Blockchain',
+    NOTE__We_recommend_only_migrating__: 'NOTE: We recommend only migrating less than 10, unless you really need to.',
+
+    TO_: 'TO: ',
+    Migration_Records: 'Migration Records',
+
+
+  },
+
 }

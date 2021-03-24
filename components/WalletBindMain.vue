@@ -9,7 +9,7 @@
 
           <div class="resp-mt">
             <nuxt-link :to="localePath('/voken/early-bird')" class="w-full max-w-xl btn btn-pink justify-center py-3 text-lg">
-              Go to Early-Bird Sale
+              {{ $t('voken.Go_to_the_Early_Bird_Sale') }}
             </nuxt-link>
           </div>
         </div>
@@ -35,7 +35,7 @@
                    id='address-validate'
                    class='input-indigo w-full py-3 px-6 font-mono text-sm md:text-base'
                    v-model='vokenAddress'
-                   placeholder="Input your Voken wallet address"/>
+                   :placeholder="$t('voken.Input_Your_Voken_Wallet_Address')"/>
 
             <div class='absolute block inset-y-0 right-0 pr-4 flex items-center pointer-events-none'>
               <fa class='fa-error' :icon="['fas', 'times']"/>
@@ -47,8 +47,7 @@
           <div class="mt-6 ml-4 flex items-center space-x-4" @click="toggleAccepted">
             <comp-switch :isOn="accepted"/>
             <div class="leading-7 text-sm text-cool-gray-500">
-              I have already backed up the mnemonic (backup phrase);
-              And I know that the Voken wallet address cannot be changed.
+              {{ $t('voken.bind.__Accepted__') }}
             </div>
           </div>
 
