@@ -20,6 +20,7 @@ export default {
 
   Your_Voken_Wallet_Address: 'Your Voken Wallet Address',
 
+
   /**
    * Balance
    */
@@ -42,6 +43,16 @@ export default {
     Via__Referral_Voken_Address: 'Via (Referral Voken Address)',
     Cannot_be_YOUR_OWN: 'Cannot be YOUR OWN',
     Invalid_referral_address: 'Invalid referral address',
+    In_process: 'In process',
+    Not_Started__planning__: 'Not Started, planning price from $1.5 or more',
+  },
+
+  /**
+   * Distribution
+   */
+  dist: {
+    Early_Bird_Sale: '5% of the Total Supply: 10.5 Million',
+    Public_Sale: '40% of the Total Supply: 84 Million',
   },
 
   /**
@@ -55,9 +66,18 @@ export default {
   },
 
   /**
+   * UniSwap
+   */
+  uniswap: {
+    UniSwap: 'UniSwap',
+    Trade_on_UniSwap_DEX__: 'Trade on UniSwap DEX (without burning)',
+  },
+
+  /**
    * Migrate
    */
   Migrate: 'Migrate',
+  Migrate_to_Voken_Blockchain: 'Migrate to Voken Blockchain',
   From_Ethereum_to_Voken_Blockchain: 'From Ethereum to Voken Blockchain',
   TO_: 'TO: ',
 }

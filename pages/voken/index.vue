@@ -13,7 +13,7 @@
           </h3>
 
           <p class="mt-1 text-cool-gray-500">
-            5% of the Total Supply: 10.5 Million
+            {{  $t('voken.dist.Early_Bird_Sale') }}
           </p>
 
           <nuxt-link :to='localePath("/voken/early-bird")'
@@ -30,7 +30,7 @@
                 ~ $ 0.7
               </div>
               <p class="mt-2 text-sm text-pink-200">
-                In process...
+                {{  $t('voken.sale.In_process') }}...
               </p>
             </div>
           </nuxt-link>
@@ -44,7 +44,7 @@
           </h3>
 
           <p class="mt-1 text-cool-gray-500">
-            40% of the Total Supply: 84 Million
+            {{  $t('voken.dist.Public_Sale') }}
           </p>
 
           <nuxt-link :to='localePath("/voken/public-sale")'
@@ -60,7 +60,7 @@
                 1.5+
               </div>
               <p class="mt-2 text-sm text-gray-200">
-                Not Started, planning price from $1.5 or more
+                {{  $t('voken.sale.Not_Started__planning__') }}
               </p>
             </div>
           </nuxt-link>
@@ -70,7 +70,7 @@
       <div class="bg-white shadow sm:rounded-lg">
         <div class="px-4 py-5 sm:p-6">
           <h3 class="text-lg leading-6 font-bold text-cool-gray-700">
-            UniSwap
+            {{  $t('voken.uniswap.UniSwap') }}
           </h3>
 
           <nuxt-link :to='localePath("/voken/uniswap")'
@@ -86,7 +86,7 @@
                 {{ voken.usdPriceStr }}
               </div>
               <p class="mt-2 text-sm text-purple-200">
-                Trade on UniSwap DEX...
+                {{  $t('voken.uniswap.Trade_on_UniSwap_DEX__') }}
               </p>
             </div>
           </nuxt-link>
@@ -96,7 +96,7 @@
       <div class="to-migrate bg-white shadow sm:rounded-lg">
         <div class="px-4 py-5 sm:p-6">
           <h3 class="text-lg leading-6 font-bold text-cool-gray-700">
-            Migrate to Voken Blockchain
+            {{  $t('voken.Migrate_to_Voken_Blockchain') }}
           </h3>
 
           <nuxt-link :to='localePath("/voken/migrate")'
@@ -113,7 +113,7 @@
                 VokenTB
               </div>
               <p class="mt-2 text-sm text-teal-200">
-                From Ethereum to Voken Blockchain
+                {{  $t('voken.From_Ethereum_to_Voken_Blockchain') }}
               </p>
             </div>
           </nuxt-link>

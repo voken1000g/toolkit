@@ -20,6 +20,8 @@ export default {
 
   Your_Voken_Wallet_Address: '您的 Voken 钱包地址',
 
+
+
   /**
    * Balance
    */
@@ -36,6 +38,16 @@ export default {
     Via__Referral_Voken_Address: '通过 (推荐地址)',
     Cannot_be_YOUR_OWN: '不能是你自己的',
     Invalid_referral_address: '无效的推荐地址',
+    In_process: '正在进行中',
+    Not_Started__planning__: '未开始，规划价 $1.5 以上起',
+  },
+
+  /**
+   * Distribution
+   */
+  dist: {
+    Early_Bird_Sale: '占总供应量的 5% 共 1,050 万',
+    Public_Sale: '占总供应量的 40% 共 8,400 万',
   },
 
   /**
@@ -55,9 +67,19 @@ export default {
   },
 
   /**
+   * UniSwap
+   */
+  uniswap: {
+    UniSwap: 'UniSwap',
+    Trade_on_UniSwap_DEX__: '在 UniSwap 去中心化交易（无燃烧）',
+  },
+
+
+  /**
    * Migrate
    */
   Migrate: '迁移',
+  Migrate_to_Voken_Blockchain: '迁移到 Voken 区块链',
   From_Ethereum_to_Voken_Blockchain: '从以太坊到 Voken 区块链',
   TO_: '到：',
 
