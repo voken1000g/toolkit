@@ -69,15 +69,14 @@
           </div>
 
 
-
           <div>
             <dt>
               {{ $t('ether.Average_Gas_Price') }}
             </dt>
             <dd>
               <span>
-                $ {{ ether.gasPriceObj.d }}<span v-show="ether.gasPriceObj.f"
-                                                 class="number-f">.{{ ether.gasPriceObj.f }}</span>
+                {{ ether.gasPriceObj.d }}<span v-show="ether.gasPriceObj.f"
+                                               class="number-f">.{{ ether.gasPriceObj.f }}</span>
               </span>
               <span class="usd">
                 GWei
@@ -138,7 +137,6 @@ export default {
     div {
       @apply bg-gradient-to-br from-indigo-500 to-indigo-600 shadow rounded-lg overflow-hidden;
       @apply px-4 py-5 space-y-2;
-
 
 
       @screen sm {
