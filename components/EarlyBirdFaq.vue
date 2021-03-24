@@ -3,7 +3,7 @@
     <div class="resp-wide">
       <div class="faq-side-by-side">
         <h2>
-          {{ $t('earlyBird.faq.title') }}
+          {{ $t('voken.faq.title') }}
         </h2>
         <dl>
           <div>

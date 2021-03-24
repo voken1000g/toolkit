@@ -72,7 +72,7 @@ export default {
     What_will_happen__bind__: 'What will happen after I bind my Voken wallet address?',
     After_you_set_up__: 'After you set up your Voken Address, ' +
       'you would receive some Susitna Voken on Voken Blockchain Susitna (beta network) within 48 hours. ' +
-      'Meanwhile, by using it, you can experience the Proxy ClientBase, even send some to your friends.',
+      'Meanwhile, by using it, you can already experience the proxy service, even send some to your friends.',
 
     If_you_need_more_service_traffic__: 'If you need more service (proxy traffic), ' +
       'you can even',
@@ -118,5 +118,22 @@ export default {
 
 
   },
+
+  /**
+   * FAQ
+   */
+  faq: {
+    title: 'Frequently Asked Questions',
+
+    // When should I migrate?
+    When_should_I_migrate_: 'When should I migrate?',
+    WHEN_MIGRATE__1: 'If you have already set up your Voken wallet address, ' +
+      'you should have received (in 48 hrs) some Sustina Voken on Voken Blockchain (beta network).',
+    WHEN_MIGRATE__2: 'By using them, you can already experience the proxy service, even send some to your friends.',
+    WHEN_MIGRATE__3: 'If they are all consumed, the time will come.',
+    WHEN_MIGRATE__4: 'Or, it\'s also a good option to migrate as needed once the main network is launched.',
+
+
+  }
 
 }

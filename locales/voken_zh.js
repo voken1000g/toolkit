@@ -73,7 +73,7 @@ export default {
     What_will_happen__bind__: '绑定 Voken 钱包地址后会发生什么？',
     After_you_set_up__: '当您设置好 Voken 地址后，' +
       '您将在 48 小时内收到一些 Susitna Voken 在 Voken 区块链 Susitna（公测网络）上 。' +
-      '同时，使用它，您可以体验 Proxy ClientBase，甚至发送一些给您的朋友',
+      '同时，使用它，您已经可以体验代理服务，甚至发送一些给您的朋友',
     If_you_need_more_service_traffic__: '如果您需要更多的服务（代理流量），' +
       '您可以从以太坊区块链',
     migrate: '迁移',
@@ -115,6 +115,19 @@ export default {
     TO_: '到：',
     Migration_Records: '迁移记录',
 
+
+  },
+
+  /**
+   * FAQ
+   */
+  faq: {
+    title: '常见问题',
+    When_should_I_migrate_: '我应该什么时候迁移？',
+    WHEN_MIGRATE__1: '如果您已经设置了 Voken 钱包地址，您应该已经在 Voken 区块链（公测网络）上收到了一些Sustina Voken（48小时内）',
+    WHEN_MIGRATE__2: '通过使用它们，你已经可以体验代理服务，甚至可以发送一些给您的朋友。',
+    WHEN_MIGRATE__3: '如果它们都消耗殆尽，那么时机就到了。',
+    WHEN_MIGRATE__4: '或者，主网启动后，根据需要进行迁移也是一个不错的选择。',
 
   }
 

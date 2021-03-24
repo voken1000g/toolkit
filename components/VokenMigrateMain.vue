@@ -35,13 +35,12 @@
             <layout-input-esw/>
           </div>
 
-          <div
+          <div v-show="amountStatus === 'warn'"
             class="mt-2 bg-gradient-to-r from-orange-100 via-orange-50 to-orange-100 border border-orange-200 rounded leading-7 text-sm text-orange-700 text-center py-2 px-3"
           >
             {{ $t('voken.migrate.NOTE__We_recommend_only_migrating__') }}
           </div>
         </div>
-
 
         <div v-show="vokenAccount.vokenInt > '0'"
              class="mt-4 text-lg font-mono text-center text-cool-gray-700 break-all"
