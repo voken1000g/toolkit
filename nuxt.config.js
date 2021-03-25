@@ -60,6 +60,7 @@ export default {
 
   modules: [
     '@nuxtjs/auth-next',
+    '@nuxtjs/moment',
     '@nuxtjs/toast',
     'nuxt-i18n',
     'nuxt-fontawesome'

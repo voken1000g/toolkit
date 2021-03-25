@@ -10,14 +10,18 @@
       </template>
     </layout-hero-simple>
 
-    <dev-voken />
+    <dev-voken-resale />
   </div>
 </template>
 
 <script>
 export default {
-  name: "dev--voken",
-  middleware: ['web3', 'voken', 'vokenEarlyBirdSale'],
+  name: "dev--voken-resale",
+  middleware: ['web3', 'voken'],
+  async mounted() {
+    await this.$store.dispatch('vokenResale/SYNC_STATUS')
+  },
+
 }
 </script>
 

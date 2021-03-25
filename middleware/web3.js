@@ -52,7 +52,6 @@ export default async function ({store, app, redirect, route }) {
   await store.dispatch('vokenEarlyBirdSale/SET_DATA_CONTRACT', new Contract(
     earlyBirdDataAbi, DAPP.CONTRACT_ADDRESS_EARLY_BIRD_DATA
   ))
-
   await store.dispatch('vokenResale/SET_CONTRACT', new Contract(
     resaleAbi, DAPP.CONTRACT_ADDRESS_RESALE
   ))

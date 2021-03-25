@@ -98,7 +98,7 @@ import vokenAddress from '@voken/address'
 import fnFormat from "~/utils/fnFormat"
 
 export default {
-  name: "voken-address-list",
+  name: "dev--voken-address-list",
   middleware: ['web3', 'voken'],
   data() {
     return {

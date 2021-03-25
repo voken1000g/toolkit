@@ -102,7 +102,7 @@ import fnEtherscan from "~/utils/fnEtherscan"
 import DAPP from "~/utils/constants/dapp";
 
 export default {
-  name: "voken-migration-list",
+  name: "dev--voken-migration-list",
   middleware: ['web3', 'voken'],
   data() {
     return {
