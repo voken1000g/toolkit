@@ -45,9 +45,13 @@ jobs:
           branch: repo-early-bird
           folder: dist
 
-      # Clear
+      # Clear /dist
       - name: Clear
         run: rm -rf ./dist
+
+      # Clear repo.js
+      - name: Clear
+        run: rm repo.js
 
       # toolkit.voken.io
       - name: Build (toolkit.voken.io)
