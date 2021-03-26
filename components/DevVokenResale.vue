@@ -29,7 +29,7 @@
               Total VokenTB
             </dt>
             <dd>
-              {{ status.vokenTbTotalStr }}
+              <number-obj :value-obj="status.vokenTbTotalObj" />
             </dd>
           </div>
 
@@ -47,7 +47,7 @@
               USD Audit
             </dt>
             <dd>
-              $ {{ status.usdAuditStr }}
+              $ <number-obj :value-obj="status.usdAuditObj" />
             </dd>
           </div>
 
@@ -56,7 +56,7 @@
               USD Claimed
             </dt>
             <dd>
-              $ {{ status.usdClaimedStr }}
+              $ <number-obj :value-obj="status.usdClaimedObj" />
             </dd>
           </div>
 
@@ -65,7 +65,7 @@
               USD Received
             </dt>
             <dd>
-              $ {{ status.usdReceivedStr }}
+              $ <number-obj :value-obj="status.usdReceivedObj" />
             </dd>
           </div>
 
@@ -74,7 +74,7 @@
               From Voken1.0
             </dt>
             <dd>
-              {{ status.v1ClaimedStr }} + {{ status.v1BonusesStr }}
+              <number-obj :value-obj="status.v1ClaimedObj" /> + <number-obj :value-obj="status.v1BonusesObj" />
             </dd>
           </div>
 
@@ -83,7 +83,7 @@
               From Voken2.0
             </dt>
             <dd>
-              {{ status.v2ClaimedStr }} + {{ status.v2BonusesStr }}
+              <number-obj :value-obj="status.v2ClaimedObj" /> + <number-obj :value-obj="status.v2BonusesObj" />
             </dd>
           </div>
 

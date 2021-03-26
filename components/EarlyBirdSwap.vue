@@ -43,8 +43,7 @@
           </div>
 
           <div class="font-mono text-2xl text-gray-800 text-right">
-            {{ earlyBird.account.issuedObj.d }}<span v-show="earlyBird.account.issuedObj.f"
-                                                     class="number-f">.{{ earlyBird.account.issuedObj.f }}</span>
+            <number-obj :value-obj="earlyBird.account.issuedObj" />
             <span class="text-lg">
               VokenTB
             </span>
@@ -57,8 +56,7 @@
             </div>
 
             <div class="font-mono text-2xl text-gray-800 text-right">
-              {{ earlyBird.account.bonusesObj.d }}<span v-show="earlyBird.account.bonusesObj.f"
-                                                        class="number-f">.{{ earlyBird.account.bonusesObj.f }}</span>
+              <number-obj :value-obj="earlyBird.account.bonusesObj" />
               <span class="text-lg">
                 VokenTB
               </span>
@@ -72,8 +70,7 @@
             </div>
 
             <div class="font-mono text-2xl text-gray-800 text-right">
-              {{ earlyBird.account.availableObj.d }}<span v-show="earlyBird.account.availableObj.f"
-                                                          class="number-f">.{{ earlyBird.account.availableObj.f }}</span>
+              <number-obj :value-obj="earlyBird.account.availableObj" />
               <span class="text-lg">
                 VokenTB
               </span>
@@ -86,8 +83,7 @@
             </div>
 
             <div class="font-mono text-2xl text-gray-800 text-right">
-              {{ earlyBird.account.referredObj.d }}<span v-show="earlyBird.account.referredObj.f"
-                                                         class="number-f">.{{ earlyBird.account.referredObj.f }}</span>
+              <number-obj :value-obj="earlyBird.account.referredObj" />
               <span class="text-lg">
                 ETH
               </span>

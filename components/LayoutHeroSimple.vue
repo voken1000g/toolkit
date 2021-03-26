@@ -4,9 +4,9 @@
       <h1>
         <slot name="title" />
       </h1>
-      <p v-if="$slots.text">
+      <div class="div-hero-simple" v-if="$slots.text">
         <slot name="text" />
-      </p>
+      </div>
     </div>
   </div>
 </template>

@@ -30,6 +30,10 @@ textarea {
   @apply w-full mx-auto px-3 sm:px-4 md:px-6 lg:px-8 lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl;
 }
 
+.resp-mobi {
+  @apply mx-auto max-w-lg px-3;
+}
+
 .resp-mt {
   @apply mt-8 md:mt-10 lg:mt-12 xl:mt-14 2xl:mt-16;
 }
@@ -322,8 +326,8 @@ textarea.textarea-teal {
       @apply text-4xl font-extrabold text-white sm:text-5xl sm:tracking-tight lg:text-6xl;
     }
 
-    p {
-      @apply mt-6 sm:mt-10 text-xl text-indigo-300;
+    .div-hero-simple {
+      @apply mt-6 sm:mt-10 text-lg lg:text-xl text-indigo-300;
     }
   }
 }

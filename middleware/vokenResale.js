@@ -7,10 +7,7 @@ export default async function ({store, app, redirect}) {
 
   await store.dispatch('vokenResale/SYNC_STATUS')
   await store.dispatch('vokenResale/SYNC_ACCOUNT')
-  await store.dispatch('vokenResale/SYNC_ACCOUNT_V1_RESALE')
-  await store.dispatch('vokenResale/SYNC_ACCOUNT_V2_RESALE')
-  await store.dispatch('vokenResale/SYNC_ACCOUNT_V1_UPGRADE')
-  await store.dispatch('vokenResale/SYNC_ACCOUNT_V2_UPGRADE')
+
 
   // if (store.state.vokenResale.blockNumber) {
   //   return
@@ -35,11 +32,11 @@ export default async function ({store, app, redirect}) {
   //     }
   //   })
   //
-  // // on: Account Changed
-  // const provider = await detectEthereumProvider()
-  // await provider
-  //   .on('accountsChanged', async function (accounts) {
-  //     await store.dispatch('vokenEarlyBirdSale/SYNC_DATA')
-  //     await store.dispatch('vokenEarlyBirdSale/SET_BLOCK_NUMBER', store.state.ether.blockNumber)
-  //   })
+  // on: Account Changed
+  const provider = await detectEthereumProvider()
+  await provider
+    .on('accountsChanged', async function (accounts) {
+      await store.dispatch('vokenResale/SYNC_STATUS')
+      await store.dispatch('vokenResale/SYNC_ACCOUNT')
+    })
 }

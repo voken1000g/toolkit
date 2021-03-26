@@ -1,6 +1,9 @@
 import repo from '~/repo'
 
 const HOST = location.host.split(':')[0]
+
+console.log('::: home.js HOST:', HOST)
+
 const HOMES = {
   'default': {
     title: 'VOKEN_Toolkit',

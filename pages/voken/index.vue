@@ -25,8 +25,7 @@
             <div>
               <div class="font-bold text-lg">
                 <fa :icon="['fas', 'dollar-sign']"/>
-                {{ earlyBirdSale.usdPriceObj.d }}<span v-show="earlyBirdSale.usdPriceObj.f"
-                                                       class="number-f">.{{ earlyBirdSale.usdPriceObj.f }}</span>
+                <number-obj :value-obj="earlyBirdSale.usdPriceObj" />
                 ~ $ 0.7
               </div>
               <p class="mt-2 text-sm text-pink-200">
@@ -108,8 +107,7 @@
 
             <div>
               <div class="font-bold text-lg">
-                {{ voken.account.balanceObj.d }}<span v-show="voken.account.balanceObj.f"
-                                                     class="number-f">.{{ voken.account.balanceObj.f }}</span>
+                <number-obj :value-obj="voken.account.balanceObj" />
                 VokenTB
               </div>
               <p class="mt-2 text-sm text-teal-200">

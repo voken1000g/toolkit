@@ -1,7 +1,6 @@
 import BigNumber from "bignumber.js"
 import fnFormat from '~/utils/fnFormat'
 import numbro from "numbro";
-import DAPP from "~/utils/constants/dapp";
 
 export const state = () => ({
   blockNumber: 0,
@@ -109,9 +108,40 @@ export const state = () => ({
      * Voken 1.0
      */
     v1: {
+      txsIn: 0,
+      txsOut: 0,
+
       balance: '',
       balanceStr: '0',
       balanceObj: {
+        d: '0',
+        f: null,
+      },
+
+      proportion: '0',
+      proportionStr: '0',
+      proportionObj: {
+        d: '0',
+        f: null,
+      },
+
+      weiPurchased: '0',
+      weiPurchasedStr: '0',
+      weiPurchasedObj: {
+        d: '0',
+        f: null,
+      },
+
+      weiRewarded: '0',
+      weiRewardedStr: '0',
+      weiRewardedObj: {
+        d: '0',
+        f: null,
+      },
+
+      weiAudit: '0',
+      weiAuditStr: '0',
+      weiAuditObj: {
         d: '0',
         f: null,
       },
@@ -142,29 +172,7 @@ export const state = () => ({
       },
 
       upgrade: {
-        weiPurchased: '0',
-        weiPurchasedStr: '0',
-        weiPurchasedObj: {
-          d: '0',
-          f: null,
-        },
 
-        weiRewarded: '0',
-        weiRewardedStr: '0',
-        weiRewardedObj: {
-          d: '0',
-          f: null,
-        },
-
-        weiAudit: '0',
-        weiAuditStr: '0',
-        weiAuditObj: {
-          d: '0',
-          f: null,
-        },
-
-        txsIn: 0,
-        txsOut: 0,
 
         claim: '0',
         claimStr: '0',
@@ -202,9 +210,40 @@ export const state = () => ({
      * Voken 2.0
      */
     v2: {
+      txsIn: 0,
+      txsOut: 0,
+
       balance: '',
       balanceStr: '0',
       balanceObj: {
+        d: '0',
+        f: null,
+      },
+
+      proportion: '0',
+      proportionStr: '0',
+      proportionObj: {
+        d: '0',
+        f: null,
+      },
+
+      weiPurchased: '0',
+      weiPurchasedStr: '0',
+      weiPurchasedObj: {
+        d: '0',
+        f: null,
+      },
+
+      weiRewarded: '0',
+      weiRewardedStr: '0',
+      weiRewardedObj: {
+        d: '0',
+        f: null,
+      },
+
+      weiAudit: '0',
+      weiAuditStr: '0',
+      weiAuditObj: {
         d: '0',
         f: null,
       },
@@ -235,30 +274,6 @@ export const state = () => ({
       },
 
       upgrade: {
-        weiPurchased: '0',
-        weiPurchasedStr: '0',
-        weiPurchasedObj: {
-          d: '0',
-          f: null,
-        },
-
-        weiRewarded: '0',
-        weiRewardedStr: '0',
-        weiRewardedObj: {
-          d: '0',
-          f: null,
-        },
-
-        weiAudit: '0',
-        weiAuditStr: '0',
-        weiAuditObj: {
-          d: '0',
-          f: null,
-        },
-
-        txsIn: 0,
-        txsOut: 0,
-
         claim: '0',
         claimStr: '0',
         claimObj: {
@@ -412,12 +427,36 @@ export const mutations = {
     state.account.v2UpgradeAppliedTimestamp = parseInt(payload.v2UpgradeAppliedTimestamp)
 
     state.account.v1.balance = payload.v1Balance
-    state.account.v1.balanceStr = fnFormat.ns2Str(payload.v1Balance)
+    state.account.v1.balanceStr = fnFormat.ns2Str(payload.v1Balance, 6)
     state.account.v1.balanceObj = fnFormat.ns2Obj(state.account.v1.balanceStr)
 
+    state.account.v1.proportion = (
+      new BigNumber(state.account.v1.balance)
+        .multipliedBy(100)
+        .dividedBy(35 * 10 ** 15)
+        .toString()
+    )
+    state.account.v1.proportionStr = numbro(state.account.v1.proportion).format({
+      thousandSeparated: true,
+      mantissa: 8
+    })
+    state.account.v1.proportionObj = fnFormat.ns2Obj(state.account.v1.proportionStr)
+
     state.account.v2.balance = payload.v2Balance
-    state.account.v2.balanceStr = fnFormat.ns2Str(payload.v2Balance)
+    state.account.v2.balanceStr = fnFormat.ns2Str(payload.v2Balance, 6)
     state.account.v2.balanceObj = fnFormat.ns2Obj(state.account.v2.balanceStr)
+
+    state.account.v2.proportion = (
+      new BigNumber(state.account.v2.balance)
+        .multipliedBy(100)
+        .dividedBy(35 * 10 ** 15)
+        .toString()
+    )
+    state.account.v2.proportionStr = numbro(state.account.v2.proportion).format({
+      thousandSeparated: true,
+      mantissa: 8
+    })
+    state.account.v2.proportionObj = fnFormat.ns2Obj(state.account.v2.proportionStr)
   },
 
   SET_ACCOUNT_V1_RESALE(state, payload) {
@@ -451,21 +490,22 @@ export const mutations = {
     state.account.v2.resale.usdClaimedObj = fnFormat.ns2Obj(state.account.v2.resale.usdClaimedStr)
   },
   SET_ACCOUNT_V1_UPGRADE(state, payload) {
+    state.account.v1.txsIn = parseInt(payload.txsIn)
+    state.account.v1.txsOut = parseInt(payload.txsOut)
+
+    state.account.v1.weiPurchased = payload.weiPurchased
+    state.account.v1.weiPurchasedStr = Web3.utils.fromWei(payload.weiPurchased, 'ether')
+    state.account.v1.weiPurchasedObj = fnFormat.ns2Obj(state.account.v1.weiPurchasedStr)
+
+    state.account.v1.weiRewarded = payload.weiRewarded
+    state.account.v1.weiRewardedStr = Web3.utils.fromWei(payload.weiRewarded, 'ether')
+    state.account.v1.weiRewardedObj = fnFormat.ns2Obj(state.account.v1.weiRewardedStr)
+
+    state.account.v1.weiAudit = payload.weiAudit
+    state.account.v1.weiAuditStr = Web3.utils.fromWei(payload.weiAudit, 'ether')
+    state.account.v1.weiAuditObj = fnFormat.ns2Obj(state.account.v1.weiAuditStr)
+
     state.account.v1.upgrade.timestamp = parseInt(payload.timestamp)
-    state.account.v1.upgrade.txsIn = parseInt(payload.txsIn)
-    state.account.v1.upgrade.txsOut = parseInt(payload.txsOut)
-
-    state.account.v1.upgrade.weiPurchased = payload.weiPurchased
-    state.account.v1.upgrade.weiPurchasedStr = fnFormat.ns2Str(payload.weiPurchased)
-    state.account.v1.upgrade.weiPurchasedObj = fnFormat.ns2Obj(state.account.v1.upgrade.weiPurchasedStr)
-
-    state.account.v1.upgrade.weiRewarded = payload.weiRewarded
-    state.account.v1.upgrade.weiRewardedStr = fnFormat.ns2Str(payload.weiRewarded)
-    state.account.v1.upgrade.weiRewardedObj = fnFormat.ns2Obj(state.account.v1.upgrade.weiRewardedStr)
-
-    state.account.v1.upgrade.weiAudit = payload.weiAudit
-    state.account.v1.upgrade.weiAuditStr = fnFormat.ns2Str(payload.weiAudit)
-    state.account.v1.upgrade.weiAuditObj = fnFormat.ns2Obj(state.account.v1.upgrade.weiAuditStr)
 
     state.account.v1.upgrade.claim = payload.claim
     state.account.v1.upgrade.claimStr = fnFormat.ns2Str(payload.claim)
@@ -484,21 +524,22 @@ export const mutations = {
     state.account.v1.upgrade.vokenUSDPriceObj = fnFormat.ns2Obj(state.account.v1.upgrade.vokenUSDPriceStr)
   },
   SET_ACCOUNT_V2_UPGRADE(state, payload) {
+    state.account.v2.txsIn = parseInt(payload.txsIn)
+    state.account.v2.txsOut = parseInt(payload.txsOut)
+
+    state.account.v2.weiPurchased = payload.weiPurchased
+    state.account.v2.weiPurchasedStr = Web3.utils.fromWei(payload.weiPurchased, 'ether')
+    state.account.v2.weiPurchasedObj = fnFormat.ns2Obj(state.account.v2.weiPurchasedStr)
+
+    state.account.v2.weiRewarded = payload.weiRewarded
+    state.account.v2.weiRewardedStr = Web3.utils.fromWei(payload.weiRewarded, 'ether')
+    state.account.v2.weiRewardedObj = fnFormat.ns2Obj(state.account.v2.weiRewardedStr)
+
+    state.account.v2.weiAudit = payload.weiAudit
+    state.account.v2.weiAuditStr = Web3.utils.fromWei(payload.weiAudit, 'ether')
+    state.account.v2.weiAuditObj = fnFormat.ns2Obj(state.account.v2.weiAuditStr)
+
     state.account.v2.upgrade.timestamp = parseInt(payload.timestamp)
-    state.account.v2.upgrade.txsIn = parseInt(payload.txsIn)
-    state.account.v2.upgrade.txsOut = parseInt(payload.txsOut)
-
-    state.account.v2.upgrade.weiPurchased = payload.weiPurchased
-    state.account.v2.upgrade.weiPurchasedStr = fnFormat.ns2Str(payload.weiPurchased)
-    state.account.v2.upgrade.weiPurchasedObj = fnFormat.ns2Obj(state.account.v2.upgrade.weiPurchasedStr)
-
-    state.account.v2.upgrade.weiRewarded = payload.weiRewarded
-    state.account.v2.upgrade.weiRewardedStr = fnFormat.ns2Str(payload.weiRewarded)
-    state.account.v2.upgrade.weiRewardedObj = fnFormat.ns2Obj(state.account.v2.upgrade.weiRewardedStr)
-
-    state.account.v2.upgrade.weiAudit = payload.weiAudit
-    state.account.v2.upgrade.weiAuditStr = fnFormat.ns2Str(payload.weiAudit)
-    state.account.v2.upgrade.weiAuditObj = fnFormat.ns2Obj(state.account.v2.upgrade.weiAuditStr)
 
     state.account.v2.upgrade.claim = payload.claim
     state.account.v2.upgrade.claimStr = fnFormat.ns2Str(payload.claim)

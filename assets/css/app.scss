@@ -1,4 +1,3 @@
-
 /**
  * SiteNav
  */
@@ -147,18 +146,17 @@
 }
 
 
+.vn-bg-gr-pink {
+  @apply bg-gradient-to-r from-orange-400 to-pink-500;
+}
 
+.vn-bg-gr-indigo {
+  @apply bg-gradient-to-r from-blue-400 to-indigo-500;
+}
 
-
-
-
-
-
-
-
-
-
-
+.vn-bg-gr-gray {
+  @apply bg-gradient-to-r from-gray-600 to-cool-gray-700;
+}
 
 
 /**
@@ -229,8 +227,6 @@
         }
       }
     }
-
-
   }
 }
 
@@ -281,44 +277,43 @@
 }
 
 .feed-simple-with-icons {
- ul {
-   @apply -mb-8;
+  ul {
+    @apply -mb-8;
 
-   li {
-     div.feed {
-       @apply relative pb-8;
+    li {
+      div.feed {
+        @apply relative pb-8;
 
-       span.line {
-         @apply absolute top-4 left-4 -ml-px h-full w-0.5 bg-gray-200;
-       }
+        span.line {
+          @apply absolute top-4 left-4 -ml-px h-full w-0.5 bg-gray-200;
+        }
 
-       div.row {
-         @apply relative flex space-x-3;
+        div.row {
+          @apply relative flex space-x-3;
 
-         div.icon {
-           @apply w-8 h-8 bg-white rounded-full ring-8 ring-white flex items-center justify-center;
-           @apply text-4xl;
-         }
+          div.icon {
+            @apply w-8 h-8 bg-white rounded-full ring-8 ring-white flex items-center justify-center;
+            @apply text-4xl;
+          }
 
-         div.text {
-           @apply pl-1 min-w-0 flex-1 flex justify-between space-x-2;
+          div.text {
+            @apply pl-1 min-w-0 flex-1 flex justify-between space-x-2;
 
-           div:nth-child(1) {
-             @apply pt-1.5 text-sm text-gray-600;
-           }
+            div:nth-child(1) {
+              @apply pt-1.5 text-sm text-gray-600;
+            }
 
-           div:nth-child(2) {
-             @apply font-bold text-2xl text-right text-gray-900;
-           }
-         }
-       }
+            div:nth-child(2) {
+              @apply font-bold text-2xl text-right text-gray-900;
+            }
+          }
+        }
 
 
-     }
-   }
- }
+      }
+    }
+  }
 }
-
 
 
 /**
@@ -450,12 +445,6 @@
 }
 
 
-
-
-
-
-
-
 /**
  * Tx Info
  */
@@ -490,5 +479,97 @@
 
 .tx-message {
   @apply mt-2 pt-2 border-t border-gray-300 text-sm break-all;
+}
+
+
+.v12resale {
+  .countdown-progress {
+    @apply mx-auto max-w-lg rounded-md px-4 divide-y-2 divide-pink-300 text-white;
+
+    @screen xl {
+      @apply max-w-4xl flex items-center py-12 divide-x-2 divide-y-0;
+    }
+
+    .countdown {
+      @apply w-full py-8 xl:py-0 text-center;
+    }
+
+    .upgrade {
+      @apply w-full py-8 xl:py-0 text-center;
+
+      .number-f {
+        @apply text-xl xl:text-2xl;
+      }
+    }
+  }
+
+  .audited {
+    @apply mt-4 xl:mt-8 flex flex-col items-start justify-center xl:flex-row;
+
+    .audited-wrapper {
+      @apply my-1.5 mx-auto xl:mx-2.5 w-full max-w-lg;
+
+      .audited-header {
+        @apply rounded-t-md py-1 font-bold xl:text-lg text-white text-center;
+      }
+
+      .audited-body {
+        @apply border-b border-l border-r;
+      }
+
+      &:nth-child(odd) {
+        .audited-header {
+          @apply bg-gradient-to-r from-gray-500 via-cool-gray-500 to-gray-500;
+        }
+
+        .audited-body {
+          @apply bg-cool-gray-100 border-gray-300;
+        }
+      }
+
+      &:nth-child(even) {
+        .audited-header {
+          @apply bg-gradient-to-r from-teal-500 via-green-500 to-teal-500;
+        }
+
+        .audited-body {
+          @apply bg-teal-50 border-teal-300;
+        }
+      }
+    }
+
+    .then,
+    .now {
+      @apply mt-3 xl:mt-4 text-sm xl:text-lg text-gray-600 text-center;
+    }
+
+    dl {
+      @apply py-3 px-3 xl:px-6;
+
+      div {
+        @apply py-1 xl:py-2;
+      }
+
+      dt {
+        @apply text-sm xl:text-lg text-gray-600;
+      }
+
+      dd {
+        @apply font-mono text-xl xl:text-2xl text-gray-800 text-right break-all;
+
+        .sign {
+          @apply -mr-2 xl:-mr-2.5 text-orange-600;
+        }
+
+        .number-f {
+          @apply text-base xl:text-lg text-cool-gray-400;
+        }
+
+        .unit {
+          @apply text-lg xl:text-xl text-gray-600;
+        }
+      }
+    }
+  }
 }
 

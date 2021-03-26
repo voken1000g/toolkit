@@ -48,8 +48,7 @@
               </dt>
               <dd>
                 <fa :icon="['fas', 'dollar-sign']" class="text-indigo-600"/>
-                {{ ether.usdPriceObj.d }}<span v-show="ether.usdPriceObj.f"
-                                               class="number-f">.{{ ether.usdPriceObj.f }}</span>
+                <number-obj :value-obj="ether.usdPriceObj" />
                 USD (DAI, on UniSwap)
               </dd>
             </div>
@@ -59,8 +58,7 @@
                 GAS Price (.avg)
               </dt>
               <dd>
-                {{ ether.gasPriceObj.d }}<span v-show="ether.gasPriceObj.f"
-                                               class="number-f">.{{ ether.gasPriceObj.f }}</span>
+                <number-obj :value-obj="ether.gasPriceObj" />
                 GWei
               </dd>
             </div>
@@ -104,7 +102,8 @@
               </dt>
               <dd>
                 <fa :icon="['fas', 'dollar-sign']" class="text-indigo-600"/>
-                {{ voken.usdPriceStr }} USD (DAI, on UniSwap)
+                <number-obj :value-obj="voken.usdPriceObj" />
+                USD (DAI, on UniSwap)
               </dd>
             </div>
 
@@ -114,11 +113,12 @@
                 Total Supply
               </dt>
               <dd>
-                {{ voken.capObj.d }}<span v-show="voken.capObj.f"
-                                          class="number-f">.{{ voken.capObj.f }}</span>
-
-                ({{ voken.totalSupplyObj.d }}<span v-show="voken.totalSupplyObj.f"
-                                                   class="number-f">.{{ voken.totalSupplyObj.f }}</span> for now)
+                <div>
+                  <number-obj :value-obj="voken.capObj" />
+                </div>
+                <div>
+                  <number-obj :value-obj="voken.totalSupplyObj" /> for now
+                </div>
               </dd>
             </div>
 
@@ -203,8 +203,7 @@
               </dt>
               <dd>
                 <div>
-                  {{ voken.account.balanceObj.d }}<span v-show="voken.account.balanceObj.f"
-                                                        class="number-f">.{{ voken.account.balanceObj.f }}</span>
+                  <number-obj :value-obj="voken.account.balanceObj" />
                   VokenTB
                   <span v-show="voken.account.balance > '0'">
                     <span v-if="voken.account.balance === voken.account.vesting" class="text-gray-400">
@@ -214,18 +213,13 @@
                       (all available)
                     </span>
                     <span v-else>
-                      ({{
-                        voken.account.availableObj.d
-                      }}<span v-show="voken.account.availableObj.f"
-                              class="number-f">.{{ voken.account.availableObj.f }}</span>
-                        available)
+                      :: <number-obj :value-obj="voken.account.availableObj" /> available
                     </span>
                   </span>
                 </div>
 
                 <div v-show="ebAccount.summed > '0'" class="mt-1 ml-2 text-xs text-gray-400">
-                  Include {{ ebAccount.summedObj.d }}<span v-show="ebAccount.summedObj.f"
-                                                           class="number-f">.{{ ebAccount.summedObj.f }}</span>
+                  Include <number-obj :value-obj="ebAccount.summedObj" />
                   VokenTB via Early-Bird Sale
                 </div>
               </dd>
@@ -283,8 +277,7 @@
               </dt>
               <dd>
                 <fa :icon="['fas', 'dollar-sign']" class="text-indigo-600"/>
-                {{ earlyBirdSale.usdPriceObj.d }}<span v-show="earlyBirdSale.usdPriceObj.f"
-                                                       class="number-f">.{{ earlyBirdSale.usdPriceObj.f }}</span>
+                <number-obj :value-obj="earlyBirdSale.usdPriceObj" />
                 USD (DAI)
               </dd>
             </div>
@@ -303,9 +296,8 @@
                 Sold
               </dt>
               <dd>
-                {{ earlyBirdSale.progressPercentStr }}% -
-                {{ earlyBirdSale.summedObj.d }}<span v-show="earlyBirdSale.summedObj.f"
-                                                     class="number-f">.{{ earlyBirdSale.summedObj.f }}</span>
+                {{ earlyBirdSale.progressPercentStr }}% ::
+                <number-obj :value-obj="earlyBirdSale.summedObj" />
                 VokenTB
                 <!--  <div class="mt-1 ml-4 text-xs text-gray-500">-->
                 <!--  ({{ earlyBirdSale.issuedObj.d }}<span v-show="earlyBirdSale.issuedObj.f"-->
