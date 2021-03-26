@@ -6,6 +6,9 @@ console.log('::: home.js HOST:', HOST)
 
 export default function() {
   const key = repo ? repo : HOST
+
+  console.log('::: home.js key:', key)
+
   switch (key) {
     case 'toolkit':
     case 'toolkit.voken.io':
