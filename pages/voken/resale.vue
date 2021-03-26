@@ -85,6 +85,7 @@ export default {
   },
   watch: {
     '$store.state.ether.account': async function() {
+      await this.$store.dispatch('vokenResale/SYNC_ACCOUNT')
       await this.update()
     }
   },
