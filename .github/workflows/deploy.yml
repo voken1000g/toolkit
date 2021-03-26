@@ -53,10 +53,11 @@ jobs:
       - name: Remove repo.js
         run: rm repo.js
 
-      # toolkit.voken.io
-      - name: Build (toolkit.voken.io)
+      # Build
+      - name: Build (*.voken.io)
         run: yarn build
 
+      # toolkit.voken.io
       - name: CNAME (toolkit.voken.io)
         run: echo "toolkit.voken.io" > ./dist/CNAME
 
@@ -109,7 +110,7 @@ jobs:
           folder: dist
 
       # voken1000g.github.io/toolkit
-      - name: Clear
+      - name: Clear /dist
         run: rm -rf ./dist
 
       - name: Write repo.js
