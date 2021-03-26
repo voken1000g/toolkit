@@ -30,7 +30,7 @@ jobs:
         run: yarn
 
       # voken1000g.github.io/early-bird
-      - name: Write repo.js
+      - name: Write repo.js (early-bird)
         run: echo export default \'early-bird\' > repo.js
 
       - name: Build (voken1000g.github.io/early-bird)
@@ -49,9 +49,9 @@ jobs:
       - name: Clear
         run: rm -rf ./dist
 
-      # Remove repo.js
-      - name: Remove repo.js
-        run: rm repo.js
+      # Clear repo.js
+      - name: Clear repo.js
+        run: echo export default \'\' > repo.js
 
       # Build
       - name: Build (*.voken.io)
@@ -113,7 +113,7 @@ jobs:
       - name: Clear /dist
         run: rm -rf ./dist
 
-      - name: Write repo.js
+      - name: Write repo.js (toolkit)
         run: echo export default \'toolkit\' > repo.js
 
       - name: Build (voken1000g.github.io/toolkit)
