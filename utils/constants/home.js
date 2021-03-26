@@ -2,14 +2,8 @@ import repo from '~/repo'
 
 const HOST = location.host.split(':')[0]
 
-console.log('::: home.js HOST:', HOST)
-
 export default function() {
-  const key = repo ? repo : HOST
-
-  console.log('::: home.js key:', key)
-
-  switch (key) {
+  switch (repo ? repo : HOST) {
     case 'toolkit':
     case 'toolkit.voken.io':
       return {
