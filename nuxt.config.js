@@ -47,7 +47,8 @@ export default {
       {rel: 'icon', type: 'image/png', sizes: '16x16', href: baseUrl + 'favicon/favicon-16x16.png'},
       {rel: 'manifest', href: baseUrl + 'favicon/manifest.json'},
 
-      {rel: 'stylesheet', href: '//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack-subset.css'}
+      {rel: 'stylesheet', href: '//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack-subset.css'},
+      {rel: 'stylesheet', href: '//rsms.me/inter/inter.css'}
     ]
   },
   css: [

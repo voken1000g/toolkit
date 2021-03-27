@@ -484,7 +484,7 @@
 
 .v12resale {
   .countdown-progress {
-    @apply mx-auto max-w-lg rounded-md px-4 divide-y-2 divide-pink-300 text-white;
+    @apply mt-4 xl:mt-8 mx-auto max-w-lg rounded-md px-4 divide-y-2 divide-pink-300 text-white;
 
     @screen xl {
       @apply max-w-4xl flex items-center py-12 divide-x-2 divide-y-0;
@@ -552,13 +552,17 @@
 
       dt {
         @apply text-sm xl:text-lg text-gray-600;
+
+        .number-f {
+          @apply text-xs xl:text-base text-cool-gray-400;
+        }
       }
 
       dd {
         @apply font-mono text-xl xl:text-2xl text-gray-800 text-right break-all;
 
         .sign {
-          @apply -mr-2 xl:-mr-2.5 text-orange-600;
+          @apply -mr-2 xl:-mr-2.5 text-gray-300;
         }
 
         .number-f {

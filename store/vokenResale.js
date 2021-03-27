@@ -463,30 +463,31 @@ export const mutations = {
     state.account.v1.resale.timestamp = parseInt(payload.timestamp)
 
     state.account.v1.resale.usdQuota = payload.usdQuota
-    state.account.v1.resale.usdQuotaStr = fnFormat.ns2Str(payload.usdQuota, 6)
+    state.account.v1.resale.usdQuotaStr = fnFormat.ns2Str(state.account.v1.resale.usdQuota, 6)
     state.account.v1.resale.usdQuotaObj = fnFormat.ns2Obj(state.account.v1.resale.usdQuotaStr)
 
     state.account.v1.resale.usdAudit = payload.usdAudit
-    state.account.v1.resale.usdAuditStr = fnFormat.ns2Str(payload.usdAudit, 6)
+    state.account.v1.resale.usdAuditStr = fnFormat.ns2Str(state.account.v1.resale.usdAudit, 6)
     state.account.v1.resale.usdAuditObj = fnFormat.ns2Obj(state.account.v1.resale.usdAuditStr)
 
     state.account.v1.resale.usdClaimed = payload.usdClaimed
-    state.account.v1.resale.usdClaimedStr = fnFormat.ns2Str(payload.usdClaimed, 6)
+    state.account.v1.resale.usdClaimedStr = fnFormat.ns2Str(state.account.v1.resale.usdClaimed, 6)
     state.account.v1.resale.usdClaimedObj = fnFormat.ns2Obj(state.account.v1.resale.usdClaimedStr)
   },
   SET_ACCOUNT_V2_RESALE(state, payload) {
     state.account.v2.resale.timestamp = parseInt(payload.timestamp)
 
+    // state.account.v2.resale.usdQuota = '123123456'
     state.account.v2.resale.usdQuota = payload.usdQuota
-    state.account.v2.resale.usdQuotaStr = fnFormat.ns2Str(payload.usdQuota, 6)
+    state.account.v2.resale.usdQuotaStr = fnFormat.ns2Str(state.account.v2.resale.usdQuota, 6)
     state.account.v2.resale.usdQuotaObj = fnFormat.ns2Obj(state.account.v2.resale.usdQuotaStr)
 
     state.account.v2.resale.usdAudit = payload.usdAudit
-    state.account.v2.resale.usdAuditStr = fnFormat.ns2Str(payload.usdAudit, 6)
+    state.account.v2.resale.usdAuditStr = fnFormat.ns2Str(state.account.v2.resale.usdAudit, 6)
     state.account.v2.resale.usdAuditObj = fnFormat.ns2Obj(state.account.v2.resale.usdAuditStr)
 
     state.account.v2.resale.usdClaimed = payload.usdClaimed
-    state.account.v2.resale.usdClaimedStr = fnFormat.ns2Str(payload.usdClaimed, 6)
+    state.account.v2.resale.usdClaimedStr = fnFormat.ns2Str(state.account.v2.resale.usdClaimed, 6)
     state.account.v2.resale.usdClaimedObj = fnFormat.ns2Obj(state.account.v2.resale.usdClaimedStr)
   },
   SET_ACCOUNT_V1_UPGRADE(state, payload) {
@@ -494,33 +495,33 @@ export const mutations = {
     state.account.v1.txsOut = parseInt(payload.txsOut)
 
     state.account.v1.weiPurchased = payload.weiPurchased
-    state.account.v1.weiPurchasedStr = Web3.utils.fromWei(payload.weiPurchased, 'ether')
+    state.account.v1.weiPurchasedStr = Web3.utils.fromWei(state.account.v1.weiPurchased, 'ether')
     state.account.v1.weiPurchasedObj = fnFormat.ns2Obj(state.account.v1.weiPurchasedStr)
 
     state.account.v1.weiRewarded = payload.weiRewarded
-    state.account.v1.weiRewardedStr = Web3.utils.fromWei(payload.weiRewarded, 'ether')
+    state.account.v1.weiRewardedStr = Web3.utils.fromWei(state.account.v1.weiRewarded, 'ether')
     state.account.v1.weiRewardedObj = fnFormat.ns2Obj(state.account.v1.weiRewardedStr)
 
     state.account.v1.weiAudit = payload.weiAudit
-    state.account.v1.weiAuditStr = Web3.utils.fromWei(payload.weiAudit, 'ether')
+    state.account.v1.weiAuditStr = Web3.utils.fromWei(state.account.v1.weiAudit, 'ether')
     state.account.v1.weiAuditObj = fnFormat.ns2Obj(state.account.v1.weiAuditStr)
 
     state.account.v1.upgrade.timestamp = parseInt(payload.timestamp)
 
     state.account.v1.upgrade.claim = payload.claim
-    state.account.v1.upgrade.claimStr = fnFormat.ns2Str(payload.claim)
+    state.account.v1.upgrade.claimStr = fnFormat.ns2Str(state.account.v1.upgrade.claim)
     state.account.v1.upgrade.claimObj = fnFormat.ns2Obj(state.account.v1.upgrade.claimStr)
 
     state.account.v1.upgrade.bonus = payload.bonus
-    state.account.v1.upgrade.bonusStr = fnFormat.ns2Str(payload.bonus)
+    state.account.v1.upgrade.bonusStr = fnFormat.ns2Str(state.account.v1.upgrade.bonus)
     state.account.v1.upgrade.bonusObj = fnFormat.ns2Obj(state.account.v1.upgrade.bonusStr)
 
     state.account.v1.upgrade.etherUSDPrice = payload.etherUSD
-    state.account.v1.upgrade.etherUSDPriceStr = fnFormat.ns2Str(payload.etherUSD, 6)
+    state.account.v1.upgrade.etherUSDPriceStr = fnFormat.ns2Str(state.account.v1.upgrade.etherUSDPrice, 6)
     state.account.v1.upgrade.etherUSDPriceObj = fnFormat.ns2Obj(state.account.v1.upgrade.etherUSDPriceStr)
 
     state.account.v1.upgrade.vokenUSDPrice = payload.vokenUSD
-    state.account.v1.upgrade.vokenUSDPriceStr = fnFormat.ns2Str(payload.vokenUSD, 6)
+    state.account.v1.upgrade.vokenUSDPriceStr = fnFormat.ns2Str(state.account.v1.upgrade.vokenUSDPrice, 6)
     state.account.v1.upgrade.vokenUSDPriceObj = fnFormat.ns2Obj(state.account.v1.upgrade.vokenUSDPriceStr)
   },
   SET_ACCOUNT_V2_UPGRADE(state, payload) {

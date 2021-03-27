@@ -13,7 +13,7 @@
             Voken1.0
           </div>
           <dl class="audited-body">
-            <div v-show="account.v1.weiPurchased > '0' || account.v1.weiRewarded > '0'">
+            <div v-show="showV1Wei">
               <dt>
                 You have sent
               </dt>
@@ -27,7 +27,7 @@
                 </span>
               </dd>
             </div>
-            <div v-show="account.v1.weiPurchased > '0' || account.v1.weiRewarded > '0'">
+            <div v-show="showV1Wei">
               <dt>
                 You have received
               </dt>
@@ -42,7 +42,7 @@
               </dd>
             </div>
 
-            <div class="then">
+            <div v-show="showV1Wei" class="then">
               Then,
             </div>
 
@@ -73,7 +73,7 @@
               Till now,
             </div>
 
-            <div v-show="account.v1.balance > '0'">
+            <div>
               <dt>
                 Holding
               </dt>
@@ -114,7 +114,7 @@
             Voken2.0
           </div>
           <dl class="audited-body">
-            <div v-show="account.v2.weiPurchased > '0' || account.v2.weiRewarded > '0'">
+            <div v-show="showV2Wei">
               <dt>
                 You have sent
               </dt>
@@ -128,7 +128,7 @@
                 </span>
               </dd>
             </div>
-            <div v-show="account.v2.weiPurchased > '0' || account.v2.weiRewarded > '0'">
+            <div v-show="showV2Wei">
               <dt>
                 You have received
               </dt>
@@ -143,7 +143,7 @@
               </dd>
             </div>
 
-            <div class="then">
+            <div v-show="showV2Wei">
               Then,
             </div>
 
@@ -220,7 +220,14 @@ export default {
   computed: {
     account() {
       return this.$store.state.vokenResale.account
-    }
+    },
+    showV1Wei() {
+      return this.account.v1.weiPurchased > '0' || this.account.v1.weiRewarded > '0'
+    },
+    showV2Wei() {
+      return this.account.v2.weiPurchased > '0' || this.account.v2.weiRewarded > '0'
+    },
+
   }
 }
 </script>
