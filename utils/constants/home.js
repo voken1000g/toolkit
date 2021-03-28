@@ -11,13 +11,21 @@ export default function() {
         path: '/wallet',
         icon: ['fas', 'tools'],
       }
-    case 'early-bird':
+    case 'get':
     case 'get.voken.io':
+    case 'early-bird':
     case 'early-bird.voken.io':
       return {
         title: 'VOKEN_Early_Bird_Sale',
         path: '/voken/early-bird',
         icon: ['fas', 'gifts'],
+      }
+    case 'migrate':
+    case 'migrate.voken.io':
+      return {
+        title: 'VOKEN_Toolkit',
+        path: '/voken/migrate',
+        icon: ['fas', 'tools'],
       }
     case 'resale':
     case 'resale.voken.io':
@@ -26,13 +34,6 @@ export default function() {
       return {
         title: 'VOKEN_Toolkit',
         path: '/voken/v12',
-        icon: ['fas', 'tools'],
-      }
-    case 'migrate':
-    case 'migrate.voken.io':
-      return {
-        title: 'VOKEN_Toolkit',
-        path: '/voken/migrate',
         icon: ['fas', 'tools'],
       }
     case 'localhost':

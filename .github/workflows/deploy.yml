@@ -29,22 +29,6 @@ jobs:
       - name: Install
         run: yarn
 
-      # voken1000g.github.io/resale
-      - name: Write repo.js (resale)
-        run: echo export default \'resale\' > repo.js
-
-      - name: Build (voken1000g.github.io/resale)
-        run: yarn build-repo-resale
-
-      - name: Deploy (voken1000g.github.io/resale)
-        uses: JamesIves/github-pages-deploy-action@4.0.0
-        with:
-          token: ${{ secrets.ACCESS_TOKEN }}
-          repository-name: voken1000g/resale
-          commit-message: "${{ github.repository }}@${{ github.sha }}"
-          branch: repo-resale
-          folder: dist
-
       # voken1000g.github.io/upgrade
       - name: Write repo.js (upgrade)
         run: echo export default \'upgrade\' > repo.js
@@ -61,6 +45,22 @@ jobs:
           branch: repo-upgrade
           folder: dist
 
+      # voken1000g.github.io/resale
+      - name: Write repo.js (resale)
+        run: echo export default \'resale\' > repo.js
+
+      - name: Build (voken1000g.github.io/resale)
+        run: yarn build-repo-resale
+
+      - name: Deploy (voken1000g.github.io/resale)
+        uses: JamesIves/github-pages-deploy-action@4.0.0
+        with:
+          token: ${{ secrets.ACCESS_TOKEN }}
+          repository-name: voken1000g/resale
+          commit-message: "${{ github.repository }}@${{ github.sha }}"
+          branch: repo-resale
+          folder: dist
+
       # voken1000g.github.io/early-bird
       - name: Write repo.js (early-bird)
         run: echo export default \'early-bird\' > repo.js
@@ -75,6 +75,22 @@ jobs:
           repository-name: voken1000g/early-bird
           commit-message: "${{ github.repository }}@${{ github.sha }}"
           branch: repo-early-bird
+          folder: dist
+
+      # voken1000g.github.io/get
+      - name: Write repo.js (get)
+        run: echo export default \'get\' > repo.js
+
+      - name: Build (voken1000g.github.io/get)
+        run: yarn build-repo-get
+
+      - name: Deploy (voken1000g.github.io/get)
+        uses: JamesIves/github-pages-deploy-action@4.0.0
+        with:
+          token: ${{ secrets.ACCESS_TOKEN }}
+          repository-name: voken1000g/get
+          commit-message: "${{ github.repository }}@${{ github.sha }}"
+          branch: repo-get
           folder: dist
 
       # Clear /dist
