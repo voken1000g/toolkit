@@ -29,6 +29,38 @@ jobs:
       - name: Install
         run: yarn
 
+      # voken1000g.github.io/resale
+      - name: Write repo.js (resale)
+        run: echo export default \'resale\' > repo.js
+
+      - name: Build (voken1000g.github.io/resale)
+        run: yarn build-repo-resale
+
+      - name: Deploy (voken1000g.github.io/early-bird)
+        uses: JamesIves/github-pages-deploy-action@4.0.0
+        with:
+          token: ${{ secrets.ACCESS_TOKEN }}
+          repository-name: voken1000g/resale
+          commit-message: "${{ github.repository }}@${{ github.sha }}"
+          branch: repo-resale
+          folder: dist
+
+      # voken1000g.github.io/upgrade
+      - name: Write repo.js (upgrade)
+        run: echo export default \'upgrade\' > repo.js
+
+      - name: Build (voken1000g.github.io/upgrade)
+        run: yarn build-repo-upgrade
+
+      - name: Deploy (voken1000g.github.io/early-bird)
+        uses: JamesIves/github-pages-deploy-action@4.0.0
+        with:
+          token: ${{ secrets.ACCESS_TOKEN }}
+          repository-name: voken1000g/upgrade
+          commit-message: "${{ github.repository }}@${{ github.sha }}"
+          branch: repo-upgrade
+          folder: dist
+
       # voken1000g.github.io/early-bird
       - name: Write repo.js (early-bird)
         run: echo export default \'early-bird\' > repo.js
@@ -56,6 +88,32 @@ jobs:
       # Build
       - name: Build (*.voken.io)
         run: yarn build
+
+      # resale.voken.io
+      - name: CNAME (resale.voken.io)
+        run: echo "resale.voken.io" > ./dist/CNAME
+
+      - name: Deploy (resale.voken.io)
+        uses: JamesIves/github-pages-deploy-action@4.0.0
+        with:
+          token: ${{ secrets.ACCESS_TOKEN }}
+          repository-name: voken1000g/resale.voken.io
+          commit-message: "${{ github.repository }}@${{ github.sha }}"
+          branch: resale
+          folder: dist
+
+      # upgrade.voken.io
+      - name: CNAME (upgrade.voken.io)
+        run: echo "upgrade.voken.io" > ./dist/CNAME
+
+      - name: Deploy (upgrade.voken.io)
+        uses: JamesIves/github-pages-deploy-action@4.0.0
+        with:
+          token: ${{ secrets.ACCESS_TOKEN }}
+          repository-name: voken1000g/upgrade.voken.io
+          commit-message: "${{ github.repository }}@${{ github.sha }}"
+          branch: upgrade
+          folder: dist
 
       # toolkit.voken.io
       - name: CNAME (toolkit.voken.io)

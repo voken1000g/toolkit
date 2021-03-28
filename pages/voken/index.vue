@@ -149,7 +149,7 @@
 <script>
 export default {
   name: "voken-index",
-  middleware: ['web3', 'voken', 'vokenEarlyBirdSale'],
+  middleware: ['web3', 'voken', 'vokenEarlyBirdSale', 'vokenResale'],
   head() {
     return {
       title: this.$t('nav.VokenTB')
