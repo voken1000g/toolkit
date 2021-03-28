@@ -47,7 +47,7 @@ export default {
     notWorkForYourAddress() {
       return (
         this.$store.state.vokenResale.account.v1.balance === '0'
-        ||
+        &&
         this.$store.state.vokenResale.account.v2.balance === '0'
       )
     }
