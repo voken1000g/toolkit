@@ -101,7 +101,7 @@ export default {
     GAS__In_most_cases__: '在大多数情况下是不需要调整的。不要修改',
     GAS__just_use_the_default__: '只用默认（自动），避免失败；不会浪费 - 未用完的会自动退回。',
     GAS__But_for_the_: '而对于',
-    GAS__There_are_3_tools__: '有3个工具可以帮您：',
+    GAS__There_are_3_tools__: '有 3 个工具可以帮您：',
     GAS_you_can_find_3_levels__: '您可以在那里看到 3 个级别的油价，选一个您喜欢的。',
 
     Can_I_buy_more_than_1_ETH_: '我可以购买超过 1 ETH 吗？',
