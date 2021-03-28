@@ -36,7 +36,7 @@ jobs:
       - name: Build (voken1000g.github.io/resale)
         run: yarn build-repo-resale
 
-      - name: Deploy (voken1000g.github.io/early-bird)
+      - name: Deploy (voken1000g.github.io/resale)
         uses: JamesIves/github-pages-deploy-action@4.0.0
         with:
           token: ${{ secrets.ACCESS_TOKEN }}
@@ -52,7 +52,7 @@ jobs:
       - name: Build (voken1000g.github.io/upgrade)
         run: yarn build-repo-upgrade
 
-      - name: Deploy (voken1000g.github.io/early-bird)
+      - name: Deploy (voken1000g.github.io/upgrade)
         uses: JamesIves/github-pages-deploy-action@4.0.0
         with:
           token: ${{ secrets.ACCESS_TOKEN }}
