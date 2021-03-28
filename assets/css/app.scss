@@ -491,11 +491,11 @@
     }
 
     .countdown {
-      @apply w-full py-8 xl:py-0 text-center;
+      @apply w-full py-8 xl:py-0 text-white text-center;
     }
 
     .upgrade {
-      @apply w-full py-8 xl:py-0 text-center;
+      @apply w-full py-8 xl:py-0 text-white text-center;
 
       .number-f {
         @apply text-xl xl:text-2xl;
