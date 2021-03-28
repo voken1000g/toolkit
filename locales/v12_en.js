@@ -1,4 +1,8 @@
 export default {
+  Portal: 'Portal',
+
+  Not_work_for_your_address: 'Not work for your address',
+
   Resale_or_Upgrade: 'Resale or Upgrade',
   Resale__Program_for__: 'Resale/Upgrade Program for Voken1.0/2.0 Holders',
 

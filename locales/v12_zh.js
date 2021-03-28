@@ -1,4 +1,8 @@
 export default {
+  Portal: '入口',
+
+  Not_work_for_your_address: '对您的地址不起作用',
+
   Resale_or_Upgrade: '转售或升级',
   Resale__Program_for__: '转售/升级程序，为 Voken1.0/2.0 持有人',
   Private_Placement_Review: '私募回顾',

@@ -31,7 +31,7 @@
           <number-obj :value-obj="account.v2.resale.usdAuditObj"/> USD(DAI).
         </p>
 
-        <p v-show="account.canOnlyResale" class="font-bold">
+        <p v-show="account.canOnlyResale" class="font-bold break-all">
           {{ $t('v12.You_can_only_apply_for_resale_') }}
           (Address <span class="font-mono">{{ $store.state.ether.account }}</span>)
         </p>

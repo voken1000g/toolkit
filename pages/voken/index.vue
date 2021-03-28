@@ -117,6 +117,31 @@
           </nuxt-link>
         </div>
       </div>
+
+      <div v-show="v12Portal" class="bg-white shadow sm:rounded-lg">
+        <div class="px-4 py-5 sm:p-6">
+          <h3 class="text-lg leading-6 font-bold text-cool-gray-700">
+            {{  $t('v12.Resale_or_Upgrade') }}
+          </h3>
+
+          <nuxt-link :to='localePath("/voken/v12")'
+                     class="mt-4 w-full btn btn-yellow justify-start py-4 px-8 space-x-4 sm:space-x-6 cursor-pointer select-none"
+          >
+            <div class='flex-shrink-0 h-8 w-8 text-3xl'>
+              <fa :icon="['fas', 'cash-register']"/>
+            </div>
+
+            <div>
+              <div class="font-bold text-lg">
+                Voken1.0/2.0 {{ $t('v12.Portal') }}
+              </div>
+              <p class="mt-2 text-sm text-yellow-100">
+                {{  $t('v12.Resale__Program_for__') }}
+              </p>
+            </div>
+          </nuxt-link>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -138,6 +163,14 @@ export default {
     earlyBirdSale() {
       return this.$store.state.vokenEarlyBirdSale
     },
+
+    v12Portal() {
+      return (
+        this.$store.state.vokenResale.account.v1.balance > '0'
+        ||
+        this.$store.state.vokenResale.account.v2.balance > '0'
+      )
+    }
   },
 }
 </script>

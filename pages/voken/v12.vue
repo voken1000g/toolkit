@@ -10,10 +10,21 @@
       </template>
     </layout-hero-simple>
 
-    <v12-audited />
-    <v12-progress class="bg-indigo-50" />
-    <v12-resale />
-    <v12-upgrade class="bg-indigo-50" />
+    <div v-if="notWorkForYourAddress" class="resp-wide pt-24 pb-80 text-gray-500 text-center">
+      <div class="font-bold text-xl xl:text-2xl">
+        {{ $t('v12.Not_work_for_your_address') }}
+      </div>
+      <div class="resp-mt font-mono text-base xl:text-xl break-all">
+        {{ $store.state.ether.account }}
+      </div>
+    </div>
+
+    <div v-else>
+      <v12-audited />
+      <v12-progress class="bg-indigo-50" />
+      <v12-resale />
+      <v12-upgrade class="bg-indigo-50" />
+    </div>
   </div>
 </template>
 
@@ -31,6 +42,14 @@ export default {
     },
     account() {
       return this.$store.state.vokenResale.account
+    },
+
+    notWorkForYourAddress() {
+      return (
+        this.$store.state.vokenResale.account.v1.balance === '0'
+        ||
+        this.$store.state.vokenResale.account.v2.balance === '0'
+      )
     }
   },
   watch: {

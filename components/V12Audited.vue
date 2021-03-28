@@ -20,7 +20,7 @@
 
         <pre>tx.amount * tx.price + recipient.amount * recipient.price</pre>
 
-        <p>
+        <p class="break-all">
           {{ $t('v12.Here_is__summary__') }}
           <span class="font-mono">({{ $store.state.ether.account }})</span>:
         </p>
