@@ -30,7 +30,7 @@ export default {
   Cap_reached_: '到达上限。',
 
   Option1__: '选项 1：转售',
-  Get_your__back__: '获取您的投资，以美元支付（DAI 稳定币）',
+  Get_your__back__: '取回您的投资，以美元支付（DAI 稳定币）',
   The_price_of_ETH_was__: 'ETH 的价格曾经是 $180-300 美元（私募）。选择此选项申请转售，将计价 $350 美元（更高），然后您可以',
   get_more_than__: '取回超过您的投资，在 VokenTB',
   and: '和',
