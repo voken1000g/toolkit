@@ -115,6 +115,7 @@ export default {
           'faArchive',
           'faGlassCheers',
           'faCode',
+          'faBell',
 
           // Early-Bird
           'faArrowDown',

@@ -128,7 +128,7 @@
                      class="mt-4 w-full btn btn-yellow justify-start py-4 px-8 space-x-4 sm:space-x-6 cursor-pointer select-none"
           >
             <div class='flex-shrink-0 h-8 w-8 text-3xl'>
-              <fa :icon="['fas', 'cash-register']"/>
+              <fa :icon="['fas', 'bell']"/>
             </div>
 
             <div>
