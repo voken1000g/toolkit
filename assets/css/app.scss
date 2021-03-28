@@ -484,7 +484,7 @@
 
 .v12resale {
   .countdown-progress {
-    @apply mt-4 xl:mt-8 mx-auto max-w-lg rounded-md px-4 divide-y-2 divide-pink-300 text-white;
+    @apply mx-auto max-w-lg rounded-md px-4 divide-y-2 divide-pink-300 text-white;
 
     @screen xl {
       @apply max-w-4xl flex items-center py-12 divide-x-2 divide-y-0;

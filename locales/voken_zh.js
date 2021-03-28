@@ -78,7 +78,7 @@ export default {
       '您可以从以太坊区块链',
     migrate: '迁移',
     some_from_Ethereum_to__: '一些 VokenTB 到您的 Voken 区块链钱包地址上；未来主网启动后，' +
-      '同样的金额也会发送到你的钱包地址（使用测试网是免费的）',
+      '同样的金额也会发送到您的钱包地址（使用测试网是免费的）',
 
     The_Voken_wallet_address__key__: 'Voken 钱包地址也是',
     the_referral_program: '转介计划',
@@ -111,7 +111,7 @@ export default {
     Migrate: '迁移',
     Migrate_to_Voken_Blockchain: '迁移到 Voken 区块链',
     From_Ethereum_to_Voken_Blockchain: '从以太坊到 Voken 区块链',
-    NOTE__We_recommend_only_migrating__: '注意：我们建议只迁移少于 10 个，除非你真的需要。',
+    NOTE__We_recommend_only_migrating__: '注意：我们建议只迁移少于 10 个，除非您真的需要。',
     TO_: '到：',
     Migration_Records: '迁移记录',
 
@@ -125,7 +125,7 @@ export default {
     title: '常见问题',
     When_should_I_migrate_: '我应该什么时候迁移？',
     WHEN_MIGRATE__1: '如果您已经设置了 Voken 钱包地址，您应该已经在 Voken 区块链（公测网络）上收到了一些Sustina Voken（48小时内）',
-    WHEN_MIGRATE__2: '通过使用它们，你已经可以体验代理服务，甚至可以发送一些给您的朋友。',
+    WHEN_MIGRATE__2: '通过使用它们，您已经可以体验代理服务，甚至可以发送一些给您的朋友。',
     WHEN_MIGRATE__3: '如果它们都消耗殆尽，那么时机就到了。',
     WHEN_MIGRATE__4: '或者，主网启动后，根据需要进行迁移也是一个不错的选择。',
 

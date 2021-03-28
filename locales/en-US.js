@@ -12,6 +12,7 @@ import web3 from './web3_en'
 import ether from './ether_en'
 import voken from './voken_en'
 import earlyBird from './earlyBird_en'
+import v12 from './v12_en'
 
 export default {
   link: link,
@@ -27,6 +28,7 @@ export default {
   ether: ether,
   voken: voken,
   earlyBird: earlyBird,
+  v12: v12,
 
   link_to_github: {
     text: 'GitHub',

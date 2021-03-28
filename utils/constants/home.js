@@ -19,6 +19,15 @@ export default function() {
         path: '/voken/early-bird',
         icon: ['fas', 'gifts'],
       }
+    case 'resale':
+    case 'resale.voken.io':
+    case 'upgrade':
+    case 'upgrade.voken.io':
+      return {
+        title: 'VOKEN_Toolkit',
+        path: '/voken/v12',
+        icon: ['fas', 'tools'],
+      }
     case 'migrate':
     case 'migrate.voken.io':
       return {

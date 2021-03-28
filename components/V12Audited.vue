@@ -1,11 +1,30 @@
 <template>
-  <layout-bg-a class="py-16">
+  <div class="py-16">
     <div class="resp-wide">
       <layout-h2>
         <template #title>
-          Private Placement Review
+          {{ $t('v12.Private_Placement_Review') }}
         </template>
       </layout-h2>
+
+      <article class="mt-3 xl:mt-6 prose lg:prose-lg xl:prose-xl max-w-none">
+        <p>
+          {{ $t('v12.For_the_users__holding__') }}
+        </p>
+
+        <pre>ETH.sent - ETH.rewarded</pre>
+
+        <p>
+          {{ $t('v12.Then__for_each_tx__') }}
+        </p>
+
+        <pre>tx.amount * tx.price + recipient.amount * recipient.price</pre>
+
+        <p>
+          {{ $t('v12.Here_is__summary__') }}
+          <span class="font-mono">({{ $store.state.ether.account }})</span>:
+        </p>
+      </article>
 
       <div class="audited">
         <div class="audited-wrapper">
@@ -15,13 +34,13 @@
           <dl class="audited-body">
             <div v-show="showV1Wei">
               <dt>
-                You have sent
+                {{ $t('v12.You_have_sent') }}
               </dt>
               <dd>
                 <span class="sign">
                   +
                 </span>
-                <number-obj :value-obj="account.v1.weiPurchasedObj" />
+                <number-obj :value-obj="account.v1.weiPurchasedObj"/>
                 <span class="unit">
                   ETH
                 </span>
@@ -29,56 +48,56 @@
             </div>
             <div v-show="showV1Wei">
               <dt>
-                You have received
+                {{ $t('v12.and_received') }}
               </dt>
               <dd>
                 <span class="sign">
                   -
                 </span>
-                <number-obj :value-obj="account.v1.weiRewardedObj" />
+                <number-obj :value-obj="account.v1.weiRewardedObj"/>
                 <span class="unit">
                   ETH
                 </span>
               </dd>
             </div>
 
-            <div v-show="showV1Wei" class="then">
-              Then,
+            <div v-show="showV1Wei && showV1Txs" class="then">
+              {{ $t('v12.Then_') }}
             </div>
 
-            <div v-show="account.v1.txsIn || account.v1.txsOut">
+            <div v-show="showV1Txs">
               <dt>
-                Income
+                {{ $t('v12.Income') }}
               </dt>
               <dd>
                 {{ account.v1.txsIn }}
                 <span class="unit">
-                  Transactions
+                  {{ $t('v12.Transactions') }}
                 </span>
               </dd>
             </div>
-            <div v-show="account.v1.txsIn || account.v1.txsOut">
+            <div v-show="showV1Txs">
               <dt>
-                Outcome
+                {{ $t('v12.Outcome') }}
               </dt>
               <dd>
                 {{ account.v1.txsOut }}
                 <span class="unit">
-                  Transactions
+                  {{ $t('v12.Transactions') }}
                 </span>
               </dd>
             </div>
 
             <div class="now">
-              Till now,
+              {{ $t('v12.Till_now_') }}
             </div>
 
             <div>
               <dt>
-                Holding
+                {{ $t('v12.Holding__') }}
               </dt>
               <dd>
-                <number-obj :value-obj="account.v1.balanceObj" />
+                <number-obj :value-obj="account.v1.balanceObj"/>
                 <span class="unit">
                   Voken1.0
                 </span>
@@ -86,10 +105,10 @@
             </div>
             <div v-show="account.v1.balance > '0'">
               <dt>
-                Proportion
+                {{ $t('v12.Proportion') }}
               </dt>
               <dd>
-                <number-obj :value-obj="account.v1.proportionObj" />
+                <number-obj :value-obj="account.v1.proportionObj"/>
                 <span class="unit">
                   %
                 </span>
@@ -97,10 +116,10 @@
             </div>
             <div v-show="account.v1.weiAudit > '0'">
               <dt>
-                Audited Cost
+                {{ $t('v12.Audited_Cost') }}
               </dt>
               <dd>
-                <number-obj :value-obj="account.v1.weiAuditObj" />
+                <number-obj :value-obj="account.v1.weiAuditObj"/>
                 <span class="unit">
                   ETH
                 </span>
@@ -116,13 +135,13 @@
           <dl class="audited-body">
             <div v-show="showV2Wei">
               <dt>
-                You have sent
+                {{ $t('v12.You_have_sent') }}
               </dt>
               <dd>
                 <span class="sign">
                   +
                 </span>
-                <number-obj :value-obj="account.v2.weiPurchasedObj" />
+                <number-obj :value-obj="account.v2.weiPurchasedObj"/>
                 <span class="unit">
                   ETH
                 </span>
@@ -130,56 +149,56 @@
             </div>
             <div v-show="showV2Wei">
               <dt>
-                You have received
+                {{ $t('v12.and_received') }}
               </dt>
               <dd>
                 <span class="sign">
                   -
                 </span>
-                <number-obj :value-obj="account.v2.weiRewardedObj" />
+                <number-obj :value-obj="account.v2.weiRewardedObj"/>
                 <span class="unit">
                   ETH
                 </span>
               </dd>
             </div>
 
-            <div v-show="showV2Wei">
-              Then,
+            <div v-show="showV2Wei && showV2Txs" class="then">
+              {{ $t('v12.Then_') }}
             </div>
 
-            <div v-show="account.v2.txsIn || account.v2.txsOut">
+            <div v-show="showV2Txs">
               <dt>
-                Income
+                {{ $t('v12.Income') }}
               </dt>
               <dd>
                 {{ account.v2.txsIn }}
                 <span class="unit">
-                  Transactions
+                  {{ $t('v12.Transactions') }}
                 </span>
               </dd>
             </div>
-            <div v-show="account.v2.txsIn || account.v2.txsOut">
+            <div v-show="showV2Txs">
               <dt>
-                Outcome
+                {{ $t('v12.Outcome') }}
               </dt>
               <dd>
                 {{ account.v2.txsOut }}
                 <span class="unit">
-                  Transactions
+                  {{ $t('v12.Transactions') }}
                 </span>
               </dd>
             </div>
 
             <div class="now">
-              Till now,
+              {{ $t('v12.Till_now_') }}
             </div>
 
-            <div v-show="account.v2.balance > '0'">
+            <div>
               <dt>
-                Holding
+                {{ $t('v12.Holding__') }}
               </dt>
               <dd>
-                <number-obj :value-obj="account.v2.balanceObj" />
+                <number-obj :value-obj="account.v2.balanceObj"/>
                 <span class="unit">
                   Voken2.0
                 </span>
@@ -187,10 +206,10 @@
             </div>
             <div v-show="account.v2.balance > '0'">
               <dt>
-                Proportion
+                {{ $t('v12.Proportion') }}
               </dt>
               <dd>
-                <number-obj :value-obj="account.v2.proportionObj" />
+                <number-obj :value-obj="account.v2.proportionObj"/>
                 <span class="unit">
                   %
                 </span>
@@ -198,10 +217,10 @@
             </div>
             <div v-show="account.v2.weiAudit > '0'">
               <dt>
-                Audited Cost
+                {{ $t('v12.Audited_Cost') }}
               </dt>
               <dd>
-                <number-obj :value-obj="account.v2.weiAuditObj" />
+                <number-obj :value-obj="account.v2.weiAuditObj"/>
                 <span class="unit">
                   ETH
                 </span>
@@ -211,23 +230,29 @@
         </div>
       </div>
     </div>
-  </layout-bg-a>
+  </div>
 </template>
 
 <script>
 export default {
-  name: "ResaleAudited",
+  name: "V12Audited",
   computed: {
     account() {
       return this.$store.state.vokenResale.account
     },
+
     showV1Wei() {
       return this.account.v1.weiPurchased > '0' || this.account.v1.weiRewarded > '0'
     },
     showV2Wei() {
       return this.account.v2.weiPurchased > '0' || this.account.v2.weiRewarded > '0'
     },
-
+    showV1Txs() {
+      return this.account.v1.txsIn || this.account.v1.txsOut
+    },
+    showV2Txs() {
+      return this.account.v2.txsIn || this.account.v2.txsOut
+    },
   }
 }
 </script>

@@ -2,54 +2,27 @@
   <div class="v12resale">
     <layout-hero-simple>
       <template #title>
-        Resale/Upgrade Program
+        {{ $t('v12.Resale_or_Upgrade') }}
       </template>
 
       <template #text>
-        For Voken1.0/2.0 Holders
+        {{ $t('v12.Resale__Program_for__') }}
       </template>
     </layout-hero-simple>
 
-    <resale-progress />
-    <resale-audited class="bg-gray-50" />
-    <resale-about />
-    <resale-r class="bg-gray-50" />
-    <resale-u />
-
-    <div class="resp-wide">
-      <div class="mt-8">
-        {{ $store.state.vokenResale.status }}
-      </div>
-      <div class="mt-8">
-        {{ $store.state.vokenResale.account }}
-      </div>
-      <div class="mt-8">
-        {{ $store.state.vokenResale.account.v1 }}
-      </div>
-      <div class="mt-8">
-        {{ $store.state.vokenResale.account.v2 }}
-      </div>
-      <div class="mt-8">
-        {{ $store.state.vokenResale.account.v1.upgrade }}
-      </div>
-      <div class="mt-8">
-        {{ $store.state.vokenResale.account.v2.upgrade }}
-      </div>
-    </div>
+    <v12-audited />
+    <v12-progress class="bg-indigo-50" />
+    <v12-resale />
+    <v12-upgrade class="bg-indigo-50" />
   </div>
 </template>
 
 <script>
-import DAPP from '~/utils/constants/dapp'
-
 export default {
-  name: "resale",
+  name: "voken-v12",
   middleware: ['web3', 'vokenResale'],
   layout: 'white',
   computed: {
-    DAPP() {
-      return DAPP
-    },
     status() {
       return this.$store.state.vokenResale.status
     },

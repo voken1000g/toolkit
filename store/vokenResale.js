@@ -172,8 +172,6 @@ export const state = () => ({
       },
 
       upgrade: {
-
-
         claim: '0',
         claimStr: '0',
         claimObj: {
@@ -184,6 +182,13 @@ export const state = () => ({
         bonus: '0',
         bonusStr: '0',
         bonusObj: {
+          d: '0',
+          f: null,
+        },
+
+        summed: '0',
+        summedStr: '0',
+        summedObj: {
           d: '0',
           f: null,
         },
@@ -284,6 +289,13 @@ export const state = () => ({
         bonus: '0',
         bonusStr: '0',
         bonusObj: {
+          d: '0',
+          f: null,
+        },
+
+        summed: '0',
+        summedStr: '0',
+        summedObj: {
           d: '0',
           f: null,
         },
@@ -516,6 +528,14 @@ export const mutations = {
     state.account.v1.upgrade.bonusStr = fnFormat.ns2Str(state.account.v1.upgrade.bonus)
     state.account.v1.upgrade.bonusObj = fnFormat.ns2Obj(state.account.v1.upgrade.bonusStr)
 
+    state.account.v1.upgrade.summed = (
+      new BigNumber(state.account.v1.upgrade.claim)
+        .plus(state.account.v1.upgrade.bonus)
+        .toString()
+    )
+    state.account.v1.upgrade.summedStr = fnFormat.ns2Str(state.account.v1.upgrade.summed)
+    state.account.v1.upgrade.summedObj = fnFormat.ns2Obj(state.account.v1.upgrade.summedStr)
+
     state.account.v1.upgrade.etherUSDPrice = payload.etherUSD
     state.account.v1.upgrade.etherUSDPriceStr = fnFormat.ns2Str(state.account.v1.upgrade.etherUSDPrice, 6)
     state.account.v1.upgrade.etherUSDPriceObj = fnFormat.ns2Obj(state.account.v1.upgrade.etherUSDPriceStr)
@@ -549,6 +569,14 @@ export const mutations = {
     state.account.v2.upgrade.bonus = payload.bonus
     state.account.v2.upgrade.bonusStr = fnFormat.ns2Str(payload.bonus)
     state.account.v2.upgrade.bonusObj = fnFormat.ns2Obj(state.account.v2.upgrade.bonusStr)
+
+    state.account.v2.upgrade.summed = (
+      new BigNumber(state.account.v2.upgrade.claim)
+        .plus(state.account.v2.upgrade.bonus)
+        .toString()
+    )
+    state.account.v2.upgrade.summedStr = fnFormat.ns2Str(state.account.v2.upgrade.summed)
+    state.account.v2.upgrade.summedObj = fnFormat.ns2Obj(state.account.v2.upgrade.summedStr)
 
     state.account.v2.upgrade.etherUSDPrice = payload.etherUSD
     state.account.v2.upgrade.etherUSDPriceStr = fnFormat.ns2Str(payload.etherUSD, 6)

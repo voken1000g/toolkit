@@ -1,15 +1,46 @@
 <template>
-  <layout-bg-a class="py-16">
+  <div class="py-16">
     <div class="resp-wide">
       <layout-h2>
         <template #title>
-          Option 1: Resale
+          {{ $t('v12.Option1__') }}
         </template>
 
         <template #text>
-          Get your investment back
+          {{ $t('v12.Get_your__back__') }}
         </template>
       </layout-h2>
+
+      <article class="resp-mt prose lg:prose-lg xl:prose-xl max-w-none">
+        <p>
+          {{ $t('v12.The_price_of_ETH_was__') }}
+          <span class="font-bold">
+            {{ $t('v12.get_more_than__') }}
+            <nuxt-link :to='localePath("/voken/early-bird")'>
+              {{ $t('voken.Early_Bird_Sale') }}
+            </nuxt-link>
+            {{ $t('v12.and') }}
+            <nuxt-link :to='localePath("/voken/public-sale")'>
+              {{ $t('voken.Public_Sale') }}
+            </nuxt-link>
+            {{ $t('v12.processing_') }}
+          </span>
+        </p>
+
+        <p v-show="account.v1.upgrade.timestamp > 0" class="font-bold text-orange-600">
+          Voken1.0: {{ $t('v12.You_have_applied_to_UPGRADE_at') }}
+          {{ $moment(account.v1.upgrade.timestamp * 1000).format('YYYY-MM-DD HH:mm:ss') }},
+          {{ $t('v12.and_received') }}
+          <number-obj :value-obj="account.v1.upgrade.summedObj"/> VokenTB
+        </p>
+
+        <p v-show="account.v2.upgrade.timestamp > 0" class="font-bold text-orange-600">
+          Voken2.0: {{ $t('v12.You_have_applied_to_UPGRADE_at') }}
+          {{ $moment(account.v2.upgrade.timestamp * 1000).format('YYYY-MM-DD HH:mm:ss') }},
+          {{ $t('v12.and_received') }}
+          <number-obj :value-obj="account.v2.upgrade.summedObj"/> VokenTB
+        </p>
+      </article>
 
 
       <div class="audited">
@@ -21,7 +52,7 @@
           <dl class="audited-body">
             <div>
               <dt>
-                Holding (Deprecated)
+                {{ $t('v12.Holding__') }}
               </dt>
               <dd>
                 <number-obj :value-obj="account.v1.balanceObj"/>
@@ -32,7 +63,7 @@
             </div>
             <div v-show="v1ResaleAllowed && account.v1.weiAudit > '0'">
               <dt>
-                Audited Cost
+                {{ $t('v12.Audited_Cost') }}
               </dt>
               <dd>
                 <number-obj :value-obj="account.v1.weiAuditObj"/>
@@ -45,10 +76,11 @@
             <div v-show="v1ResaleAllowed && v1UsdAudit > '0'">
               <dt>
                 <p>
-                  You can apply to resale for
+                  {{ $t('v12.You_can_apply_to_resale_for') }}
                 </p>
                 <p>
-                  $<number-obj :value-obj="status.resaleEtherUSDPriceObj"/>
+                  $
+                  <number-obj :value-obj="status.resaleEtherUSDPriceObj"/>
                   x
                   <number-obj :value-obj="account.v1.weiAuditObj"/>
                   =
@@ -64,16 +96,7 @@
 
             <div v-show="v1ResaleApplied">
               <dt>
-                Applied at
-              </dt>
-              <span class="unit">
-                {{ $moment(account.v1.resale.timestamp * 1000).format('YYYY-MM-DD HH:mm:ss') }}
-              </span>
-            </div>
-
-            <div v-show="v1ResaleApplied">
-              <dt>
-                Audited
+                {{ $t('v12.Audited') }}
               </dt>
               <dd>
                 <number-obj :value-obj="account.v1.resale.usdAuditObj"/>
@@ -84,9 +107,9 @@
             </div>
 
 
-            <div v-show="v1ResaleApplied">
+            <div v-show="v1ResaleApplied && account.v1.resale.usdClaimed > '0'">
               <dt>
-                Claimed
+                {{ $t('v12.Claimed') }}
               </dt>
               <dd>
                 <number-obj :value-obj="account.v1.resale.usdClaimedObj"/>
@@ -98,7 +121,7 @@
 
             <div v-show="v1ResaleApplied">
               <dt>
-                Available to claim
+                {{ $t('v12.Available_to_claim') }}
               </dt>
               <dd>
                 <number-obj :value-obj="account.v1.resale.usdQuotaObj"/>
@@ -112,7 +135,7 @@
               <button class="mt-2 w-full btn btn-purple justify-center py-2 text-lg"
                       @click="v1Resale"
               >
-                Apply for Resale
+                {{ $t('v12.Apply_to_Resale') }}
               </button>
             </div>
 
@@ -125,7 +148,7 @@
               <button class="mt-2 w-full btn btn-purple justify-center py-2 text-lg"
                       @click="v1Claim"
               >
-                Claim {{ account.v1.resale.usdQuotaStr }} USD(DAI)
+                {{ $t('v12.Claim') }} {{ account.v1.resale.usdQuotaStr }} USD(DAI)
               </button>
             </div>
 
@@ -144,7 +167,7 @@
           <dl class="audited-body">
             <div>
               <dt>
-                Holding (Deprecated)
+                {{ $t('v12.Holding__') }}
               </dt>
               <dd>
                 <number-obj :value-obj="account.v2.balanceObj"/>
@@ -155,7 +178,7 @@
             </div>
             <div v-show="v2ResaleAllowed && account.v2.weiAudit > '0'">
               <dt>
-                Audited Cost
+                {{ $t('v12.Audited_Cost') }}
               </dt>
               <dd>
                 <number-obj :value-obj="account.v2.weiAuditObj"/>
@@ -168,10 +191,11 @@
             <div v-show="v2ResaleAllowed && v2UsdAudit > '0'">
               <dt>
                 <p>
-                  You can apply to resale for
+                  {{ $t('v12.You_can_apply_to_resale_for') }}
                 </p>
                 <p>
-                  $<number-obj :value-obj="status.resaleEtherUSDPriceObj"/>
+                  $
+                  <number-obj :value-obj="status.resaleEtherUSDPriceObj"/>
                   x
                   <number-obj :value-obj="account.v2.weiAuditObj"/>
                   =
@@ -187,18 +211,7 @@
 
             <div v-show="v2ResaleApplied">
               <dt>
-                Applied at
-              </dt>
-              <dd>
-                <span class="unit">
-                  {{ $moment(account.v2.resale.timestamp * 1000).format('YYYY-MM-DD HH:mm:ss') }}
-                </span>
-              </dd>
-            </div>
-
-            <div v-show="v2ResaleApplied">
-              <dt>
-                Audited
+                {{ $t('v12.Audited') }}
               </dt>
               <dd>
                 <number-obj :value-obj="account.v2.resale.usdAuditObj"/>
@@ -208,9 +221,9 @@
               </dd>
             </div>
 
-            <div v-show="v2ResaleApplied">
+            <div v-show="v2ResaleApplied && account.v2.resale.usdClaimed > '0'">
               <dt>
-                Claimed
+                {{ $t('v12.Claimed') }}
               </dt>
               <dd>
                 <number-obj :value-obj="account.v2.resale.usdClaimedObj"/>
@@ -222,7 +235,7 @@
 
             <div v-show="v2ResaleApplied">
               <dt>
-                Available to claim
+                {{ $t('v12.Available_to_claim') }}
               </dt>
               <dd>
                 <number-obj :value-obj="account.v2.resale.usdQuotaObj"/>
@@ -236,7 +249,7 @@
               <button class="mt-2 w-full btn btn-purple justify-center py-2 text-lg"
                       @click="v2Resale"
               >
-                Apply for Resale
+                {{ $t('v12.Apply_to_Resale') }}
               </button>
             </div>
 
@@ -249,7 +262,7 @@
               <button class="mt-2 w-full btn btn-purple justify-center py-2 text-lg"
                       @click="v2Claim"
               >
-                Claim {{ account.v2.resale.usdQuotaStr }} USD(DAI)
+                {{ $t('v12.Claim') }} {{ account.v2.resale.usdQuotaStr }} USD(DAI)
               </button>
             </div>
 
@@ -262,7 +275,7 @@
       </div>
     </div>
 
-  </layout-bg-a>
+  </div>
 </template>
 
 <script>
@@ -270,7 +283,7 @@ import BigNumber from "bignumber.js"
 import fnFormat from "~/utils/fnFormat"
 
 export default {
-  name: "ResaleR",
+  name: "V12Resale",
   data() {
     return {
       showV1ResaleBtn: true,
@@ -307,11 +320,14 @@ export default {
     },
 
 
+    /**
+     * Show Resale
+     */
     showV1Resale() {
       return (
         this.account.v1.balance > '0'
-        &&
-        (this.account.v1.resale.usdAudit > '0' || this.account.v1.resale.timestamp === 0)
+        // &&
+        // (this.account.v1.resale.usdAudit > '0' || this.account.v1.resale.timestamp === 0)
         &&
         this.account.v1.upgrade.timestamp === 0
       )
@@ -319,28 +335,38 @@ export default {
     showV2Resale() {
       return (
         this.account.v2.balance > '0'
-        &&
-        (this.account.v2.resale.usdAudit > '0' || this.account.v2.resale.timestamp === 0)
+        // &&
+        // (this.account.v2.resale.usdAudit > '0' || this.account.v2.resale.timestamp === 0)
         &&
         this.account.v2.upgrade.timestamp === 0
       )
     },
 
+    /**
+     * Resale Allowed
+     */
     v1ResaleAllowed() {
       return this.account.v1.resale.timestamp === 0 && this.account.v1.upgrade.timestamp === 0
     },
-    v1ResaleApplied() {
-      return this.account.v1.resale.timestamp > 0
-    },
-    v1ClaimAllowed() {
-      return this.account.v1.resale.timestamp > 0 && this.account.v1.resale.usdQuota > '0'
-    },
-
     v2ResaleAllowed() {
       return this.account.v2.resale.timestamp === 0 && this.account.v2.upgrade.timestamp === 0
     },
+
+    /**
+     * Resale Applied
+     */
+    v1ResaleApplied() {
+      return this.account.v1.resale.timestamp > 0
+    },
     v2ResaleApplied() {
       return this.account.v2.resale.timestamp > 0
+    },
+
+    /**
+     * Claim Allowed
+     */
+    v1ClaimAllowed() {
+      return this.account.v1.resale.timestamp > 0 && this.account.v1.resale.usdQuota > '0'
     },
     v2ClaimAllowed() {
       return this.account.v2.resale.timestamp > 0 && this.account.v2.resale.usdQuota > '0'
@@ -390,6 +416,9 @@ export default {
     }
   },
   methods: {
+    /**
+     * Resale (v1)
+     */
     async v1Resale() {
       this.showV1ResaleBtn = false
       this.txV1ResaleStatus = 0
@@ -417,11 +446,9 @@ export default {
       }
     },
     async onV1ResaleConfirmation(confirmation) {
-      if (this.txV1ResaleStatus < 3 && confirmation < 16) {
+      if (this.txV1ResaleStatus < 3 && confirmation < 9) {
         if (confirmation < 6) {
           this.txV1ResaleStatus = 1
-        } else if (confirmation >= 6 && confirmation < 10) {
-          this.txV1ResaleStatus = 2
         } else {
           this.txV1ResaleStatus = 2
           await this.$store.dispatch('vokenResale/SYNC_ACCOUNT')
@@ -437,6 +464,9 @@ export default {
       this.showV1ResaleBtn = true
     },
 
+    /**
+     * Resale (v2)
+     */
     async v2Resale() {
       this.showV2ResaleBtn = false
       this.txV2ResaleStatus = 0
@@ -464,11 +494,9 @@ export default {
       }
     },
     async onV2ResaleConfirmation(confirmation) {
-      if (this.txV2ResaleStatus < 3 && confirmation < 16) {
+      if (this.txV2ResaleStatus < 3 && confirmation < 9) {
         if (confirmation < 6) {
           this.txV2ResaleStatus = 1
-        } else if (confirmation >= 6 && confirmation < 10) {
-          this.txV2ResaleStatus = 2
         } else {
           this.txV2ResaleStatus = 2
           await this.$store.dispatch('vokenResale/SYNC_ACCOUNT')
@@ -515,11 +543,9 @@ export default {
       }
     },
     async onV1ClaimConfirmation(confirmation) {
-      if (this.txV1ClaimStatus < 3 && confirmation < 16) {
+      if (this.txV1ClaimStatus < 3 && confirmation < 9) {
         if (confirmation < 6) {
           this.txV1ClaimStatus = 1
-        } else if (confirmation >= 6 && confirmation < 10) {
-          this.txV1ClaimStatus = 2
         } else {
           this.txV1ClaimStatus = 2
           await this.$store.dispatch('vokenResale/SYNC_ACCOUNT')
@@ -565,11 +591,9 @@ export default {
       }
     },
     async onV2ClaimConfirmation(confirmation) {
-      if (this.txV2ClaimStatus < 3 && confirmation < 16) {
+      if (this.txV2ClaimStatus < 3 && confirmation < 9) {
         if (confirmation < 6) {
           this.txV2ClaimStatus = 1
-        } else if (confirmation >= 6 && confirmation < 10) {
-          this.txV2ClaimStatus = 2
         } else {
           this.txV2ClaimStatus = 2
           await this.$store.dispatch('vokenResale/SYNC_ACCOUNT')
@@ -584,11 +608,6 @@ export default {
       this.txV2ClaimMessage = error.message
       this.showV2ClaimBtn = true
     },
-
   }
 }
 </script>
-
-<style scoped>
-
-</style>

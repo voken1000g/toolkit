@@ -3,21 +3,27 @@
     <div class="resp-wide">
       <layout-h2>
         <template #title>
-          Progress
+          {{ $t('v12.Upgrade_Progress') }}
+        </template>
+
+        <template #text>
+          <span class="font-mono break-all">
+            {{ DAPP.CONTRACT_ADDRESS_RESALE }}
+          </span>
         </template>
       </layout-h2>
 
-      <div class="countdown-progress vn-bg-gr-pink">
+      <div class="resp-mt countdown-progress vn-bg-gr-pink">
         <div class="countdown">
           <div class="font-bold">
-            Deadline for Upgrade
+            {{ $t('v12.Deadline_for_Upgrade') }}
           </div>
           <div class="mt-2 text-sm">
             {{ $moment(status.deadline * 1000) }}
           </div>
           <div class="mt-2 font-bold text-2xl xl:text-3xl">
             <span>
-              {{ countdown.d }} days
+              {{ countdown.d }} {{ $t('v12.days') }}
             </span>
             <span>
               {{ countdown.hh }}:{{ countdown.mm }}:{{ countdown.ss }}
@@ -30,12 +36,12 @@
             %
           </div>
           <div class="mt-2 font-normal text-sm">
-            of total 21,000,000 VokenTB
+            {{ $t('v12.of_total') }} 21,000,000 VokenTB
           </div>
           <div class="mt-2 font-bold">
-            upgraded
+            {{ $t('v12.upgraded') }}
             <span v-show="status.processInPercentObj.d >= '100'">
-              (cap reached)
+              {{ $t('v12._cap_reached_') }}
             </span>
           </div>
         </div>
@@ -45,8 +51,15 @@
 </template>
 
 <script>
+import DAPP from '~/utils/constants/dapp'
+
 export default {
-  name: "ResaleProgress",
+  name: "V12Progress",
+  data() {
+    return {
+      DAPP: DAPP,
+    }
+  },
   computed: {
     status() {
       return this.$store.state.vokenResale.status
