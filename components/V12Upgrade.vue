@@ -36,7 +36,7 @@
           (Address <span class="font-mono">{{ $store.state.ether.account }}</span>)
         </p>
 
-        <p v-show="!account.canOnlyResale && capReachedAndOnlyResale" class="font-bold">
+        <p v-show="!account.canOnlyResale && capReached && (v1UpgradeAllowed || v2UpgradeAllowed)" class="font-bold">
           <number-obj :value-obj="status.processInPercentObj"/>
           %
           {{ $t('v12.of_total') }} 21,000,000 VokenTB {{ $t('v12.upgraded') }}.
@@ -147,7 +147,7 @@
               </dd>
             </div>
 
-            <div v-show="v1UpgradeAllowed && showV1UpgradeBtn">
+            <div v-show="!capReached && v1UpgradeAllowed && showV1UpgradeBtn">
               <button class="mt-2 w-full btn btn-pink justify-center py-2 text-lg"
                       @click="v1Upgrade"
               >
@@ -261,7 +261,7 @@
               </dd>
             </div>
 
-            <div v-show="v2UpgradeAllowed && showV2UpgradeBtn">
+            <div v-show="!capReached && v2UpgradeAllowed && showV2UpgradeBtn">
               <button class="mt-2 w-full btn btn-pink justify-center py-2 text-lg"
                       @click="v2Upgrade"
               >
@@ -277,7 +277,9 @@
         </div>
       </div>
 
-      <article v-show="!capReached && !account.canOnlyResale" class="resp-mt prose lg:prose-lg xl:prose-xl max-w-none">
+      <article v-show="!account.canOnlyResale"
+               class="resp-mt prose lg:prose-lg xl:prose-xl max-w-none"
+      >
         <h3>
           {{ $t('v12.Vesting_plan') }}
         </h3>
@@ -322,19 +324,8 @@ export default {
       return this.$store.state.vokenResale.account
     },
 
-    capReach() {
-      return this.status.processInPercentObj.d >= '100'
-    },
-
     capReached() {
-      // return false
-      return (
-        this.status.processInPercentObj.d >= '100'
-        &&
-        (this.account.v1.resale.timestamp === 0 && this.account.v1.upgrade.timestamp === 0)
-        &&
-        (this.account.v2.resale.timestamp === 0 && this.account.v2.upgrade.timestamp === 0)
-      )
+      return this.status.processInPercentObj.d >= '100'
     },
 
     capReachedAndOnlyResale() {
@@ -346,7 +337,7 @@ export default {
         return this.showV1Upgrade || this.showV2Upgrade
       }
 
-      return this.account.v1.resale.timestamp > 0 || this.account.v2.resale.timestamp > 0
+      return this.account.v1.upgrade.timestamp > 0 || this.account.v2.upgrade.timestamp > 0
     },
 
     showV1Upgrade() {
@@ -357,7 +348,6 @@ export default {
     },
 
     v1UpgradeAllowed() {
-      return false
       return (
         this.account.v1.balance > '0'
         &&
@@ -367,7 +357,6 @@ export default {
       )
     },
     v2UpgradeAllowed() {
-      return false
       return (
         this.account.v2.balance > '0'
         &&
