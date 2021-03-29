@@ -7,6 +7,7 @@ export default {
   Early_Bird_Sale_Price: 'Early-Bird Sale Price',
   Early_Bird_Sale_DApp: 'Early-Bird Sale DApp',
   Early_Bird_Sale_Progress: 'Early-Bird Sale Progress',
+  Early_Bird_Sale_Referral_System: 'Early-Bird Sale Referral Sytem',
   Public_Sale: 'Public Sale',
   Public_Sale_DApp: 'Public Sale DApp',
   UniSwap_Price: 'UniSwap Price',

@@ -7,6 +7,7 @@ export default {
   Early_Bird_Sale_Price: '早起鸟销售价格',
   Early_Bird_Sale_DApp: '早起鸟销售 DApp',
   Early_Bird_Sale_Progress: '早起鸟销售进度',
+  Early_Bird_Sale_Referral_System: '早起鸟销售推荐系统',
   Public_Sale: '公开销售',
   Public_Sale_DApp: '公开销售 DApp',
   UniSwap_Price: 'UniSwap 价格',

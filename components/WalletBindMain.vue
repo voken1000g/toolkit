@@ -114,14 +114,14 @@
 
         <div class="resp-mt">
           <nuxt-link :to="localePath('/voken/migrate')" class="w-full btn justify-center py-3 text-lg">
-            Migrate to Voken Blockchain
+            {{ $t('voken.migrate.Migrate_to_Voken_Blockchain') }}
           </nuxt-link>
         </div>
         <div class="mt-3">
           <nuxt-link :to="localePath('/voken/early-bird-referral')"
                      class="w-full btn btn-pink justify-center py-3 text-lg"
           >
-            Early-Bird Sale Referral Rewards
+            {{ $t('voken.Early_Bird_Sale_Referral_System') }}
           </nuxt-link>
         </div>
       </div>

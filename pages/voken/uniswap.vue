@@ -1,16 +1,30 @@
 <template>
-  <div class="resp-my resp-wide pb-72 text-center">
-    <h2 class="font-mono text-3xl text-cool-gray-500">
-      UniSwap Guide: coming soon...
-    </h2>
+  <div>
+    <layout-hero-simple>
+      <template #title>
+        {{ $t('uniswap.UniSwap_Guide') }}
+      </template>
 
-    <p class="resp-mt font-bold text-lg text-cool-gray-500">
-      VokenTB Contract Address
-    </p>
+      <template #text>
+        {{ $t('uniswap.UniSwap_DEX__') }}
+      </template>
+    </layout-hero-simple>
 
-    <p class="mt-4 font-mono text-lg text-cool-gray-500">
-      {{ DAPP.CONTRACT_ADDRESS_VOKEN_TB }}
-    </p>
+<!--    <uniswap-intro />-->
+
+    <div class="resp-my resp-wide pb-72 text-center">
+      <h2 class="font-mono text-3xl text-cool-gray-500">
+        Coming soon...
+      </h2>
+
+      <p class="resp-mt font-bold text-lg text-cool-gray-500">
+        VokenTB Contract Address
+      </p>
+
+      <p class="mt-4 font-mono text-lg text-cool-gray-500">
+        {{ DAPP.CONTRACT_ADDRESS_VOKEN_TB }}
+      </p>
+    </div>
   </div>
 </template>
 
@@ -19,6 +33,7 @@ import DAPP from '~/utils/constants/dapp'
 
 export default {
   name: "uniswap",
+  layout: 'white',
   computed: {
     DAPP() {
       return DAPP

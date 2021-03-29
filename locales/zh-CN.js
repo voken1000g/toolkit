@@ -12,6 +12,7 @@ import ether from './ether_zh'
 import voken from './voken_zh'
 import earlyBird from './earlyBird_zh'
 import v12 from './v12_zh'
+import uniswap from './uniswap_zh'
 
 export default {
   link: link,
@@ -28,6 +29,7 @@ export default {
   voken: voken,
   earlyBird: earlyBird,
   v12: v12,
+  uniswap: uniswap,
 
   link_to_github: {
     text: 'GitHub',
