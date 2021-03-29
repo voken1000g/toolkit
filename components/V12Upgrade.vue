@@ -36,7 +36,9 @@
           (Address <span class="font-mono">{{ $store.state.ether.account }}</span>)
         </p>
 
-        <p v-show="!account.canOnlyResale && capReached && (v1UpgradeAllowed || v2UpgradeAllowed)" class="font-bold">
+        <p v-show="!account.canOnlyResale && capReached && (v1UpgradeAllowed || v2UpgradeAllowed)"
+           class="font-bold text-orange-600"
+        >
           <number-obj :value-obj="status.processInPercentObj"/>
           %
           {{ $t('v12.of_total') }} 21,000,000 VokenTB {{ $t('v12.upgraded') }}.

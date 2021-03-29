@@ -326,8 +326,6 @@ export default {
     showV1Resale() {
       return (
         this.account.v1.balance > '0'
-        // &&
-        // (this.account.v1.resale.usdAudit > '0' || this.account.v1.resale.timestamp === 0)
         &&
         this.account.v1.upgrade.timestamp === 0
       )
@@ -335,8 +333,6 @@ export default {
     showV2Resale() {
       return (
         this.account.v2.balance > '0'
-        // &&
-        // (this.account.v2.resale.usdAudit > '0' || this.account.v2.resale.timestamp === 0)
         &&
         this.account.v2.upgrade.timestamp === 0
       )
@@ -346,10 +342,22 @@ export default {
      * Resale Allowed
      */
     v1ResaleAllowed() {
-      return this.account.v1.resale.timestamp === 0 && this.account.v1.upgrade.timestamp === 0
+      return (
+        this.account.v1.balance > '0'
+        &&
+        this.account.v1.resale.timestamp === 0
+        &&
+        this.account.v1.upgrade.timestamp === 0
+      )
     },
     v2ResaleAllowed() {
-      return this.account.v2.resale.timestamp === 0 && this.account.v2.upgrade.timestamp === 0
+      return (
+        this.account.v2.balance > '0'
+        &&
+        this.account.v2.resale.timestamp === 0
+        &&
+        this.account.v2.upgrade.timestamp === 0
+      )
     },
 
     /**

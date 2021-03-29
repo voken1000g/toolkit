@@ -34,7 +34,7 @@ export default {
   Option1__: 'Option 1: Resale',
   Get_your__back__: 'Get your investment back, paid in USD(DAI stablecoin)',
   The_price_of_ETH_was__: 'The price of ETH was $180-300 USD (Private Placement). ' +
-    'By taking this option to apply for resale, it will be priced at $350 USD (higher), ' +
+    'By taking this option to apply to resale, it will be priced at $350 USD (higher), ' +
     'then you can',
   get_more_than__: 'get more than your investment back during the VokenTB',
   and: 'and',
@@ -49,7 +49,7 @@ export default {
   Option2__: 'Option 2: Upgrade to VokenTB',
   Upgrade_to_VokenTB: 'Upgrade to VokenTB',
   By_upgrading__: 'By upgrading, you can get VokenTB more than the value of your investment by using the latest realtime ETH price.',
-  You_can_only_apply_for_resale_: 'You can only apply for resale.',
+  You_can_only_apply_for_resale_: 'You can only apply to resale.',
   You: 'You',
   have_used: 'have used',
   can_used: 'can used',
