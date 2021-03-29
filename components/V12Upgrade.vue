@@ -36,17 +36,40 @@
           (Address <span class="font-mono">{{ $store.state.ether.account }}</span>)
         </p>
 
-        <p v-show="!account.canOnlyResale && capReached && (v1UpgradeAllowed || v2UpgradeAllowed)"
-           class="font-bold text-orange-600"
-        >
-          <number-obj :value-obj="status.processInPercentObj"/>
-          %
-          {{ $t('v12.of_total') }} 21,000,000 VokenTB {{ $t('v12.upgraded') }}.
-          <span v-show="status.processInPercentObj.d >= '100'">
-            {{ $t('v12.Cap_reached_') }}
-          </span>
-          {{ $t('v12.You_can_only_apply_for_resale_') }}
-        </p>
+        <div v-show="!account.canOnlyResale && capReached" class="font-bold text-orange-600">
+          <div v-if="v1UpgradeAllowed && v2UpgradeAllowed">
+            <number-obj :value-obj="status.processInPercentObj"/>
+            %
+            {{ $t('v12.of_total') }} 21,000,000 VokenTB {{ $t('v12.upgraded') }}.
+              <span v-show="status.processInPercentObj.d >= '100'">
+              {{ $t('v12.Cap_reached_') }}
+            </span>
+            {{ $t('v12.You_can_only_apply_for_resale_') }}
+          </div>
+          <div v-else>
+            <p v-show="v1UpgradeAllowed">
+              Voken1.0:
+              <number-obj :value-obj="status.processInPercentObj"/>
+              %
+              {{ $t('v12.of_total') }} 21,000,000 VokenTB {{ $t('v12.upgraded') }}.
+              <span v-show="status.processInPercentObj.d >= '100'">
+                {{ $t('v12.Cap_reached_') }}
+              </span>
+              {{ $t('v12.You_can_only_apply_for_resale_') }}
+            </p>
+
+            <p v-show="v2UpgradeAllowed">
+              Voken1.0:
+              <number-obj :value-obj="status.processInPercentObj"/>
+              %
+              {{ $t('v12.of_total') }} 21,000,000 VokenTB {{ $t('v12.upgraded') }}.
+              <span v-show="status.processInPercentObj.d >= '100'">
+                {{ $t('v12.Cap_reached_') }}
+              </span>
+              {{ $t('v12.You_can_only_apply_for_resale_') }}
+            </p>
+          </div>
+        </div>
       </article>
 
       <div v-show="showUpgrade && !account.canOnlyResale" class="audited">
@@ -294,6 +317,10 @@
         </p>
       </article>
     </div>
+
+    <div>
+      {{ status.deadlinePassed }}
+    </div>
   </div>
 </template>
 
@@ -351,6 +378,8 @@ export default {
 
     v1UpgradeAllowed() {
       return (
+        !this.status.deadlinePassed
+        &&
         this.account.v1.balance > '0'
         &&
         this.account.v1.upgrade.timestamp === 0
@@ -360,6 +389,8 @@ export default {
     },
     v2UpgradeAllowed() {
       return (
+        !this.status.deadlinePassed
+        &&
         this.account.v2.balance > '0'
         &&
         this.account.v2.upgrade.timestamp === 0

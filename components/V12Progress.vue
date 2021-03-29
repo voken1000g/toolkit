@@ -22,7 +22,7 @@
             {{ $moment(status.deadline * 1000) }}
           </div>
           <div class="mt-2 font-bold text-2xl xl:text-3xl">
-            <span>
+            <span v-show="countdown.d > '0'">
               {{ countdown.d }} {{ $t('v12.days') }}
             </span>
             <span>

@@ -10,6 +10,7 @@ export const state = () => ({
 
   status: {
     deadline: 0,
+    deadlinePassed: false,
 
     usdAudit: '0',
     usdAuditStr: '0',
@@ -327,8 +328,6 @@ export const state = () => ({
     mm: '00',
     ss: '00',
   },
-
-
 })
 
 
@@ -372,6 +371,7 @@ export const mutations = {
 
   SET_STATUS(state, payload) {
     state.status.deadline = parseInt(payload.deadline)
+    state.status.deadlinePassed = state.status.deadline < Math.floor(new Date().getTime() / 1000)
 
     state.status.usdAudit = payload.usdAudit
     state.status.usdAuditStr = fnFormat.ns2Str(payload.usdAudit, 6)
@@ -597,7 +597,7 @@ export const actions = {
     commit('SET_CONTRACT', contract)
   },
   async KEEP_DEADLINE_COUNTDOWN({commit, state}) {
-    if (!state.deadlineCountdown.interval) {
+    if (!state.status.deadlinePassed && !state.deadlineCountdown.interval) {
       commit('SET_DEADLINE_COUNTDOWN_INTERVAL',
         window.setInterval(
           () => {

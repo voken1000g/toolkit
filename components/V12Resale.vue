@@ -57,7 +57,7 @@
               <dd>
                 <number-obj :value-obj="account.v1.balanceObj"/>
                 <span class="unit">
-                  Voken2.0
+                  Voken1.0
                 </span>
               </dd>
             </div>
