@@ -322,6 +322,10 @@ export default {
       return this.$store.state.vokenResale.account
     },
 
+    capReach() {
+      return this.status.processInPercentObj.d >= '100'
+    },
+
     capReached() {
       // return false
       return (
@@ -353,6 +357,7 @@ export default {
     },
 
     v1UpgradeAllowed() {
+      return false
       return (
         this.account.v1.balance > '0'
         &&
@@ -362,6 +367,7 @@ export default {
       )
     },
     v2UpgradeAllowed() {
+      return false
       return (
         this.account.v2.balance > '0'
         &&
