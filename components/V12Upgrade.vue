@@ -317,10 +317,6 @@
         </p>
       </article>
     </div>
-
-    <div>
-      {{ status.deadlinePassed }}
-    </div>
   </div>
 </template>
 
