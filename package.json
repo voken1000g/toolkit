@@ -36,7 +36,7 @@
     "numbro": "^2.3.2",
     "nuxt": "^2.15.3",
     "nuxt-fontawesome": "^0.4.0",
-    "nuxt-i18n": "^6.22.2",
+    "nuxt-i18n": "^6.22.3",
     "nuxt-storage": "^1.2.2",
     "vue-qr": "^2.3.0"
   },
