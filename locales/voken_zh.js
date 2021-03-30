@@ -130,6 +130,16 @@ export default {
     WHEN_MIGRATE__3: '如果它们都消耗殆尽，那么时机就到了。',
     WHEN_MIGRATE__4: '或者，主网启动后，根据需要进行迁移也是一个不错的选择。',
 
-  }
+  },
 
+
+  /**
+   * Referral
+   */
+  referral: {
+    Direct_Referral_Records: '直接推荐记录',
+    Referral_Reward_Records: '推荐奖励记录',
+    No_Referral_Record: '没有推荐记录',
+    No_Reward_Record: '没有奖励记录',
+  },
 }

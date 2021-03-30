@@ -3,7 +3,7 @@
     <div class="resp-wide">
       <layout-h2>
         <template #title>
-          {{ $t('v12.Upgrade_Progress') }}
+          {{ $t('v12.V12_Progress') }}
         </template>
 
         <template #text>
@@ -16,7 +16,7 @@
       <div class="resp-mt countdown-progress vn-bg-gr-pink">
         <div class="countdown">
           <div class="font-bold">
-            {{ $t('v12.Deadline_for_Upgrade') }}
+            {{ $t('v12.Deadline_for__') }}
           </div>
           <div class="mt-2 text-sm">
             {{ $moment(status.deadline * 1000) }}
@@ -45,6 +45,11 @@
             </span>
           </div>
         </div>
+      </div>
+
+      <div class="resp-mt px-4 font-bold text-lg xl:text-xl text-center">
+        <span v-if="status.deadlinePassed" class="text-orange-600">{{ $t('v12.DEADLINE_PASSED') }}</span>
+        <span v-else>{{ $t('v12.TWO_OPTIONS_4_YOU') }}</span>
       </div>
     </div>
   </div>

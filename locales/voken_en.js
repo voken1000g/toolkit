@@ -133,8 +133,16 @@ export default {
     WHEN_MIGRATE__2: 'By using them, you can already experience the proxy service, even send some to your friends.',
     WHEN_MIGRATE__3: 'If they are all consumed, the time will come.',
     WHEN_MIGRATE__4: 'Or, it\'s also a good option to migrate as needed once the main network is launched.',
+  },
 
-
-  }
+  /**
+   * Referral
+   */
+  referral: {
+    Direct_Referral_Records: 'Direct Referral Records',
+    Referral_Reward_Records: 'Referral Reward Records',
+    No_Referral_Record: 'No Referral Record',
+    No_Reward_Record: 'No Reward Record',
+  },
 
 }

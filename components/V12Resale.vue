@@ -42,8 +42,7 @@
         </p>
       </article>
 
-
-      <div class="audited">
+      <div v-show="showV1Resale || showV2Resale" class="audited">
         <!-- Voken1.0 Resale -->
         <div v-show="showV1Resale" class="audited-wrapper">
           <div class="audited-header">
@@ -94,7 +93,7 @@
               </dd>
             </div>
 
-            <div v-show="v1ResaleApplied">
+            <div v-show="account.v1.resale.timestamp > 0">
               <dt>
                 {{ $t('v12.Audited') }}
               </dt>
@@ -107,7 +106,7 @@
             </div>
 
 
-            <div v-show="v1ResaleApplied && account.v1.resale.usdClaimed > '0'">
+            <div v-show="account.v1.resale.timestamp > 0 && account.v1.resale.usdClaimed > '0'">
               <dt>
                 {{ $t('v12.Claimed') }}
               </dt>
@@ -119,7 +118,7 @@
               </dd>
             </div>
 
-            <div v-show="v1ResaleApplied">
+            <div v-show="account.v1.resale.timestamp > 0">
               <dt>
                 {{ $t('v12.Available_to_claim') }}
               </dt>
@@ -209,7 +208,7 @@
               </dd>
             </div>
 
-            <div v-show="v2ResaleApplied">
+            <div v-show="account.v2.resale.timestamp > 0">
               <dt>
                 {{ $t('v12.Audited') }}
               </dt>
@@ -221,7 +220,7 @@
               </dd>
             </div>
 
-            <div v-show="v2ResaleApplied && account.v2.resale.usdClaimed > '0'">
+            <div v-show="account.v2.resale.timestamp > 0 && account.v2.resale.usdClaimed > '0'">
               <dt>
                 {{ $t('v12.Claimed') }}
               </dt>
@@ -233,7 +232,7 @@
               </dd>
             </div>
 
-            <div v-show="v2ResaleApplied">
+            <div v-show="account.v2.resale.timestamp > 0">
               <dt>
                 {{ $t('v12.Available_to_claim') }}
               </dt>
@@ -274,7 +273,6 @@
         </div>
       </div>
     </div>
-
   </div>
 </template>
 
@@ -319,23 +317,22 @@ export default {
       return this.$store.state.vokenResale.account
     },
 
-
     /**
      * Show Resale
      */
     showV1Resale() {
-      return (
-        this.account.v1.balance > '0'
-        &&
-        this.account.v1.upgrade.timestamp === 0
-      )
+      if (!this.status.deadlinePassed) {
+        return this.account.v1.balance > '0' && this.account.v1.upgrade.timestamp === 0
+      }
+
+      return this.account.v1.resale.timestamp > 0
     },
     showV2Resale() {
-      return (
-        this.account.v2.balance > '0'
-        &&
-        this.account.v2.upgrade.timestamp === 0
-      )
+      if (!this.status.deadlinePassed) {
+        return this.account.v2.balance > '0' && this.account.v2.upgrade.timestamp === 0
+      }
+
+      return this.account.v2.resale.timestamp > 0
     },
 
     /**
@@ -343,6 +340,8 @@ export default {
      */
     v1ResaleAllowed() {
       return (
+        !this.status.deadlinePassed
+        &&
         this.account.v1.balance > '0'
         &&
         this.account.v1.resale.timestamp === 0
@@ -352,6 +351,8 @@ export default {
     },
     v2ResaleAllowed() {
       return (
+        !this.status.deadlinePassed
+        &&
         this.account.v2.balance > '0'
         &&
         this.account.v2.resale.timestamp === 0
@@ -361,26 +362,8 @@ export default {
     },
 
     /**
-     * Resale Applied
+     * USD Audited
      */
-    v1ResaleApplied() {
-      return this.account.v1.resale.timestamp > 0
-    },
-    v2ResaleApplied() {
-      return this.account.v2.resale.timestamp > 0
-    },
-
-    /**
-     * Claim Allowed
-     */
-    v1ClaimAllowed() {
-      return this.account.v1.resale.timestamp > 0 && this.account.v1.resale.usdQuota > '0'
-    },
-    v2ClaimAllowed() {
-      return this.account.v2.resale.timestamp > 0 && this.account.v2.resale.usdQuota > '0'
-    },
-
-
     v1UsdAudit() {
       if (this.account.v1.resale.usdAudit > '0') {
         return this.account.v1.resale.usdAudit
@@ -392,8 +375,6 @@ export default {
           .div(10 ** 18)
           .toString()
       )
-
-
     },
     v1UsdAuditStr() {
       return fnFormat.ns2Str(this.v1UsdAudit, 6)
@@ -413,15 +394,23 @@ export default {
           .div(10 ** 18)
           .toString()
       )
-
-
     },
     v2UsdAuditStr() {
       return fnFormat.ns2Str(this.v2UsdAudit, 6)
     },
     v2UsdAuditObj() {
       return fnFormat.ns2Obj(this.v2UsdAuditStr)
-    }
+    },
+
+    /**
+     * Claim Allowed
+     */
+    v1ClaimAllowed() {
+      return this.account.v1.resale.timestamp > 0 && this.account.v1.resale.usdQuota > '0'
+    },
+    v2ClaimAllowed() {
+      return this.account.v2.resale.timestamp > 0 && this.account.v2.resale.usdQuota > '0'
+    },
   },
   methods: {
     /**

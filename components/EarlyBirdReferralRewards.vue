@@ -3,7 +3,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="max-w-4xl mx-auto text-center">
         <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
-          {{ $t('earlyBird.rules.Referral_Rewards') }}
+          {{ $t('voken.referral.Referral_Reward_Records') }}
         </h2>
 
       </div>
@@ -33,7 +33,7 @@
         </li>
       </ul>
       <div v-else class="text-center text-gray-500">
-        No Referrals Yet
+        {{ $t('voken.referral.No_Reward_Record') }}
       </div>
     </div>
 
@@ -75,8 +75,6 @@ export default {
     },
     async onRewards(events) {
       if (events.length > 0) {
-        // console.log('events:', events)
-
         let rewards = []
         for (let i = 0; i < events.length; i++) {
           rewards.push({

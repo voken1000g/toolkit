@@ -72,7 +72,7 @@
         </div>
       </article>
 
-      <div v-show="showUpgrade && !account.canOnlyResale" class="audited">
+      <div v-show="!account.canOnlyResale && (showV1Upgrade || showV2Upgrade)" class="audited">
         <!-- Voken1.0 Upgrade -->
         <div v-show="showV1Upgrade" class="audited-wrapper">
           <div class="audited-header">
@@ -87,6 +87,23 @@
                 <number-obj :value-obj="account.v1.balanceObj"/>
                 <span class="unit">
                   Voken1.0
+                </span>
+              </dd>
+            </div>
+
+            <div>
+              <dt>
+                <p>
+                  {{ $t('v12.Proportion') }}
+                </p>
+                <p>
+                  <number-obj :value-obj="account.v1.balanceObj"/> / 35 Billion =
+                </p>
+              </dt>
+              <dd>
+                <number-obj :value-obj="account.v1.proportionObj"/>
+                <span class="unit">
+                  %
                 </span>
               </dd>
             </div>
@@ -172,6 +189,23 @@
               </dd>
             </div>
 
+            <div>
+              <dt>
+                <p>
+                  {{ $t('v12.Proportion') }}
+                </p>
+                <p>
+                  <number-obj :value-obj="account.v1.upgrade.summedObj"/> / 21 Million =
+                </p>
+              </dt>
+              <dd>
+                <number-obj :value-obj="account.v1.upgrade.proportionObj"/>
+                <span class="unit">
+                  %
+                </span>
+              </dd>
+            </div>
+
             <div v-show="!capReached && v1UpgradeAllowed && showV1UpgradeBtn">
               <button class="mt-2 w-full btn btn-pink justify-center py-2 text-lg"
                       @click="v1Upgrade"
@@ -201,6 +235,23 @@
                 <number-obj :value-obj="account.v2.balanceObj"/>
                 <span class="unit">
                   Voken2.0
+                </span>
+              </dd>
+            </div>
+
+            <div>
+              <dt>
+                <p>
+                  {{ $t('v12.Proportion') }}
+                </p>
+                <p>
+                  <number-obj :value-obj="account.v2.balanceObj"/> / 35 Billion =
+                </p>
+              </dt>
+              <dd>
+                <number-obj :value-obj="account.v2.proportionObj"/>
+                <span class="unit">
+                  %
                 </span>
               </dd>
             </div>
@@ -286,6 +337,24 @@
               </dd>
             </div>
 
+            <div>
+              <dt>
+                <p>
+                  {{ $t('v12.Proportion') }}
+                </p>
+                <p>
+                  <number-obj :value-obj="account.v2.upgrade.summedObj"/> / 21 Million =
+                </p>
+              </dt>
+              <dd>
+                <number-obj :value-obj="account.v2.upgrade.proportionObj"/>
+                <span class="unit">
+                  %
+                </span>
+              </dd>
+            </div>
+
+
             <div v-show="!capReached && v2UpgradeAllowed && showV2UpgradeBtn">
               <button class="mt-2 w-full btn btn-pink justify-center py-2 text-lg"
                       @click="v2Upgrade"
@@ -353,34 +422,36 @@ export default {
       return this.status.processInPercentObj.d >= '100'
     },
 
-    capReachedAndOnlyResale() {
-      return this.capReached && (this.v1UpgradeAllowed || this.v2UpgradeAllowed)
-    },
-
-    showUpgrade() {
-      if (!this.capReached) {
-        return this.showV1Upgrade || this.showV2Upgrade
+    /**
+     * Show Upgrade
+     */
+    showV1Upgrade() {
+      if (!this.status.deadlinePassed && !this.capReached) {
+        return this.account.v1.balance > '0' && this.account.v1.resale.timestamp === 0
       }
 
-      return this.account.v1.upgrade.timestamp > 0 || this.account.v2.upgrade.timestamp > 0
-    },
-
-    showV1Upgrade() {
-      return this.account.v1.balance > '0' && this.account.v1.resale.timestamp === 0
+      return this.account.v1.upgrade.timestamp > 0
     },
     showV2Upgrade() {
-      return this.account.v2.balance > '0' && this.account.v2.resale.timestamp === 0
+      if (!this.status.deadlinePassed && !this.capReached) {
+        return this.account.v2.balance > '0' && this.account.v2.resale.timestamp === 0
+      }
+
+      return this.account.v2.upgrade.timestamp > 0
     },
 
+    /**
+     * Upgrade Allowed
+     */
     v1UpgradeAllowed() {
       return (
         !this.status.deadlinePassed
         &&
         this.account.v1.balance > '0'
         &&
-        this.account.v1.upgrade.timestamp === 0
-        &&
         this.account.v1.resale.timestamp === 0
+        &&
+        this.account.v1.upgrade.timestamp === 0
       )
     },
     v2UpgradeAllowed() {
@@ -389,9 +460,9 @@ export default {
         &&
         this.account.v2.balance > '0'
         &&
-        this.account.v2.upgrade.timestamp === 0
-        &&
         this.account.v2.resale.timestamp === 0
+        &&
+        this.account.v2.upgrade.timestamp === 0
       )
     },
 

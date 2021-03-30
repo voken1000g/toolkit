@@ -12,7 +12,8 @@
 
     <early-bird-referral-link class="bg-indigo-50" />
     <early-bird-referral-rules />
-    <early-bird-referral-rewards class="bg-indigo-50" />
+    <voken-direct-referral-list class="bg-indigo-50" />
+    <early-bird-referral-rewards />
   </div>
 </template>
 

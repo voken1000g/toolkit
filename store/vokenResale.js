@@ -194,6 +194,13 @@ export const state = () => ({
           f: null,
         },
 
+        proportion: '0',
+        proportionStr: '0',
+        proportionObj: {
+          d: '0',
+          f: null,
+        },
+
         etherUSDPrice: '0',
         etherUSDPriceStr: '0',
         etherUSDPriceObj: {
@@ -301,6 +308,13 @@ export const state = () => ({
           f: null,
         },
 
+        proportion: '0',
+        proportionStr: '0',
+        proportionObj: {
+          d: '0',
+          f: null,
+        },
+
         etherUSDPrice: '0',
         etherUSDPriceStr: '0',
         etherUSDPriceObj: {
@@ -359,6 +373,8 @@ export const mutations = {
       state.deadlineCountdown.hh = hh
       state.deadlineCountdown.d = d
     } else {
+      state.status.deadlinePassed = true
+
       state.deadlineCountdown.ss = '00'
       state.deadlineCountdown.mm = '00'
       state.deadlineCountdown.hh = '00'
@@ -371,6 +387,7 @@ export const mutations = {
 
   SET_STATUS(state, payload) {
     state.status.deadline = parseInt(payload.deadline)
+    // state.status.deadline = 1234567890
     state.status.deadlinePassed = state.status.deadline < Math.floor(new Date().getTime() / 1000)
 
     state.status.usdAudit = payload.usdAudit
@@ -411,6 +428,8 @@ export const mutations = {
         .plus(payload.v2Claimed)
         .plus(payload.v2Bonuses)
     )
+
+    // const vokenTbTotal = new BigNumber('0')
 
     state.status.vokenTbTotal = vokenTbTotal.toString()
     state.status.vokenTbTotalStr = fnFormat.ns2Str(state.status.vokenTbTotal)
@@ -536,6 +555,18 @@ export const mutations = {
     state.account.v1.upgrade.summedStr = fnFormat.ns2Str(state.account.v1.upgrade.summed)
     state.account.v1.upgrade.summedObj = fnFormat.ns2Obj(state.account.v1.upgrade.summedStr)
 
+    state.account.v1.upgrade.proportion = (
+      new BigNumber(state.account.v1.upgrade.summed)
+        .multipliedBy(100)
+        .dividedBy(21 * 10 ** 15)
+        .toString()
+    )
+    state.account.v1.upgrade.proportionStr = numbro(state.account.v1.upgrade.proportion).format({
+      thousandSeparated: true,
+      mantissa: 8
+    })
+    state.account.v1.upgrade.proportionObj = fnFormat.ns2Obj(state.account.v1.upgrade.proportionStr)
+
     state.account.v1.upgrade.etherUSDPrice = payload.etherUSD
     state.account.v1.upgrade.etherUSDPriceStr = fnFormat.ns2Str(state.account.v1.upgrade.etherUSDPrice, 6)
     state.account.v1.upgrade.etherUSDPriceObj = fnFormat.ns2Obj(state.account.v1.upgrade.etherUSDPriceStr)
@@ -577,6 +608,18 @@ export const mutations = {
     )
     state.account.v2.upgrade.summedStr = fnFormat.ns2Str(state.account.v2.upgrade.summed)
     state.account.v2.upgrade.summedObj = fnFormat.ns2Obj(state.account.v2.upgrade.summedStr)
+
+    state.account.v2.upgrade.proportion = (
+      new BigNumber(state.account.v2.upgrade.summed)
+        .multipliedBy(100)
+        .dividedBy(21 * 10 ** 15)
+        .toString()
+    )
+    state.account.v2.upgrade.proportionStr = numbro(state.account.v2.upgrade.proportion).format({
+      thousandSeparated: true,
+      mantissa: 8
+    })
+    state.account.v2.upgrade.proportionObj = fnFormat.ns2Obj(state.account.v2.upgrade.proportionStr)
 
     state.account.v2.upgrade.etherUSDPrice = payload.etherUSD
     state.account.v2.upgrade.etherUSDPriceStr = fnFormat.ns2Str(payload.etherUSD, 6)

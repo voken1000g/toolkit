@@ -21,13 +21,16 @@ export default {
   Proportion: '占比',
   Audited_Cost: '审计后成本',
 
-  Upgrade_Progress: '升级进度',
-  Deadline_for_Upgrade: '升级截止时间',
+  V12_Progress: '转售/升级进度',
+  Deadline_for__: '提交申请截止时间',
   days: '天',
   of_total: '总量',
   upgraded: '已升级',
   _cap_reached_: '（到达上限）',
   Cap_reached_: '到达上限。',
+
+  DEADLINE_PASSED: '提交申请的截止日期已过。',
+  TWO_OPTIONS_4_YOU: '两个选择：',
 
   Option1__: '选项 1：转售',
   Get_your__back__: '取回您的投资，以美元支付（DAI 稳定币）',
@@ -57,7 +60,7 @@ export default {
 
   Vesting_plan: '归属计划',
   All_Voken_upgraded__: '所有从 Voken1.0/2.0 升级的 VokenTB 都会被锁定，直到',
-  finished__then_release__daily: '完成，然后每天释放 1/1,080。',
+  finished__then_release__daily: '完成，然后每天释放 1/1,080',
 
   You_have_applied_to_UPGRADE_at: '您已经申请升级在',
   You_have_applied_to_RESALE_at: '您已经申请转售在',

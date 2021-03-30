@@ -23,13 +23,16 @@ export default {
   Proportion: 'Proportion',
   Audited_Cost: 'Audited Cost',
 
-  Upgrade_Progress: 'Upgrade Progress',
-  Deadline_for_Upgrade: 'Deadline for Upgrade',
+  V12_Progress: 'Resale/Upgrade Progress',
+  Deadline_for__: 'Deadline for Submitting',
   days: 'days',
   of_total: 'of total',
   upgraded: 'upgraded',
   _cap_reached_: '(cap reached)',
   Cap_reached_: 'Cap reached.',
+
+  DEADLINE_PASSED: 'The deadline for submitting applications has passed.',
+  TWO_OPTIONS_4_YOU: 'There are 2 options:',
 
   Option1__: 'Option 1: Resale',
   Get_your__back__: 'Get your investment back, paid in USD(DAI stablecoin)',

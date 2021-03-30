@@ -577,3 +577,31 @@
   }
 }
 
+/**
+ * Direct Referral List
+ */
+.direct-referral-list {
+  @apply mx-auto w-full max-w-2xl px-2;
+
+  ul {
+    @apply divide-y divide-gray-200;
+
+    li {
+      @apply flex items-center justify-between space-x-2;
+
+      //@screen sm {
+      //  @apply flex items-center justify-between space-x-2;
+      //}
+
+      div.drl-block {
+        @apply text-sm text-gray-500;
+      }
+
+      div.drl-address {
+        @apply w-full text-sm sm:text-base text-gray-700 text-right truncate;
+      }
+    }
+  }
+
+
+}
