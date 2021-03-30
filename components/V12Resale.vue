@@ -27,6 +27,20 @@
           </span>
         </p>
 
+        <p v-show="account.v1.resale.timestamp > 0" class="font-bold text-orange-600">
+          Voken1.0: {{ $t('v12.You_have_applied_to_RESALE_at') }}
+          {{ $moment(account.v1.resale.timestamp * 1000).format('YYYY-MM-DD HH:mm:ss') }},
+          {{ $t('v12.for') }}
+          <number-obj :value-obj="account.v1.resale.usdAuditObj"/> USD(DAI).
+        </p>
+
+        <p v-show="account.v2.resale.timestamp > 0" class="font-bold text-orange-600">
+          Voken2.0: {{ $t('v12.You_have_applied_to_RESALE_at') }}
+          {{ $moment(account.v2.resale.timestamp * 1000).format('YYYY-MM-DD HH:mm:ss') }},
+          {{ $t('v12.for') }}
+          <number-obj :value-obj="account.v2.resale.usdAuditObj"/> USD(DAI).
+        </p>
+
         <p v-show="account.v1.upgrade.timestamp > 0" class="font-bold text-orange-600">
           Voken1.0: {{ $t('v12.You_have_applied_to_UPGRADE_at') }}
           {{ $moment(account.v1.upgrade.timestamp * 1000).format('YYYY-MM-DD HH:mm:ss') }},
