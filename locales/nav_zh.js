@@ -2,6 +2,7 @@ export default {
   Home: '首页',
   Toolkit: '工具包',
 
+  Vision_Network: '远景网络',
   VOKEN_Toolkit: 'VOKEN 工具包',
   VOKEN_Early_Bird_Sale: 'VOKEN 早起鸟销售',
 

@@ -119,6 +119,25 @@
               </dd>
             </div>
 
+            <div v-show="account.v1.resale.timestamp > 0">
+              <dt>
+                <p>
+                  {{ $t('v12.Proportion') }}
+                </p>
+                <p>
+                  <number-obj :value-obj="account.v1.resale.usdAuditObj"/>
+                  /
+                  <number-obj :value-obj="status.usdAuditObj"/>
+                  =
+                </p>
+              </dt>
+              <dd>
+                <number-obj :value-obj="account.v1.resale.proportionObj"/>
+                <span class="unit">
+                  %
+                </span>
+              </dd>
+            </div>
 
             <div v-show="account.v1.resale.timestamp > 0 && account.v1.resale.usdClaimed > '0'">
               <dt>
@@ -230,6 +249,26 @@
                 <number-obj :value-obj="account.v2.resale.usdAuditObj"/>
                 <span class="unit">
                   USD(DAI)
+                </span>
+              </dd>
+            </div>
+
+            <div v-show="account.v2.resale.timestamp > 0">
+              <dt>
+                <p>
+                  {{ $t('v12.Proportion') }}
+                </p>
+                <p>
+                  <number-obj :value-obj="account.v2.resale.usdAuditObj"/>
+                  /
+                  <number-obj :value-obj="status.usdAuditObj"/>
+                  =
+                </p>
+              </dt>
+              <dd>
+                <number-obj :value-obj="account.v2.resale.proportionObj"/>
+                <span class="unit">
+                  %
                 </span>
               </dd>
             </div>

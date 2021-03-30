@@ -2,6 +2,7 @@ export default {
   Home: 'Home',
   Toolkit: 'Toolkit',
 
+  Vision_Network: 'Vision.Network',
   VOKEN_Toolkit: 'VOKEN Toolkit',
   VOKEN_Early_Bird_Sale: 'EarlyBird-Sale',
 

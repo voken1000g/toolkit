@@ -164,6 +164,13 @@ export const state = () => ({
           f: null,
         },
 
+        proportion: '0',
+        proportionStr: '0',
+        proportionObj: {
+          d: '0',
+          f: null,
+        },
+
         usdClaimed: '0',
         usdClaimedStr: '0',
         usdClaimedObj: {
@@ -274,6 +281,13 @@ export const state = () => ({
         usdAudit: '0',
         usdAuditStr: '0',
         usdAuditObj: {
+          d: '0',
+          f: null,
+        },
+
+        proportion: '0',
+        proportionStr: '0',
+        proportionObj: {
           d: '0',
           f: null,
         },
@@ -503,6 +517,18 @@ export const mutations = {
     state.account.v1.resale.usdAuditStr = fnFormat.ns2Str(state.account.v1.resale.usdAudit, 6)
     state.account.v1.resale.usdAuditObj = fnFormat.ns2Obj(state.account.v1.resale.usdAuditStr)
 
+    state.account.v1.resale.proportion = (
+      new BigNumber(state.account.v1.resale.usdAudit)
+        .multipliedBy(100)
+        .dividedBy(state.status.usdAudit)
+        .toString()
+    )
+    state.account.v1.resale.proportionStr = numbro(state.account.v1.resale.proportion).format({
+      thousandSeparated: true,
+      mantissa: 8
+    })
+    state.account.v1.resale.proportionObj = fnFormat.ns2Obj(state.account.v1.resale.proportionStr)
+
     state.account.v1.resale.usdClaimed = payload.usdClaimed
     state.account.v1.resale.usdClaimedStr = fnFormat.ns2Str(state.account.v1.resale.usdClaimed, 6)
     state.account.v1.resale.usdClaimedObj = fnFormat.ns2Obj(state.account.v1.resale.usdClaimedStr)
@@ -518,6 +544,18 @@ export const mutations = {
     state.account.v2.resale.usdAudit = payload.usdAudit
     state.account.v2.resale.usdAuditStr = fnFormat.ns2Str(state.account.v2.resale.usdAudit, 6)
     state.account.v2.resale.usdAuditObj = fnFormat.ns2Obj(state.account.v2.resale.usdAuditStr)
+
+    state.account.v2.resale.proportion = (
+      new BigNumber(state.account.v2.resale.usdAudit)
+        .multipliedBy(100)
+        .dividedBy(state.status.usdAudit)
+        .toString()
+    )
+    state.account.v2.resale.proportionStr = numbro(state.account.v2.resale.proportion).format({
+      thousandSeparated: true,
+      mantissa: 8
+    })
+    state.account.v2.resale.proportionObj = fnFormat.ns2Obj(state.account.v2.resale.proportionStr)
 
     state.account.v2.resale.usdClaimed = payload.usdClaimed
     state.account.v2.resale.usdClaimedStr = fnFormat.ns2Str(state.account.v2.resale.usdClaimed, 6)

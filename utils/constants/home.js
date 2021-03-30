@@ -27,6 +27,12 @@ export default function() {
         path: '/voken/migrate',
         icon: ['fas', 'tools'],
       }
+    case 'vision.network':
+      return {
+        title: 'Vision_Network',
+        path: '/home',
+        icon: ['fas', 'tools'],
+      }
     case 'resale':
     case 'resale.voken.io':
     case 'upgrade':
