@@ -1,6 +1,8 @@
 import BigNumber from "bignumber.js"
 import fnFormat from '~/utils/fnFormat'
-import numbro from "numbro";
+import numbro from "numbro"
+import moment from 'moment'
+// import moment from '@nuxtjs/moment'
 
 export const state = () => ({
   blockNumber: 0,
@@ -356,13 +358,13 @@ export const mutations = {
     }
   },
   DEADLINE_COUNTDOWN(state) {
-    let diff = state.status.deadline * 1000 - new Date().getTime()
+    const duration = moment.duration(moment(state.status.deadline * 1000).diff(moment()))
 
-    if (diff > 0) {
-      const s = Math.floor(diff / 1000 % 60)
-      const m = Math.floor(diff / 60000 % 60)
-      const h = Math.floor(diff / 1440000 % 24)
-      const d = Math.floor(diff / 86400000)
+    if (duration.asSeconds() > 0) {
+      const s = duration.seconds()
+      const m = duration.minutes()
+      const h = duration.hours()
+      const d = duration.days()
 
       const ss = s < 10 ? '0' + s : s
       const mm = m < 10 ? '0' + m : m
@@ -373,12 +375,12 @@ export const mutations = {
       state.deadlineCountdown.hh = hh
       state.deadlineCountdown.d = d
     } else {
-      state.status.deadlinePassed = true
+        state.status.deadlinePassed = true
 
-      state.deadlineCountdown.ss = '00'
-      state.deadlineCountdown.mm = '00'
-      state.deadlineCountdown.hh = '00'
-      state.deadlineCountdown.d = '0'
+        state.deadlineCountdown.ss = '00'
+        state.deadlineCountdown.mm = '00'
+        state.deadlineCountdown.hh = '00'
+        state.deadlineCountdown.d = '0'
     }
   },
   SET_DEADLINE_COUNTDOWN_INTERVAL(state, payload) {
