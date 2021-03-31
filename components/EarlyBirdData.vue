@@ -74,7 +74,10 @@
               {{ $t('ether.Average_Gas_Price') }}
             </dt>
             <dd>
-              <span>
+              <span v-if="ether.gasPrice === '0'">
+                ?
+              </span>
+              <span v-else>
                 {{ ether.gasPriceObj.d }}<span v-show="ether.gasPriceObj.f"
                                                class="number-f">.{{ ether.gasPriceObj.f }}</span>
               </span>

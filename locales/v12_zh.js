@@ -40,8 +40,9 @@ export default {
   processing_: '进程中。',
   You_can_apply_to_resale_for: '您可以申请转售',
   Audited: '审计后',
+  Audited__totally_: '审计后（总计）',
   Claimed: '已领取',
-  Available_to_claim: '可供领取',
+  Available_to_claim: '可供领取（当前）',
   Apply_to_Resale: '申请转售',
   Claim: '领取',
 

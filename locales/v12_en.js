@@ -44,8 +44,9 @@ export default {
   processing_: 'processing.',
   You_can_apply_to_resale_for: 'You can apply to resale for',
   Audited: 'Audited',
+  Audited__totally_: 'Audited (totally)',
   Claimed: 'Claimed',
-  Available_to_claim: 'Available to claim',
+  Available_to_claim: 'Available to claim (currently)',
   Apply_to_Resale: 'Apply to Resale',
   Claim: 'Claim',
 

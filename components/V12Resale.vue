@@ -109,7 +109,7 @@
 
             <div v-show="account.v1.resale.timestamp > 0">
               <dt>
-                {{ $t('v12.Audited') }}
+                {{ $t('v12.Audited__totally_') }}
               </dt>
               <dd>
                 <number-obj :value-obj="account.v1.resale.usdAuditObj"/>
@@ -243,7 +243,7 @@
 
             <div v-show="account.v2.resale.timestamp > 0">
               <dt>
-                {{ $t('v12.Audited') }}
+                {{ $t('v12.Audited__totally_') }}
               </dt>
               <dd>
                 <number-obj :value-obj="account.v2.resale.usdAuditObj"/>
@@ -397,6 +397,8 @@ export default {
         &&
         this.account.v1.balance > '0'
         &&
+        this.v1UsdAudit > '0'
+        &&
         this.account.v1.resale.timestamp === 0
         &&
         this.account.v1.upgrade.timestamp === 0
@@ -407,6 +409,8 @@ export default {
         !this.status.deadlinePassed
         &&
         this.account.v2.balance > '0'
+        &&
+        this.v2UsdAudit > '0'
         &&
         this.account.v2.resale.timestamp === 0
         &&
