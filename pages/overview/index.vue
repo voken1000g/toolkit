@@ -48,7 +48,7 @@
               </dt>
               <dd>
                 <fa :icon="['fas', 'dollar-sign']" class="text-indigo-600"/>
-                <number-obj :value-obj="ether.usdPriceObj" />
+                <comp-number :value="ether.usdPriceStr" />
                 USD (DAI, on UniSwap)
               </dd>
             </div>
@@ -58,7 +58,7 @@
                 GAS Price (.avg)
               </dt>
               <dd>
-                <number-obj :value-obj="ether.gasPriceObj" />
+                <comp-number :value="ether.gasPriceStr" />
                 GWei
               </dd>
             </div>

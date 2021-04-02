@@ -102,7 +102,7 @@ export default {
   middleware: ['web3', 'voken'],
   data() {
     return {
-      fromBlock: '0',
+      fromBlock: '12151028',
       toBlock: 'latest',
       accounts: [],
     }

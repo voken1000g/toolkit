@@ -28,6 +28,7 @@ export default function() {
         icon: ['fas', 'tools'],
       }
     case 'vision.network':
+    case 'voken1000g.github.io':
       return {
         title: 'Vision_Network',
         path: '/home',
