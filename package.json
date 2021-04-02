@@ -35,7 +35,7 @@
     "detect-browser": "^5.2.0",
     "moment": "^2.29.1",
     "numbro": "^2.3.2",
-    "nuxt": "^2.15.3",
+    "nuxt": "^2.15.4",
     "nuxt-fontawesome": "^0.4.0",
     "nuxt-i18n": "^6.22.3",
     "nuxt-storage": "^1.2.2",
