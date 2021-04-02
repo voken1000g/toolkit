@@ -1,4 +1,4 @@
-// import Web3 from 'web3'
+import Web3 from 'web3'
 import DAPP from '~/utils/constants/dapp'
 import fnFormat from '~/utils/fnFormat'
 import fnEthereum from '~/utils/fnEthereum'

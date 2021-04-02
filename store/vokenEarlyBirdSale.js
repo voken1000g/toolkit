@@ -1,5 +1,5 @@
 import numbro from 'numbro'
-// import Web3 from 'web3'
+import Web3 from 'web3'
 import BigNumber from 'bignumber.js'
 import DAPP from '../utils/constants/dapp'
 import fnFormat from '~/utils/fnFormat'

@@ -1,4 +1,4 @@
-// import Web3 from "web3"
+import Web3 from "web3"
 import detectEthereumProvider from '@metamask/detect-provider'
 import DAPP from '../utils/constants/dapp'
 import vokenTbAbi from '../utils/contracts/vokenTb.json'

@@ -107,6 +107,7 @@
 </template>
 
 <script>
+import Web3 from 'web3'
 import BigNumber from "bignumber.js"
 import fnFormat from "~/utils/fnFormat"
 import fnEthereum from "~/utils/fnEthereum"
