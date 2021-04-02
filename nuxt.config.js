@@ -27,9 +27,9 @@ export default {
       {name: 'msapplication-TileImage', content: baseUrl + 'favicon/ms-icon-144x144.png'},
       {name: 'theme-color', content: '#ffffff'}
     ],
-    script: [
-      { src: 'https://cdn.jsdelivr.net/npm/web3@1.3.4/dist/web3.min.js' }
-    ],
+    // script: [
+    //   { src: 'https://cdn.jsdelivr.net/npm/web3@1.3.4/dist/web3.min.js' }
+    // ],
     link: [
       {rel: 'apple-touch-icon', sizes: '57x57', href: baseUrl + 'favicon/apple-icon-57x57.png'},
       {rel: 'apple-touch-icon', sizes: '60x60', href: baseUrl + 'favicon/apple-icon-60x60.png'},
