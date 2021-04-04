@@ -130,7 +130,7 @@ export default {
     return {
       isAgent: false,
 
-      address: '0xFFFFFcC84407A0f8732b959385054cB20Bb2AdF9',
+      address: '',
       account: {
         address: '',
         etherBalance: '',
