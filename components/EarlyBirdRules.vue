@@ -70,7 +70,7 @@
           }}</a>
           {{ $t('earlyBird.rules.will_always_track__') }}
           {{ $t('earlyBird.rules.For_now__it_is') }}
-          <b>${{ ether.usdPriceStr }}</b>
+          <b>$<comp-number :value="ether.usdPrice" :decimals="6" :mantissa="3" /></b>
         </p>
 
 

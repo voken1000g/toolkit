@@ -16,7 +16,7 @@
 
 <script>
 export default {
-  name: "dev--voken-resale",
+  name: "dev-voken-resale",
   middleware: ['web3', 'voken'],
   async mounted() {
     await this.$store.dispatch('vokenResale/SYNC_STATUS')

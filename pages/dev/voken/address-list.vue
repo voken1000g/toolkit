@@ -2,7 +2,7 @@
   <div>
     <layout-hero-simple>
       <template #title>
-        Voken Migrations
+        Voken Address List
       </template>
     </layout-hero-simple>
 
@@ -36,12 +36,12 @@
             </div>
           </div>
 
-          <button class="w-1/5 btn btn-pink justify-center py-2 text-base uppercase" @click='getVokenMigrations'>
+          <button class="w-1/5 btn btn-pink justify-center py-2 text-base uppercase" @click='getVokenAddressSet'>
             Query
           </button>
         </div>
 
-        <div v-if="migrations.length > 0" class="mt-12 px-4">
+        <div v-if="accounts.length > 0" class="mt-12 px-4">
           <layout-table-simple>
             <table>
               <thead>
@@ -53,35 +53,33 @@
                   Hash
                 </th>
                 <th>
-                  From
+                  Account
                 </th>
                 <th>
-                  To
+                  Address
                 </th>
                 <th>
-                  Amount
+                  Balance
                 </th>
               </tr>
               </thead>
 
               <tbody>
-              <tr v-for="migration in migrations" class="font-mono">
+              <tr v-for="account in accounts" class="font-mono">
                 <td>
-                  #{{ migration.blockNumber }}
+                  {{ account.blockNumber }}
                 </td>
                 <td>
-                  <a target="_blank" :href="fnEtherscan.tx(migration.transactionHash)">
-                    {{ migration.transactionHash }}
-                  </a>
+                  {{ account.transactionHash }}
                 </td>
                 <td>
-                  {{ migration.from }}
+                  {{ account.etherAccount }}
                 </td>
                 <td>
-                  {{ migration.to }}
+                  {{ account.vokenAddress }}
                 </td>
-                <td>
-                  {{ migration.amount }} VokenTB
+                <td class='text-right'>
+                  {{ account.vokenBalance }}
                 </td>
               </tr>
               </tbody>
@@ -98,65 +96,52 @@
 <script>
 import vokenAddress from '@voken/address'
 import fnFormat from "~/utils/fnFormat"
-import fnEtherscan from "~/utils/fnEtherscan"
-import DAPP from "~/utils/constants/dapp";
 
 export default {
-  name: "dev--voken-migration-list",
+  name: "dev-voken-address-list",
   middleware: ['web3', 'voken'],
   data() {
     return {
-      fnEtherscan: fnEtherscan,
-
-      fromBlock: 12074853,
+      fromBlock: '12169608',
       toBlock: 'latest',
-
-      migrations: [],
       accounts: [],
     }
   },
   methods: {
-    async getVokenMigrations() {
+    async getVokenAddressSet() {
       await this.$store.state.voken.contract()
         .getPastEvents(
-          'Transfer', {
-            filter: {
-              to: DAPP.CONTRACT_ADDRESS_MIGRATE
-            },
+          'VokenAddressSet', {
             fromBlock: this.fromBlock,
             toBlock: this.toBlock
           }
         )
-        .then(this.onGetVokenMigrations)
-        .catch(this.onGetVokenMigrationsError)
+        .then(this.onGetVokenAddressSet)
+        .catch(this.onGetVokenAddressSetError)
     },
-    async onGetVokenMigrations(events) {
-      console.log(events)
-
+    async onGetVokenAddressSet(events) {
       if (events.length > 0) {
-        let migrations = []
+        let accounts = []
         for (let i = 0; i < events.length; i++) {
-          const fromAccount = events[i].returnValues.from
-          const vokenInt = await this.$store.state.voken.contract().methods.address2voken(fromAccount).call()
-          console.log('vokenInt:', vokenInt)
+          const etherAccount = events[i].returnValues.account
+          const vokenBalance = await this.$store.state.voken.contract().methods.balanceOf(etherAccount).call()
 
-          migrations.push({
-            blockNumber: fnFormat.ns2Str(events[i].blockNumber, 0),
+          accounts.push({
+            blockNumber: events[i].blockNumber,
             transactionHash: events[i].transactionHash,
-            from: fromAccount,
-            to: vokenAddress.fromBNString(vokenInt),
-            amount: fnFormat.ns2Str(events[i].returnValues.value),
+            etherAccount: etherAccount,
+            vokenAddress: vokenAddress.fromBNString(events[i].returnValues.voken),
+            vokenBalance: fnFormat.ns2Str(vokenBalance, 9)
           })
 
-          this.migrations = migrations
+          this.accounts = accounts
           await setTimeout("", 300)
         }
       }
     },
-    async onGetVokenMigrationsError(error) {
-      console.error('::: P[voken-migration-list] onGetVokenMigrationsError:', error)
+    async onGetVokenAddressSetError(error) {
+      console.error('::: P[/dev/voken-address-list] onGetVokenAddressSetError:', error)
     }
-
   }
 }
 </script>

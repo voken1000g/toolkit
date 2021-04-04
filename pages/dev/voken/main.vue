@@ -1,9 +1,19 @@
 <template>
   <div>
+    <layout-hero-simple>
+      <template #title>
+        #{{ $store.state.ether.blockNumberStr }}
+      </template>
+
+      <template #text>
+        Dashboard for Developers
+      </template>
+    </layout-hero-simple>
+
     <div class="resp-wide py-16">
 
       <div class="flex items-end space-x-2">
-        <div class="w-2/3" :class="addressStatus">
+        <div class="flex-grow" :class="addressStatus">
           <label for='default1'>
             ETH Address
           </label>
@@ -19,15 +29,16 @@
           </div>
         </div>
 
-        <div class="w-1/3">
-          <button type='button' class='w-full btn justify-center py-3' @click="query">
+        <div class="flex-grow-0">
+          <button type='button' class='w-full btn justify-center py-3 px-6 uppercase' @click="query">
             Query
           </button>
         </div>
       </div>
 
-      <div>
-
+      <div class="mt-4 space-y-2">
+        <dev-voken-agent :address="address" />
+        <dev-voken-minter :address="address" />
       </div>
 
       <div v-show="account.address" class="resp-mt bg-white shadow overflow-hidden sm:rounded-lg">
@@ -60,16 +71,16 @@
               <dd>
                 {{ account.balance }} VokenTB
                 <span v-show="account.balance > '0'">
-                    <span v-if="account.balance === account.vesting" class="text-gray-400">
-                      (vesting)
-                    </span>
-                    <span v-else-if="account.balance === account.available" class="text-gray-400">
-                      (all available)
-                    </span>
-                    <span v-else>
-                      ({{ account.available }} available)
-                    </span>
+                  <span v-if="account.balance === account.vesting" class="text-gray-400">
+                    (vesting)
                   </span>
+                  <span v-else-if="account.balance === account.available" class="text-gray-400">
+                    (all available)
+                  </span>
+                  <span v-else>
+                    ({{ account.available }} available)
+                  </span>
+                </span>
               </dd>
             </div>
 
@@ -113,9 +124,12 @@ import fnFormat from "~/utils/fnFormat"
 import fnEthereum from "~/utils/fnEthereum"
 
 export default {
-  name: "DevVoken",
+  name: "dev-voken-main",
+  middleware: ['web3', 'voken'],
   data() {
     return {
+      isAgent: false,
+
       address: '0xFFFFFcC84407A0f8732b959385054cB20Bb2AdF9',
       account: {
         address: '',
@@ -127,9 +141,14 @@ export default {
       },
     }
   },
-  // mounted() {
-  //   this.address = this.ether.account
-  // },
+  mounted: async function() {
+    await this.getIsAgent()
+  },
+  watch: {
+    '$store.state.ether.account': async function() {
+      await this.getIsAgent()
+    }
+  },
   computed: {
     fnEthereum() {
       return fnEthereum
@@ -139,7 +158,7 @@ export default {
     },
     addressStatus() {
       if (this.address) {
-        if (this.$store.state.ether.web3().utils.isAddress(this.address)) {
+        if (Web3.utils.isAddress(this.address)) {
           return 'success'
         }
 
@@ -150,6 +169,15 @@ export default {
     }
   },
   methods: {
+    async getIsAgent() {
+      await this.$store.state.voken.contract().methods.isAgent(this.ether.account).call()
+        .then(this.onGetIsAgent)
+        .catch(console.error)
+    },
+    async onGetIsAgent(isAgent) {
+      await this.$store.dispatch('voken/SET_IS_AGENT', isAgent)
+    },
+
     async query() {
       this.account.address = this.address
       await this.$store.state.voken.dataContract().methods.data(this.address)
@@ -171,6 +199,8 @@ export default {
       this.account.referrer = payload.referrer
     },
 
+
+
     async addBank() {
       await this.$store
         .state.voken.contract()
@@ -186,3 +216,7 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+
+</style>

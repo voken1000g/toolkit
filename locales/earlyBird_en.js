@@ -36,6 +36,7 @@ export default {
   Referral_address: 'Referral address',
   Enter_a_valid_VOKEN_wallet_address: 'Enter a valid VOKEN wallet address',
   Bind: 'Bind',
+  Bind_first_then__: '"Bind" first, then "Get VokenTB"',
   Get_VokenTB: 'Get VokenTB',
   Please_set_the_gas_to: 'Please set the gas limit to 1,000,000 to avoid failure due to insufficient gas. Unused gas will be refunded automatically.',
   Unused_gas_will_be_refunded: 'Unused gas will be refunded immediately.',

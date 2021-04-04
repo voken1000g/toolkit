@@ -24,6 +24,7 @@ export const state = () => ({
     f: null,
   },
 
+  progressPercent: '0',
   progressPercentStr: '0',
 
   bonuses: '0',
@@ -113,12 +114,12 @@ export const mutations = {
     state.usdPriceObj = fnFormat.ns2Obj(state.usdPriceStr)
   },
 
-
   SET_ISSUED(state, issued) {
     state.issued = issued
     state.issuedStr = fnFormat.ns2Str(issued)
     state.issuedObj = fnFormat.ns2Obj(state.issuedStr)
 
+    state.progressPercent = new BigNumber(issued).dividedBy(DAPP.EARLY_BIRD_SALE_CAP).multipliedBy(100).toString()
     state.progressPercentStr = numbro(new BigNumber(issued).dividedBy(DAPP.EARLY_BIRD_SALE_CAP).multipliedBy(100)).format({
       thousandSeparated: true,
       mantissa: 4

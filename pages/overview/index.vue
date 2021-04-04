@@ -28,7 +28,7 @@
                 Block Height
               </dt>
               <dd>
-                {{ ether.blockNumberStr }}
+                <comp-number :value="ether.blockNumber" />
               </dd>
             </div>
 
@@ -48,7 +48,7 @@
               </dt>
               <dd>
                 <fa :icon="['fas', 'dollar-sign']" class="text-indigo-600"/>
-                <comp-number :value="ether.usdPriceStr" />
+                <comp-number :value="ether.usdPrice" :decimals="6" :mantissa="3" />
                 USD (DAI, on UniSwap)
               </dd>
             </div>
@@ -58,7 +58,7 @@
                 GAS Price (.avg)
               </dt>
               <dd>
-                <comp-number :value="ether.gasPriceStr" />
+                <comp-number :value="ether.gasPrice" :decimals="6"/>
                 GWei
               </dd>
             </div>

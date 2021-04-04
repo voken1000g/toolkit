@@ -1,7 +1,7 @@
 <template>
   <div class="py-16 lg:py-24">
     <div class="resp-wide">
-      <div class="stats">
+      <div class="early-bird-data">
         <layout-h2>
           <template #title>
             {{ $t('voken.Realtime_Data') }}
@@ -15,8 +15,7 @@
             </dt>
             <dd>
               <span>
-                $ {{ ether.usdPriceObj.d }}<span v-show="ether.usdPriceObj.f"
-                                                 class="number-f">.{{ ether.usdPriceObj.f }}</span>
+                <comp-number :value="ether.usdPrice" :decimals="6" :mantissa="3" />
               </span>
               <span class="usd">
                 USD
@@ -30,8 +29,7 @@
             </dt>
             <dd>
               <span>
-                $ {{ earlyBirdSale.usdPriceObj.d }}<span v-show="earlyBirdSale.usdPriceObj.f"
-                                                         class="number-f">.{{ earlyBirdSale.usdPriceObj.f }}</span>
+                $ <comp-number :value="earlyBirdSale.usdPrice" :decimals="6" />
               </span>
               <span class="usd">
                 USD
@@ -45,7 +43,7 @@
             </dt>
             <dd>
               <span>
-                {{ earlyBirdSale.progressPercentStr }}
+                <comp-number :value="earlyBirdSale.progressPercent" :mantissa="4" />
               </span>
               <span class="usd">
                 %
@@ -59,8 +57,7 @@
             </dt>
             <dd>
               <span>
-                $ {{ voken.usdPriceObj.d }}<span v-show="voken.usdPriceObj.f"
-                                                 class="number-f">.{{ voken.usdPriceObj.f }}</span>
+                $ <comp-number :value="voken.usdPrice" :decimals="6" />
               </span>
               <span class="usd">
                 USD
@@ -78,8 +75,7 @@
                 ?
               </span>
               <span v-else>
-                {{ ether.gasPriceObj.d }}<span v-show="ether.gasPriceObj.f"
-                                               class="number-f">.{{ ether.gasPriceObj.f }}</span>
+                <comp-number :value="ether.gasPrice" :decimals="9" />
               </span>
               <span class="usd">
                 GWei
@@ -93,7 +89,7 @@
             </dt>
             <dd>
               <span>
-                #{{ voken.blockNumberStr }}
+                #<comp-number :value="voken.blockNumber" />
               </span>
             </dd>
           </div>
@@ -121,67 +117,7 @@ export default {
 </script>
 
 <style scoped>
-.stats {
-  dl {
-    @apply mt-8 mx-auto grid grid-cols-1 gap-5;
 
-    @screen sm {
-      @apply mt-10;
-    }
-
-    @screen lg {
-      @apply mt-12 grid-cols-3;
-    }
-
-    @screen xl {
-      @apply max-w-5xl;
-    }
-
-    div {
-      @apply bg-gradient-to-br from-indigo-500 to-indigo-600 shadow rounded-lg overflow-hidden;
-      @apply px-4 py-5 space-y-2;
-
-
-      @screen sm {
-        @apply p-6;
-      }
-
-      @apply mx-auto w-full max-w-lg;
-
-      @screen lg {
-        @apply max-w-full;
-      }
-
-      dt {
-        @apply text-base font-bold text-white truncate;
-      }
-
-      dd {
-        @apply flex items-end justify-center space-x-2;
-        @apply font-semibold text-2xl text-white;
-
-        span.usd {
-          @apply text-lg text-indigo-200;
-        }
-
-        .number-f {
-          @apply text-lg text-indigo-200;
-        }
-      }
-
-      &:nth-child(odd) {
-        @apply from-cool-gray-600 to-cool-gray-700;
-
-        dd {
-          span.usd,
-          .number-f {
-            @apply text-gray-300;
-          }
-        }
-      }
-    }
-  }
-}
 
 
 </style>

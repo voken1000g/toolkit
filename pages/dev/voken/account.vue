@@ -10,13 +10,15 @@
       </template>
     </layout-hero-simple>
 
-    <dev-voken />
+    <div class="resp-wide py-40 text-center">
+      emmm....
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "dev--voken",
+  name: "dev-voken-account",
   middleware: ['web3', 'voken', 'vokenEarlyBirdSale'],
 }
 </script>

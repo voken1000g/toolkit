@@ -10,7 +10,7 @@
             {{ $t('earlyBird.warn.and_you_swap') }}
             <b>{{ etherAmountSample }} ETH</b>
             {{ $t('earlyBird.warn.for') }}
-            <b>{{ vokenAmount }} VokenTB</b>{{ $t('__comma')}}
+            <b><comp-number :value="vokenAmount" :mantissa="3" /> VokenTB</b>{{ $t('__comma')}}
             {{ $t('earlyBird.warn.that_needs_at_least') }}
             <b>{{ balanceMinStr }} ETH</b>
             {{ $t('earlyBird.warn.on_your_Ethereum_wallet_address_in_fact__') }}
@@ -132,32 +132,42 @@
                    aria-describedby="currency-eth">
 
             <div class="absolute inset-y-0 right-0 pr-6 flex items-center pointer-events-none">
-                <span class="token text-gray-500"
-                      id="currency-eth"
-                >
+                <span class="token text-gray-500" id="currency-eth">
                   ETH
                 </span>
             </div>
           </div>
 
-          <div class="mt-1 pr-1 font-mono text-sm text-gray-500 text-right">
-            {{ $t('earlyBird.As') }} ${{ usdAmount }} USD
+          <!-- As -->
+          <div class="mt-4 block font-mono font-bold text-sm text-indigo-600">
+            {{ $t('earlyBird.As') }}
+          </div>
+
+          <div
+            class="mt-1 w-full flex items-center justify-between py-3 px-6 font-mono bg-gradient-to-r from-indigo-100 via-indigo-50 to-indigo-100 border border-indigo-500 rounded shadow">
+            <span class="text-indigo-600">
+              <comp-number :value="usdAmount" :decimals="6" :mantissa="3" />
+            </span>
+
+            <span class="token text-indigo-600">
+              USD
+            </span>
           </div>
 
           <!-- Arrow -->
-          <div class="mt-6 flex items-center justify-center text-indigo-600">
+          <div class="mt-8 flex items-center justify-center text-indigo-600">
             <fa :icon="['fas', 'arrow-down']"/>
           </div>
 
           <!-- Get -->
-          <div class="mt-2 block font-mono font-bold text-sm text-indigo-600">
+          <div class="mt-4 block font-mono font-bold text-sm text-indigo-600">
             {{ $t('earlyBird.To_get__estimated_') }}
           </div>
 
           <div
             class="mt-1 w-full flex items-center justify-between py-3 px-6 font-mono bg-gradient-to-r from-indigo-500 to-indigo-600 border border-indigo-600 rounded shadow">
             <span class="text-indigo-50">
-              {{ vokenAmount }}
+              <comp-number :value="vokenAmount" :mantissa="3" />
             </span>
 
             <span class="token text-indigo-300">
@@ -192,7 +202,7 @@
             </div>
 
             <div v-if="refStatus === 'success'" class="mt-1 text-sm text-center text-green-700">
-              Click "Bind", then "Get VokenTB".
+              {{ $t('earlyBird.Bind_first_then__') }}
             </div>
           </div>
 
@@ -384,14 +394,14 @@ export default {
     usdAmount() {
       return new BigNumber(this.etherAmount ? this.etherAmount : this.ether.web3().utils.fromWei(this.earlyBird.weiMax, 'ether'))
         .multipliedBy(new BigNumber(this.ether.usdPrice))
-        .dividedBy(10 ** 6)
-        .toFixed(3)
+        // .dividedBy(10 ** 6)
+        // .toFixed(3)
     },
     vokenAmount() {
       return new BigNumber(this.etherAmount ? this.etherAmount : this.ether.web3().utils.fromWei(this.earlyBird.weiMax, 'ether'))
         .multipliedBy(new BigNumber(this.ether.usdPrice))
         .dividedBy(new BigNumber(this.earlyBird.usdPrice))
-        .toFixed(3)
+        // .toFixed(3)
     },
 
     /**

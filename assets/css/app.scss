@@ -160,6 +160,71 @@
 
 
 /**
+ * Early-Bird
+ */
+.early-bird-data {
+  dl {
+    @apply mt-8 mx-auto grid grid-cols-1 gap-5;
+
+    @screen sm {
+      @apply mt-10;
+    }
+
+    @screen lg {
+      @apply mt-12 grid-cols-3;
+    }
+
+    @screen xl {
+      @apply max-w-5xl;
+    }
+
+    div {
+      @apply bg-gradient-to-br from-indigo-500 to-indigo-600 shadow rounded-lg overflow-hidden;
+      @apply px-4 py-5 space-y-2;
+
+
+      @screen sm {
+        @apply p-6;
+      }
+
+      @apply mx-auto w-full max-w-lg;
+
+      @screen lg {
+        @apply max-w-full;
+      }
+
+      dt {
+        @apply text-base font-bold text-white truncate;
+      }
+
+      dd {
+        @apply flex items-end justify-center space-x-2;
+        @apply font-semibold text-2xl text-white;
+
+        span.usd {
+          @apply text-lg text-indigo-200;
+        }
+
+        .number-f {
+          @apply text-lg text-indigo-200;
+        }
+      }
+
+      &:nth-child(odd) {
+        @apply from-cool-gray-600 to-cool-gray-700;
+
+        dd {
+          span.usd,
+          .number-f {
+            @apply text-gray-300;
+          }
+        }
+      }
+    }
+  }
+}
+
+/**
  * FAQ side by side
  */
 .faq-side-by-side {

@@ -76,6 +76,7 @@ export const state = () => ({
 
     vokenInt: '0',
     vokenAddress: '',
+    isAgent: false,
     isBank: false,
     referrer: fnEthereum.ZERO_ADDRESS,
   },
@@ -159,6 +160,9 @@ export const mutations = {
   SET_IS_BANK(state, isBank) {
     state.account.isBank = isBank
   },
+  SET_IS_AGENT(state, isAgent) {
+    state.account.isAgent = isAgent
+  },
   SET_REFERRER(state, referrer) {
     state.account.referrer = referrer
   },
@@ -175,17 +179,20 @@ export const actions = {
   async SET_DATA_CONTRACT({commit}, dataContract) {
     commit('SET_DATA_CONTRACT', dataContract)
   },
-  async SET_CAP({commit}, cap) {
-    commit('SET_CAP', cap)
-  },
-  async SET_TOTAL_SUPPLY({commit}, totalSupply) {
-    commit('SET_TOTAL_SUPPLY', totalSupply)
-  },
+  // async SET_CAP({commit}, cap) {
+  //   commit('SET_CAP', cap)
+  // },
+  // async SET_TOTAL_SUPPLY({commit}, totalSupply) {
+  //   commit('SET_TOTAL_SUPPLY', totalSupply)
+  // },
   async SET_BALANCE({commit}, balance) {
     commit('SET_BALANCE', balance)
   },
-  async SET_VESTING({commit}, vesting) {
-    commit('SET_VESTING', vesting)
+  // async SET_VESTING({commit}, vesting) {
+  //   commit('SET_VESTING', vesting)
+  // },
+  async SET_IS_AGENT({commit}, isAgent) {
+    commit('SET_IS_AGENT', isAgent)
   },
 
   async SYNC_DATA({rootState, state, commit, dispatch}) {
@@ -211,7 +218,6 @@ export const actions = {
 
         commit('SET_BALANCE', payload.balance)
         commit('SET_VESTING', payload.vesting)
-
         commit('SET_IS_BANK', payload.isBank)
         commit('SET_REFERRER', payload.referrer)
       })
