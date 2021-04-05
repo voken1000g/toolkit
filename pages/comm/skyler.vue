@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-if="$store.state.comm0.isProxy" class="resp-wide py-40 text-center">
+    <div v-if="!$store.state.comm0.isProxy" class="resp-wide py-40 text-center">
       Not for you
     </div>
     <div v-else>
