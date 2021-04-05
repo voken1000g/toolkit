@@ -53,7 +53,7 @@
 
         <div v-show="showDistributeBtn" class="mt-4 flex justify-end">
           <button type='button' class='w-2/5 btn btn-pink justify-center py-3' @click="distribute">
-            Distribute
+            Mint
           </button>
         </div>
 
