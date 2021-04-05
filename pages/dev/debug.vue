@@ -5,15 +5,18 @@
 </template>
 
 <script>
-import DAPP from "~/utils/constants/dapp";
-import fnFormat from "~/utils/fnFormat";
+import Web3 from 'web3'
+import DAPP from "~/utils/constants/dapp"
+import fnFormat from "~/utils/fnFormat"
 
 export default {
   name: "debug",
-  middleware: ['etherGasSync', 'web3', 'voken', 'vokenEarlyBirdSale'],
+  // middleware: ['etherGasSync', 'web3', 'voken', 'vokenEarlyBirdSale'],
 
   async mounted() {
-    await this.getVokenMigrations()
+    console.warn('::: debug start...')
+
+
   },
 
   methods: {

@@ -5,14 +5,15 @@
         <fa :icon="['fas', 'info-circle']" class="text-3xl"/>
         <div>
           <p class="leading-7">
-            {{ $t('earlyBird.warn.Current_balance_') }}{{ ether.balanceStr }} ETH --
-            {{ $t('earlyBird.warn.It_seems__newbie__') }}{{ $t('__lp')}}{{ ether.gasPriceStr }} GWei{{ $t('__rp')}}
+            {{ $t('earlyBird.warn.Current_balance_') }}<comp-number :value="ether.balance" :decimals="18" /> ETH --
+            {{ $t('earlyBird.warn.It_seems__newbie__') }}
+            {{ $t('__lp')}}<comp-number :value="ether.gasPrice" :decimals="9" /> GWei{{ $t('__rp')}}
             {{ $t('earlyBird.warn.and_you_swap') }}
             <b>{{ etherAmountSample }} ETH</b>
             {{ $t('earlyBird.warn.for') }}
-            <b><comp-number :value="vokenAmount" :mantissa="3" /> VokenTB</b>{{ $t('__comma')}}
+            <b><comp-number :value="vokenAmount.toString()" :mantissa="3" /> VokenTB</b>{{ $t('__comma')}}
             {{ $t('earlyBird.warn.that_needs_at_least') }}
-            <b>{{ balanceMinStr }} ETH</b>
+            <b><comp-number :value="balanceMin.toString()" :decimals="18" /> ETH</b>
             {{ $t('earlyBird.warn.on_your_Ethereum_wallet_address_in_fact__') }}
           </p>
         </div>
@@ -43,7 +44,7 @@
           </div>
 
           <div class="font-mono text-2xl text-gray-800 text-right">
-            <number-obj :value-obj="earlyBird.account.issuedObj" />
+            <comp-number :value="earlyBird.account.issued" :decimals="9" />
             <span class="text-lg">
               VokenTB
             </span>
@@ -56,7 +57,7 @@
             </div>
 
             <div class="font-mono text-2xl text-gray-800 text-right">
-              <number-obj :value-obj="earlyBird.account.bonusesObj" />
+              <comp-number :value="earlyBird.account.bonuses" :decimals="9" />
               <span class="text-lg">
                 VokenTB
               </span>
@@ -70,7 +71,7 @@
             </div>
 
             <div class="font-mono text-2xl text-gray-800 text-right">
-              <number-obj :value-obj="earlyBird.account.availableObj" />
+              <comp-number :value="earlyBird.account.available" :decimals="9" />
               <span class="text-lg">
                 VokenTB
               </span>
@@ -83,7 +84,7 @@
             </div>
 
             <div class="font-mono text-2xl text-gray-800 text-right">
-              <number-obj :value-obj="earlyBird.account.referredObj" />
+              <comp-number :value="earlyBird.account.referred" :decimals="18" :mantissa="3" />
               <span class="text-lg">
                 ETH
               </span>
@@ -146,7 +147,7 @@
           <div
             class="mt-1 w-full flex items-center justify-between py-3 px-6 font-mono bg-gradient-to-r from-indigo-100 via-indigo-50 to-indigo-100 border border-indigo-500 rounded shadow">
             <span class="text-indigo-600">
-              <comp-number :value="usdAmount" :decimals="6" :mantissa="3" />
+              <comp-number :value="usdAmount.toString()" :decimals="6" :mantissa="3" :padding="true" />
             </span>
 
             <span class="token text-indigo-600">
@@ -167,7 +168,7 @@
           <div
             class="mt-1 w-full flex items-center justify-between py-3 px-6 font-mono bg-gradient-to-r from-indigo-500 to-indigo-600 border border-indigo-600 rounded shadow">
             <span class="text-indigo-50">
-              <comp-number :value="vokenAmount" :mantissa="3" />
+              <comp-number :value="vokenAmount.toString()" :mantissa="3" :padding="true" />
             </span>
 
             <span class="token text-indigo-300">
@@ -274,37 +275,35 @@ export default {
   },
   watch: {
     etherAmount() {
+      const min = this.ether.web3().utils.fromWei(this.earlyBird.weiMin, 'ether')
+      const max = this.ether.web3().utils.fromWei(this.earlyBird.weiMax, 'ether')
+
+      const bnMin = new BigNumber(min)
+      const bnMax = new BigNumber(max)
+
       if (this.etherAmount) {
-        let etherAmount = (
-          this.etherAmount.toString()
-            .replace(/[^\d.]/g, '')
-            .replace(/\.{2,}/g, '.')
-            .replace('.', '#')
-            .replace(/\./g, '')
-            .replace('#', '.')
-            .replace(/^(\d+)\.(\d{0,18}).*$/, '$1.$2')
-        )
+        let etherAmount = fnFormat.fixNumberStr(this.etherAmount, 18)
 
-        const bnMin = new BigNumber(this.$store.state.vokenEarlyBirdSale.weiMinStr)
-        const bnMax = new BigNumber(this.$store.state.vokenEarlyBirdSale.weiMaxStr)
-
-        if (!etherAmount) {
-          this.etherAmount = bnMax.toString()
-          return
-        }
+        // if (!etherAmount) {
+        //   this.etherAmount = max
+        //   return
+        // }
 
         let bn = new BigNumber(etherAmount)
 
+        // max
         if (bn.gt(bnMax)) {
-          // max
-          this.etherAmount = bnMax.toString()
-        } else if (bn.gt(0) && bn.lt(bnMin)) {
-          // min
-          this.etherAmount = bnMin.toString()
-        } else if (bn.gt(0)) {
-          // ok
-          this.etherAmount = bn.toString()
+          this.etherAmount = max
+          return
         }
+
+        // min
+        if (bn.gt(0) && bn.lt(bnMin)) {
+          this.etherAmount = min
+          return
+        }
+
+        this.etherAmount = etherAmount
       }
     },
     async bindToVokenAddress() {

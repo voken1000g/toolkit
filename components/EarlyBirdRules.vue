@@ -93,7 +93,7 @@
             {{ $t('voken.Public_Sale') }}
           </nuxt-link>
           {{ $t('__dot') }}{{ $t('earlyBird.rules.So_most_of_the_positions__') }}
-          <nuxt-link :to='localePath("/voken/So_most_of_the_positions__-sale")'>
+          <nuxt-link :to='localePath("/voken/public-sale")'>
             {{ $t('voken.Public_Sale') }}
           </nuxt-link>
         </p>

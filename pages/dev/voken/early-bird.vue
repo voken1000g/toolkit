@@ -2,7 +2,7 @@
   <div>
     <layout-hero-simple>
       <template #title>
-        Voken Address List
+        Early-Bird Sale Records
       </template>
     </layout-hero-simple>
 
@@ -36,12 +36,12 @@
             </div>
           </div>
 
-          <button class="w-1/5 btn btn-pink justify-center py-2 text-base uppercase" @click='getVokenAddressSet'>
+          <button class="w-1/5 btn btn-pink justify-center py-2 text-base uppercase" @click='getEarlyBirdRecords'>
             Query
           </button>
         </div>
 
-        <div v-if="accounts.length > 0" class="mt-12 px-4">
+        <div v-if="records.length > 0" class="mt-12 px-4">
           <layout-table-simple>
             <table>
               <thead>
@@ -49,37 +49,40 @@
                 <th>
                   Block
                 </th>
-                <th>
+                <th class="hidden xl:block">
                   Hash
                 </th>
                 <th>
-                  Account
+                  From
                 </th>
                 <th>
-                  Address
+                  ETH Price
                 </th>
                 <th>
-                  Balance
+                  Amount
                 </th>
               </tr>
               </thead>
 
               <tbody>
-              <tr v-for="account in accounts" class="font-mono">
+              <tr v-for="record in records" class="font-mono">
                 <td>
-                  {{ account.blockNumber }}
+                  #<comp-number :value="record.blockNumber" />
+                </td>
+                <td class="hidden xl:block">
+                  <a target="_blank" :href="fnEtherscan.tx(record.transactionHash)">
+                    {{ record.transactionHash }}
+                  </a>
+                </td>
+                <td class="truncate">
+                  {{ record.from }}
+                </td>
+                <td class="text-right">
+                  <comp-number :value="record.etherUsdPrice" :decimals="6" :mantissa="2" :padding="true" />
                 </td>
                 <td>
-                  {{ account.transactionHash }}
-                </td>
-                <td>
-                  {{ account.etherAccount }}
-                </td>
-                <td>
-                  {{ account.vokenAddress }}
-                </td>
-                <td class='text-right'>
-                  {{ account.vokenBalance }}
+                  <comp-number :value="record.weiPayment" :decimals="18" />
+                  <!-- :mantissa="2" -->
                 </td>
               </tr>
               </tbody>
@@ -94,54 +97,53 @@
 </template>
 
 <script>
-import vokenAddress from '@voken/address'
-import fnFormat from "~/utils/fnFormat"
+import fnEtherscan from "~/utils/fnEtherscan"
 
 export default {
-  name: "dev-voken-address-list",
-  middleware: ['web3', 'voken'],
+  name: "dev-voken-early-bird",
+  middleware: ['web3', 'voken', 'vokenEarlyBirdSale'],
   data() {
     return {
-      fromBlock: '12174553',
+      fnEtherscan: fnEtherscan,
+
+      fromBlock: 0,
       toBlock: 'latest',
-      accounts: [],
+
+      records: [],
     }
   },
   methods: {
-    async getVokenAddressSet() {
-      await this.$store.state.voken.contract()
+    async getEarlyBirdRecords() {
+      await this.$store.state.vokenEarlyBirdSale.contract()
         .getPastEvents(
-          'VokenAddressSet', {
+          'Payment', {
             fromBlock: this.fromBlock,
             toBlock: this.toBlock
           }
         )
-        .then(this.onGetVokenAddressSet)
-        .catch(this.onGetVokenAddressSetError)
+        .then(this.onGetEarlyBirdRecords)
+        .catch(this.onGetEarlyBirdRecordsError)
     },
-    async onGetVokenAddressSet(events) {
+    async onGetEarlyBirdRecords(events) {
       if (events.length > 0) {
-        let accounts = []
+        let records = []
         for (let i = 0; i < events.length; i++) {
-          const etherAccount = events[i].returnValues.account
-          const vokenBalance = await this.$store.state.voken.contract().methods.balanceOf(etherAccount).call()
-
-          accounts.push({
+          records.unshift({
             blockNumber: events[i].blockNumber,
             transactionHash: events[i].transactionHash,
-            etherAccount: etherAccount,
-            vokenAddress: vokenAddress.fromBNString(events[i].returnValues.voken),
-            vokenBalance: fnFormat.ns2Str(vokenBalance, 9)
+            from: events[i].returnValues.account,
+            etherUsdPrice: events[i].returnValues.etherUsdPrice,
+            weiPayment: events[i].returnValues.weiPayment,
           })
-
-          this.accounts = accounts
-          await setTimeout("", 300)
         }
+
+        this.records = records
       }
     },
-    async onGetVokenAddressSetError(error) {
-      console.error('::: P[/dev/voken-address-list] onGetVokenAddressSetError:', error)
+    async onGetEarlyBirdRecordsError(error) {
+      console.error('::: P[/dev/voken/early-bird] onGetEarlyBirdRecordsError:', error)
     }
+
   }
 }
 </script>

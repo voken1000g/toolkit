@@ -39,7 +39,26 @@ const ns2Obj = function (balance) {
   return bnObj
 }
 
+const fixNumberStr = function (input, decimals = 0) {
+  input = String(input)
+    .replace('。', '.')
+    .replace(/[^\d.]/g, '')
+    .replace(/\.{2,}/g, '.')
+    .replace('.', '#')
+    .replace(/\./g, '')
+    .replace('#', '.')
+
+  decimals = Math.floor(decimals)
+
+  if (decimals) {
+    return input.replace(new RegExp('^(\\d+)\\.(\\d{0,' + decimals + '}).*$' ), '$1.$2')
+  }
+
+  return input
+}
+
 export default {
   ns2Str: ns2Str,
   ns2Obj: ns2Obj,
+  fixNumberStr: fixNumberStr,
 }
