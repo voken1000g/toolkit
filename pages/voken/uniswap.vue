@@ -10,22 +10,7 @@
       </template>
     </layout-hero-simple>
 
-<!--    <uniswap-intro />-->
-
-    <div class="resp-my resp-wide pb-24 text-center">
-      <h2 class="font-mono text-3xl text-cool-gray-500">
-        Coming soon...
-      </h2>
-
-      <p class="resp-mt font-bold text-lg text-cool-gray-500">
-        VokenTB Contract Address
-      </p>
-
-      <p class="mt-4 font-mono text-lg text-cool-gray-500">
-        {{ DAPP.CONTRACT_ADDRESS_VOKEN_TB }}
-      </p>
-    </div>
-
+    <uniswap-intro />
     <uniswap-links class="bg-indigo-50" />
   </div>
 </template>
@@ -44,7 +29,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-
-</style>

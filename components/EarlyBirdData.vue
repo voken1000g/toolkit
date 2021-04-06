@@ -15,7 +15,7 @@
             </dt>
             <dd>
               <span>
-                <comp-number :value="ether.usdPrice" :decimals="6" :mantissa="3" />
+                $ <comp-number :value="ether.usdPrice" :decimals="6" :mantissa="3" />
               </span>
               <span class="usd">
                 USD

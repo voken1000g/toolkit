@@ -17,7 +17,8 @@
 
           <div>
             <div class="font-bold text-lg">
-              Buy VokenTB
+              {{ $t('uniswap.Buy') }}
+              VokenTB
             </div>
             <p class="mt-2 text-sm text-pink-200">
               $<comp-number :value="$store.state.voken.usdPrice" :decimals="6" />
@@ -33,7 +34,8 @@
 
           <div>
             <div class="font-bold text-lg">
-              Sell VokenTB
+              {{ $t('uniswap.Sell') }}
+              VokenTB
             </div>
             <p class="mt-2 text-sm text-purple-200">
               $<comp-number :value="$store.state.voken.usdPrice" :decimals="6" />

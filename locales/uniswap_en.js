@@ -10,4 +10,7 @@ export default {
   Avoid__matched_orders__: 'Avoid malicious price manipulation by a few people through matched orders',
   Avoid__malicious_OTC__: 'Avoid malicious over-price or under-price OTC trading',
   Plentiful_liquidity__: 'Plentiful liquidity for buyers and sellers at DEX (everyone can join)',
+
+  Buy: 'Buy',
+  Sell: 'Sell',
 }

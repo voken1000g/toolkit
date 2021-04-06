@@ -1,6 +1,8 @@
 <template>
   <div>
-
+    <div class="py-40 text-center">
+      ...
+    </div>
   </div>
 </template>
 

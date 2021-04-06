@@ -10,4 +10,7 @@ export default {
   Avoid__matched_orders__: '避免少数人通过对敲交易恶意操纵价格',
   Avoid__malicious_OTC__: '避免恶意高价或低价场外交易',
   Plentiful_liquidity__: '在 DEX 为买家和卖家提供充足的流动性（每个人都可以加入）',
+
+  Buy: '买入',
+  Sell: '卖出',
 }
