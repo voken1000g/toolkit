@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-if="!$store.state.comm0.isProxy" class="resp-wide py-40 text-center">
+    <div v-if="!$store.state.comm0.isProxy && !$store.state.comm0.isAgent" class="resp-wide py-40 text-center">
       Not for you
     </div>
     <div v-else>
@@ -16,8 +16,11 @@
         </template>
       </layout-hero-simple>
 
+
+
       <comm0-main />
       <comm0-rules class="bg-indigo-50" />
+      <comm0-records />
     </div>
   </div>
 </template>
@@ -46,12 +49,16 @@ export default {
       commSkylerAbi, DAPP.CONTRACT_ADDRESS_COMM_SKYLER
     ))
 
+    await this.$store.dispatch('comm0/SYNC_IS_AGENT')
+    await this.$store.dispatch('comm0/SYNC_IS_PROXY')
+
     // Sync STATUS
     await this.$store.dispatch('comm0/SYNC_STATUS')
     await this.$store.dispatch('comm0/SET_BLOCK_NUMBER', this.$store.state.ether.blockNumber)
   },
   watch: {
     '$store.state.ether.account': async function() {
+      await this.$store.dispatch('comm0/SYNC_IS_AGENT')
       await this.$store.dispatch('comm0/SYNC_IS_PROXY')
     }
   },

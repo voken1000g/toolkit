@@ -191,8 +191,16 @@ export const actions = {
   // async SET_VESTING({commit}, vesting) {
   //   commit('SET_VESTING', vesting)
   // },
-  async SET_IS_AGENT({commit}, isAgent) {
-    commit('SET_IS_AGENT', isAgent)
+  async SYNC_IS_AGENT({rootState, state, commit}) {
+    await state
+      .contract().methods.isAgent(rootState.ether.account)
+      .call()
+      .then(async function (payload) {
+        commit('SET_IS_AGENT', payload)
+      })
+      .catch(error => {
+        console.error('::: S[voken] SYNC_IS_AGENT', error)
+      })
   },
 
   async SYNC_DATA({rootState, state, commit, dispatch}) {

@@ -29,7 +29,7 @@
               Total VokenTB
             </dt>
             <dd>
-              <number-obj :value-obj="status.vokenTbTotalObj" />
+              <comp-number :value="status.vokenTbTotal" />
             </dd>
           </div>
 
@@ -38,7 +38,7 @@
               Percent
             </dt>
             <dd>
-              {{ status.processInPercentStr }}%
+              <comp-number :value="status.processInPercent" />%
             </dd>
           </div>
 
@@ -47,7 +47,7 @@
               USD Audit
             </dt>
             <dd>
-              $ <number-obj :value-obj="status.usdAuditObj" />
+              $ <comp-number :value="status.usdAudit" :decimals="6" />
             </dd>
           </div>
 
@@ -56,7 +56,7 @@
               USD Claimed
             </dt>
             <dd>
-              $ <number-obj :value-obj="status.usdClaimedObj" />
+              $ <comp-number :value="status.usdClaimed" :decimals="6" />
             </dd>
           </div>
 
@@ -65,7 +65,7 @@
               USD Received
             </dt>
             <dd>
-              $ <number-obj :value-obj="status.usdReceivedObj" />
+              $ <comp-number :value="status.usdReceived" decimals="6" />
             </dd>
           </div>
 
@@ -74,7 +74,9 @@
               From Voken1.0
             </dt>
             <dd>
-              <number-obj :value-obj="status.v1ClaimedObj" /> + <number-obj :value-obj="status.v1BonusesObj" />
+              <comp-number :value="status.v1Claimed" :decimals="9" />
+              +
+              <comp-number :value="status.v1Bonuses" :decimals="9" />
             </dd>
           </div>
 
@@ -83,7 +85,9 @@
               From Voken2.0
             </dt>
             <dd>
-              <number-obj :value-obj="status.v2ClaimedObj" /> + <number-obj :value-obj="status.v2BonusesObj" />
+              <comp-number :value="status.v2Claimed" :decimals="9" />
+              +
+              <comp-number :value="status.v2Bonuses" :decimals="9" />
             </dd>
           </div>
 

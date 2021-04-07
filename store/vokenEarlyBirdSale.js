@@ -47,6 +47,8 @@ export const state = () => ({
   weiMaxStr: '0',
 
   account: {
+    isAgent: false,
+
     issued: '0',
     issuedStr: '0',
     issuedObj: {
@@ -187,6 +189,10 @@ export const mutations = {
     state.account.referredStr = Web3.utils.fromWei(volume, 'ether')
     state.account.referredObj = fnFormat.ns2Obj(state.account.referredStr)
   },
+
+  SET_IS_AGENT(state, isAgent) {
+    state.account.isAgent = isAgent
+  },
 }
 
 
@@ -215,6 +221,18 @@ export const actions = {
   // async SET_WEI_MAX({commit}, weiMax) {
   //   commit('SET_WEI_MAX', weiMax)
   // },
+
+  async SYNC_IS_AGENT({rootState, state, commit}) {
+    await state
+      .contract().methods.isAgent(rootState.ether.account)
+      .call()
+      .then(async function (payload) {
+        commit('SET_IS_AGENT', payload)
+      })
+      .catch(error => {
+        console.error('::: S[vokenEarlyBirdSale] SYNC_IS_AGENT', error)
+      })
+  },
 
   async SYNC_DATA({rootState, state, commit}) {
     if (!rootState.ether.productionMode) {

@@ -16,7 +16,7 @@
         </template>
       </layout-h2>
 
-      <div class="resp-mt mx-auto w-full max-w-3xl">
+      <div v-if="$store.state.comm0.isProxy" class="resp-mt mx-auto w-full max-w-3xl">
         <div class="" :class="addressStatus">
           <label for='comm0-to-address'>
             To

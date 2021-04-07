@@ -5,6 +5,7 @@ export const state = () => ({
 
   contract: null,
 
+  isAgent: false,
   isProxy: false,
   credit: '0',
   issued: '0',
@@ -19,6 +20,9 @@ export const mutations = {
     state.contract = function () {
       return contract
     }
+  },
+  SET_IS_AGENT(state, isAgent) {
+    state.isAgent = isAgent
   },
   SET_IS_PROXY(state, isProxy) {
     state.isProxy = isProxy
@@ -64,6 +68,17 @@ export const actions = {
       })
   },
 
+  async SYNC_IS_AGENT({rootState, state, commit}) {
+    await state
+      .contract().methods.isAgent(rootState.ether.account)
+      .call()
+      .then(async function (payload) {
+        commit('SET_IS_AGENT', payload)
+      })
+      .catch(error => {
+        console.error('::: S[comm0] SYNC_IS_AGENT', error)
+      })
+  },
   async SYNC_IS_PROXY({rootState, state, commit}) {
     if (!rootState.ether.productionMode) {
       console.error('::: S[comm0] SYNC_IS_PROXY: not production mode')

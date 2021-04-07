@@ -1,56 +1,52 @@
 <template>
-  <div>
-    <layout-hero-simple>
-      <template #title>
-        Voken Address List
-      </template>
-    </layout-hero-simple>
+  <div class="py-16 lg:py-24">
+    <div class="resp-wide">
+      <layout-h2>
+        <template #title>
+          Addresses
+        </template>
+      </layout-h2>
 
-    <div class="resp-wide py-20">
-      <div class='w-full space-y-6'>
-
+      <div class='resp-mt w-full space-y-6'>
         <div class='flex items-end space-x-6'>
           <div class='w-2/5'>
-            <label for="from-block" class="block text-sm font-medium leading-5 label">
+            <label for="addresses-from-block">
               From Block
             </label>
 
-            <div class='relative mt-2'>
+            <div class='relative mt-1'>
               <input type="text"
-                     id='from-block'
-                     class='input-indigo w-full py-2 px-4 text-base'
+                     id='addresses-from-block'
+                     class='input-indigo w-full py-3 px-4 text-base'
                      v-model='fromBlock' />
             </div>
           </div>
 
           <div class='w-2/5'>
-            <label for="to-block" class="block text-sm font-medium leading-5 label">
-              To Block - Latest: #{{ $store.state.ether.blockNumber }}
+            <label for="addresses-to-block">
+              #{{ $store.state.ether.blockNumber }}
             </label>
 
-            <div class='relative mt-2'>
+            <div class='relative mt-1'>
               <input type="text"
-                     id='to-block'
-                     class='input-indigo w-full py-2 px-4 text-base'
+                     id='addresses-to-block'
+                     class='input-indigo w-full py-3 px-4 text-base'
                      v-model='toBlock' />
             </div>
           </div>
 
-          <button class="w-1/5 btn btn-pink justify-center py-2 text-base uppercase" @click='getVokenAddressSet'>
+          <button class="w-1/5 btn btn-pink justify-center py-3 text-base uppercase" @click='getVokenAddressSet'>
             Query
           </button>
         </div>
 
-        <div v-if="accounts.length > 0" class="mt-12 px-4">
+        <div v-if="records.length > 0" class="mt-12 px-4">
           <layout-table-simple>
             <table>
               <thead>
               <tr>
                 <th>
                   Block
-                </th>
-                <th>
-                  Hash
                 </th>
                 <th>
                   Account
@@ -65,21 +61,20 @@
               </thead>
 
               <tbody>
-              <tr v-for="account in accounts" class="font-mono">
+              <tr v-for="record in records" class="font-mono">
                 <td>
-                  {{ account.blockNumber }}
+                  <a target="_blank" :href="fnEtherscan.tx(record.transactionHash)">
+                    #{{ record.blockNumber }}
+                  </a>
                 </td>
                 <td>
-                  {{ account.transactionHash }}
+                  {{ record.etherAccount }}
                 </td>
                 <td>
-                  {{ account.etherAccount }}
-                </td>
-                <td>
-                  {{ account.vokenAddress }}
+                  {{ record.vokenAddress }}
                 </td>
                 <td class='text-right'>
-                  {{ account.vokenBalance }}
+                  <comp-number :value="record.vokenBalance" :decimals="9" />
                 </td>
               </tr>
               </tbody>
@@ -89,22 +84,24 @@
 
       </div>
     </div>
-
   </div>
 </template>
 
 <script>
-import vokenAddress from '@voken/address'
+import vokenAddress from "@voken/address"
 import fnFormat from "~/utils/fnFormat"
+import fnEtherscan from "~/utils/fnEtherscan"
 
 export default {
-  name: "dev-voken-address-list",
-  middleware: ['web3', 'voken'],
+  name: "DevVokenAddresses",
   data() {
     return {
-      fromBlock: '12174553',
+      fnEtherscan: fnEtherscan,
+
+      fromBlock: '12191548',
       toBlock: 'latest',
-      accounts: [],
+
+      records: [],
     }
   },
   methods: {
@@ -131,10 +128,10 @@ export default {
             transactionHash: events[i].transactionHash,
             etherAccount: etherAccount,
             vokenAddress: vokenAddress.fromBNString(events[i].returnValues.voken),
-            vokenBalance: fnFormat.ns2Str(vokenBalance, 9)
+            vokenBalance: vokenBalance
           })
 
-          this.accounts = accounts
+          this.records = accounts
           await setTimeout("", 300)
         }
       }

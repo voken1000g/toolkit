@@ -1,13 +1,13 @@
 <template>
-  <div>
-    <layout-hero-simple>
-      <template #title>
-        Voken Migrations
-      </template>
-    </layout-hero-simple>
+  <div class="py-16 lg:py-24">
+    <div class="resp-wide">
+      <layout-h2>
+        <template #title>
+          Records
+        </template>
+      </layout-h2>
 
-    <div class="resp-wide py-20">
-      <div class='w-full space-y-6'>
+      <div class='resp-mt w-full space-y-6'>
 
         <div class='flex items-end space-x-6'>
           <div class='w-2/5'>
@@ -36,12 +36,12 @@
             </div>
           </div>
 
-          <button class="w-1/5 btn btn-pink justify-center py-2 text-base uppercase" @click='getVokenMigrations'>
+          <button class="w-1/5 btn btn-pink justify-center py-2 text-base uppercase" @click='getRecords'>
             Query
           </button>
         </div>
 
-        <div v-if="migrations.length > 0" class="mt-12 px-4">
+        <div v-if="records.length > 0" class="mt-12 px-4">
           <layout-table-simple>
             <table>
               <thead>
@@ -50,38 +50,45 @@
                   Block
                 </th>
                 <th>
-                  Hash
-                </th>
-                <th>
                   From
                 </th>
                 <th>
-                  To
+                  USD
                 </th>
                 <th>
-                  Amount
+
+                </th>
+                <th>
+                  ETH/USD
+                </th>
+                <th>
+                  Ether
                 </th>
               </tr>
               </thead>
 
               <tbody>
-              <tr v-for="migration in migrations" class="font-mono">
+              <tr v-for="record in records" class="font-mono">
                 <td>
-                  #{{ migration.blockNumber }}
-                </td>
-                <td>
-                  <a target="_blank" :href="fnEtherscan.tx(migration.transactionHash)">
-                    {{ migration.transactionHash }}
+                  <a target="_blank" :href="fnEtherscan.tx(record.transactionHash)">
+                    #<comp-number :value="record.blockNumber" />
                   </a>
                 </td>
-                <td>
-                  {{ migration.from }}
+                <td class="truncate">
+                  {{ record.from }}
+                </td>
+                <td class="text-right">
+                  <comp-number :value="record.usdAmount" :decimals="6" :mantissa="2" :padding="true" />
                 </td>
                 <td>
-                  {{ migration.to }}
+                  =
+                </td>
+                <td class="text-right">
+                  <comp-number :value="record.etherUsdPrice" :decimals="6" :mantissa="2" :padding="true" />
                 </td>
                 <td>
-                  {{ migration.amount }} VokenTB
+                  <comp-number :value="record.weiPayment" :decimals="18" />
+                  <!-- :mantissa="2" -->
                 </td>
               </tr>
               </tbody>
@@ -91,19 +98,15 @@
 
       </div>
     </div>
-
   </div>
 </template>
 
 <script>
-import vokenAddress from '@voken/address'
-import fnFormat from "~/utils/fnFormat"
+import BigNumber from "bignumber.js"
 import fnEtherscan from "~/utils/fnEtherscan"
-import DAPP from "~/utils/constants/dapp";
 
 export default {
-  name: "dev-voken-migration-list",
-  middleware: ['web3', 'voken'],
+  name: "DevVokenEarlyBirdRecords",
   data() {
     return {
       fnEtherscan: fnEtherscan,
@@ -111,50 +114,43 @@ export default {
       fromBlock: 0,
       toBlock: 'latest',
 
-      migrations: [],
-      accounts: [],
+      records: [],
     }
   },
   methods: {
-    async getVokenMigrations() {
-      await this.$store.state.voken.contract()
+    async getRecords() {
+      await this.$store.state.vokenEarlyBirdSale.contract()
         .getPastEvents(
-          'Transfer', {
-            filter: {
-              to: DAPP.CONTRACT_ADDRESS_MIGRATE
-            },
+          'Payment', {
             fromBlock: this.fromBlock,
             toBlock: this.toBlock
           }
         )
-        .then(this.onGetVokenMigrations)
-        .catch(this.onGetVokenMigrationsError)
+        .then(this.onGetRecords)
+        .catch(this.onGetError)
     },
-    async onGetVokenMigrations(events) {
-      console.log(events)
-
+    async onGetRecords(events) {
       if (events.length > 0) {
-        let migrations = []
+        let records = []
         for (let i = 0; i < events.length; i++) {
-          const fromAccount = events[i].returnValues.from
-          const vokenInt = await this.$store.state.voken.contract().methods.address2voken(fromAccount).call()
-          console.log('vokenInt:', vokenInt)
-
-          migrations.push({
-            blockNumber: fnFormat.ns2Str(events[i].blockNumber, 0),
+          records.unshift({
+            blockNumber: events[i].blockNumber,
             transactionHash: events[i].transactionHash,
-            from: fromAccount,
-            to: vokenAddress.fromBNString(vokenInt),
-            amount: fnFormat.ns2Str(events[i].returnValues.value),
+            from: events[i].returnValues.account,
+            etherUsdPrice: events[i].returnValues.etherUsdPrice,
+            weiPayment: events[i].returnValues.weiPayment,
+            usdAmount: new BigNumber(events[i].returnValues.etherUsdPrice)
+              .multipliedBy(events[i].returnValues.weiPayment)
+              .dividedBy(10 ** 18)
+              .toString()
           })
-
-          this.migrations = migrations
-          await setTimeout("", 300)
         }
+
+        this.records = records
       }
     },
-    async onGetVokenMigrationsError(error) {
-      console.error('::: P[voken-migration-list] onGetVokenMigrationsError:', error)
+    async onGetError(error) {
+      console.error('::: P[/dev/voken/early-bird] onGetEarlyBirdRecordsError:', error)
     }
 
   }
