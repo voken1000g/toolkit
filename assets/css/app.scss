@@ -653,17 +653,18 @@
 
     li {
       @apply flex items-center justify-between space-x-2;
+      @apply py-3;
 
       //@screen sm {
       //  @apply flex items-center justify-between space-x-2;
       //}
 
       div.drl-block {
-        @apply text-sm text-gray-500;
+        @apply font-mono text-sm text-gray-500;
       }
 
       div.drl-address {
-        @apply w-full text-sm sm:text-base text-gray-700 text-right truncate;
+        @apply w-full font-mono text-sm sm:text-base text-gray-700 text-right truncate;
       }
     }
   }

@@ -45,7 +45,6 @@ export default {
     return {
       fnEtherscan: fnEtherscan,
 
-      rewards: [],
       referrals: [],
     }
   },

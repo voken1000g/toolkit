@@ -89,7 +89,6 @@
 
 <script>
 import vokenAddress from "@voken/address"
-import fnFormat from "~/utils/fnFormat"
 import fnEtherscan from "~/utils/fnEtherscan"
 
 export default {
@@ -98,7 +97,7 @@ export default {
     return {
       fnEtherscan: fnEtherscan,
 
-      fromBlock: '12191548',
+      fromBlock: '12198043',
       toBlock: 'latest',
 
       records: [],
