@@ -108,8 +108,8 @@ export default {
     }
   },
   async mounted() {
-    await this.get()
     await this.getEarlyBirdData()
+    await this.get()
   },
   methods: {
     async get() {
@@ -159,7 +159,9 @@ export default {
                 toBlock: this.toBlock
               }
             )
-            .catch(this.onDivePaymentError)
+            .catch(error => {
+              console.error('::: C[StatAccountReferrals] getPastEvents - Payment:', error)
+            })
 
           if (!paymentEvents.length) {
             this.records[i].payment = '0'
@@ -183,7 +185,9 @@ export default {
                 toBlock: 'latest'
               }
             )
-            .catch(this.onDiveReferralsError)
+            .catch(error => {
+              console.error('::: C[StatAccountReferrals] getPastEvents - ReferrerSet:', error)
+            })
 
           this.records[i].referrals = referralEvents.length
 
@@ -203,7 +207,9 @@ export default {
                   toBlock: 'latest'
                 }
               )
-              .catch(this.onDiveRewardsError)
+              .catch(error => {
+                console.error('::: C[StatAccountReferrals] getPastEvents - Reward:', error)
+              })
 
             let bn = new BigNumber(0)
 
@@ -218,15 +224,6 @@ export default {
     },
     async onGetError(error) {
       console.error('::: C[StatAccountReferrals] get', error)
-    },
-    async onDivePaymentError(error) {
-      console.error('::: C[StatAccountReferrals] onDivePaymentError:', error)
-    },
-    async onDiveReferralsError(error) {
-      console.error('::: C[StatAccountReferrals] onDiveReferralsError:', error)
-    },
-    async onDiveRewardsError(error) {
-      console.error('::: C[StatAccountReferrals] onDiveRewardsError:', error)
     },
 
     async getEarlyBirdData() {

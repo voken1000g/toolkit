@@ -12,6 +12,7 @@
 
     <uniswap-intro />
     <uniswap-links class="bg-indigo-50" />
+    <uniswap-records />
   </div>
 </template>
 

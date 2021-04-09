@@ -6,6 +6,8 @@ import vokenTbDataAbi from '../utils/contracts/vokenTbData.json'
 import earlyBirdAbi from '../utils/contracts/earlyBird.json'
 import earlyBirdDataAbi from '../utils/contracts/earlyBirdData.json'
 import resaleAbi from '../utils/contracts/resale.json'
+import uniswapV2Abi from '../utils/contracts/uniswapV2.json'
+import uniswapV2PairAbi from '../utils/contracts/uniswapV2Pair.json'
 
 export default async function ({store, app, redirect, route }) {
   if (store.state.ether.blockNumber) {
@@ -54,6 +56,12 @@ export default async function ({store, app, redirect, route }) {
   ))
   await store.dispatch('vokenResale/SET_CONTRACT', new Contract(
     resaleAbi, DAPP.CONTRACT_ADDRESS_RESALE
+  ))
+  await store.dispatch('uniswapV2/SET_CONTRACT', new Contract(
+    uniswapV2Abi, DAPP.CONTRACT_ADDRESS_UNISWAP_V2
+  ))
+  await store.dispatch('uniswapV2/SET_PAIR_CONTRACT', new Contract(
+    uniswapV2PairAbi, DAPP.CONTRACT_ADDRESS_UNISWAP_V2_PAIR
   ))
 
   // Connect

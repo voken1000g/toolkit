@@ -97,7 +97,7 @@ export default {
     return {
       fnEtherscan: fnEtherscan,
 
-      fromBlock: '12198043',
+      fromBlock: '12206549',
       toBlock: 'latest',
 
       records: [],

@@ -8,54 +8,59 @@
 import Web3 from 'web3'
 import DAPP from "~/utils/constants/dapp"
 import fnFormat from "~/utils/fnFormat"
+import BigNumber from "bignumber.js"
 
 export default {
   name: "debug",
   // middleware: ['etherGasSync', 'web3', 'voken', 'vokenEarlyBirdSale'],
+  middleware: ['web3'],
 
   async mounted() {
     console.warn('::: debug start...')
-
-
+    await this.get()
   },
 
   methods: {
-    async getVokenMigrations() {
-      await this.$store.state.voken.contract()
+    async get() {
+      await this.$store.state.uniswapV2.pairContract()
         .getPastEvents(
-          'Mint', {
+          'Swap', {
             // filter: {
-            //   from: this.$store.state.ether.account,
-            //   to: DAPP.CONTRACT_ADDRESS_MIGRATE
+            //   // from: this.$store.state.ether.account,
+            //   to: DAPP.CONTRACT_ADDRESS_UNISWAP_V2_PAIR
             // },
             fromBlock: 0,
             toBlock: 'latest',
-            address: DAPP.CONTRACT_ADDRESS_EARLY_BIRD
+            // address: DAPP.CONTRACT_ADDRESS_EARLY_BIRD
           }
         )
-        .then(this.onGetVokenMigrations)
-        .catch(this.onGetVokenMigrationsError)
+        .then(this.onGet)
+        .catch(this.onGetError)
     },
-    async onGetVokenMigrations(events) {
-      console.log(events)
-
+    async onGet(events) {
       if (events.length > 0) {
-        // let migrations = []
+        let records = []
         for (let i = 0; i < events.length; i++) {
-          console.log(events[i].transactionHash)
+          records.unshift({
+            blockNumber: events[i].blockNumber,
+            transactionHash: events[i].transactionHash,
+            account: events[i].returnValues.to,
 
-          // migrations.push({
-          //   blockNumber: fnFormat.ns2Str(events[i].blockNumber, 0),
-          //   transactionHash: events[i].transactionHash,
-          //   amount: fnFormat.ns2Str(events[i].returnValues.value),
-          // })
+            vokenIn: events[i].returnValues.amount0In,
+            vokenOut: events[i].returnValues.amount0Out,
+
+            daiIn: Web3.utils.toBN(events[i].returnValues.amount1In).div(Web3.utils.toBN(10 ** 12)).toString(),
+            daiOut: Web3.utils.toBN(events[i].returnValues.amount1Out).div(Web3.utils.toBN(10 ** 12)).toString(),
+          })
         }
+
+        console.log(records)
 
         // this.migrations = migrations
       }
     },
-    async onGetVokenMigrationsError(error) {
-      console.error('::: P[/dev/debug] onGetVokenMigrationError:', error)
+    async onGetError(error) {
+      console.error('::: P[/dev/debug] onGetError:', error)
     }
   }
 }

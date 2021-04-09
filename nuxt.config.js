@@ -117,6 +117,9 @@ export default {
           'faCode',
           'faBell',
           'faShoppingBag',
+          'faCaretRight',
+          'faArrowRight',
+          'faAngleRight',
 
           // Early-Bird
           'faArrowDown',

@@ -35,9 +35,9 @@
                 </a>
               </td>
               <td class="truncate">
-                <a target="_blank" :href="fnEtherscan.address(record.account)">
+                <nuxt-link :to="localePath('/stat/' + record.account)">
                   {{ record.account }} <span v-show="record.nonce">({{ record.nonce }})</span>
-                </a>
+                </nuxt-link>
               </td>
               <td>
                 <comp-number :value="record.amount" :decimals="9" />
