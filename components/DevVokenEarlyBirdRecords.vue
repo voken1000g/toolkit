@@ -53,16 +53,10 @@
                   From
                 </th>
                 <th>
+                  ETH
+                </th>
+                <th>
                   USD
-                </th>
-                <th>
-
-                </th>
-                <th>
-                  ETH/USD
-                </th>
-                <th>
-                  Ether
                 </th>
               </tr>
               </thead>
@@ -75,20 +69,17 @@
                   </a>
                 </td>
                 <td class="truncate">
-                  {{ record.from }}
-                </td>
-                <td class="text-right">
-                  <comp-number :value="record.usdAmount" :decimals="6" :mantissa="2" :padding="true" />
+                  <nuxt-link :to="localePath('/stat/' + record.from)">
+                    {{ record.from }}
+                  </nuxt-link>
                 </td>
                 <td>
-                  =
-                </td>
-                <td class="text-right">
                   <comp-number :value="record.etherUsdPrice" :decimals="6" :mantissa="2" :padding="true" />
+                  x
+                  <comp-number :value="record.weiPayment" :decimals="18" />
                 </td>
                 <td>
-                  <comp-number :value="record.weiPayment" :decimals="18" />
-                  <!-- :mantissa="2" -->
+                  <comp-number :value="record.usdAmount" :decimals="6" :mantissa="2" :padding="true" />
                 </td>
               </tr>
               </tbody>

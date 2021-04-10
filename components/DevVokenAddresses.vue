@@ -35,7 +35,7 @@
             </div>
           </div>
 
-          <button class="w-1/5 btn btn-pink justify-center py-3 text-base uppercase" @click='getVokenAddressSet'>
+          <button class="w-1/5 btn btn-pink justify-center py-3 text-base uppercase" @click='get'>
             Query
           </button>
         </div>
@@ -104,7 +104,7 @@ export default {
     }
   },
   methods: {
-    async getVokenAddressSet() {
+    async get() {
       await this.$store.state.voken.contract()
         .getPastEvents(
           'VokenAddressSet', {
@@ -112,17 +112,17 @@ export default {
             toBlock: this.toBlock
           }
         )
-        .then(this.onGetVokenAddressSet)
-        .catch(this.onGetVokenAddressSetError)
+        .then(this.onGet)
+        .catch(this.onGetError)
     },
-    async onGetVokenAddressSet(events) {
+    async onGet(events) {
       if (events.length > 0) {
         let accounts = []
         for (let i = 0; i < events.length; i++) {
           const etherAccount = events[i].returnValues.account
           const vokenBalance = await this.$store.state.voken.contract().methods.balanceOf(etherAccount).call()
 
-          accounts.push({
+          accounts.unshift({
             blockNumber: events[i].blockNumber,
             transactionHash: events[i].transactionHash,
             etherAccount: etherAccount,
@@ -131,12 +131,12 @@ export default {
           })
 
           this.records = accounts
-          await setTimeout("", 300)
+          // await setTimeout("", 300)
         }
       }
     },
-    async onGetVokenAddressSetError(error) {
-      console.error('::: P[/dev/voken-address-list] onGetVokenAddressSetError:', error)
+    async onGetError(error) {
+      console.error('::: C[DevVokenAddresses] onGetError:', error)
     }
   }
 }

@@ -1,5 +1,5 @@
 <template>
-  <div class="py-16 lg:py-24">
+  <div v-if="records.length" class="py-16 lg:py-24">
     <div class="resp-wide">
       <layout-h2>
         <template #title>

@@ -115,7 +115,8 @@
     </div>
 
     <dev-voken-addresses />
-    <dev-voken-migrations class="bg-indigo-50"s />
+    <dev-voken-migrations class="bg-indigo-50" />
+<!--    <dev-voken-referrals />-->
   </div>
 </template>
 
