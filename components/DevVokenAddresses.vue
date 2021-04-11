@@ -18,7 +18,7 @@
               <input type="text"
                      id='addresses-from-block'
                      class='input-indigo w-full py-3 px-4 text-base'
-                     v-model='fromBlock' />
+                     v-model='fromBlock'/>
             </div>
           </div>
 
@@ -31,7 +31,7 @@
               <input type="text"
                      id='addresses-to-block'
                      class='input-indigo w-full py-3 px-4 text-base'
-                     v-model='toBlock' />
+                     v-model='toBlock'/>
             </div>
           </div>
 
@@ -74,7 +74,12 @@
                   {{ record.vokenAddress }}
                 </td>
                 <td class='text-right'>
-                  <comp-number :value="record.vokenBalance" :decimals="9" />
+                  <span v-if="record.vokenBalance">
+                    <comp-number :value="record.vokenBalance" :decimals="9" :padding="true"/>
+                  </span>
+                  <span v-else>
+                    loading...
+                  </span>
                 </td>
               </tr>
               </tbody>
@@ -90,6 +95,7 @@
 <script>
 import vokenAddress from "@voken/address"
 import fnEtherscan from "~/utils/fnEtherscan"
+import DAPP from '~/utils/constants/dapp'
 
 export default {
   name: "DevVokenAddresses",
@@ -97,7 +103,7 @@ export default {
     return {
       fnEtherscan: fnEtherscan,
 
-      fromBlock: '12206549',
+      fromBlock: DAPP.ADDRESS_SET_BLOCK_NUMBER,
       toBlock: 'latest',
 
       records: [],
@@ -120,19 +126,26 @@ export default {
         let accounts = []
         for (let i = 0; i < events.length; i++) {
           const etherAccount = events[i].returnValues.account
-          const vokenBalance = await this.$store.state.voken.contract().methods.balanceOf(etherAccount).call()
+          // const vokenBalance = await this.$store.state.voken.contract().methods.balanceOf(etherAccount).call()
 
           accounts.unshift({
             blockNumber: events[i].blockNumber,
             transactionHash: events[i].transactionHash,
             etherAccount: etherAccount,
             vokenAddress: vokenAddress.fromBNString(events[i].returnValues.voken),
-            vokenBalance: vokenBalance
+            vokenBalance: null
           })
 
           this.records = accounts
           // await setTimeout("", 300)
         }
+
+        for (let i = 0; i < this.records.length; i++) {
+          this.records[i].vokenBalance = await this.$store.state
+            .voken.contract().methods.balanceOf(this.records[i].etherAccount).call()
+        }
+
+
       }
     },
     async onGetError(error) {
