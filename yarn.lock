@@ -1941,12 +1941,10 @@
     "@dicebear/avatars" "^4.5.2"
     "@dicebear/avatars-jdenticon-sprites" "^4.5.2"
 
-"@voken/base32@^1.3.3":
-  version "1.3.3"
-  resolved "https://registry.yarnpkg.com/@voken/base32/-/base32-1.3.3.tgz#21f6be13e2711a80f412b6737ee1c4ba107b7012"
-  integrity sha512-Racw9qLU2oxfCRtX1YIotT8d5bKh5GWLOcGkWrz+q8+RmxC4qF2lmk3jC0lnijDiP/F36ozXtBAmQxAHZykwhA==
-  dependencies:
-    "@voken/sha" "^1.1.9"
+"@voken/base32@^1.3.3", "@voken/base32@^1.4.0":
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/@voken/base32/-/base32-1.4.0.tgz#81cf88072bf26643c09cafadf7034784b938742f"
+  integrity sha512-bgcPTudZNgPlAhTri4yUx4PbRXLGLT7EkvLV3Wjmzyr4a5dXAokupi6WpbP9heT9CxglbpHTMp+BmCiZTn6LXw==
 
 "@voken/edsv@^1.1.1":
   version "1.1.1"
