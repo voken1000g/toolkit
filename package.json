@@ -23,7 +23,7 @@
     "@nuxtjs/toast": "^3.3.1",
     "@voken/address": "^1.5.2",
     "@voken/aes256ctr": "^1.1.1",
-    "@voken/base32": "^1.3.3",
+    "@voken/base32": "^1.4.0",
     "@voken/edsv": "^1.1.1",
     "@voken/hd-wallet": "^1.3.2",
     "@voken/private-key": "^1.1.0",
