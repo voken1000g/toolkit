@@ -10,7 +10,7 @@
       </template>
     </layout-hero-simple>
 
-    <early-bird-swap />
+    <early-bird-swap2 />
     <early-bird-data class="bg-indigo-50" />
     <early-bird-rules />
     <early-bird-faq class="bg-indigo-50" />

@@ -45,8 +45,8 @@ export default function() {
       }
     case 'localhost':
       return {
-        title: 'VOKEN_Toolkit',
-        path: '/wallet',
+        title: 'Vision_Network',
+        path: '/home',
         icon: ['fas', 'tools'],
       }
     default:
