@@ -80,7 +80,8 @@ export default {
 
   VokenTB_Early_Bird_Sale_Contract: {
     text: 'VokenTB 早起鸟销售合约',
-    href: 'https://voken.io/zh_CN/latest/contracts/early_bird.html'
+    href: 'https://etherscan.io/address/0x2aaaa04185b5db4c1969b47d27c2f1e3dc305982#code'
+    // href: 'https://voken.io/zh_CN/latest/contracts/early_bird.html'
   },
 
   Ether_USD_Price_Contract: {

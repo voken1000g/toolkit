@@ -128,7 +128,7 @@
                 Distribution for Early-Bird
               </dt>
               <dd>
-                5% of the Total Supply: 10.5 Million
+                {{ $t('voken.dist.Early_Bird_Sale') }}
               </dd>
             </div>
 
@@ -137,7 +137,7 @@
                 Distribution for Public-Sale
               </dt>
               <dd>
-                40% of the Total Supply: 84 Million, NOT STARTED
+                {{ $t('voken.dist.Public_Sale') }}
               </dd>
             </div>
 

@@ -43,13 +43,16 @@ export default {
 
   Already_an_Early_Bird: 'Already an Early-Bird',
   Got_: 'Got: ',
-  Random_Bonus_: 'Random Bonus:',
   Available_: 'Available:',
+  Random_Bonus_: 'Random Bonus:',
+  Random_Gift_: 'Random Gift:',
+  Reward_: 'Reward:',
   Referred_: 'Referred:',
 
   Go_to_referral_program: 'Go to referral program',
 
   Refer_friends: 'Refer a friend',
+  Referral_link: 'Referral link',
 
   rules: {
     title: 'Rules of the Early-Bird Sale',
@@ -58,6 +61,9 @@ export default {
     Only_10_5_million__: 'Only 10.5 million VokenTB for this Early-Bird Sale',
     There_ar_only_10_5__: 'There are only 10.5 million VokenTB would released during this',
     that_is_5percent__: 'that is 5% of the VokenTB Total Supply',
+    Only_21_million__: 'Only 21 million VokenTB for this Early-Bird Sale',
+    There_ar_only_21__: 'There are only 21 million VokenTB would released during this',
+    that_is_10percent__: 'that is 10% of the VokenTB Total Supply',
 
     Running_by: 'Running by',
     __running__on_the_Ethereum__: 'on the Ethereum blockchain, to ensure fairness and transparency and free to check at anytime.',
@@ -81,7 +87,7 @@ export default {
     And__only_one_purchase__: 'And, only one purchase per address is allowed.',
 
     Additional___bonus__: 'Additional 1%-10% bonus if you have a referral address',
-    If_you_have_a_referral__: 'If you have a referral address, bind it, then you can get an',
+    If_you_have_a_referral__: 'If you have a referral address, bind it, then both you and the referrer can get an',
     additional___random_bonus__: 'additional 1%-10% random bonus (paid in VokenTB)',
 
     Vesting_plan: 'Vesting plan',
@@ -90,7 +96,7 @@ export default {
 
     _10percent__: '10% released instantly',
     _90percent__: '90% released according the process of the Public-Sale',
-    The_bonuses_will_released__: 'The bonuses will be released after the Public-Sale',
+    The_bonuses_will_released__: 'The bonuses/rewards will be released after the Public-Sale',
 
     Referral_Rewards: 'Referral Rewards',
     Click_here_to_learn_more: 'Click here to learn more',
@@ -106,6 +112,7 @@ export default {
     GAS_you_can_find_3_levels__: 'you can find 3 levels of gas price there, just take one as you prefer.',
 
     Can_I_buy_more_than_1_ETH_: 'Can I buy more than 1 ETH?',
+    Can_I_buy_more_than_5_ETH_: 'Can I buy more than 5 ETH?',
     LIMIT__Nope_here__: 'Nope here (Early-Bird Sale). You can help more people know and understand the project and earn from the promotion. We always believe that users bring energy to the ecosystem.',
     LIMIT__Or_you_may_go_to: 'Or you may go to',
     LIMIT__which_is__DEX__: 'which is the only DEX we recommended for trading (no fake token, and with no burning).',
@@ -115,7 +122,8 @@ export default {
 
   referral: {
     Referral_System: 'Referral System',
-    Earn_ETH_up_to_22percent__: 'Earn ETH up to 22% for referring Early-Birds',
+    // Earn_ETH_up_to_22percent__: 'Earn ETH up to 22% for referring Early-Birds',
+    Earn_VokenTB__: 'Earn VokenTB random 1%-10% reward for referring Early-Birds',
 
     Referral_Link: 'Referral Link',
     Copy: 'Copy',

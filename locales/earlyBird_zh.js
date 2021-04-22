@@ -41,13 +41,16 @@ export default {
 
   Already_an_Early_Bird: '您已经是早起鸟',
   Got_: '获得：',
-  Random_Bonus_: '随机奖励：',
   Available_: '可用：',
+  Random_Bonus_: '随机奖励：',
+  Random_Gift_: '随机赠送：',
+  Reward_: '推荐奖励：',
   Referred_: '推荐：',
 
   Go_to_referral_program: '转到推荐计划',
 
   Refer_friends: '推荐给朋友',
+  Referral_link: '推荐链接',
 
   rules: {
     title: '早起鸟销售规则',
@@ -55,7 +58,10 @@ export default {
 
     Only_10_5_million__: '仅有 1050 万 VokenTB 用于早起鸟销售',
     There_ar_only_10_5__: '共仅有 1050 万 VokenTB 将释放于本次',
-    that_is_5percent__: '是 VokenTB 总供应量的 5%',
+    that_is_5percent__: '是 VokenTB 总供应量的 10%',
+    Only_21_million__: '仅有 2100 万 VokenTB 用于早起鸟销售',
+    There_ar_only_21__: '共仅有 2100 万 VokenTB 将释放于本次',
+    that_is_10percent__: '是 VokenTB 总供应量的 10%',
 
     Running_by: '由',
     __running__on_the_Ethereum__: '运行在以太坊区块链上，保证公平性和透明度，并在任何时间可查看。',
@@ -79,7 +85,7 @@ export default {
     And__only_one_purchase__: '而且，每个地址只允许购买 1 次。',
 
     Additional___bonus__: '如果您有推荐地址，可获得 1%-10% 的额外赠送',
-    If_you_have_a_referral__: '如果您有一个推荐地址，绑定它，那么您可以得到',
+    If_you_have_a_referral__: '如果您有一个推荐地址，绑定它，那么您和推荐人都可以得到',
     additional___random_bonus__: '额外 1%-10% 的随机赠送（以 VokenTB 支付）',
 
     Vesting_plan: '归属计划',
@@ -88,7 +94,7 @@ export default {
 
     _10percent__: '10% 立即解锁',
     _90percent__: '90% 按照公开销售的进度解锁',
-    The_bonuses_will_released__: '赠送部分在公开销售结束后解锁',
+    The_bonuses_will_released__: '赠送/奖励部分在公开销售结束后解锁',
 
     Referral_Rewards: '推荐奖励',
     Click_here_to_learn_more: '点这里了解更多',
@@ -106,6 +112,7 @@ export default {
     GAS_you_can_find_3_levels__: '您可以在那里看到 3 个级别的油价，选一个您喜欢的。',
 
     Can_I_buy_more_than_1_ETH_: '我可以购买超过 1 ETH 吗？',
+    Can_I_buy_more_than_5_ETH_: '我可以购买超过 5 ETH 吗？',
     LIMIT__Nope_here__: '不可以（早起鸟销售）。您可以帮助更多的人知道和了解这个项目，并从推广中获得收益。我们始终相信，用户为生态系统带来能量。',
     LIMIT__Or_you_may_go_to: '或者您可以去',
     LIMIT__which_is__DEX__: '这是我们推荐的唯一的去中心化交易所（没有假币，也没有燃烧）。',
@@ -115,6 +122,7 @@ export default {
   referral: {
     Referral_System: '推荐系统',
     Earn_ETH_up_to_22percent__: '推荐早起鸟可赚取高达 22% 的 ETH 奖励',
+    Earn_VokenTB__: '推荐早起鸟可赚取随机 1%-10% 的 VokenTB 奖励',
 
     Referral_Link: '推荐链接',
     Copy: '复制',

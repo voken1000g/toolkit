@@ -42,6 +42,7 @@ export default {
   __rp: '）',
   The_: '',
   or: '或',
+  And: '和',
 
   Block: '区块',
   Amount: '数量',

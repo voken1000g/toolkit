@@ -28,16 +28,11 @@
             VokenTB {{ $t('voken.Early_Bird_Sale') }}
           </h2>
           <p class="mt-3 font-mono text-xs text-gray-500 sm:mt-4 sm:text-base truncate">
-            {{ DAPP.CONTRACT_ADDRESS_EARLY_BIRD }}
+            {{ DAPP.CONTRACT_ADDRESS_EARLY_BIRD2 }}
           </p>
         </div>
       </div>
-      <div class="mt-8 sm:mt-12 lg:mt-16 max-w-lg mx-auto bg-gray-100 rounded-lg py-8 px-6 h-60 flex items-center justify-center">
-        <div class="text-4xl text-gray-400">
-          Paused
-        </div>
-      </div>
-      <div v-if="false" class="mt-8 sm:mt-12 lg:mt-16 max-w-lg mx-auto bg-indigo-100 rounded-lg py-8 px-6">
+      <div class="mt-8 sm:mt-12 lg:mt-16 max-w-lg mx-auto bg-indigo-100 rounded-lg py-8 px-6">
         <div v-if="earlyBird.account.issued > '0'" class="already">
           <h2 class="text-2xl tracking-tight text-gray-900 sm:text-3xl text-center pointer-events-none">
             {{ $t('earlyBird.Already_an_Early_Bird') }}
@@ -55,20 +50,6 @@
             </span>
           </div>
 
-          <!-- Bonus -->
-          <div v-show="earlyBird.account.bonuses > '0'">
-            <div class="mt-8 text-indigo-800">
-              {{ $t('earlyBird.Random_Bonus_') }}
-            </div>
-
-            <div class="font-mono text-2xl text-gray-800 text-right">
-              <comp-number :value="earlyBird.account.bonuses" :decimals="9" />
-              <span class="text-lg">
-                VokenTB
-              </span>
-            </div>
-          </div>
-
           <!-- Available -->
           <div v-show="earlyBird.account.available > '0'">
             <div class="mt-8 text-indigo-800">
@@ -83,15 +64,42 @@
             </div>
           </div>
 
-          <div v-show="voken.account.vokenInt > '0'">
+          <div class="mt-8 relative">
+            <div class="absolute inset-0 flex items-center" aria-hidden="true">
+              <div class="w-full border-t border-gray-300" />
+            </div>
+            <div class="relative flex justify-center">
+              <span class="px-2 bg-indigo-100 text-sm text-gray-500">
+                {{ $t('And') }}
+              </span>
+            </div>
+          </div>
+
+          <!-- Bonus -->
+          <div v-show="earlyBird.account.bonuses > '0'">
             <div class="mt-8 text-indigo-800">
-              {{ $t('earlyBird.Referred_') }}
+              {{ $t('earlyBird.Random_Gift_') }}
             </div>
 
             <div class="font-mono text-2xl text-gray-800 text-right">
-              <comp-number :value="earlyBird.account.referred" :decimals="18" :mantissa="3" />
+              <comp-number :value="earlyBird.account.bonuses" :decimals="9" />
               <span class="text-lg">
-                ETH
+                VokenTB
+              </span>
+            </div>
+          </div>
+
+
+
+          <div v-show="voken.account.vokenInt > '0'">
+            <div class="mt-8 text-indigo-800">
+              {{ $t('earlyBird.Reward_') }}
+            </div>
+
+            <div class="font-mono text-2xl text-gray-800 text-right">
+              <comp-number :value="earlyBird.account.rewards" :decimals="9" />
+              <span class="text-lg">
+                VokenTB
               </span>
             </div>
           </div>
@@ -101,7 +109,7 @@
             <nuxt-link :to="localePath('/voken/early-bird-referral')"
                        class="w-full btn btn-pink justify-center py-2 text-lg"
             >
-              {{ $t('earlyBird.Refer_friends') }}
+              {{ $t('earlyBird.Referral_link') }}
             </nuxt-link>
           </div>
 
@@ -113,12 +121,24 @@
           <!--    Migrate to Voken Blockchain-->
           <!--  </nuxt-link>-->
           <!--</div>-->
+
+          <!--<div v-show="voken.account.vokenInt > '0'">-->
+          <!--  <div class="mt-8 text-indigo-800">-->
+          <!--    {{ $t('earlyBird.Referred_') }}-->
+          <!--  </div>-->
+          <!--  <div class="font-mono text-2xl text-gray-800 text-right">-->
+          <!--    <comp-number :value="earlyBird.account.referred" :decimals="18" :mantissa="3" />-->
+          <!--    <span class="text-lg">-->
+          <!--      ETH-->
+          <!--    </span>-->
+          <!--  </div>-->
+          <!--</div>-->
         </div>
 
         <div v-else>
           <div class="text-center">
             <h2 class="text-2xl tracking-tight text-gray-900 sm:text-3xl pointer-events-none">
-              Get VokenTB
+              {{ $t('earlyBird.Get_VokenTB') }}
             </h2>
           </div>
 
@@ -134,7 +154,7 @@
                    id="from"
                    class="input-indigo w-full py-3 pl-6 pr-24 font-mono"
                    v-model="etherAmount"
-                   placeholder="0.1 - 1.0"
+                   :placeholder="etherPlaceholder"
                    aria-describedby="currency-eth">
 
             <div class="absolute inset-y-0 right-0 pr-6 flex items-center pointer-events-none">
@@ -247,6 +267,7 @@
 </template>
 
 <script>
+import Web3 from 'web3'
 import BigNumber from 'bignumber.js'
 import vokenAddress from '@voken/address'
 import DAPP from '~/utils/constants/dapp'
@@ -254,7 +275,7 @@ import fnEthereum from '~/utils/fnEthereum'
 import fnFormat from '~/utils/fnFormat'
 
 export default {
-  name: "EarlyBirdSwap2",
+  name: "EarlyBird2Swap",
   data() {
     return {
       gas: 0,
@@ -364,7 +385,7 @@ export default {
       return this.$store.state.voken
     },
     earlyBird() {
-      return this.$store.state.vokenEarlyBirdSale
+      return this.$store.state.vokenEarlyBirdSale2
     },
 
     /**
@@ -383,11 +404,19 @@ export default {
       return this.earlyBird.account.issued === '0' && new BigNumber(this.ether.balance).lt(this.balanceMin)
     },
 
+    etherPlaceholder() {
+      return (
+        Web3.utils.fromWei(this.earlyBird.weiMin, 'ether')
+        + ' ~ '
+        + Web3.utils.fromWei(this.earlyBird.weiMax, 'ether')
+      )
+    },
+
     /**
      * Amount
      */
     etherAmountSample() {
-      return this.etherAmount >= '0.1' ? this.etherAmount : this.ether.web3().utils.fromWei(this.earlyBird.weiMax, 'ether')
+      return this.etherAmount >= '0.1' ? this.etherAmount : '1'
     },
     weiAmountSample() {
       return this.ether.web3().utils.toWei(this.etherAmountSample, 'ether')
@@ -396,13 +425,13 @@ export default {
       return this.ether.web3().utils.toWei(this.etherAmount > '0' ? this.etherAmount : '0', 'ether')
     },
     usdAmount() {
-      return new BigNumber(this.etherAmount ? this.etherAmount : this.ether.web3().utils.fromWei(this.earlyBird.weiMax, 'ether'))
+      return new BigNumber(this.etherAmount || '1')
         .multipliedBy(new BigNumber(this.ether.usdPrice))
         // .dividedBy(10 ** 6)
         // .toFixed(3)
     },
     vokenAmount() {
-      return new BigNumber(this.etherAmount ? this.etherAmount : this.ether.web3().utils.fromWei(this.earlyBird.weiMax, 'ether'))
+      return new BigNumber(this.etherAmount || '1')
         .multipliedBy(new BigNumber(this.ether.usdPrice))
         .dividedBy(new BigNumber(this.earlyBird.usdPrice))
         // .toFixed(3)
@@ -476,7 +505,7 @@ export default {
 
       let tx = {
         from: address,
-        to: DAPP.CONTRACT_ADDRESS_EARLY_BIRD,
+        to: DAPP.CONTRACT_ADDRESS_EARLY_BIRD2,
         value: value,
       }
 
@@ -599,42 +628,64 @@ export default {
         return
       }
 
-      if (new BigNumber(this.ether.balance).lt(this.balanceMin)) {
-        await this.onSwapError({
-          message: 'insufficient funds'
+      // if (new BigNumber(this.ether.balance).lt(this.balanceMin)) {
+      //   await this.onSwapError({
+      //     message: 'insufficient funds'
+      //   })
+      //   return
+      // }
+
+
+      // let tx = {
+      //   from: this.ether.account,
+      //   to: DAPP.CONTRACT_ADDRESS_EARLY_BIRD2,
+      //   value: this.weiAmount,
+      // }
+      //
+      // let estimateError = null
+      //
+      // await this.ether
+      //   .web3().eth.estimateGas(tx)
+      //   .then(estimateGas => {
+      //     tx.gas = (Math.floor(estimateGas / 10000) + 2) * 10000
+      //   })
+      //   .catch(error => {
+      //     estimateError = error
+      //   })
+      //
+      // if (estimateError) {
+      //   await this.onSwapError(estimateError)
+      //   return null
+      // }
+      //
+      // await this.ether.web3().eth.sendTransaction(tx)
+      //   .on('transactionHash', this.onSwapTransactionHash)
+      //   .on('receipt', this.onSwapReceipt)
+      //   .on('confirmation', this.onSwapConfirmation)
+      //   .on('error', this.onSwapError)
+      //   .catch(this.onSwapError)
+
+
+
+
+      await this.$store
+        .state.vokenEarlyBirdSale2.contract()
+        .methods
+        .swap()
+        .send({
+          'from': this.ether.account,
+          'value': this.weiAmount,
         })
-        return
-      }
-
-
-      let tx = {
-        from: this.ether.account,
-        to: DAPP.CONTRACT_ADDRESS_EARLY_BIRD,
-        value: this.weiAmount,
-      }
-
-      let estimateError = null
-
-      await this.ether
-        .web3().eth.estimateGas(tx)
-        .then(estimateGas => {
-          tx.gas = (Math.floor(estimateGas / 10000) + 2) * 10000
-        })
-        .catch(error => {
-          estimateError = error
-        })
-
-      if (estimateError) {
-        await this.onSwapError(estimateError)
-        return null
-      }
-
-      await this.ether.web3().eth.sendTransaction(tx)
         .on('transactionHash', this.onSwapTransactionHash)
         .on('receipt', this.onSwapReceipt)
         .on('confirmation', this.onSwapConfirmation)
         .on('error', this.onSwapError)
         .catch(this.onSwapError)
+        // .on('transactionHash', this.onBindTransactionHash)
+        // .on('receipt', this.onBindReceipt)
+        // .on('confirmation', this.onBindConfirmation)
+        // .on('error', this.onBindError)
+        // .catch(this.onBindError)
     },
     async onSwapTransactionHash(txHash) {
       this.txSwapStatus = 0
@@ -658,7 +709,7 @@ export default {
         } else {
           this.txSwapStatus = 2
 
-          await this.$store.dispatch('vokenEarlyBirdSale/SYNC_DATA')
+          await this.$store.dispatch('vokenEarlyBirdSale2/SYNC_DATA')
           // await this.getPayment()
         }
 

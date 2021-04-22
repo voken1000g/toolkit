@@ -42,15 +42,15 @@ export default {
     Cannot_be_YOUR_OWN: '不能是您自己的',
     Invalid_referral_address: '无效的推荐地址',
     In_process: '正在进行中',
-    Not_Started__planning__: '未开始，规划价 $1.5 以上起',
+    Not_Started__planning__: '未开始，规划价 $2.0 或更高',
   },
 
   /**
    * Distribution
    */
   dist: {
-    Early_Bird_Sale: '占总供应量的 5% 共 1,050 万',
-    Public_Sale: '占总供应量的 40% 共 8,400 万',
+    Early_Bird_Sale: '占总供应量的 10% 共 2,100 万',
+    Public_Sale: '占总供应量的 35% 共 7,350 万',
   },
 
   /**

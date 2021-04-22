@@ -43,6 +43,7 @@ export default {
   __rp: ')',
   The_: 'The ',
   or: 'or',
+  And: 'And',
 
   Block: 'Block',
   Amount: 'Amount',

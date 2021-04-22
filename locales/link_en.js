@@ -82,7 +82,8 @@ export default {
 
   VokenTB_Early_Bird_Sale_Contract: {
     text: 'VokenTB Early-Bird Sale Contract',
-    href: 'https://voken.io/en/latest/contracts/early_bird.html'
+    href: 'https://etherscan.io/address/0x2aaaa04185b5db4c1969b47d27c2f1e3dc305982#code'
+    // href: 'https://voken.io/en/latest/contracts/early_bird.html'
   },
 
   Ether_USD_Price_Contract: {

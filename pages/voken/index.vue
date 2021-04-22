@@ -9,11 +9,11 @@
       <div class="bg-white shadow sm:rounded-lg">
         <div class="px-4 py-5 sm:p-6">
           <h3 class="text-lg leading-6 font-bold text-cool-gray-700">
-            {{  $t('voken.Early_Bird_Sale') }}
+            {{ $t('voken.Early_Bird_Sale') }}
           </h3>
 
           <p class="mt-1 text-cool-gray-500">
-            {{  $t('voken.dist.Early_Bird_Sale') }}
+            {{ $t('voken.dist.Early_Bird_Sale') }}
           </p>
 
           <nuxt-link :to='localePath("/voken/early-bird")'
@@ -26,10 +26,10 @@
               <div class="font-bold text-lg">
                 <fa :icon="['fas', 'dollar-sign']"/>
                 <number-obj :value-obj="earlyBirdSale.usdPriceObj" />
-                ~ $ 0.7
+                ~ $ 0.9
               </div>
               <p class="mt-2 text-sm text-pink-200">
-                {{  $t('voken.sale.In_process') }}...
+                {{ $t('voken.sale.In_process') }}...
               </p>
             </div>
           </nuxt-link>
@@ -39,11 +39,11 @@
       <div class="bg-white shadow sm:rounded-lg">
         <div class="px-4 py-5 sm:p-6">
           <h3 class="text-lg leading-6 font-bold text-cool-gray-700">
-            {{  $t('voken.Public_Sale') }}
+            {{ $t('voken.Public_Sale') }}
           </h3>
 
           <p class="mt-1 text-cool-gray-500">
-            {{  $t('voken.dist.Public_Sale') }}
+            {{ $t('voken.dist.Public_Sale') }}
           </p>
 
           <nuxt-link :to='localePath("/voken/public-sale")'
@@ -56,10 +56,10 @@
             <div>
               <div class="font-bold text-lg">
                 <fa :icon="['fas', 'dollar-sign']"/>
-                1.5+
+                2.0+
               </div>
               <p class="mt-2 text-sm text-gray-200">
-                {{  $t('voken.sale.Not_Started__planning__') }}
+                {{ $t('voken.sale.Not_Started__planning__') }}
               </p>
             </div>
           </nuxt-link>
@@ -69,7 +69,7 @@
       <div class="bg-white shadow sm:rounded-lg">
         <div class="px-4 py-5 sm:p-6">
           <h3 class="text-lg leading-6 font-bold text-cool-gray-700">
-            {{  $t('voken.uniswap.UniSwap') }}
+            {{ $t('voken.uniswap.UniSwap') }}
           </h3>
 
           <nuxt-link :to='localePath("/voken/uniswap")'
@@ -85,7 +85,7 @@
                 {{ voken.usdPriceStr }}
               </div>
               <p class="mt-2 text-sm text-purple-200">
-                {{  $t('voken.uniswap.UniSwap_DEX__') }}
+                {{ $t('voken.uniswap.UniSwap_DEX__') }}
               </p>
             </div>
           </nuxt-link>
@@ -95,7 +95,7 @@
       <div class="to-migrate bg-white shadow sm:rounded-lg">
         <div class="px-4 py-5 sm:p-6">
           <h3 class="text-lg leading-6 font-bold text-cool-gray-700">
-            {{  $t('voken.migrate.Migrate_to_Voken_Blockchain') }}
+            {{ $t('voken.migrate.Migrate_to_Voken_Blockchain') }}
           </h3>
 
           <nuxt-link :to='localePath("/voken/migrate")'
@@ -121,7 +121,7 @@
       <div v-show="v12Portal" class="bg-white shadow sm:rounded-lg">
         <div class="px-4 py-5 sm:p-6">
           <h3 class="text-lg leading-6 font-bold text-cool-gray-700">
-            {{  $t('v12.Resale_or_Upgrade') }}
+            {{ $t('v12.Resale_or_Upgrade') }}
           </h3>
 
           <nuxt-link :to='localePath("/voken/v12")'
@@ -136,7 +136,7 @@
                 Voken1.0/2.0 {{ $t('v12.Portal') }}
               </div>
               <p class="mt-2 text-sm text-yellow-100">
-                {{  $t('v12.Resale__Program_for__') }}
+                {{ $t('v12.Resale__Program_for__') }}
               </p>
             </div>
           </nuxt-link>

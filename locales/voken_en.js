@@ -46,15 +46,15 @@ export default {
     Cannot_be_YOUR_OWN: 'Cannot be YOUR OWN',
     Invalid_referral_address: 'Invalid referral address',
     In_process: 'In process',
-    Not_Started__planning__: 'Not Started, planning price from $1.5 or more',
+    Not_Started__planning__: 'Not Started, planning price from $2.0 or higher',
   },
 
   /**
    * Distribution
    */
   dist: {
-    Early_Bird_Sale: '5% of the Total Supply: 10.5 Million',
-    Public_Sale: '40% of the Total Supply: 84 Million',
+    Early_Bird_Sale: '10% of the Total Supply: 21 Million',
+    Public_Sale: '35% of the Total Supply: 73.5 Million',
   },
 
   /**
