@@ -628,64 +628,55 @@ export default {
         return
       }
 
-      // if (new BigNumber(this.ether.balance).lt(this.balanceMin)) {
-      //   await this.onSwapError({
-      //     message: 'insufficient funds'
-      //   })
-      //   return
-      // }
-
-
-      // let tx = {
-      //   from: this.ether.account,
-      //   to: DAPP.CONTRACT_ADDRESS_EARLY_BIRD2,
-      //   value: this.weiAmount,
-      // }
-      //
-      // let estimateError = null
-      //
-      // await this.ether
-      //   .web3().eth.estimateGas(tx)
-      //   .then(estimateGas => {
-      //     tx.gas = (Math.floor(estimateGas / 10000) + 2) * 10000
-      //   })
-      //   .catch(error => {
-      //     estimateError = error
-      //   })
-      //
-      // if (estimateError) {
-      //   await this.onSwapError(estimateError)
-      //   return null
-      // }
-      //
-      // await this.ether.web3().eth.sendTransaction(tx)
-      //   .on('transactionHash', this.onSwapTransactionHash)
-      //   .on('receipt', this.onSwapReceipt)
-      //   .on('confirmation', this.onSwapConfirmation)
-      //   .on('error', this.onSwapError)
-      //   .catch(this.onSwapError)
-
-
-
-
-      await this.$store
-        .state.vokenEarlyBirdSale2.contract()
-        .methods
-        .swap()
-        .send({
-          'from': this.ether.account,
-          'value': this.weiAmount,
+      if (new BigNumber(this.ether.balance).lt(this.balanceMin)) {
+        await this.onSwapError({
+          message: 'insufficient funds'
         })
+        return
+      }
+
+      let tx = {
+        from: this.ether.account,
+        to: DAPP.CONTRACT_ADDRESS_EARLY_BIRD2,
+        value: this.weiAmount,
+      }
+
+      let estimateError = null
+
+      await this.ether
+        .web3().eth.estimateGas(tx)
+        .then(estimateGas => {
+          tx.gas = (Math.floor(estimateGas / 10000) + 2) * 10000
+        })
+        .catch(error => {
+          estimateError = error
+        })
+
+      if (estimateError) {
+        await this.onSwapError(estimateError)
+        return null
+      }
+
+      await this.ether.web3().eth.sendTransaction(tx)
         .on('transactionHash', this.onSwapTransactionHash)
         .on('receipt', this.onSwapReceipt)
         .on('confirmation', this.onSwapConfirmation)
         .on('error', this.onSwapError)
         .catch(this.onSwapError)
-        // .on('transactionHash', this.onBindTransactionHash)
-        // .on('receipt', this.onBindReceipt)
-        // .on('confirmation', this.onBindConfirmation)
-        // .on('error', this.onBindError)
-        // .catch(this.onBindError)
+
+      // await this.$store
+      //   .state.vokenEarlyBirdSale2.contract()
+      //   .methods
+      //   .swap()
+      //   .send({
+      //     'from': this.ether.account,
+      //     'value': this.weiAmount,
+      //   })
+      //   .on('transactionHash', this.onSwapTransactionHash)
+      //   .on('receipt', this.onSwapReceipt)
+      //   .on('confirmation', this.onSwapConfirmation)
+      //   .on('error', this.onSwapError)
+      //   .catch(this.onSwapError)
     },
     async onSwapTransactionHash(txHash) {
       this.txSwapStatus = 0
