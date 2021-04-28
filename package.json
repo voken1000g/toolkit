@@ -31,7 +31,7 @@
     "@voken/sha": "^1.1.9",
     "@voken/vue-avatar": "^1.1.1",
     "bignumber.js": "^9.0.1",
-    "bip39": "^3.0.3",
+    "bip39": "^3.0.4",
     "detect-browser": "^5.2.0",
     "moment": "^2.29.1",
     "numbro": "^2.3.2",
